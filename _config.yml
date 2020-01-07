@@ -1,0 +1,34 @@
+#baseurl: /Blog
+
+collections:
+    authors:
+        output: true
+        
+defaults:
+    - scope:
+        path: ""
+        type: "authors"
+      values:
+        layout: "author"
+    - scope:
+        path: ""
+        type: "posts"
+      values:
+        layout: "post"
+    - scope:
+        path: ""
+        type: "about"
+      values:
+        layout: "about"
+    - scope:
+        path: ""
+      values:
+        layout: "default"
+
+plugins:
+    - jekyll-feed
+    - jekyll-sitemap
+    - jekyll-seo-tag
+#sass:
+    #sass_dir: _sass
+    #style: compressed

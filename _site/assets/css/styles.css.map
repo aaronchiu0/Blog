@@ -1,0 +1,14 @@
+{
+	"version": 3,
+	"file": "styles.css",
+	"sources": [
+		"styles.scss",
+		"_sass/main.scss"
+	],
+	"sourcesContent": [
+		"@import \"main\";",
+		".current {\r\n\tcolor: green;\r\n}\r\n\r\n.title {\r\n\tcolor: green;\r\n}\r\n\r\n.subtitle {\r\n\tcolor: gray;\r\n}"
+	],
+	"names": [],
+	"mappings": "ACAA,AAAA,QAAQ,CAAC,EACR,KAAK,EAAE,KAAK,GACZ;;AAED,AAAA,MAAM,CAAC,EACN,KAAK,EAAE,KAAK,GACZ;;AAED,AAAA,SAAS,CAAC,EACT,KAAK,EAAE,IAAI,GACX"
+}
