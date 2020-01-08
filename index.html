@@ -1,21 +1,63 @@
 ---
-title:		Home
+title: Home
 ---
 <!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title>Home</title>
-		<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
-	</head>
+	</head>	
 	<body>
-		<h1 class=title> "Hello World!"</h1>
-		<h2 class=subtitle> "Hello World!"</h2>
-		
-		
-		
-		
-		
-		<p> asfsfsd </p>
+	
+	
+		<!-- Education Section-->
+		<h1>Education & Experience</h1>
+<div class="timeline">
+  <div class="container left">
+    <div class="content">
+      <h2>2017</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>2016</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>2015</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>2012</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>2011</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>2007</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+</div>
+	
+		<!-- Blog Section -->
+		<h1>Latest Posts</h1>
+		{% for post in site.posts %}
+			<h2><a class=blog-title href="{{ post.url }}">{{ post.title }}</a></h2>
+			<h5>{{ post.date | date: "%b %d, %Y"}}</h5>
+			<div class="fakeimg" style="height:200px;">Image</div>
+			<p>{{ post.excerpt }}</p>
+		{% endfor %}
 	</body>
 </html>
