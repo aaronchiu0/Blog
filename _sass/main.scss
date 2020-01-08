@@ -1,9 +1,5 @@
 /* Colour Scheme */
-$c1: #003049; /* Navy Blue */
-$c2: #d62828; /* Red */
-$c3: #f77f00; /* Orange */
-$c4: #fcbf49; /* Plain Yellow */
-$c5: #eae2b7; /* Off White */
+$background-gray: #f1f1f1; /* Gray */
 
 /* document */
 * {
@@ -190,9 +186,9 @@ body {
   width: 0;
   z-index: 1;
   right: 30px;
-  border: medium solid #f1f1f1;
+  border: medium solid $background-gray;
   border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #f1f1f1;
+  border-color: transparent transparent transparent $background-gray;
 }
 
 /* Add arrows to the right container (pointing left) */
@@ -204,9 +200,9 @@ body {
   width: 0;
   z-index: 1;
   left: 30px;
-  border: medium solid #f1f1f1;
+  border: medium solid $background-gray;
   border-width: 10px 10px 10px 0;
-  border-color: transparent #f1f1f1 transparent transparent;
+  border-color: transparent $background-gray transparent transparent;
 }
 
 /* Fix the circle for containers on the right side */
@@ -217,7 +213,7 @@ body {
 /* The actual content */
 .content {
   padding: 20px 30px;
-  background-color: #f1f1f1;
+  background-color: $background-gray;
   position: relative;
   border-radius: 6px;
 }
@@ -239,9 +235,9 @@ body {
 /* Make sure that all arrows are pointing leftwards */
   .container::before {
     left: 60px;
-    border: medium solid white;
+    border: medium solid $background-gray;
     border-width: 10px 10px 10px 0;
-    border-color: transparent white transparent transparent;
+    border-color: transparent $background-gray transparent transparent;
   }
 
 /* Make sure all circles are at the same spot */

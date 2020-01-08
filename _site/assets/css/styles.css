@@ -1,9 +1,5 @@
 /* Colour Scheme */
-/* Navy Blue */
-/* Red */
-/* Orange */
-/* Plain Yellow */
-/* Off White */
+/* Gray */
 /* document */
 * { box-sizing: border-box; }
 
@@ -99,7 +95,7 @@ body { font-family: 'RobotoCondensed'; margin: 0; }
   /* Full-width containers */
   .container { width: 100%; padding-left: 70px; padding-right: 25px; }
   /* Make sure that all arrows are pointing leftwards */
-  .container::before { left: 60px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent white transparent transparent; }
+  .container::before { left: 60px; border: medium solid #f1f1f1; border-width: 10px 10px 10px 0; border-color: transparent #f1f1f1 transparent transparent; }
   /* Make sure all circles are at the same spot */
   .left::after, .right::after { left: 15px; }
   /* Make all right containers behave like the left ones */
