@@ -1,0 +1,19 @@
+---
+title: Courses
+---
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Home</title>
+	</head>	
+	<body>		
+		<h1>Courses I've Taken</h1>
+		{% for course in site.courses %}
+			<h2><a class=blog-title href="{{ course.url }}">{{ course.title }}</a></h2>
+			<h5>{{ course.date | date: "%b %d, %Y"}}</h5>
+			<div class="fakeimg" style="height:200px;">Image</div>
+			<p>{{ course.excerpt }}</p>
+		{% endfor %}
+	</body>
+</html>

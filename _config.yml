@@ -8,6 +8,11 @@ defaults:
         layout: "post"
     - scope:
         path: ""
+        type: "courses"
+      values:
+        layout: "course"
+    - scope:
+        path: ""
       values:
         layout: "default"
 
