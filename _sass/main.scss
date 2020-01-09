@@ -1,6 +1,15 @@
 /* Colour Scheme */
 $background-gray: #f1f1f1; /* Gray */
 
+/* Responsiveness transitions */
+$timeline-change: 950px;
+$side-change: 700px;
+$picture-blurb-change: 500px;
+$side-width: 250px;
+
+
+
+
 /* document */
 * {
   box-sizing: border-box;
@@ -54,6 +63,55 @@ a.blog-title:active {
 	padding-left: 20px;
 }
 
+#side-container {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: flex-start;
+}
+
+#side-picture {
+	flex: 0 1 50%;
+	padding: 5px;
+	width: 100%;
+	height: 100%;
+}
+
+#side-blurb {
+	flex: 1 1;
+	padding: 5px;
+	width: 100%;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* Responsive layout */
+@media screen and (max-width: $side-change) {
+	#side-container {   
+		flex-direction: row;
+	}
+	#side-picture {
+		width: 50%;
+	}
+	#side-blurb {
+		width: 50%
+	}
+}
+
+@media screen and (max-width: $picture-blurb-change) {
+	#side-container {   
+		flex-direction: column;
+	}
+	#side-picture {
+		width: 100%;
+	}
+	#side-blurb {
+		width: 100%
+	}
+}
+
+
+
+
 /* Default theme */
 /* Header/logo Title */
 .header {
@@ -92,7 +150,7 @@ a.blog-title:active {
 /* Create two unequal columns that sits next to each other */
 /* Sidebar/left column */
 .side {
-	flex: 0 1 250px;
+	flex: 0 1 $side-width;
 	background-color: $background-gray;
 	padding: 20px;
 }
@@ -112,7 +170,7 @@ a.blog-title:active {
 }
 
 /* Responsive layout - when the screen is less than 550px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: $side-change) {
 	.row, .navbar {   
 		flex-direction: column;
 	}
@@ -211,8 +269,8 @@ a.blog-title:active {
   border-radius: 6px;
 }
 
-/* Media queries - Responsive timeline on screens less than 900px wide */
-@media screen and (max-width: 800px) {
+/* Media queries - Responsive timeline on screens less than 1000px wide */
+@media screen and (max-width: $timeline-change) {
 /* Place the timelime to the left */
   .timeline::after {
     left: 31px;
