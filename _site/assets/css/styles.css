@@ -3,7 +3,16 @@
 /* document */
 * { box-sizing: border-box; }
 
+/* Style the body */
+body { font-family: 'RobotoCondensed'; margin: 0; }
+
 h1, h2, h3 { font-family: 'Roboto', sans-serif; }
+
+p { font-family: 'RobotoCondensed', sans-serif; }
+
+h3.contact { margin-bottom: 0; }
+
+p.contact { margin-top: 0; }
 
 a.blog-title { color: black; }
 
@@ -15,16 +24,11 @@ a.blog-title:hover { text-decoration: underline; }
 
 a.blog-title:active { text-decoration: underline; }
 
-p { font-family: 'RobotoCondensed', sans-serif; }
-
 #title { font-size: 275%; height: 40px; }
 
 #subtitle { font-size: 125%; }
 
 #about { padding-right: 20px; padding-left: 20px; }
-
-/* Style the body */
-body { font-family: 'RobotoCondensed'; margin: 0; }
 
 /* Default theme */
 /* Header/logo Title */
