@@ -4,7 +4,10 @@
 		<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apples</title>
+<!-- stylesheet -->
 <link rel="stylesheet" href="/assets/css/styles.css">
+<!-- scripts -->
+<!-- <script src="/assets/js/back-to-top.js"></script> -->
 <!-- icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- mathjax -->
@@ -36,7 +39,32 @@
 <!-- End Jekyll SEO tag -->
 
 	</head>
-	<body>
+	<body>				
+		<!-- back to top button -->
+		<button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>	
+		
+		<script>
+		//Get the button
+		var mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+		  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			mybutton.style.display = "block";
+		  } else {
+			mybutton.style.display = "none";
+		  }
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+		  document.body.scrollTop = 0;
+		  document.documentElement.scrollTop = 0;
+		}
+		</script>
+		
 		<!-- Header -->
 		<div class="header">
 			<h1 id=title>Aaron Chiu</h1>
