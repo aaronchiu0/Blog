@@ -1,21 +1,6 @@
 ---
 title: Home
+layout: default-with-side
 ---
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Home</title>
-	</head>	
-	<body>
-	
-		<!-- Blog Section -->
-		<h1>Latest Posts</h1>
-		{% for post in site.posts %}
-			<h2><a class=blog-title href="{{ post.url }}">{{ post.title }}</a></h2>
-			<h5>{{ post.date | date: "%b %d, %Y"}}</h5>
-			<div class="fakeimg" style="height:200px;">Image</div>
-			<p>{{ post.excerpt }}</p>
-		{% endfor %}
-	</body>
-</html>
+<!-- Blog Section -->
+{% include blog-section.html %}

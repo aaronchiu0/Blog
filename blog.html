@@ -1,19 +1,8 @@
 ---
 title: Blog
+layout: default
 ---
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Home</title>
-	</head>	
-	<body>		
-		<h1>Latest Posts</h1>
-		{% for post in site.posts %}
-			<h2><a class=blog-title href="{{ post.url }}">{{ post.title }}</a></h2>
-			<h5>{{ post.date | date: "%b %d, %Y"}}</h5>
-			<div class="fakeimg" style="height:200px;">Image</div>
-			<p>{{ post.excerpt }}</p>
-		{% endfor %}
-	</body>
-</html>
+<div style="padding:20px">
+	<!-- Blog Section -->
+	{% include blog-section.html %}
+</div>
