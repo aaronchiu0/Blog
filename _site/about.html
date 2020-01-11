@@ -66,8 +66,17 @@
 	<body>						
 		<!-- Header -->
 <div class="header">
-    <h1 id=title>Aaron Chiu</h1>
-    <p id=subtitle>Automotive Engineer in Training</p>
+    <h1 id="title" 
+        data-aos="fade-right"
+    >
+        Aaron Chiu
+    </h1>
+    <p id="subtitle"
+        data-aos="fade-right"
+        data-aos-delay="500"
+    >
+        Automotive Engineer in Training
+    </p>
 </div>
 
 <!-- Navigation Bar -->
@@ -108,7 +117,9 @@
 	<h1>Education & Experience</h1>
 	<div class="timeline">
 		
-			<div class="container left">
+			<div class="container left" 
+					data-aos="swing-in-right-fwd-timeline"
+					>
 				<div class="content">
 					<h2 style="margin-top:0" class="timeline-font">Expected Completion December 2022</h2>
 					<h3 class="timeline-font">McMaster University</h3>
@@ -117,7 +128,9 @@
 				</div>
 			</div>
 		
-			<div class="container right">
+			<div class="container right"
+					data-aos="swing-in-left-fwd-timeline"
+					>
 				<div class="content">
 					<h2 style="margin-top:0" class="timeline-font">October 2018 - Present</h2>
 					<h3 class="timeline-font">Mechanical Team Associate</h3>
@@ -126,7 +139,9 @@
 				</div>
 			</div>
 		
-			<div class="container left">
+			<div class="container left" 
+					data-aos="swing-in-right-fwd-timeline"
+					>
 				<div class="content">
 					<h2 style="margin-top:0" class="timeline-font">January 2019 - Decmeber 2019</h2>
 					<h3 class="timeline-font">Vice President – Finance</h3>
@@ -135,7 +150,9 @@
 				</div>
 			</div>
 		
-			<div class="container right">
+			<div class="container right"
+					data-aos="swing-in-left-fwd-timeline"
+					>
 				<div class="content">
 					<h2 style="margin-top:0" class="timeline-font">June 2018</h2>
 					<h3 class="timeline-font">Turner Fenton Secondary School</h3>
@@ -144,7 +161,9 @@
 				</div>
 			</div>
 		
-			<div class="container left">
+			<div class="container left" 
+					data-aos="swing-in-right-fwd-timeline"
+					>
 				<div class="content">
 					<h2 style="margin-top:0" class="timeline-font">September 2017 - June 2018</h2>
 					<h3 class="timeline-font">Director of Finance</h3>
@@ -200,6 +219,8 @@
 <!-- Animation on Scroll -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init();
+    AOS.init({
+        duration: 2000
+    });
 </script>
 </html>

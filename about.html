@@ -7,7 +7,14 @@ layout: default-with-side
 	<h1>Education & Experience</h1>
 	<div class="timeline">
 		{% for item in site.data.brief-education-experience %}
-			<div {% cycle 'class="container left"', 'class="container right"' %}>
+			<div {% cycle 
+					'class="container left" 
+					data-aos="swing-in-right-fwd-timeline"
+					', 
+					'class="container right"
+					data-aos="swing-in-left-fwd-timeline"
+					' 
+			%}>
 				<div class="content">
 					<h2 style="margin-top:0" class="timeline-font">{{item.date}}</h2>
 					<h3 class="timeline-font">{{item.title}}</h3>
