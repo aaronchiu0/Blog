@@ -3,11 +3,16 @@ $background-colour: #f1f1f1; /* Gray */
 $header-colour: #1abc9c; /* Turquois */
 $footer-colour: #ddd; /* Dark Gray */
 
+/* Dimensions */
+$content-width: 1200px;
+$side-width: 275px;
+$total-width: 1475px;
+
 /* Responsiveness transitions */
 $timeline-change: 950px;
 $side-change: 700px;
 $picture-blurb-change: 500px;
-$side-width: 250px;
+
 
 
 
@@ -24,7 +29,7 @@ body {
 }
 
 .content-body {
-	max-width: 1200px;
+	max-width: $content-width;
 	margin: auto;
 }
 
@@ -38,11 +43,19 @@ p {
 
 #title {
 	font-size: 275%;
-	height: 40px;
+  height: 40px;
+
+  //-webkit-animation: slide-in-left 2s ease-out forwards;
+  //animation: slide-in-left 2s ease-out forwards;
+  //opacity: 0;
 }
 
 #subtitle {
-	font-size: 125%;
+  font-size: 125%;
+
+  -webkit-animation: slide-in-left 2s ease-out 1s forwards;
+  animation: slide-in-left 2s ease-out 1s forwards;
+  opacity: 0;
 }
 
 #about {
@@ -96,7 +109,7 @@ p {
 		width: 100%;
 	}
 	#side-blurb {
-		width: 100%
+		width: 100%;
 	}
 }
 
@@ -107,7 +120,7 @@ p {
 	padding: 30px;
 	text-align: center;
 	background: $header-colour;
-	color: white;
+  color: white;
 }
 
 /* Style the top navigation bar */
@@ -169,7 +182,7 @@ p {
 /* The actual timeline (the vertical ruler) */
 .timeline {
   position: relative;
-  max-width: 1200px;
+  max-width: $content-width;
   margin: 0 auto;
 }
 
@@ -210,11 +223,21 @@ p {
 /* Place the container to the left */
 .left {
   left: 0;
+  z-index: 10;
+
+  -webkit-animation: swing-in-right-fwd 2s ease-out forwards;
+  animation: swing-in-right-fwd 2s ease-out forwards;
+  opacity: 0;
 }
 
 /* Place the container to the right */
 .right {
   left: 50%;
+  z-index: 10;
+  
+  -webkit-animation: swing-in-left-fwd 2s ease-out forwards;
+  animation: swing-in-left-fwd 2s ease-out forwards;
+  opacity: 0;
 }
 
 /* Add arrows to the left container (pointing right) */
@@ -257,7 +280,6 @@ p {
   position: relative;
   border-radius: 6px;
 }
-
 
 /* Media queries - Responsive timeline on screens less than 1000px wide */
 @media screen and (max-width: $timeline-change) {

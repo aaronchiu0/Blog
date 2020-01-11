@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-01-09T22:51:52-05:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Kiwifruit</title><link href="http://localhost:4000/2018/08/22/kiwifruit.html" rel="alternate" type="text/html" title="Kiwifruit" /><published>2018-08-22T00:00:00-04:00</published><updated>2018-08-22T00:00:00-04:00</updated><id>http://localhost:4000/2018/08/22/kiwifruit</id><content type="html" xml:base="http://localhost:4000/2018/08/22/kiwifruit.html">&lt;p&gt;Kiwifruit (often abbreviated as kiwi), or Chinese gooseberry is the edible
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-01-11T13:10:54-05:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Kiwifruit</title><link href="http://localhost:4000/2018/08/22/kiwifruit.html" rel="alternate" type="text/html" title="Kiwifruit" /><published>2018-08-22T00:00:00-04:00</published><updated>2018-08-22T00:00:00-04:00</updated><id>http://localhost:4000/2018/08/22/kiwifruit</id><content type="html" xml:base="http://localhost:4000/2018/08/22/kiwifruit.html">&lt;p&gt;Kiwifruit (often abbreviated as kiwi), or Chinese gooseberry is the edible
 berry of several species of woody vines in the genus Actinidia.&lt;/p&gt;
 
 &lt;p&gt;The most common cultivar group of kiwifruit is oval, about the size of a large
@@ -151,361 +151,361 @@ In three dimensions, the x and y functions are the same as the x function in two
 &lt;p&gt;It is possible to rotated the xy plane such that xz plane is the only plane that contains motion. This enables to just use the two-dimensional version.&lt;/p&gt;
 
 &lt;h1 id=&quot;resistance-proportional-to-velocity&quot;&gt;Resistance Proportional to Velocity&lt;/h1&gt;
-&lt;p&gt;\section{Resistance Proportional to Velocity} %
-A force of resistance is exerted on the object opposite of the velocity. This means in any direction, this force exists. In this situation, the force is directly proportional to velocity $F_R \propto \vect{v}$.
+&lt;p&gt;A force of resistance is exerted on the object opposite of the velocity. This means in any direction, this force exists. In this situation, the force is directly proportional to velocity $F_R \propto \vect{v}$.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{align}
-    \begin{pmatrix} F_x \ F_y \end{pmatrix} &amp;amp;= \begin{pmatrix} F_R \ F_g + F_R \end{pmatrix} 
-    &amp;amp; \mathrm{where} \;  \begin{matrix} F_g = -mg \ F_R = -kv \end{matrix}\ %
-    \begin{pmatrix} m\differtiate{v_x(t)}{t} \[0.3em] m\differtiate{v_y(t)}{t} \end{pmatrix} &amp;amp;= \begin{pmatrix} -kv \ -mg - kv \end{pmatrix} &amp;amp;
-\end{align}
-%
-% Horizontal Direction
-\subsection{Horizontal Direction} %
-Solving in the x-direction results in:
-\begin{align&lt;em&gt;}
-    m\differtiate{v_x}{t} &amp;amp;= -kv_x &amp;amp; v_x(0) &amp;amp;= v_{xo} &lt;br /&gt;
-    \int \dfrac{\differtial{v_x}}{v_x} &amp;amp;= \int -\dfrac{k}{m} \differtial{t}&lt;br /&gt;
-    \ln|v_x| &amp;amp;= -\dfrac{k}{m}t + C &amp;amp; v_x(0) = v_{xo} &amp;amp;\implies C = \ln|v_{xo}| &lt;br /&gt;
-    \ln|v_x| &amp;amp;= -\dfrac{k}{m}t + \ln|v_{xo}|
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \Aboxed{\therefore v_x(t) &amp;amp;= v_{xo}e^{-\tfrac{k}{m}t}}
-\end{equation}
-%
-We can find the acceleration and position function now.
-\begin{align&lt;em&gt;}
-    a_x(t) &amp;amp;= \differtiate{v_x(t)}{t} &lt;br /&gt;
-    &amp;amp;= \differtiate{v_{xo}e^{-\tfrac{k}{m}t}}{t}
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore a_x(t) = -\frac{k}{m}v_{xo}e^{-\tfrac{k}{m}t}}
-\end{equation}
-%
-\begin{align&lt;em&gt;}
-    x(t) &amp;amp;= \int v_x(t) &amp;amp; x(0) &amp;amp;= x_o &lt;br /&gt;
-    &amp;amp;= \int v_{xo}e^{-\tfrac{k}{m}t} \differtial{t} &lt;br /&gt;
-    &amp;amp;=-\frac{m}{k} v_{xo}e^{-\tfrac{k}{m}t} + C &amp;amp; x(0) = x_o &amp;amp;\implies C = x_o + \frac{m}{k}v_{xo} &lt;br /&gt;
-    &amp;amp;= -\frac{m}{k}v_{xo}e^{-\tfrac{k}{m}t} + x_o + \frac{m}{k}v_{xo}
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore x(t) = \frac{m}{k}v_{xo}\left(1-e^{-\tfrac{k}{m}t}\right) + x_o}
-\end{equation}
-%
-% Vertical Direction
-\subsection{Vertical Direction} %
-Solving in the y-direction results in:
-\begin{align&lt;em&gt;}
-    m\differtiate{v_y(t)}{t} &amp;amp;= -mg - kv_y &amp;amp; v_y(0) &amp;amp;= v_{yo} &lt;br /&gt;
-    \differtiate{v_y(t)}{t} &amp;amp;= -g - \frac{k}{m}v_y &lt;br /&gt;
-    \int \frac{\differtial{v_y}}{-g - \tfrac{k}{m}v_y} &amp;amp;= \int \differtial{t} &lt;br /&gt;
-    -\frac{m}{k}\ln\left|-g - \frac{k}{m}v_y\right| &amp;amp;= t + C &amp;amp; v_y(0) = v_{yo} &amp;amp;\implies C = -\frac{m}{k}\ln\left|-g - \frac{k}{m}v_{yo}\right| &lt;br /&gt;
-    -\frac{m}{k}\ln\left|-g - \frac{k}{m}v_y\right| &amp;amp;= t - \frac{m}{k}\ln\left|-g - \frac{k}{m}v_{yo}\right| &lt;br /&gt;
-    \ln\left|-g - \frac{k}{m}v_y\right| &amp;amp;= -\frac{k}{m}t + \ln\left|-g - \frac{k}{m}v_{yo}\right| &lt;br /&gt;
-    -g - \frac{k}{m}v_y &amp;amp;= e^{-\tfrac{k}{m}t}\left(-g - \frac{k}{m}v_{yo}\right) &lt;br /&gt;
-    -\frac{k}{m}v_y &amp;amp;= e^{-\tfrac{k}{m}t}\left(-g - \frac{k}{m}v_{yo}\right) + g
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore v_y(t) = e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}}  &lt;br /&gt;
-\end{equation}
-%
-We can find the acceleration and position function now.
-\begin{align&lt;em&gt;}
-    a_y(t) &amp;amp;= \differtiate{v_y(t)}{t} &lt;br /&gt;
-    &amp;amp;= \differtiate{e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}}{t}
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore a_y(t) = -\frac{k}{m}\left(\frac{mg}{k} + v_{yo}\right)e^{-\tfrac{k}{m}t}} 
-\end{equation}
-%
-\begin{align&lt;em&gt;}
-    y(t) &amp;amp;= \int v_y(t) &amp;amp; y(0) &amp;amp;= y_o &lt;br /&gt;
-    &amp;amp;= \int \left(e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}\right) \differtial{t} &lt;br /&gt;
-    &amp;amp;= -\frac{m}{k}e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}t + C &amp;amp; y(0) = y_o &amp;amp;\implies C = y_o + \frac{m}{k}\left(\frac{mg}{k} + v_{yo}\right) &lt;br /&gt;
-    &amp;amp;= -\frac{m}{k}e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}t + y_o + \frac{m}{k}\left(\frac{mg}{k} + v_{yo}\right)
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore y(t) = \frac{m}{k}\left(\frac{mg}{k} + v_{yo}\right)\left(1 - e^{-\tfrac{k}{m}t}\right) - \frac{mg}{k}t + y_o}
-\end{equation}
-%
-We can see if we would not accelerate indefinitely but will reach a terminal velocity.
-\begin{align&lt;em&gt;}
-    v_T &amp;amp;= \lim_{t\to\infty}\left(v_y(t)\right) &lt;br /&gt;
-    &amp;amp;= \lim_{t\to\infty}\left(e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}\right)
-\end{align&lt;/em&gt;}
-%
-\begin{equation} \boxed{v_T = -\frac{mg}{k}} \end{equation}
-%
-% Summary
-\subsection{Summary}
-Overall, we have our functions for acceleration, velocity, and position.
+    \begin{pmatrix} F_x \\ F_y \end{pmatrix} &amp;= \begin{pmatrix} F_R \\ F_g + F_R \end{pmatrix} 
+    &amp; \mathrm{where} \;  \begin{matrix} F_g = -mg \\ F_R = -kv \end{matrix}\\ %
+    \begin{pmatrix} m\differtiate{v_x(t)}{t} \\[0.3em] m\differtiate{v_y(t)}{t} \end{pmatrix} &amp;= \begin{pmatrix} -kv \\ -mg - kv \end{pmatrix} &amp;
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;horizontal-direction-1&quot;&gt;Horizontal Direction&lt;/h2&gt;
+&lt;p&gt;Solving in the x-direction results in:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{align}
-    \vect{a(t)} &amp;amp;= 
-    \begin{pmatrix} -\dfrac{k}{m}v_{xo}e^{-\tfrac{k}{m}t} \ -\dfrac{k}{m}\left(\dfrac{mg}{k} + v_{yo}\right)e^{-\tfrac{k}{m}t} \end{pmatrix} &lt;br /&gt;
-    \vect{v(t)} &amp;amp;= 
-    \begin{pmatrix} v_{xo}e^{-\tfrac{k}{m}t} \ e^{-\tfrac{k}{m}t}\left(\dfrac{mg}{k} + v_{yo}\right) - \dfrac{mg}{k} \end{pmatrix} &lt;br /&gt;
-    \vect{s(t)} &amp;amp;= 
-    \begin{pmatrix} \dfrac{m}{k}v_{xo}\left(1-e^{-\tfrac{k}{m}t}\right)+x_o \ \dfrac{m}{k}\left(\dfrac{mg}{k} + v_{yo}\right)\left(1 - e^{-\tfrac{k}{m}t}\right) - \dfrac{mg}{k}t + y_o \end{pmatrix}
-\end{align}
-%
-In three dimensions, the x and y functions are the same as the x function in two dimensions and the z function is the same as the y function.
+    m\differtiate{v_x}{t} &amp;= -kv_x &amp; v_x(0) &amp;= v_{xo} \\
+    \int \dfrac{\differtial{v_x}}{v_x} &amp;= \int -\dfrac{k}{m} \differtial{t}\\
+    \ln|v_x| &amp;= -\dfrac{k}{m}t + C &amp; v_x(0) = v_{xo} &amp;\implies C = \ln|v_{xo}| \\
+    \ln|v_x| &amp;= -\dfrac{k}{m}t + \ln|v_{xo}|
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\Aboxed{\therefore v_x(t) &amp;= v_{xo}e^{-\tfrac{k}{m}t}} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;We can find the acceleration and position function now.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{align}
-    \vect{a(t)} &amp;amp;= \begin{pmatrix} -\dfrac{k}{m}v_{xo}e^{-\tfrac{k}{m}t} \ -\dfrac{k}{m}v_{xo}e^{-\tfrac{k}{m}t} \ -\dfrac{k}{m}\left(\dfrac{mg}{k} + v_{yo}\right)e^{-\tfrac{k}{m}t} \end{pmatrix} &lt;br /&gt;
-    \vect{v(t)} &amp;amp;= \begin{pmatrix} v_{xo}e^{-\tfrac{k}{m}t} \ v_{xo}e^{-\tfrac{k}{m}t} \ e^{-\tfrac{k}{m}t}\left(\dfrac{mg}{k} + v_{yo}\right) - \dfrac{mg}{k} \end{pmatrix} &lt;br /&gt;
-    \vect{s(t)} &amp;amp;= \begin{pmatrix} \dfrac{m}{k}v_{xo}\left(1-e^{-\tfrac{k}{m}t}\right)+x_o \ \dfrac{m}{k}v_{xo}\left(1-e^{-\tfrac{k}{m}t}\right)+x_o \ \dfrac{m}{k}\left(\dfrac{mg}{k} + v_{yo}\right)\left(1 - e^{-\tfrac{k}{m}t}\right) - \dfrac{mg}{k}t + y_o \end{pmatrix}
-\end{align}
-%
-It is possible to rotated the xy plane such that xz plane is the only plane that contains motion. This enables to just use the two-dimensional version.
-%
-%
-% Resistance Proportional to the Square of Velocity
-\section{Resistance Proportional to the Square of Velocity} %
-The relationship, $F_R \propto \vect{v}^2$ will lead to a more accurate model but is more difficult equation to solve analytically. The velocity always opposes the direction the object is heading. Therefore, the force can be positive or negative.
+    a_x(t) &amp;= \differtiate{v_x(t)}{t} \\
+    &amp;= \differtiate{v_{xo}e^{-\tfrac{k}{m}t}}{t}
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore a_x(t) = -\frac{k}{m}v_{xo}e^{-\tfrac{k}{m}t}}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{align}
-    \begin{pmatrix} F_x \ F_y \end{pmatrix} &amp;amp;= \begin{pmatrix} F_R \ F_g + F_R \end{pmatrix} 
-    &amp;amp; \mathrm{where} \;  \begin{matrix} F_g = -mg \ F_R = \pm kv^2   \rightarrow -kv|v| \end{matrix}\ %
-    \begin{pmatrix} m\differtiate{v_x(t)}{t} \[0.3em] m\differtiate{v_y(t)}{t} \end{pmatrix} &amp;amp;= \begin{pmatrix} \pm kv^2 \ -mg \pm kv^2 \end{pmatrix} &amp;amp;
-\end{align}
-%
-It is necessary to evaluate separately whether the velocity is positive or negative.
-%
-% Horizontal Direction
-\subsection{Horizontal Direction} %
-Velocity can only be positive to simplify calculations.
-\begin{align&lt;em&gt;}
-    m\differtiate{v_x}{t} &amp;amp;= -kv_x^2 &amp;amp; v_x(0) &amp;amp;= v_{xo} &lt;br /&gt;
-    \int \dfrac{\differtial{v_x}}{v_x^2} &amp;amp;= \int -\dfrac{k}{m} \differtial{t}&lt;br /&gt;
-    -\frac{1}{v_x} &amp;amp;= -\dfrac{k}{m}t + C &amp;amp; v_x(0) = v_{xo} &amp;amp;\implies C = -\frac{1}{v_{xo}} &lt;br /&gt;
-    -\frac{1}{v_x} &amp;amp;= -\dfrac{k}{m}t - \frac{1}{v_{xo}} &lt;br /&gt;
-    \frac{1}{v_x} &amp;amp;= \dfrac{k}{m}t + \frac{1}{v_{xo}} &lt;br /&gt;
-    v_x &amp;amp;= \frac{1}{\tfrac{k}{m}t + \tfrac{1}{v_{xo}}} &lt;br /&gt;
-    &amp;amp;= \frac{1}{\tfrac{kv_{xo}t+m}{mv_{xo}}}
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore v_x(t) = \frac{mv_{xo}}{kv_{xo}t+m}}
-\end{equation}
-%
-We can find the acceleration and position function now.
-\begin{align&lt;em&gt;}
-    a_x(t) &amp;amp;= \differtiate{v_x(t)}{t} &lt;br /&gt;
-    &amp;amp;= \differtiate{\frac{mv_{xo}}{kv_{xo}t+m}}{t} &lt;br /&gt;
-    &amp;amp;= -mv_{xo}\left(\frac{1}{(kv_{xo}t+m)^2}\right)kv_{xo}
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore a_x(t) = -\frac{mkv_{xo}^2}{(kv_{xo}t+m)^2}}
-\end{equation}
-%
-\begin{align&lt;em&gt;}
-    x(t) &amp;amp;= \int v_x(t) &amp;amp; x(0) &amp;amp;= x_o &lt;br /&gt;
-    &amp;amp;= \int \frac{mv_{xo}}{kv_{xo}t+m} \differtial{t} &lt;br /&gt;
-    &amp;amp;= \frac{mv_{xo}}{kv_{xo}}\ln\left|kv_{xo}t+m\right| + C &amp;amp; x(0) = x_o &amp;amp;\implies C = x_o - \frac{m}{k}\ln(m) &lt;br /&gt;
-    &amp;amp;= \frac{m}{k}\ln\left|kv_{xo}t+m\right| + x_o - \frac{m}{k}\ln(m)
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore x(t) = x_o + \frac{m}{k}\ln\left|\frac{kv_{xo}t+m}{m}\right|}  &lt;br /&gt;
-\end{equation}
-%
-% Vertical Direction
-\subsection{Vertical Direction} %
-It is necessary to determine whether the force of resistance is positive or negative and that will determine what the sign for velocity will be. Nonetheless, we will need to solve for two separate situations.
-%
-\subsubsection{Upward Velocity}
-\begin{equation} v_y\geq 0 \implies m\differtiate{v_y(t)}{t}=-mg-kv_y^2 \end{equation}
-%
-\begin{align&lt;em&gt;}
-    m\differtiate{v_y(t)}{t} &amp;amp;= -mg - kv_y^2 &amp;amp; v_y(0) &amp;amp;= v_{yo} &lt;br /&gt;
-    \differtiate{v_y(t)}{t} &amp;amp;= -g - \frac{k}{m}v_y &lt;br /&gt;
-    \int \frac{\differtial{v_y}}{-g - \tfrac{k}{m}v_y^2} &amp;amp;= \int \differtial{t} &amp;amp; \int\frac{dx}{a+bx^2} &amp;amp;= \frac{1}{\sqrt{ab}}\arctan\left(\sqrt{\frac{b}{a}}x\right) + C &lt;br /&gt;
-    \frac{-1}{\sqrt{g\tfrac{k}{m}}}\arctan\left(\sqrt{\frac{\tfrac{k}{m}}{g}}v_y\right) &amp;amp;= t + C &lt;br /&gt;
-    v_y(0) = v_{yo} &amp;amp;\implies C = -\sqrt{\frac{m}{kg}}\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) &lt;br /&gt;
-    -\sqrt{\frac{m}{kg}}\arctan\left(\sqrt{\frac{k}{mg}}v_{y}\right) &amp;amp;= t - \sqrt{\frac{m}{kg}}\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) &lt;br /&gt;
-    \arctan\left(\sqrt{\frac{k}{mg}}v_{y}\right) &amp;amp;= -\sqrt{\frac{kg}{m}}t + \arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) &lt;br /&gt;
-    \sqrt{\frac{k}{mg}}v_{y} &amp;amp;= \tan\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore v_y(t) = \sqrt{\frac{mg}{k}}\tan\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}
-\end{equation}
-%
-We can find the acceleration and position function now.
-\begin{align&lt;em&gt;}
-    a_y(t) &amp;amp;= \differtiate{v_y(t)}{t} &lt;br /&gt;
-    &amp;amp;= \differtiate{\sqrt{\frac{mg}{k}}\tan\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}{t}
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore a_y(t) = -g\sec^2\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}
-\end{equation}
-%
-\begin{align&lt;em&gt;}
-    y(t) &amp;amp;= \int v_x(t), \quad\quad y(0) = y_o &lt;br /&gt;
-    &amp;amp;= \int \sqrt{\frac{mg}{k}}\tan\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right) \differtial{t} &lt;br /&gt;
-    &amp;amp;= \sqrt{\frac{mg}{k}}\sqrt{\frac{m}{kg}}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + C &lt;br /&gt;
-    &amp;amp;= \frac{m}{k}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + C \ 
-    y(0) = y_o &amp;amp;\implies C = y_o - \frac{m}{k}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)\right| \ 
-    y(t) &amp;amp;= \frac{m}{k}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + y_o - \frac{m}{k}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)\right|
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore y(t) = \frac{m}{k}\ln\left|\frac{\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}{\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)}\right|}  &lt;br /&gt;
-\end{equation}
-%
-\subsubsection{Downward Velocity}
-\begin{equation} v_y&amp;lt; 0 \implies m\differtiate{v_y(t)}{t}=-mg+kv_y^2 \end{equation}
-%
-\begin{align&lt;em&gt;}
-    m\differtiate{v_y(t)}{t} &amp;amp;= kv_y^2 - mg &amp;amp; v_y(0) &amp;amp;= v_{yo} &lt;br /&gt;
-    \differtiate{v_y(t)}{t} &amp;amp;= \frac{k}{m}v_y^2 - g &lt;br /&gt;
-    \int \frac{\differtial{v_y}}{\tfrac{k}{m}v_y^2 - g} &amp;amp;= \int \differtial{t} &amp;amp; \int\frac{dx}{a-bx^2} &amp;amp;= \frac{1}{\sqrt{ab}}\arctanh\left(\sqrt{\frac{b}{a}}x\right) + C &lt;br /&gt;
-    \frac{-1}{\sqrt{g\tfrac{k}{m}}}\arctanh\left(\sqrt{\frac{\tfrac{k}{m}}{g}}v_y\right) &amp;amp;= t + C &lt;br /&gt;
-    v_y(0) = v_{yo} &amp;amp;\implies C = -\sqrt{\frac{m}{kg}}\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) &lt;br /&gt;
-    -\sqrt{\frac{m}{kg}}\arctanh\left(\sqrt{\frac{k}{mg}}v_{y}\right) &amp;amp;= t - \sqrt{\frac{m}{kg}}\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) &lt;br /&gt;
-    \arctanh\left(\sqrt{\frac{k}{mg}}v_{y}\right) &amp;amp;= -\sqrt{\frac{kg}{m}}t + \arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) &lt;br /&gt;
-    \sqrt{\frac{k}{mg}}v_{y} &amp;amp;= \tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore v_y(t) = \sqrt{\frac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}
-\end{equation}
-%
-We can find the acceleration and position function now.
-\begin{align&lt;em&gt;}
-    a_y(t) &amp;amp;= \differtiate{v_y(t)}{t} &lt;br /&gt;
-    &amp;amp;= \differtiate{\sqrt{\frac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}{t}
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore a_y(t) = -g\sech^2\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)} &lt;br /&gt;
-\end{equation}
-%
-\begin{align&lt;em&gt;}
-    y(t) &amp;amp;= \int v_x(t), \quad\quad y(0) = y_o &lt;br /&gt;
-    &amp;amp;= \int \sqrt{\frac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right) \differtial{t} &lt;br /&gt;
-    &amp;amp;= -\sqrt{\frac{mg}{k}}\sqrt{\frac{m}{kg}}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + C &lt;br /&gt;
-    &amp;amp;= -\frac{m}{k}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + C \ 
-    y(0) = y_o &amp;amp;\implies C = y_o + \frac{m}{k}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)\right| \ 
-    y(t) &amp;amp;= -\frac{m}{k}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + y_o + \frac{m}{k}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)\right|
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore y(t) = y_o - \frac{m}{k}\ln\left|\frac{\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}{\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)}\right|}
-\end{equation}
-%
-Again we can calculate the terminal velocity of the object.
-\begin{align&lt;em&gt;}
-    v_T &amp;amp;= \lim_{t\to\infty}\left(v_y(t)\right) &lt;br /&gt;
-    &amp;amp;= \lim_{t\to\infty}\left(\sqrt{\frac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right)
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{v_T = -\sqrt{\frac{mg}{k}}}  &lt;br /&gt;
-\end{equation}
-%
-\subsubsection{Summary of Vertical Direction}
-Overall, we have our functions for acceleration, velocity, and position in the vertical direction. Of course the absolute values are unnecessary since the functions are only defined for $t\geq0$.
+    x(t) &amp;= \int v_x(t) &amp; x(0) &amp;= x_o \\
+    &amp;= \int v_{xo}e^{-\tfrac{k}{m}t} \differtial{t} \\
+    &amp;=-\frac{m}{k} v_{xo}e^{-\tfrac{k}{m}t} + C &amp; x(0) = x_o &amp;\implies C = x_o + \frac{m}{k}v_{xo} \\
+    &amp;= -\frac{m}{k}v_{xo}e^{-\tfrac{k}{m}t} + x_o + \frac{m}{k}v_{xo}
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore x(t) = \frac{m}{k}v_{xo}\left(1-e^{-\tfrac{k}{m}t}\right) + x_o}&lt;/script&gt;
+
+&lt;h2 id=&quot;vertical-direction-1&quot;&gt;Vertical Direction&lt;/h2&gt;
+&lt;p&gt;Solving in the y-direction results in:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{align}
-    a_y(t) &amp;amp;= \begin{cases} 
-        -g\sec^2\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &amp;amp; v\geq 0 &lt;br /&gt;
-        -g\sech^2\left(\arctanh\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &amp;amp; v&amp;lt;0 &lt;br /&gt;
-    \end{cases} &lt;br /&gt;
-    v_y(t) &amp;amp;= \begin{cases} 
-        \sqrt{\dfrac{mg}{k}}\tan\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &amp;amp; v\geq 0 &lt;br /&gt;
-        \sqrt{\dfrac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &amp;amp; v&amp;lt;0 &lt;br /&gt;
-    \end{cases} &lt;br /&gt;
-    y(t) &amp;amp;= \begin{cases} 
-        y_o + \dfrac{m}{k}\ln\left(\dfrac{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right)}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) &amp;amp; v\geq 0 &lt;br /&gt;
-        y_o - \dfrac{m}{k}\ln\left(\dfrac{\cosh\left(\arctanh\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right)}{\cosh\left(\arctanh\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) &amp;amp; v&amp;lt;0 &lt;br /&gt;
+    m\differtiate{v_y(t)}{t} &amp;= -mg - kv_y &amp; v_y(0) &amp;= v_{yo} \\
+    \differtiate{v_y(t)}{t} &amp;= -g - \frac{k}{m}v_y \\
+    \int \frac{\differtial{v_y}}{-g - \tfrac{k}{m}v_y} &amp;= \int \differtial{t} \\
+    -\frac{m}{k}\ln\left|-g - \frac{k}{m}v_y\right| &amp;= t + C &amp; v_y(0) = v_{yo} &amp;\implies C = -\frac{m}{k}\ln\left|-g - \frac{k}{m}v_{yo}\right| \\
+    -\frac{m}{k}\ln\left|-g - \frac{k}{m}v_y\right| &amp;= t - \frac{m}{k}\ln\left|-g - \frac{k}{m}v_{yo}\right| \\
+    \ln\left|-g - \frac{k}{m}v_y\right| &amp;= -\frac{k}{m}t + \ln\left|-g - \frac{k}{m}v_{yo}\right| \\
+    -g - \frac{k}{m}v_y &amp;= e^{-\tfrac{k}{m}t}\left(-g - \frac{k}{m}v_{yo}\right) \\
+    -\frac{k}{m}v_y &amp;= e^{-\tfrac{k}{m}t}\left(-g - \frac{k}{m}v_{yo}\right) + g
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore v_y(t) = e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}}&lt;/script&gt;
+
+&lt;p&gt;We can find the acceleration and position function now.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    a_y(t) &amp;= \differtiate{v_y(t)}{t} \\
+    &amp;= \differtiate{e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}}{t}
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore a_y(t) = -\frac{k}{m}\left(\frac{mg}{k} + v_{yo}\right)e^{-\tfrac{k}{m}t}}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    y(t) &amp;= \int v_y(t) &amp; y(0) &amp;= y_o \\
+    &amp;= \int \left(e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}\right) \differtial{t} \\
+    &amp;= -\frac{m}{k}e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}t + C &amp; y(0) = y_o &amp;\implies C = y_o + \frac{m}{k}\left(\frac{mg}{k} + v_{yo}\right) \\
+    &amp;= -\frac{m}{k}e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}t + y_o + \frac{m}{k}\left(\frac{mg}{k} + v_{yo}\right)
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore y(t) = \frac{m}{k}\left(\frac{mg}{k} + v_{yo}\right)\left(1 - e^{-\tfrac{k}{m}t}\right) - \frac{mg}{k}t + y_o}&lt;/script&gt;
+
+&lt;p&gt;We can see if we would not accelerate indefinitely but will reach a terminal velocity.&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+    v_T &amp;= \lim_{t\to\infty}\left(v_y(t)\right) \\
+    &amp;= \lim_{t\to\infty}\left(e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}\right)
+\end{align*} %]]&gt;&lt;/script&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\boxed{v_T = -\frac{mg}{k}}&lt;/script&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;summary-1&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Overall, we have our functions for acceleration, velocity, and position.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    \vect{a(t)} &amp;= 
+    \begin{pmatrix} -\dfrac{k}{m}v_{xo}e^{-\tfrac{k}{m}t} \\ -\dfrac{k}{m}\left(\dfrac{mg}{k} + v_{yo}\right)e^{-\tfrac{k}{m}t} \end{pmatrix} \\
+    \vect{v(t)} &amp;= 
+    \begin{pmatrix} v_{xo}e^{-\tfrac{k}{m}t} \\ e^{-\tfrac{k}{m}t}\left(\dfrac{mg}{k} + v_{yo}\right) - \dfrac{mg}{k} \end{pmatrix} \\
+    \vect{s(t)} &amp;= 
+    \begin{pmatrix} \dfrac{m}{k}v_{xo}\left(1-e^{-\tfrac{k}{m}t}\right)+x_o \\ \dfrac{m}{k}\left(\dfrac{mg}{k} + v_{yo}\right)\left(1 - e^{-\tfrac{k}{m}t}\right) - \dfrac{mg}{k}t + y_o \end{pmatrix}
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;In three dimensions, the x and y functions are the same as the x function in two dimensions and the z function is the same as the y function.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    \vect{a(t)} &amp;= \begin{pmatrix} -\dfrac{k}{m}v_{xo}e^{-\tfrac{k}{m}t} \\ -\dfrac{k}{m}v_{xo}e^{-\tfrac{k}{m}t} \\ -\dfrac{k}{m}\left(\dfrac{mg}{k} + v_{yo}\right)e^{-\tfrac{k}{m}t} \end{pmatrix} \\
+    \vect{v(t)} &amp;= \begin{pmatrix} v_{xo}e^{-\tfrac{k}{m}t} \\ v_{xo}e^{-\tfrac{k}{m}t} \\ e^{-\tfrac{k}{m}t}\left(\dfrac{mg}{k} + v_{yo}\right) - \dfrac{mg}{k} \end{pmatrix} \\
+    \vect{s(t)} &amp;= \begin{pmatrix} \dfrac{m}{k}v_{xo}\left(1-e^{-\tfrac{k}{m}t}\right)+x_o \\ \dfrac{m}{k}v_{xo}\left(1-e^{-\tfrac{k}{m}t}\right)+x_o \\ \dfrac{m}{k}\left(\dfrac{mg}{k} + v_{yo}\right)\left(1 - e^{-\tfrac{k}{m}t}\right) - \dfrac{mg}{k}t + y_o \end{pmatrix}
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;It is possible to rotated the xy plane such that xz plane is the only plane that contains motion. This enables to just use the two-dimensional version.&lt;/p&gt;
+
+&lt;h1 id=&quot;resistance-proportional-to-the-square-of-velocity&quot;&gt;Resistance Proportional to the Square of Velocity&lt;/h1&gt;
+&lt;p&gt;The relationship, $F_R \propto \vect{v}^2$ will lead to a more accurate model but is more difficult equation to solve analytically. The velocity always opposes the direction the object is heading. Therefore, the force can be positive or negative.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    \begin{pmatrix} F_x \\ F_y \end{pmatrix} &amp;= \begin{pmatrix} F_R \\ F_g + F_R \end{pmatrix} 
+    &amp; \mathrm{where} \;  \begin{matrix} F_g = -mg \\ F_R = \pm kv^2   \rightarrow -kv|v| \end{matrix}\\ %
+    \begin{pmatrix} m\differtiate{v_x(t)}{t} \\[0.3em] m\differtiate{v_y(t)}{t} \end{pmatrix} &amp;= \begin{pmatrix} \pm kv^2 \\ -mg \pm kv^2 \end{pmatrix} &amp;
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;It is necessary to evaluate separately whether the velocity is positive or negative.&lt;/p&gt;
+
+&lt;h2 id=&quot;horizontal-direction-2&quot;&gt;Horizontal Direction&lt;/h2&gt;
+&lt;p&gt;Velocity can only be positive to simplify calculations.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    m\differtiate{v_x}{t} &amp;= -kv_x^2 &amp; v_x(0) &amp;= v_{xo} \\
+    \int \dfrac{\differtial{v_x}}{v_x^2} &amp;= \int -\dfrac{k}{m} \differtial{t}\\
+    -\frac{1}{v_x} &amp;= -\dfrac{k}{m}t + C &amp; v_x(0) = v_{xo} &amp;\implies C = -\frac{1}{v_{xo}} \\
+    -\frac{1}{v_x} &amp;= -\dfrac{k}{m}t - \frac{1}{v_{xo}} \\
+    \frac{1}{v_x} &amp;= \dfrac{k}{m}t + \frac{1}{v_{xo}} \\
+    v_x &amp;= \frac{1}{\tfrac{k}{m}t + \tfrac{1}{v_{xo}}} \\
+    &amp;= \frac{1}{\tfrac{kv_{xo}t+m}{mv_{xo}}}
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore v_x(t) = \frac{mv_{xo}}{kv_{xo}t+m}}&lt;/script&gt;
+
+&lt;p&gt;We can find the acceleration and position function now.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    a_x(t) &amp;= \differtiate{v_x(t)}{t} \\
+    &amp;= \differtiate{\frac{mv_{xo}}{kv_{xo}t+m}}{t} \\
+    &amp;= -mv_{xo}\left(\frac{1}{(kv_{xo}t+m)^2}\right)kv_{xo}
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore a_x(t) = -\frac{mkv_{xo}^2}{(kv_{xo}t+m)^2}}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    x(t) &amp;= \int v_x(t) &amp; x(0) &amp;= x_o \\
+    &amp;= \int \frac{mv_{xo}}{kv_{xo}t+m} \differtial{t} \\
+    &amp;= \frac{mv_{xo}}{kv_{xo}}\ln\left|kv_{xo}t+m\right| + C &amp; x(0) = x_o &amp;\implies C = x_o - \frac{m}{k}\ln(m) \\
+    &amp;= \frac{m}{k}\ln\left|kv_{xo}t+m\right| + x_o - \frac{m}{k}\ln(m)
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore x(t) = x_o + \frac{m}{k}\ln\left|\frac{kv_{xo}t+m}{m}\right|}&lt;/script&gt;
+
+&lt;h2 id=&quot;vertical-direction-2&quot;&gt;Vertical Direction&lt;/h2&gt;
+&lt;p&gt;It is necessary to determine whether the force of resistance is positive or negative and that will determine what the sign for velocity will be. Nonetheless, we will need to solve for two separate situations.&lt;/p&gt;
+
+&lt;h3 id=&quot;upward-velocity&quot;&gt;Upward Velocity&lt;/h3&gt;
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;v_y\geq 0 \implies m\differtiate{v_y(t)}{t}=-mg-kv_y^2&lt;/script&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    m\differtiate{v_y(t)}{t} &amp;= -mg - kv_y^2 &amp; v_y(0) &amp;= v_{yo} \\
+    \differtiate{v_y(t)}{t} &amp;= -g - \frac{k}{m}v_y \\
+    \int \frac{\differtial{v_y}}{-g - \tfrac{k}{m}v_y^2} &amp;= \int \differtial{t} &amp; \int\frac{dx}{a+bx^2} &amp;= \frac{1}{\sqrt{ab}}\arctan\left(\sqrt{\frac{b}{a}}x\right) + C \\
+    \frac{-1}{\sqrt{g\tfrac{k}{m}}}\arctan\left(\sqrt{\frac{\tfrac{k}{m}}{g}}v_y\right) &amp;= t + C \\
+    v_y(0) = v_{yo} &amp;\implies C = -\sqrt{\frac{m}{kg}}\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) \\
+    -\sqrt{\frac{m}{kg}}\arctan\left(\sqrt{\frac{k}{mg}}v_{y}\right) &amp;= t - \sqrt{\frac{m}{kg}}\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) \\
+    \arctan\left(\sqrt{\frac{k}{mg}}v_{y}\right) &amp;= -\sqrt{\frac{kg}{m}}t + \arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) \\
+    \sqrt{\frac{k}{mg}}v_{y} &amp;= \tan\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore v_y(t) = \sqrt{\frac{mg}{k}}\tan\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}&lt;/script&gt;
+
+&lt;p&gt;We can find the acceleration and position function now.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    a_y(t) &amp;= \differtiate{v_y(t)}{t} \\
+    &amp;= \differtiate{\sqrt{\frac{mg}{k}}\tan\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}{t}
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore a_y(t) = -g\sec^2\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    y(t) &amp;= \int v_x(t), \quad\quad y(0) = y_o \\
+    &amp;= \int \sqrt{\frac{mg}{k}}\tan\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right) \differtial{t} \\
+    &amp;= \sqrt{\frac{mg}{k}}\sqrt{\frac{m}{kg}}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + C \\
+    &amp;= \frac{m}{k}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + C \\ 
+    y(0) = y_o &amp;\implies C = y_o - \frac{m}{k}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)\right| \\ 
+    y(t) &amp;= \frac{m}{k}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + y_o - \frac{m}{k}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)\right|
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore y(t) = \frac{m}{k}\ln\left|\frac{\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}{\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)}\right|}&lt;/script&gt;
+
+&lt;h3 id=&quot;downward-velocity&quot;&gt;Downward Velocity&lt;/h3&gt;
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+v_y&lt; 0 \implies m\differtiate{v_y(t)}{t}=-mg+kv_y^2 %]]&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    m\differtiate{v_y(t)}{t} &amp;= kv_y^2 - mg &amp; v_y(0) &amp;= v_{yo} \\
+    \differtiate{v_y(t)}{t} &amp;= \frac{k}{m}v_y^2 - g \\
+    \int \frac{\differtial{v_y}}{\tfrac{k}{m}v_y^2 - g} &amp;= \int \differtial{t} &amp; \int\frac{dx}{a-bx^2} &amp;= \frac{1}{\sqrt{ab}}\arctanh\left(\sqrt{\frac{b}{a}}x\right) + C \\
+    \frac{-1}{\sqrt{g\tfrac{k}{m}}}\arctanh\left(\sqrt{\frac{\tfrac{k}{m}}{g}}v_y\right) &amp;= t + C \\
+    v_y(0) = v_{yo} &amp;\implies C = -\sqrt{\frac{m}{kg}}\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) \\
+    -\sqrt{\frac{m}{kg}}\arctanh\left(\sqrt{\frac{k}{mg}}v_{y}\right) &amp;= t - \sqrt{\frac{m}{kg}}\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) \\
+    \arctanh\left(\sqrt{\frac{k}{mg}}v_{y}\right) &amp;= -\sqrt{\frac{kg}{m}}t + \arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) \\
+    \sqrt{\frac{k}{mg}}v_{y} &amp;= \tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore v_y(t) = \sqrt{\frac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}&lt;/script&gt;
+
+&lt;p&gt;We can find the acceleration and position function now.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    a_y(t) &amp;= \differtiate{v_y(t)}{t} \\
+    &amp;= \differtiate{\sqrt{\frac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}{t}
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore a_y(t) = -g\sech^2\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    y(t) &amp;= \int v_x(t), \quad\quad y(0) = y_o \\
+    &amp;= \int \sqrt{\frac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right) \differtial{t} \\
+    &amp;= -\sqrt{\frac{mg}{k}}\sqrt{\frac{m}{kg}}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + C \\
+    &amp;= -\frac{m}{k}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + C \\ 
+    y(0) = y_o &amp;\implies C = y_o + \frac{m}{k}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)\right| \\ 
+    y(t) &amp;= -\frac{m}{k}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + y_o + \frac{m}{k}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)\right|
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore y(t) = y_o - \frac{m}{k}\ln\left|\frac{\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}{\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)}\right|}&lt;/script&gt;
+
+&lt;p&gt;Again we can calculate the terminal velocity of the object.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    v_T &amp;= \lim_{t\to\infty}\left(v_y(t)\right) \\
+    &amp;= \lim_{t\to\infty}\left(\sqrt{\frac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right)
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{v_T = -\sqrt{\frac{mg}{k}}}&lt;/script&gt;
+
+&lt;h3 id=&quot;summary-of-vertical-direction&quot;&gt;Summary of Vertical Direction&lt;/h3&gt;
+&lt;p&gt;Overall, we have our functions for acceleration, velocity, and position in the vertical direction. Of course the absolute values are unnecessary since the functions are only defined for $t\geq0$.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    a_y(t) &amp;= \begin{cases} 
+        -g\sec^2\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &amp; v\geq 0 \\
+        -g\sech^2\left(\arctanh\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &amp; v&lt;0 \\
+    \end{cases} \\
+    v_y(t) &amp;= \begin{cases} 
+        \sqrt{\dfrac{mg}{k}}\tan\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &amp; v\geq 0 \\
+        \sqrt{\dfrac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &amp; v&lt;0 \\
+    \end{cases} \\
+    y(t) &amp;= \begin{cases} 
+        y_o + \dfrac{m}{k}\ln\left(\dfrac{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right)}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) &amp; v\geq 0 \\
+        y_o - \dfrac{m}{k}\ln\left(\dfrac{\cosh\left(\arctanh\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right)}{\cosh\left(\arctanh\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) &amp; v&lt;0 \\
     \end{cases}
-\end{align}
-%
-When $v_y$ transitions from $0^+\rightarrow0^-$, it can be noted that $v_{yo}=0$. This simplifies our set of equations. However, it is necessary to shift the functions to match the when it transitions. We can calculate when this time delay, $\tau$, is.
-\begin{align&lt;em&gt;}
-    v_y(t) &amp;amp;= \sqrt{\dfrac{mg}{k}}\tan\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &lt;br /&gt;
-    \sqrt{\dfrac{k}{mg}}v_y &amp;amp;= \tan\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &lt;br /&gt;
-    \arctan\left(\sqrt{\dfrac{k}{mg}}v_y\right) &amp;amp;= \arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t &lt;br /&gt;
-    \arctan\left(\sqrt{\dfrac{k}{mg}}v_y\right) - \arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) &amp;amp;= -\sqrt{\dfrac{kg}{m}}t &lt;br /&gt;
-    -\sqrt{\dfrac{m}{kg}}\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_y\right) - \arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right) &amp;amp;= t
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{\therefore \tau = \sqrt{\dfrac{m}{kg}}\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)}
-\end{equation}
-%
-As well, due to this simplification, we must compensate for the distance lost in the position functions. We can find how much that is by evaluating the position function at $\tau$.
-\begin{align&lt;em&gt;}
-    y_\tau &amp;amp;= y_o + \dfrac{m}{k}\ln\left(\dfrac{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}\sqrt{\dfrac{m}{kg}}\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) \ 
-    &amp;amp;= y_o + \dfrac{m}{k}\ln\left(\dfrac{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) \ 
-    &amp;amp;= y_o + \dfrac{m}{k}\ln\left(\dfrac{1}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right)
-\end{align&lt;/em&gt;}
-%
-\begin{equation}
-    \boxed{y_\tau = y_o + \dfrac{m}{k}\ln\left(\sqrt{1+\dfrac{k}{mg}v_{yo}^2}\right)}&lt;br /&gt;
-\end{equation}
-%
-Through these simplifications, we now have our final vertical equations. The bounds have changed to be dependant on time.
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;When $v_y$ transitions from $0^+\rightarrow0^-$, it can be noted that $v_{yo}=0$. This simplifies our set of equations. However, it is necessary to shift the functions to match the when it transitions. We can calculate when this time delay, $\tau$, is.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{align}
-    a_y(t) &amp;amp;= \begin{cases} 
-        -g\sec^2\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &amp;amp; t\leq \tau &lt;br /&gt;
-        -g\sech^2\left(-\sqrt{\dfrac{kg}{m}}(t-\tau)\right) &amp;amp; t&amp;gt;\tau &lt;br /&gt;
-    \end{cases} &lt;br /&gt;
-    v_y(t) &amp;amp;= \begin{cases} 
-        \sqrt{\dfrac{mg}{k}}\tan\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &amp;amp; t\leq \tau &lt;br /&gt;
-        \sqrt{\dfrac{mg}{k}}\tanh\left(-\sqrt{\dfrac{kg}{m}}(t-\tau)\right) &amp;amp; t&amp;gt;\tau &lt;br /&gt;
-    \end{cases} &lt;br /&gt;
-    y(t) &amp;amp;= \begin{cases} 
-        y_o + \dfrac{m}{k}\ln\left(\dfrac{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right)}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) &amp;amp; t\leq \tau &lt;br /&gt;
-        y_\tau - \dfrac{m}{k}\ln\left(\cosh\left(\sqrt{\dfrac{kg}{m}}(t-\tau)\right)\right) &amp;amp; t&amp;gt;\tau
+    v_y(t) &amp;= \sqrt{\dfrac{mg}{k}}\tan\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) \\
+    \sqrt{\dfrac{k}{mg}}v_y &amp;= \tan\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) \\
+    \arctan\left(\sqrt{\dfrac{k}{mg}}v_y\right) &amp;= \arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t \\
+    \arctan\left(\sqrt{\dfrac{k}{mg}}v_y\right) - \arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) &amp;= -\sqrt{\dfrac{kg}{m}}t \\
+    -\sqrt{\dfrac{m}{kg}}\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_y\right) - \arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right) &amp;= t
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{\therefore \tau = \sqrt{\dfrac{m}{kg}}\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)}&lt;/script&gt;
+
+&lt;p&gt;As well, due to this simplification, we must compensate for the distance lost in the position functions. We can find how much that is by evaluating the position function at $\tau$.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    y_\tau &amp;= y_o + \dfrac{m}{k}\ln\left(\dfrac{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}\sqrt{\dfrac{m}{kg}}\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) \\ 
+    &amp;= y_o + \dfrac{m}{k}\ln\left(\dfrac{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) \\ 
+    &amp;= y_o + \dfrac{m}{k}\ln\left(\dfrac{1}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right)
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\boxed{y_\tau = y_o + \dfrac{m}{k}\ln\left(\sqrt{1+\dfrac{k}{mg}v_{yo}^2}\right)}&lt;/script&gt;
+
+&lt;p&gt;Through these simplifications, we now have our final vertical equations. The bounds have changed to be dependant on time.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+    a_y(t) &amp;= \begin{cases} 
+        -g\sec^2\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &amp; t\leq \tau \\
+        -g\sech^2\left(-\sqrt{\dfrac{kg}{m}}(t-\tau)\right) &amp; t&gt;\tau \\
+    \end{cases} \\
+    v_y(t) &amp;= \begin{cases} 
+        \sqrt{\dfrac{mg}{k}}\tan\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) &amp; t\leq \tau \\
+        \sqrt{\dfrac{mg}{k}}\tanh\left(-\sqrt{\dfrac{kg}{m}}(t-\tau)\right) &amp; t&gt;\tau \\
+    \end{cases} \\
+    y(t) &amp;= \begin{cases} 
+        y_o + \dfrac{m}{k}\ln\left(\dfrac{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right)}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) &amp; t\leq \tau \\
+        y_\tau - \dfrac{m}{k}\ln\left(\cosh\left(\sqrt{\dfrac{kg}{m}}(t-\tau)\right)\right) &amp; t&gt;\tau
     \end{cases}
-\end{align}
-%
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{align}
-    \text{Where, } \quad \tau &amp;amp;= \sqrt{\dfrac{m}{kg}}\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) &lt;br /&gt;
-    y_\tau &amp;amp;= y_o + \dfrac{m}{k}\ln\left(\sqrt{1+\dfrac{k}{mg}v_{yo}^2}\right)
-\end{align}
-%
-Of course, if the initial velocity is negative, the first set of equations are still valid.
-%
-% Summary
-\subsection{Summary}
-Overall, we have our functions for acceleration, velocity, and position. The equations shortened can be found above.
+    \text{Where, } \quad \tau &amp;= \sqrt{\dfrac{m}{kg}}\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) \\
+    y_\tau &amp;= y_o + \dfrac{m}{k}\ln\left(\sqrt{1+\dfrac{k}{mg}v_{yo}^2}\right)
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Of course, if the initial velocity is negative, the first set of equations are still valid.&lt;/p&gt;
+
+&lt;h2 id=&quot;summary-2&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Overall, we have our functions for acceleration, velocity, and position. The equations shortened can be found above.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{align}
-    \vect{a(t)} &amp;amp;= 
-    \begin{pmatrix} -\dfrac{mkv_{xo}^2}{(kv_{xo}t+m)^2} \ a_y(t) \end{pmatrix} &lt;br /&gt;
-    \vect{v(t)} &amp;amp;= 
-    \begin{pmatrix} \dfrac{mv_{xo}}{kv_{xo}t+m} \ v_y(t) \end{pmatrix} &lt;br /&gt;
-    \vect{s(t)} &amp;amp;= 
-    \begin{pmatrix} x_o + \dfrac{m}{k}\ln\left|\dfrac{kv_{xo}t+m}{m}\right| \ y(t) \end{pmatrix}
-\end{align}
-%
-In three dimensions, the x and y functions are the same as the x function in two dimensions and the z function is the same as the y function.
+    \vect{a(t)} &amp;= 
+    \begin{pmatrix} -\dfrac{mkv_{xo}^2}{(kv_{xo}t+m)^2} \\ a_y(t) \end{pmatrix} \\
+    \vect{v(t)} &amp;= 
+    \begin{pmatrix} \dfrac{mv_{xo}}{kv_{xo}t+m} \\ v_y(t) \end{pmatrix} \\
+    \vect{s(t)} &amp;= 
+    \begin{pmatrix} x_o + \dfrac{m}{k}\ln\left|\dfrac{kv_{xo}t+m}{m}\right| \\ y(t) \end{pmatrix}
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;In three dimensions, the x and y functions are the same as the x function in two dimensions and the z function is the same as the y function.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{align}
-    \vect{a(t)} &amp;amp;= \begin{pmatrix} -\dfrac{mkv_{xo}^2}{(kv_{xo}t+m)^2} \ -\dfrac{mkv_{xo}^2}{(kv_{xo}t+m)^2} \ a_z(t) \end{pmatrix} &lt;br /&gt;
-    \vect{v(t)} &amp;amp;= \begin{pmatrix} \dfrac{mv_{xo}}{kv_{xo}t+m} \ \dfrac{mv_{xo}}{kv_{xo}t+m} \ v_z(t) \end{pmatrix} &lt;br /&gt;
-    \vect{s(t)} &amp;amp;= \begin{pmatrix} x_o + \dfrac{m}{k}\ln\left|\dfrac{kv_{xo}t+m}{m}\right| \ x_o + \dfrac{m}{k}\ln\left|\dfrac{kv_{xo}t+m}{m}\right| \ z(t) \end{pmatrix}
-\end{align}
-\newpage
-%
-% Projecting from Three to Two Dimensions
-\section{Projecting from Three to Two Dimensions}
-It is possible to rotated the xy plane such that xz plane is the only plane that contains motion. This enables to just use the two-dimensional version making it computationally easier. This is only possible since the x and y coordinates are not affected by the force of gravity and are defined by the same equation.
-\newline
-%
-We first project the original $\mathbb{R}^3$ onto the xy plane. This results in a $\mathbb{R}^2$ vector that includes the magnitude of the xy plane and z coordinate. To convert back. We need to project the vector onto the x and y coordinates separately.
+    \vect{a(t)} &amp;= \begin{pmatrix} -\dfrac{mkv_{xo}^2}{(kv_{xo}t+m)^2} \\ -\dfrac{mkv_{xo}^2}{(kv_{xo}t+m)^2} \\ a_z(t) \end{pmatrix} \\
+    \vect{v(t)} &amp;= \begin{pmatrix} \dfrac{mv_{xo}}{kv_{xo}t+m} \\ \dfrac{mv_{xo}}{kv_{xo}t+m} \\ v_z(t) \end{pmatrix} \\
+    \vect{s(t)} &amp;= \begin{pmatrix} x_o + \dfrac{m}{k}\ln\left|\dfrac{kv_{xo}t+m}{m}\right| \\ x_o + \dfrac{m}{k}\ln\left|\dfrac{kv_{xo}t+m}{m}\right| \\ z(t) \end{pmatrix}
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;h1 id=&quot;projecting-from-three-to-two-dimensions&quot;&gt;Projecting from Three to Two Dimensions&lt;/h1&gt;
+&lt;p&gt;It is possible to rotated the xy plane such that xz plane is the only plane that contains motion. This enables to just use the two-dimensional version making it computationally easier. This is only possible since the x and y coordinates are not affected by the force of gravity and are defined by the same equation.&lt;/p&gt;
+
+&lt;p&gt;We first project the original $\mathbb{R}^3$ onto the xy plane. This results in a $\mathbb{R}^2$ vector that includes the magnitude of the xy plane and z coordinate. To convert back. We need to project the vector onto the x and y coordinates separately.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{align}
-    \vect{v_{o}} &amp;amp;= \overbrace{\begin{pmatrix} a \ b \ c \end{pmatrix}}^{\mathbb{R}^3} &amp;amp; &amp;amp;\Longleftrightarrow &amp;amp;
-    \vect{v_{o(proj)}} &amp;amp;= \overbrace{\begin{pmatrix} \sqrt{a^2+b^2} \ c \end{pmatrix}}^{\mathbb{R}^2} \implies 
-    \vect{v_{proj}(t)} = \begin{pmatrix} v_{xy} \ v_z \end{pmatrix} &lt;br /&gt;
-    \vect{v_{proj}(t)} &amp;amp;= \overbrace{\begin{pmatrix} v_{xy} \ v_z \end{pmatrix}}^{\mathbb{R}^2} &amp;amp; &amp;amp;\Longleftrightarrow &amp;amp;
-    \vect{v(t)} &amp;amp;= \overbrace{\begin{pmatrix} v_{xy}\dfrac{a}{\sqrt{a^2+b^2}} \ v_{xy}\dfrac{b}{\sqrt{a^2+b^2}} \ v_z \end{pmatrix}}^{\mathbb{R}^3}
-\end{align}
-%
-%
-\end{document}&lt;/p&gt;</content><author><name></name></author><summary type="html">$$ \DeclareMathOperator{\arctanh}{arctanh} \DeclareMathOperator{\sech}{sech} \newcommand{\differtiate}[2]{\: \dfrac{\strut\mathrm{d}}{\strut\mathrm{d{#2}}}{\left(#1\right)}} \newcommand{\differtial}[1]{\: \mathrm{d}{#1}} \newcommand{\vect}[1]{\boldsymbol{#1}} $$ Introduction It can be noted that the acceleration of an object is the sum of all the forces acting upon it by Newton’s Second Law. Notice that we can write this equation in either with velocity and position as well. The key here is to notice that acceleration is the derivative of velocity and position is the integral of velocity with respect to time. We can split this net force into components in the x and y coordinates and by extension, the z coordinates. Of course, all these are defined for time greater than 0.</summary></entry></feed>
+    \vect{v_{o}} &amp;= \overbrace{\begin{pmatrix} a \\ b \\ c \end{pmatrix}}^{\mathbb{R}^3} &amp; &amp;\Longleftrightarrow &amp;
+    \vect{v_{o(proj)}} &amp;= \overbrace{\begin{pmatrix} \sqrt{a^2+b^2} \\ c \end{pmatrix}}^{\mathbb{R}^2} \implies 
+    \vect{v_{proj}(t)} = \begin{pmatrix} v_{xy} \\ v_z \end{pmatrix} \\
+    \vect{v_{proj}(t)} &amp;= \overbrace{\begin{pmatrix} v_{xy} \\ v_z \end{pmatrix}}^{\mathbb{R}^2} &amp; &amp;\Longleftrightarrow &amp;
+    \vect{v(t)} &amp;= \overbrace{\begin{pmatrix} v_{xy}\dfrac{a}{\sqrt{a^2+b^2}} \\ v_{xy}\dfrac{b}{\sqrt{a^2+b^2}} \\ v_z \end{pmatrix}}^{\mathbb{R}^3}
+\end{align} %]]&gt;&lt;/script&gt;</content><author><name></name></author><summary type="html">$$ \DeclareMathOperator{\arctanh}{arctanh} \DeclareMathOperator{\sech}{sech} \newcommand{\differtiate}[2]{\: \dfrac{\strut\mathrm{d}}{\strut\mathrm{d{#2}}}{\left(#1\right)}} \newcommand{\differtial}[1]{\: \mathrm{d}{#1}} \newcommand{\vect}[1]{\boldsymbol{#1}} $$ Introduction It can be noted that the acceleration of an object is the sum of all the forces acting upon it by Newton’s Second Law. Notice that we can write this equation in either with velocity and position as well. The key here is to notice that acceleration is the derivative of velocity and position is the integral of velocity with respect to time. We can split this net force into components in the x and y coordinates and by extension, the z coordinates. Of course, all these are defined for time greater than 0.</summary></entry></feed>

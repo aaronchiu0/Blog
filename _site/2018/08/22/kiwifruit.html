@@ -4,10 +4,16 @@
 		<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kiwifruit</title>
+
 <!-- stylesheet -->
 <link rel="stylesheet" href="/assets/css/styles.css">
+
 <!-- scripts -->
 <!-- <script src="/assets/js/back-to-top.js"></script> -->
+
+<!-- Animation on Scroll -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 <!-- icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- mathjax -->
@@ -38,42 +44,40 @@
 {"@type":"BlogPosting","headline":"Kiwifruit","url":"http://localhost:4000/2018/08/22/kiwifruit.html","dateModified":"2018-08-22T00:00:00-04:00","datePublished":"2018-08-22T00:00:00-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018/08/22/kiwifruit.html"},"author":{"@type":"Person","name":"\\[author\\]"},"description":"Kiwifruit (often abbreviated as kiwi), or Chinese gooseberry is the edible berry of several species of woody vines in the genus Actinidia.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-	</head>
-	<body>				
-		<!-- back to top button -->
-		<button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>	
-		
-		<script>
-		//Get the button
-		var mybutton = document.getElementById("myBtn");
 
-		// When the user scrolls down 20px from the top of the document, show the button
-		window.onscroll = function() {scrollFunction()};
+<!-- To top Button -->
+<script>
+	//Get the button
+	var mybutton = document.getElementById("myBtn");
 
-		function scrollFunction() {
-		  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 			mybutton.style.display = "block";
-		  } else {
+		} else {
 			mybutton.style.display = "none";
-		  }
 		}
+	}
 
-		// When the user clicks on the button, scroll to the top of the document
-		function topFunction() {
-		  document.body.scrollTop = 0;
-		  document.documentElement.scrollTop = 0;
-		}
-		</script>
-		
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+	</head>
+	<body>						
 		<!-- Header -->
-		<div class="header">
-			<h1 id=title>Aaron Chiu</h1>
-			<p id=subtitle>Automotive Engineer in Training</p>
-		</div>
+<div class="header">
+    <h1 id=title>Aaron Chiu</h1>
+    <p id=subtitle>Automotive Engineer in Training</p>
+</div>
 
-		<!-- Navigation Bar -->
-		<div class="navbar">
-			
+<!-- Navigation Bar -->
+<div class="navbar">
+    
 	<a href="/" >Home</a>
 
 	<a href="/about.html" >About</a>
@@ -82,8 +86,14 @@
 
 	<a href="/courses.html" >Courses</a>
 
-		</div>
-		<div style="padding:20px">
+</div>
+
+<!-- back to top button -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>	
+		
+		<div style="display:flex; flex-wrap:wrap; justify-content:center;">
+			<div style="flex: 0 1 1475px; padding:20px;"> <!-- total allowable width -->
+				<div style="padding:20px">
 	<h1>Kiwifruit</h1>
 	<p>
 		<strong>Aug 22, 2018</strong>
@@ -99,34 +109,40 @@ diameter). It has a fibrous, dull greenish-brown skin and bright green or
 golden flesh with rows of tiny, black, edible seeds. The fruit has a soft
 texture, with a sweet and unique flavor.</p>
 
-</div>
+</div>	
+			</div>
+		</div>
 		
-		<!-- Footer -->
 		<div class="footer">
-			<!-- Contact -->
-			<div id="footer-container">
-				<div class="footer-sections">
-				<h3 class=contact>Permanent Address</h3> 
-				<p class=contact>170 Elbern Markell Drive<br>Brampton, ON, L6X 2Z9</p>
-				</div>
-				
-				<div class="footer-sections">
-				<h3 class=contact>Current Address</h3> 
-				<p class=contact>14 Cottrill Street<br>Hamilton, ON, L8S 3L4</p>
-				</div>
-				
-				<div class="footer-sections">
-				<h3 class=contact>Contact Information</h3>
-				<p class=contact>chiua10@mcmaster.ca<br>
-				<strong>Cell:</strong>  (647) 283-2389</p>
-				</div>
-			</div>
-			<!-- Social Media -->
-			<div class="footer-sections">
-			<h3 class=contact>Social Media</h3>
-			<a href="https://www.facebook.com/profile.php?id=100018624766241" class="fa fa-facebook"></a>
-			<a href="https://www.linkedin.com/in/aaron-chiu/" class="fa fa-linkedin"></a>
-			</div>
-		</div>		
-	</body>
+    <!-- Contact -->
+    <div id="footer-container">
+        <div class="footer-sections">
+        <h3 class=contact>Permanent Address</h3> 
+        <p class=contact>170 Elbern Markell Drive<br>Brampton, ON, L6X 2Z9</p>
+        </div>
+        
+        <div class="footer-sections">
+        <h3 class=contact>Current Address</h3> 
+        <p class=contact>14 Cottrill Street<br>Hamilton, ON, L8S 3L4</p>
+        </div>
+        
+        <div class="footer-sections">
+        <h3 class=contact>Contact Information</h3>
+        <p class=contact>chiua10@mcmaster.ca<br>
+        <strong>Cell:</strong>  (647) 283-2389</p>
+        </div>
+    </div>
+    <!-- Social Media -->
+    <div class="footer-sections">
+    <h3 class=contact>Social Media</h3>
+    <a href="https://www.facebook.com/profile.php?id=100018624766241" class="fa fa-facebook"></a>
+    <a href="https://www.linkedin.com/in/aaron-chiu/" class="fa fa-linkedin"></a>
+    </div>
+</div>		
+
+<!-- Animation on Scroll -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 </html>
