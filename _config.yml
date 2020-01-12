@@ -1,20 +1,6 @@
 #baseurl: /Blog
 
 defaults:
-    - scope:
-        path: ""
-        type: "posts"
-      values:
-        layout: "post"
-    - scope:
-        path: ""
-        type: "courses"
-      values:
-        layout: "course"
-    - scope:
-        path: ""
-      values:
-        layout: "default"
 
 plugins:
     - jekyll-feed

@@ -13,6 +13,7 @@
 
 <!-- icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!-- mathjax -->
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
@@ -24,8 +25,6 @@
 </script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
 </script>
-{% feed_meta %}
-{% seo %}
 
 <!-- To top Button -->
 <script>
@@ -39,7 +38,7 @@
 		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 			mybutton.style.display = "block";
 		} else {
-			mybutton.style.display = "none";
+			mybutton.style.display = "block";
 		}
 	}
 
@@ -49,3 +48,6 @@
 		document.documentElement.scrollTop = 0;
 	}
 </script>
+
+{% feed_meta %}
+{% seo %}

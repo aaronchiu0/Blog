@@ -8,8 +8,10 @@
 
 /* Style the body */
 body {
-	font-family: 'RobotoCondensed';
-	margin: 0;
+	font-family: 'RobotoCondensed', sans-serif;
+  margin: 0;
+  height: 100%;
+  background: $background-colour;
 }
 
 .content-body {
@@ -18,7 +20,7 @@ body {
 }
 
 h1, h2, h3 {
-	font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 p {
@@ -28,18 +30,10 @@ p {
 #title {
 	font-size: 275%;
   height: 40px;
-
-  //-webkit-animation: slide-in-left 2s ease-out forwards;
-  //animation: slide-in-left 2s ease-out forwards;
-  //opacity: 0;
 }
 
 #subtitle {
   font-size: 125%;
-
-  //-webkit-animation: slide-in-left 2s ease-out 1s forwards;
-  //animation: slide-in-left 2s ease-out 1s forwards;
-  //opacity: 0;
 }
 
 #about {
@@ -110,7 +104,7 @@ p {
 /* Style the top navigation bar */
 .navbar {
 	display: flex;
-	background-color: #333;
+	background-color: $nav-colour;
 }
 
 /* Style the navigation bar links */
@@ -136,7 +130,7 @@ p {
 /* Create two unequal columns that sits next to each other */
 /* Sidebar/left column */
 .side {
-	flex: 0 1 $side-width;
+	flex: 0 1 $total-width;
 	background-color: $background-colour;
 	padding: 20px;
 }
@@ -166,7 +160,7 @@ p {
 /* The actual timeline (the vertical ruler) */
 .timeline {
   position: relative;
-  max-width: $content-width;
+  max-width: $total-width;
   margin: 0 auto;
 }
 
@@ -175,7 +169,7 @@ p {
   content: '';
   position: absolute;
   width: 6px;
-  background-color: black;
+  background-color: $nav-colour;
   top: 0;
   bottom: 0;
   left: 50%;
@@ -225,9 +219,9 @@ p {
   width: 0;
   z-index: 1;
   right: 30px;
-  border: medium solid $background-colour;
+  border: medium solid white;
   border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent $background-colour;
+  border-color: transparent transparent transparent white;
 }
 
 /* Add arrows to the right container (pointing left) */
@@ -239,9 +233,9 @@ p {
   width: 0;
   z-index: 1;
   left: 30px;
-  border: medium solid $background-colour;
+  border: medium solid white;
   border-width: 10px 10px 10px 0;
-  border-color: transparent $background-colour transparent transparent;
+  border-color: transparent white transparent transparent;
 }
 
 /* Fix the circle for containers on the right side */
@@ -252,7 +246,7 @@ p {
 /* The actual content */
 .content {
   padding: 20px 30px;
-  background-color: $background-colour;
+  background-color: white;
   position: relative;
   border-radius: 6px;
 }
@@ -274,9 +268,9 @@ p {
 /* Make sure that all arrows are pointing leftwards */
   .container::before {
     left: 60px;
-    border: medium solid $background-colour;
+    border: medium solid white;
     border-width: 10px 10px 10px 0;
-    border-color: transparent $background-colour transparent transparent;
+    border-color: transparent white transparent transparent;
   }
 
 /* Make sure all circles are at the same spot */
@@ -347,17 +341,17 @@ p.contact {
   position: fixed; /* Fixed/sticky position */
   bottom: 20px; /* Place the button at the bottom of the page */
   right: 30px; /* Place the button 30px from the right */
-  z-index: 999; /* Make sure it does not overlap */
+  z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   outline: none; /* Remove outline */
-  background-color: #333; /* Set a background color */
+  background-color: $nav-colour; /* Set a background color */
   color: white; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 15px; /* Some padding */
   border-radius: 10px; /* Rounded corners */
-  font-size: 16px; /* Increase font size */
+  font-size: 18px; /* Increase font size */
 }
 
 #myBtn:hover {
-	background-color: #555; /* Add a dark-grey background on hover */
+  background-color: #555; /* Add a dark-grey background on hover */
 }

@@ -1,0 +1,60 @@
+@import "utilities/variables";
+
+.hero-header {
+    margin: 0;
+	//background: $header-colour;
+    background: $background-colour;
+
+    height: 100vh;
+}
+
+.hero-title-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: inherit;
+  }
+
+#hero-title {
+    font-family: 'Dax', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    width: 75vw;
+    font-size: 10vh;
+    text-align: left;
+    padding: 10px;
+}
+
+@media screen and (max-width: $timeline-change) {
+    #hero-title {
+        font-size: 7vw; 
+    }
+}
+
+h1.title {
+    margin: auto;
+    padding: 20px;
+    width: 1475px;
+}
+
+#about {
+    margin: auto;
+    padding: 20px 30px;
+    width: 1475px;
+    
+    background: white;
+    border-radius: 6px;
+}
+
+@media screen and (max-width: $total-width) {
+    h1.title { 
+        width: 95vw;
+    }
+
+    #about {
+        width: 90vw;
+    }
+}
