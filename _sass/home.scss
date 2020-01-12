@@ -6,6 +6,14 @@
     background: $background-colour;
 
     height: 100vh;
+
+      /* The image used */
+    background-image: url("/assets/images/engineering-plans.jpg");
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .hero-title-container {
@@ -16,6 +24,7 @@
     justify-content: center;
     flex-direction: column;
     background: inherit;
+    z-index: 1;
   }
 
 #hero-title {
@@ -23,9 +32,12 @@
     font-weight: 400;
     margin: 0;
     width: 75vw;
-    font-size: 10vh;
+    font-size: 8.5vh;
     text-align: left;
     padding: 10px;
+    position: fixed;
+
+    color: white;
 }
 
 @media screen and (max-width: $timeline-change) {
@@ -40,13 +52,14 @@ h1.title {
     width: 1475px;
 }
 
-#about {
+#ambitions {
     margin: auto;
     padding: 20px 30px;
     width: 1475px;
     
     background: white;
     border-radius: 6px;
+    z-index: 10;
 }
 
 @media screen and (max-width: $total-width) {
@@ -54,7 +67,56 @@ h1.title {
         width: 95vw;
     }
 
-    #about {
+    #ambitions {
         width: 90vw;
+    }
+}
+
+.about-container {
+    height: 110vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: white;
+
+    background: url("/assets/images/partial-engine.jpg");
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: inset 55vw 0 5vw -5vw #FFF;
+    //box-shadow: inset 50vw 0 0 0 #FFF;
+}
+
+#about-text {
+    flex: 1 0 50vw;
+    max-width: 50vw;
+    padding: 10vw;
+}
+
+#about-title {
+    margin: auto;
+    padding: 20px;
+}
+
+#about-text p {
+    margin: auto;
+    padding: 0px 20px;
+}
+
+@media screen and (max-width: $side-change) {
+    .about-container {
+        box-shadow: 0 0 5vw -5vw #FFF;
+    }
+
+    #about-text {
+        flex: 1 0 90vw;
+        max-width: 90vw;
+        padding: 10vw;
+        background: white;
     }
 }

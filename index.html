@@ -16,21 +16,24 @@ title: Home
                     data-aos-delay="1500"
                     >   
                         Aaron Chiu, <br>
-                        Automotive Engineer in Training
+                        Automotive Engineer in Training, <br>
+                        Emphasizing Quality & Productivity
                     </p>
                 </div>
             </div>
         </div>
 
-        <!-- <div class="hero-header">
-            
-        </div> -->
-
-        <!-- Navigation Bar -->
-        <div class="navbar">
-            {% include navigation.html %}
+        <!-- About -->
+        <div class="about-container">
+            <div id="about-text" data-aos="fade-right">
+                <h1 id="about-title">About</h1>
+                <p>Land, air and sea. Vehicles seem to be everywhere and anywhere. We seem to take our surroundings for granted but never thoroughly thought how such machines came to be and how they benefit society so much. I wondered how these vehicles ever worked in the first place. As a person whose interests lie in this field, I'd like more people to know about these machines and how useful they are.</p>
+            </div>
         </div>
 
+
+
+        <!-- Education and Experience -->
         <h1 class="title">Education & Experience</h1>
 	    <div class="timeline">
 		    {% for item in site.data.brief-education-experience %}
@@ -54,7 +57,7 @@ title: Home
         
         <!-- Ambitions -->
         <h1 class="title"> Ambitions </h1>
-        <div id=about>
+        <div id=ambitions>
             <p> My goals in the future are to take on a master's in either mechanical or manufacturing engineering. Afterwards, I want to work for an automotive company such as Tesla, a traditional automotive company such as Toyota or Audi, and then, in heavy industries such as Mitsubishi or Hyundai. I want to specialize in powertrain design and manufacturing in most of these companies. </p>
 
             <p> I want to pursue a masters in engineering since I want to further my studies in the specific techniques in power generation and transfer in engines. It will let me receive a deeper understanding of the operating principles of the heart of the machine. The understanding of the manufacturing processes of such machines would let me choose the right materials whether it be ceramics, metals, or composite materials. </p>
@@ -81,6 +84,11 @@ title: Home
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper enim at odio placerat, in fringilla ante semper. Duis at dui sit amet magna mollis suscipit id at libero. Sed id eros semper, molestie odio sit amet, accumsan metus. In egestas nisl at dapibus fringilla. Integer lacinia pharetra tortor a malesuada. Nam cursus interdum justo, non rhoncus magna dapibus blandit. Mauris nec leo in lacus volutpat fermentum ullamcorper et dolor. Vivamus eu tortor nisl.
             </p>
         </div>
+
+        <!-- Navigation Bar -->
+        <div class="navbar">
+            {% include navigation.html %}
+        </div>        
 
 		{% include footer.html %}
 	</body>

@@ -8,7 +8,10 @@
 <!-- stylesheet -->
 <link rel="stylesheet" href="/assets/css/styles.css">
 
-<!-- scripts -->
+<!-- import jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- import scripts -->
 <!-- <script src="/assets/js/back-to-top.js"></script> -->
 
 <!-- Animation on Scroll -->
@@ -50,6 +53,12 @@
 		document.body.scrollTop = 0;
 		document.documentElement.scrollTop = 0;
 	}
+</script>
+
+<script>
+	$(window).scroll(function() {
+  $(".hero-title-container").css("opacity", 1 - $(window).scrollTop() / 250);
+});
 </script>
 
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
@@ -94,9 +103,24 @@
 
 <!-- back to top button -->
 <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>	
-		
-		<div style="display:flex; flex-wrap:wrap; justify-content:center;">
-			<div style="flex: 0 1 1475px; padding:20px;"> <!-- total allowable width -->
+
+		<div class="row">
+			<div class="side">
+				<h2>About Me</h2>
+				<div id="side-container">
+					<img src="/assets/images/me.jpg" alt="Aaron Chiu Photo" id="side-picture";>
+					<p id="side-blurb">Land, air and sea. Vehicles seem to be everywhere and anywhere. We seem to take our surroundings for granted but never thoroughly thought how such machines came to be and how they benefit society so much. I wondered how these vehicles ever worked in the first place. As a person whose interests lie in this field, I'd like more people to know about these machines and how useful they are.</p>
+				</div>
+						
+				<!-- Contact -->
+				<h3>More Text</h3>
+				<p>Lorem ipsum dolor sit ame.</p>
+				<div class="fakeimg" style="height:60px;">Image</div><br>
+				<div class="fakeimg" style="height:60px;">Image</div><br>
+				<div class="fakeimg" style="height:60px;">Image</div>
+			</div>
+			<div class="main">
+				<!-- Content -->
 				<div>
 	<!-- Blog Section -->
 	<h1>Latest Posts</h1>
@@ -160,7 +184,7 @@ of large herbaceous flowering plants in the genus Musa.</p>
 </p>
 	<p><a href="/2018/07/25/Air-Resistance.html">Read More</a></p>
 
-</div>	
+</div>
 			</div>
 		</div>
 		
@@ -198,4 +222,5 @@ of large herbaceous flowering plants in the genus Musa.</p>
         duration: 2000
     });
 </script>
+	</body>
 </html>
