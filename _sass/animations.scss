@@ -1,6 +1,67 @@
 // Animations page (From animista and aos)
 @import "utilities/variables";
 
+/* About page animation */
+[data-aos="about-container"] {
+    box-shadow: none;
+    transition-property: box-shadow;
+  
+    &.aos-animate {
+        box-shadow: inset 55vw 0 5vw -5vw #FFF;
+    }
+
+    @media screen and (max-width: $side-change) {
+        transition-property: box-shadow;
+        
+        &.aos-animate {
+            box-shadow: none;
+        }
+    }
+}
+
+/* About text animation */
+[data-aos="about-text"] {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition-property: opacity, transform;
+  
+    &.aos-animate {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Skills page animation */
+[data-aos="skills-container"] {
+    box-shadow: none;
+    transition-property: box-shadow;
+  
+    &.aos-animate {
+        box-shadow: inset -55vw 0 5vw -5vw #111;
+    }
+
+    @media screen and (max-width: $side-change) {
+        transition-property: box-shadow;
+        
+        &.aos-animate {
+            box-shadow: none;
+        }
+    }
+}
+
+/* Skills text animation */
+[data-aos="skills-text"] {
+    opacity: 0;
+    transform: translateX(100px);
+    transition-property: opacity, transform;
+  
+    &.aos-animate {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* For Left timeline */
 [data-aos="swing-in-right-fwd-timeline"] {
     opacity: 0;
     transform: rotateY(-90deg);
@@ -10,33 +71,31 @@
     &.aos-animate {
         opacity: 1;
         transform: rotateY(0);
-        transform-origin: right;
     }
 
     @media screen and (max-width: $timeline-change) {
         opacity: 0;
         transform: rotateY(90deg);
         transform-origin: left;
-        transition-property: opacity, transform, transform-origin;
+        transition-property: opacity, transform;
       
         &.aos-animate {
             opacity: 1;
             transform: rotateY(0);
-            transform-origin: left;
         }
-      }
+    }
 }
 
+/* For right timeline */
 [data-aos="swing-in-left-fwd-timeline"] {
     opacity: 0;
     transform: rotateY(90deg);
     transform-origin: left;
-    transition-property: opacity, transform, transform-origin;
+    transition-property: opacity, transform;
   
     &.aos-animate {
         opacity: 1;
         transform: rotateY(0);
-        transform-origin: left;
     }
 }
 

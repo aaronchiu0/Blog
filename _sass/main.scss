@@ -11,7 +11,7 @@ body {
 	font-family: 'RobotoCondensed', sans-serif;
   margin: 0;
   height: 100%;
-  background: $background-colour;
+  background: map-get($colours, background);
 }
 
 .content-body {
@@ -92,14 +92,14 @@ p {
 .header {
 	padding: 30px;
 	text-align: center;
-	background: $header-colour;
+	background: map-get($colours, header);
   color: white;
 }
 
 /* Style the top navigation bar */
 .navbar {
 	display: flex;
-	background-color: $nav-colour;
+	background-color: map-get($colours, nav);
 }
 
 /* Style the navigation bar links */
@@ -126,7 +126,7 @@ p {
 /* Sidebar/left column */
 .side {
 	flex: 0 1 $side-width;
-	background-color: $background-colour;
+	background-color: map-get($colours, background);
 	padding: 20px;
 }
 
@@ -152,11 +152,16 @@ p {
 }
 
 /* Education timeline */
+#timeline-section {
+  background: map-get($colours, background);
+}
+
 /* The actual timeline (the vertical ruler) */
 .timeline {
   position: relative;
   max-width: $total-width;
   margin: 0 auto;
+  z-index: 10;
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -164,7 +169,7 @@ p {
   content: '';
   position: absolute;
   width: 6px;
-  background-color: $nav-colour;
+  background-color: map-get($colours, nav);
   top: 0;
   bottom: 0;
   left: 50%;
@@ -308,7 +313,7 @@ p {
 .footer {
 	padding: 20px;
 	text-align: center;
-	background: $footer-colour;
+	background: map-get($colours, footer);;
 }
 
 h3.contact {
@@ -339,7 +344,7 @@ p.contact {
   z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   outline: none; /* Remove outline */
-  background-color: $nav-colour; /* Set a background color */
+  background-color: map-get($colours, footer); /* Set a background color */
   color: white; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 15px; /* Some padding */

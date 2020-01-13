@@ -12,7 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <!-- import scripts -->
-<!-- <script src="/assets/js/back-to-top.js"></script> -->
+<script src="/assets/js/display.js"></script>
 
 <!-- Animation on Scroll -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -55,12 +55,6 @@
 	}
 </script>
 
-<script>
-	$(window).scroll(function() {
-  $(".hero-title-container").css("opacity", 1 - $(window).scrollTop() / 250);
-});
-</script>
-
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
 <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Home</title>
@@ -76,91 +70,103 @@
 	</head>
 	<body>						
         <!-- Header -->
-        <div>
-            <div class="hero-header" data-aos="fade">
-                <div class="hero-title-container">
-                    <p id="hero-title"
+        <section class="hero-header" data-aos="fade">
+            <div class="hero-title-container">
+                <p  id="hero-title"
                     data-aos="fade-right"
                     data-aos-delay="1500"
-                    >   
-                        Aaron Chiu, <br>
-                        Automotive Engineer in Training, <br>
-                        Emphasizing Quality & Productivity
-                    </p>
-                </div>
+                >   Aaron Chiu, <br>
+                    Automotive Engineer in Training, <br>
+                    Emphasizing Quality & Productivity
+                </p>
             </div>
-        </div>
+        </section>
 
         <!-- About -->
-        <div class="about-container">
-            <div id="about-text" data-aos="fade-right">
-                <h1 id="about-title">About</h1>
+        <section class="about-container" data-aos="about-container" data-aos-duration="1500">
+            <div id="about-text" data-aos="about-text">
+                <h1 class="about-title">About</h1>
                 <p>Land, air and sea. Vehicles seem to be everywhere and anywhere. We seem to take our surroundings for granted but never thoroughly thought how such machines came to be and how they benefit society so much. I wondered how these vehicles ever worked in the first place. As a person whose interests lie in this field, I'd like more people to know about these machines and how useful they are.</p>
-            </div>
-        </div>
 
+                <h1 class="about-title">Mission Statement</h1>
+                <p>To apply future engineering approches to current transportation technologies.</p>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="skills-container" data-aos="skills-container" data-aos-duration="1500">
+            <div id="skills-text" data-aos="fade-left">
+                <h1 class="skills-title">Skills</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper enim at odio placerat, in fringilla ante semper. Duis at dui sit amet magna mollis suscipit id at libero. Sed id eros semper, molestie odio sit amet, accumsan metus. In egestas nisl at dapibus fringilla.</p>
+
+                <h1 class="skills-title">Mission Statement</h1>
+                <p>To apply future engineering approches to current transportation technologies.</p>
+            </div>
+        </section>
 
 
         <!-- Education and Experience -->
-        <h1 class="title">Education & Experience</h1>
-	    <div class="timeline">
-		    
-                <div class="container left" 
+        <section id="timeline-section">
+            <h1 class="title">Education & Experience</h1>
+            <div class="timeline">
+                
+                    <div class="container left" 
                         data-aos="swing-in-right-fwd-timeline"
                         >
-                    <div class="content">
-                        <h2 style="margin-top:0" class="timeline-font">Expected Completion December 2022</h2>
-                        <h3 class="timeline-font">McMaster University</h3>
-                        <h4 class="timeline-font">Bachelor of Technology in Automotive & Vehicle Engineering Technology (Co-op)</h4>
-                        <p class="timeline-font">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+                        <div class="content">
+                            <h2 style="margin-top:0" class="timeline-font">Expected Completion December 2022</h2>
+                            <h3 class="timeline-font">McMaster University</h3>
+                            <h4 class="timeline-font">Bachelor of Technology in Automotive & Vehicle Engineering Technology (Co-op)</h4>
+                            <p class="timeline-font">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+                        </div>
                     </div>
-                </div>
-		    
-                <div class="container right"
+                
+                    <div class="container right"
                         data-aos="swing-in-left-fwd-timeline"
                         >
-                    <div class="content">
-                        <h2 style="margin-top:0" class="timeline-font">October 2018 - Present</h2>
-                        <h3 class="timeline-font">Mechanical Team Associate</h3>
-                        <h4 class="timeline-font">Solar Car Project - McMaster University</h4>
-                        <p class="timeline-font">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+                        <div class="content">
+                            <h2 style="margin-top:0" class="timeline-font">October 2018 - Present</h2>
+                            <h3 class="timeline-font">Mechanical Team Associate</h3>
+                            <h4 class="timeline-font">Solar Car Project - McMaster University</h4>
+                            <p class="timeline-font">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+                        </div>
                     </div>
-                </div>
-		    
-                <div class="container left" 
+                
+                    <div class="container left" 
                         data-aos="swing-in-right-fwd-timeline"
                         >
-                    <div class="content">
-                        <h2 style="margin-top:0" class="timeline-font">January 2019 - Decmeber 2019</h2>
-                        <h3 class="timeline-font">Vice President – Finance</h3>
-                        <h4 class="timeline-font">Bachelor of Technology Association – McMaster University</h4>
-                        <p class="timeline-font">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+                        <div class="content">
+                            <h2 style="margin-top:0" class="timeline-font">January 2019 - Decmeber 2019</h2>
+                            <h3 class="timeline-font">Vice President – Finance</h3>
+                            <h4 class="timeline-font">Bachelor of Technology Association – McMaster University</h4>
+                            <p class="timeline-font">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+                        </div>
                     </div>
-                </div>
-		    
-                <div class="container right"
+                
+                    <div class="container right"
                         data-aos="swing-in-left-fwd-timeline"
                         >
-                    <div class="content">
-                        <h2 style="margin-top:0" class="timeline-font">June 2018</h2>
-                        <h3 class="timeline-font">Turner Fenton Secondary School</h3>
-                        <h4 class="timeline-font">Secondary School Diploma with Honours</h4>
-                        <p class="timeline-font">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+                        <div class="content">
+                            <h2 style="margin-top:0" class="timeline-font">June 2018</h2>
+                            <h3 class="timeline-font">Turner Fenton Secondary School</h3>
+                            <h4 class="timeline-font">Secondary School Diploma with Honours</h4>
+                            <p class="timeline-font">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+                        </div>
                     </div>
-                </div>
-		    
-                <div class="container left" 
+                
+                    <div class="container left" 
                         data-aos="swing-in-right-fwd-timeline"
                         >
-                    <div class="content">
-                        <h2 style="margin-top:0" class="timeline-font">September 2017 - June 2018</h2>
-                        <h3 class="timeline-font">Director of Finance</h3>
-                        <h4 class="timeline-font">The Music Council – Turner Fenton Secondary School</h4>
-                        <p class="timeline-font">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+                        <div class="content">
+                            <h2 style="margin-top:0" class="timeline-font">September 2017 - June 2018</h2>
+                            <h3 class="timeline-font">Director of Finance</h3>
+                            <h4 class="timeline-font">The Music Council – Turner Fenton Secondary School</h4>
+                            <p class="timeline-font">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+                        </div>
                     </div>
-                </div>
-		    
-	    </div>
+                
+            </div>
+        </section>
         
         <!-- Ambitions -->
         <h1 class="title"> Ambitions </h1>
