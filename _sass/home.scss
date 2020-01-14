@@ -51,6 +51,10 @@ body {
     }
 }
 
+.sticky-parent {
+    width: 100%;
+}
+
 .about-container {
     height: 110vh;
     display: flex;
@@ -68,20 +72,35 @@ body {
 
     z-index: 100;
 
+    position: sticky;
+    top: 0;
+
     /* About actual content */
     #about-text {
         flex: 1 0 50vw;
         max-width: 50vw;
-        padding: 10vw;
+        padding: 8vw;
+
+        h1 {
+            font-family: 'Dax', sans-serif;
+            font-weight: 400;
+            font-size: 4.5vmin;
+            padding: 20px;
+            margin: 0;
+        }
+        
+        h1:before, h1:after {
+            content: '"';
+        }
 
         /* Title */
-        .about-title {
+        h2 {
             font-family: 'Roboto', sans-serif;
             margin: auto;
             padding: 20px;
         
             /* Underline after */
-            &::after {
+            &:after {
                 background: none repeat scroll 0 0 black;
                 bottom: -6px;
                 content: "";
@@ -117,7 +136,7 @@ body {
     justify-content: flex-end;
     background-color: #111;
 
-    background: url("/assets/images/turbocharger-inside-cropped.jpg");
+    background: url("/assets/images/turbocharger-inside.jpg");
 
     @include centerScaleBackground();
 
@@ -130,21 +149,42 @@ body {
     /* temporary fix for scroll bar*/
     overflow-x: hidden;
 
+    position: sticky;
+    top: 0;
+
     /* About actual content */
     #skills-text {
         flex: 1 0 50vw;
         max-width: 50vw;
-        padding: 10vw;
+        padding: 8vw;
+        
+        h1 {
+            font-family: 'Dax', sans-serif;
+            font-weight: 400;
+            font-size: 4.5vmin;
+            padding: 20px;
+            margin: auto 0;
+            color: white;
+            height: 15vmin;
+
+            @media screen and (max-width: 900px) {
+                height: 20vmin;
+            }
+
+            @media screen and (max-width: $side-change) {
+                height: 15vmin;
+            }
+        }
 
         /* Title */
-        .skills-title {
+        h2 {
             font-family: 'Roboto', sans-serif;
             margin: auto;
             padding: 20px;
             color: white;
         
             /* Underline after */
-            &::after {
+            &:after {
                 background: none repeat scroll 0 0 white;
                 bottom: -6px;
                 content: "";
@@ -154,7 +194,7 @@ body {
                 width: 100px;
             }
         }
-        
+
         /* Paragraph */
         p {
             font-family: 'RobotoCondensed', sans-serif;
@@ -162,6 +202,18 @@ body {
             margin: auto;
             padding: 0px 20px;
             color: white;
+        }
+
+        .skills-list-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: column wrap;
+            align-items: center;
+            justify-content: space-evenly;
+
+            .skills-list-title {
+                color: white;
+            }
         }
 
         @media screen and (max-width: $side-change) {
@@ -173,6 +225,8 @@ body {
     }
 }
 
+
+  
 
 h1.title {
     margin: auto;

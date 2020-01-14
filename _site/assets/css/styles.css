@@ -143,27 +143,43 @@ body { background: inherit; }
 
 .hero-header .hero-title-container #hero-title { font-family: 'Dax', sans-serif; font-weight: 400; margin: 0; width: 75vw; font-size: 7.5vmin; text-align: left; padding: 10px; position: fixed; color: white; }
 
-.about-container { height: 110vh; display: flex; flex-wrap: wrap; align-items: center; background-color: white; background: url("/assets/images/partial-engine.jpg"); /* Center and scale the image nicely */ background-position: center; background-repeat: no-repeat; background-size: cover; width: 100%; box-sizing: border-box; box-shadow: inset 55vw 0 5vw -5vw #FFF; z-index: 100; /* About actual content */ }
+.sticky-parent { width: 100%; }
 
-.about-container #about-text { flex: 1 0 50vw; max-width: 50vw; padding: 10vw; /* Title */ /* Paragraph */ }
+.about-container { height: 110vh; display: flex; flex-wrap: wrap; align-items: center; background-color: white; background: url("/assets/images/partial-engine.jpg"); /* Center and scale the image nicely */ background-position: center; background-repeat: no-repeat; background-size: cover; width: 100%; box-sizing: border-box; box-shadow: inset 55vw 0 5vw -5vw #FFF; z-index: 100; position: sticky; top: 0; /* About actual content */ }
 
-.about-container #about-text .about-title { font-family: 'Roboto', sans-serif; margin: auto; padding: 20px; /* Underline after */ }
+.about-container #about-text { flex: 1 0 50vw; max-width: 50vw; padding: 8vw; /* Title */ /* Paragraph */ }
 
-.about-container #about-text .about-title::after { background: none repeat scroll 0 0 black; bottom: -6px; content: ""; display: block; height: 3px; position: relative; width: 100px; }
+.about-container #about-text h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; padding: 20px; margin: 0; }
+
+.about-container #about-text h1:before, .about-container #about-text h1:after { content: '"'; }
+
+.about-container #about-text h2 { font-family: 'Roboto', sans-serif; margin: auto; padding: 20px; /* Underline after */ }
+
+.about-container #about-text h2:after { background: none repeat scroll 0 0 black; bottom: -6px; content: ""; display: block; height: 3px; position: relative; width: 100px; }
 
 .about-container #about-text p { font-family: 'RobotoCondensed', sans-serif; font-weight: 400; margin: auto; padding: 0px 20px; }
 
 @media screen and (max-width: 700px) { .about-container #about-text { flex: 1 0 90vw; max-width: 90vw; padding: 10vw; background: white; } }
 
-.skills-container { height: 110vh; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; background-color: #111; background: url("/assets/images/turbocharger-inside-cropped.jpg"); /* Center and scale the image nicely */ background-position: center; background-repeat: no-repeat; background-size: cover; width: 100%; box-sizing: border-box; box-shadow: inset -45vw 0 5vw -5vw #111; z-index: 100; /* temporary fix for scroll bar*/ overflow-x: hidden; /* About actual content */ }
+.skills-container { height: 110vh; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; background-color: #111; background: url("/assets/images/turbocharger-inside.jpg"); /* Center and scale the image nicely */ background-position: center; background-repeat: no-repeat; background-size: cover; width: 100%; box-sizing: border-box; box-shadow: inset -45vw 0 5vw -5vw #111; z-index: 100; /* temporary fix for scroll bar*/ overflow-x: hidden; position: sticky; top: 0; /* About actual content */ }
 
-.skills-container #skills-text { flex: 1 0 50vw; max-width: 50vw; padding: 10vw; /* Title */ /* Paragraph */ }
+.skills-container #skills-text { flex: 1 0 50vw; max-width: 50vw; padding: 8vw; /* Title */ /* Paragraph */ }
 
-.skills-container #skills-text .skills-title { font-family: 'Roboto', sans-serif; margin: auto; padding: 20px; color: white; /* Underline after */ }
+.skills-container #skills-text h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; padding: 20px; margin: auto 0; color: white; height: 15vmin; }
 
-.skills-container #skills-text .skills-title::after { background: none repeat scroll 0 0 white; bottom: -6px; content: ""; display: block; height: 3px; position: relative; width: 100px; }
+@media screen and (max-width: 900px) { .skills-container #skills-text h1 { height: 20vmin; } }
+
+@media screen and (max-width: 700px) { .skills-container #skills-text h1 { height: 15vmin; } }
+
+.skills-container #skills-text h2 { font-family: 'Roboto', sans-serif; margin: auto; padding: 20px; color: white; /* Underline after */ }
+
+.skills-container #skills-text h2:after { background: none repeat scroll 0 0 white; bottom: -6px; content: ""; display: block; height: 3px; position: relative; width: 100px; }
 
 .skills-container #skills-text p { font-family: 'RobotoCondensed', sans-serif; font-weight: 400; margin: auto; padding: 0px 20px; color: white; }
+
+.skills-container #skills-text .skills-list-container { display: flex; flex-direction: row; flex-wrap: column wrap; align-items: center; justify-content: space-evenly; }
+
+.skills-container #skills-text .skills-list-container .skills-list-title { color: white; }
 
 @media screen and (max-width: 700px) { .skills-container #skills-text { flex: 1 0 90vw; max-width: 90vw; padding: 10vw; background: #111; } }
 
@@ -349,5 +365,3 @@ h1.title { margin: auto; padding: 20px; width: 1475px; }
     -webkit-transform-origin: left;
     transform-origin: left;
     opacity: 0; } }
-
-/*# sourceMappingURL=styles.css.map */
