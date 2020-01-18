@@ -147,9 +147,11 @@ body { background: inherit; }
 
 .about-container { height: 110vh; display: flex; flex-wrap: wrap; align-items: center; background-color: white; background: url("/assets/images/partial-engine.jpg"); /* Center and scale the image nicely */ background-position: center; background-repeat: no-repeat; background-size: cover; width: 100%; box-sizing: border-box; box-shadow: inset 55vw 0 5vw -5vw #FFF; z-index: 100; position: sticky; top: 0; /* About actual content */ }
 
-.about-container #about-text { flex: 1 0 50vw; max-width: 50vw; padding: 8vw; /* Title */ /* Paragraph */ }
+.about-container #about-text { flex: 1 0 50vw; max-width: 50vw; padding: 6.5vw 8vw; /* Title */ /* Paragraph */ }
 
 .about-container #about-text h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; padding: 20px; margin: 0; }
+
+@media screen and (max-width: 700px) { .about-container #about-text h1 { font-size: 3.75vh; } }
 
 .about-container #about-text h1:before, .about-container #about-text h1:after { content: '"'; }
 
@@ -163,23 +165,19 @@ body { background: inherit; }
 
 .skills-container { height: 110vh; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; background-color: #111; background: url("/assets/images/turbocharger-inside.jpg"); /* Center and scale the image nicely */ background-position: center; background-repeat: no-repeat; background-size: cover; width: 100%; box-sizing: border-box; box-shadow: inset -45vw 0 5vw -5vw #111; z-index: 100; /* temporary fix for scroll bar*/ overflow-x: hidden; position: sticky; top: 0; /* About actual content */ }
 
-.skills-container #skills-text { flex: 1 0 50vw; max-width: 50vw; padding: 8vw; /* Title */ /* Paragraph */ }
+.skills-container #skills-text { flex: 1 0 50vw; max-width: 50vw; padding: 6.5vw 8vw; /* Title */ /* Paragraph */ }
 
 .skills-container #skills-text h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; padding: 20px; margin: auto 0; color: white; height: 15vmin; }
 
 @media screen and (max-width: 900px) { .skills-container #skills-text h1 { height: 20vmin; } }
 
-@media screen and (max-width: 700px) { .skills-container #skills-text h1 { height: 15vmin; } }
+@media screen and (max-width: 700px) { .skills-container #skills-text h1 { height: 11.5vh; font-size: 3.75vh; } }
 
 .skills-container #skills-text h2 { font-family: 'Roboto', sans-serif; margin: auto; padding: 20px; color: white; /* Underline after */ }
 
 .skills-container #skills-text h2:after { background: none repeat scroll 0 0 white; bottom: -6px; content: ""; display: block; height: 3px; position: relative; width: 100px; }
 
 .skills-container #skills-text p { font-family: 'RobotoCondensed', sans-serif; font-weight: 400; margin: auto; padding: 0px 20px; color: white; }
-
-.skills-container #skills-text .skills-list-container { display: flex; flex-direction: row; flex-wrap: column wrap; align-items: center; justify-content: space-evenly; }
-
-.skills-container #skills-text .skills-list-container .skills-list-title { color: white; }
 
 @media screen and (max-width: 700px) { .skills-container #skills-text { flex: 1 0 90vw; max-width: 90vw; padding: 10vw; background: #111; } }
 
@@ -365,5 +363,3 @@ h1.title { margin: auto; padding: 20px; width: 1475px; }
     -webkit-transform-origin: left;
     transform-origin: left;
     opacity: 0; } }
-
-/*# sourceMappingURL=styles.css.map */

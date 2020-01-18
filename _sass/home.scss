@@ -79,7 +79,7 @@ body {
     #about-text {
         flex: 1 0 50vw;
         max-width: 50vw;
-        padding: 8vw;
+        padding: 6.5vw 8vw;
 
         h1 {
             font-family: 'Dax', sans-serif;
@@ -87,6 +87,10 @@ body {
             font-size: 4.5vmin;
             padding: 20px;
             margin: 0;
+
+            @media screen and (max-width: $side-change) {
+                font-size: 3.75vh;
+            }
         }
         
         h1:before, h1:after {
@@ -156,7 +160,7 @@ body {
     #skills-text {
         flex: 1 0 50vw;
         max-width: 50vw;
-        padding: 8vw;
+        padding: 6.5vw 8vw;
         
         h1 {
             font-family: 'Dax', sans-serif;
@@ -172,7 +176,8 @@ body {
             }
 
             @media screen and (max-width: $side-change) {
-                height: 15vmin;
+                height: 11.5vh;
+                font-size: 3.75vh;
             }
         }
 
@@ -202,18 +207,6 @@ body {
             margin: auto;
             padding: 0px 20px;
             color: white;
-        }
-
-        .skills-list-container {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: column wrap;
-            align-items: center;
-            justify-content: space-evenly;
-
-            .skills-list-title {
-                color: white;
-            }
         }
 
         @media screen and (max-width: $side-change) {
