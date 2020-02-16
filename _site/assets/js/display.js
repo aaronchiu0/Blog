@@ -3,16 +3,30 @@ let vh = window.innerHeight * 0.01;
 
 // bounding function 
 function clamp(num, min, max) {
-    return num <= min ? min : num >= max ? max : num;
+    if (num <= min)
+        return min;
+    else if (num >= max)
+        return max;
+    else 
+        return num;
 }
 
 $(document).ready(function(){
     $(window).scroll(function() {
         var y = $(this).scrollTop();    // distance from top of page in px
-        var opacity = 1 - y / 250;      // opacity lowering calculation
+        var opacity = clamp(1 - y / 250, 0, 1);      // opacity lowering calculation
         $(".hero-title-container").css({
-            "opacity": clamp(opacity, 0, 1)
+            "opacity": opacity
         });
+
+        if (opacity > 0) {
+            $("#hero-title").show();
+            $(".hero-title-container").css({
+                "opacity": opacity
+            });
+        }
+        else
+            $("#hero-title").hide();
     });
 });
 

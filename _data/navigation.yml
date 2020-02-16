@@ -1,5 +1,7 @@
 - name: Home
   link: /
+- name: Calculators
+  link: /calculators.html
 - name: Blog
   link: /blog.html
 - name: Courses

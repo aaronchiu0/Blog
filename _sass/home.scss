@@ -29,12 +29,13 @@ body {
     .hero-title-container {
         height: 100%;
         width: 100%;
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         background: inherit;
-        z-index: 1;
+        //z-index: -1;
 
         #hero-title {
             font-family: 'Dax', sans-serif;
@@ -45,6 +46,7 @@ body {
             text-align: left;
             padding: 10px;
             position: fixed;
+            display: block;
         
             color: white;
         }
@@ -79,7 +81,7 @@ body {
     #about-text {
         flex: 1 0 50vw;
         max-width: 50vw;
-        padding: 6.5vw 8vw;
+        padding: 6vw 8vw;
 
         h1 {
             font-family: 'Dax', sans-serif;
@@ -160,7 +162,7 @@ body {
     #skills-text {
         flex: 1 0 50vw;
         max-width: 50vw;
-        padding: 6.5vw 8vw;
+        padding: 6vw 8vw;
         
         h1 {
             font-family: 'Dax', sans-serif;
