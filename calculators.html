@@ -1,42 +1,22 @@
 ---
-title: Blog
+title: Calculator
 layout: default-with-side
 ---
 <div>
 	
-<h2>Responsive "Meet The Team" Section</h2>
-<p>Resize the browser window to see the effect.</p>
-<br>
+<h1>Calculators</h1>
+<p>A number of resources that can be used to check or verify manual calculations</p>
 
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-      <div class="calculator-container">
-        <h2>Jane Doe</h2>
-        <p class="title">CEO & Founder</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
-      <div class="calculator-container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <img src="/w3images/team3.jpg" alt="John" style="width:100%">
-      <div class="calculator-container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-      </div>
-    </div>
-  </div>
+<div class="row-calculators">
+	{% for item in site.data.calculators %}
+		<a class="calculators-card" href="{{item.link}}">
+			<img class="calculators-image" src="{{item.image}}" alt="Economics" style="width:100%">
+			<div class="calculators-container">
+				<h2>{{item.title}}</h2>
+				<p>{{item.description}}</p>
+			</div>
+		</a>
+	{% endfor %}
 </div>
+
 </div>

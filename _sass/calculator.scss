@@ -1,0 +1,32 @@
+@import "utilities/variables";
+@import "utilities/mixins";
+
+.row-calculators {
+    @include flexbox-container(row, flex-start, center);
+}
+
+.calculators-card {
+    height: 325px;
+    width: 45%;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    &:link, &:visited {
+        color: black;
+        text-decoration: none;
+    }
+
+    &:hover, &:active {
+        box-shadow: 1px 8px 16px 1px rgba(0, 0, 0, 0.2);
+    }
+
+
+    .calculators-image {
+        height: 175px;
+        object-fit: cover;
+    }
+}
+
+.calculators-container {
+    padding: 0 16px;
+}

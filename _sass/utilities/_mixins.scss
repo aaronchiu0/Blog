@@ -1,0 +1,19 @@
+/* Center and scale the image nicely */
+@mixin centerScaleImage($image) {
+    
+}
+
+@mixin centerScaleBackground($image){
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url($image);
+}
+
+/* flexbox container*/ 
+@mixin flexbox-container($direction, $justify: flex-start, $align: flex-start) {
+    display: flex;
+	flex-flow: $direction wrap;
+    justify-content: $justify;
+    align-items: $align;
+}

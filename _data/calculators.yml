@@ -1,0 +1,13 @@
+- image: /assets/images/economics.jpg
+  title: Economics
+  link: /calculators/economics.html
+  description: For when you aren't trying to calculate interest rates manually.
+- image: /assets/images/numerical-solutions.jpg
+  title: Numerical Solutions
+  link: /calculators/numerical-solutions.html
+  description: Why do advanced calculations by hand when a computer can do it for you.
+  
+  
+  
+  
+  
