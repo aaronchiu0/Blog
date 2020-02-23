@@ -62,7 +62,8 @@ p { font-family: 'RobotoCondensed', sans-serif; }
 .fakeimg { background-color: #aaa; width: 100%; padding: 20px; }
 
 /* Responsive layout - when the screen is less than 550px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 700px) { .row, .navbar { flex-direction: column; } }
+@media screen and (max-width: 700px) { .row, .navbar { flex-direction: column; }
+  .navbar a { width: 100vw; } }
 
 /* Social Media Icons */
 .fa { padding: 10px; font-size: 30px; width: 35px; height: 35px; text-align: center; text-decoration: none; margin: 5px 2px; }
@@ -204,7 +205,15 @@ body { background: #f1f1f1; }
 
 .calculators-card .calculators-image { height: 175px; object-fit: cover; }
 
-.calculators-container { padding: 0 16px; }
+.calculators-card .calculators-container { padding: 0 16px; }
+
+.multiple-column { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: center; }
+
+.multiple-column #calculation-type { flex: 1 0 33.3333333333%; }
+
+.multiple-column #calculation-IO { flex: 1 0 33.3333333333%; }
+
+.multiple-column #calculation-IO-interpolate { flex: 1 0 33.3333333333%; }
 
 /* Dax */
 @font-face { /* (900) Black */ font-family: 'Dax'; src: url(../fonts/Dax/Dax-Black.ttf); font-weight: normal; font-style: normal; }

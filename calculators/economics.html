@@ -1,4 +1,57 @@
 ---
 title: Economics
-layout: default
+layout: default-with-side-menu
 ---
+
+<h1>Compound Interest Factors</h1>
+
+<div class="multiple-column">
+    <div id="calculation-type">
+        <h2>Factors</h2>
+        <h3>Single Payments</h3>
+        <button class="factor">F/P</button>
+        <button class="factor">P/F</button>
+    
+        <h3>Uniform Payment Series</h3>
+        <button class="factor">A/F</button>
+        <button class="factor">A/P</button>
+        <button class="factor">F/A</button>
+        <button class="factor">P/A</button>
+    
+        <h3>Arithmetic Gradient</h3>
+        <button class="factor">A/G</button>
+        <button class="factor">P/G</button>
+    </div>
+    <div id="calculation-IO">
+        <h2>Input</h2>
+        <h3>Calculating Nothing</h3>
+        <label class="amount-label" for="amount">?</label><br>
+        <input class="amount" type="number"><br>
+        <label for="rate">Rate</label><br>
+        <input id="rate" type="number"><br>
+        <label for="period">Period</label><br>
+        <input id="period" type="number"><br>
+
+        <button class="submit">Submit</button>
+
+        <h2>Output</h2>
+        <p class="output">Answer</p>
+    </div>
+    <div id="calculation-IO-interpolate">
+        <h2>Input</h2>
+        <h3>Calculating Nothing</h3>
+        <button id="calcRate">Rate</button>
+        <button id="calcPeriod">Period</button><br>
+
+        <label class="first-label" for="amount">?</label><br>
+        <input class="first-amount" type="number"><br>
+        <label class="second-label" for="amount">?</label><br>
+        <input class="second-amount" type="number"><br>
+        <label class="calculate-label" for="calculate">?</label><br>
+        <input class="calculate" type="number"><br>
+        <button class="submit">Submit</button>
+
+        <h2>Output</h2>
+        <p class="output">Answer</p>
+    </div>
+</div>

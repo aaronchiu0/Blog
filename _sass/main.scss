@@ -96,7 +96,7 @@ p {
 
 /* Style the top navigation bar */
 .navbar {
-  @include flexbox-container(row, flex-start);
+  @include flexbox-container(row, flex-start, flex-start);
 	background-color: map-get($colours, nav);
 }
 
@@ -144,8 +144,12 @@ p {
 /* Responsive layout - when the screen is less than 550px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: $side-change) {
 	.row, .navbar {   
-		flex-direction: column;
-	}
+    flex-direction: column;
+  }
+  
+  .navbar a {
+    width: 100vw;
+  }
 }
 
 /* Social Media Icons */

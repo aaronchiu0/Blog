@@ -2,10 +2,18 @@
   title: Economics
   link: /calculators/economics.html
   description: For when you aren't trying to calculate interest rates manually.
+  calculators:
+    - name: Interest Rates
+      link: 
 - image: /assets/images/numerical-solutions.jpg
   title: Numerical Solutions
   link: /calculators/numerical-solutions.html
   description: Why do advanced calculations by hand when a computer can do it for you.
+  calculators:
+    - name: Bisection
+      link:
+    - name: Gaussian
+      link: 
   
   
   

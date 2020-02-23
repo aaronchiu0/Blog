@@ -25,8 +25,15 @@
         height: 175px;
         object-fit: cover;
     }
+
+    .calculators-container {
+        padding: 0 16px;
+    }
 }
 
-.calculators-container {
-    padding: 0 16px;
+// Economics
+.multiple-column {
+    @include column("#calculation-type", "#calculation-IO", "#calculation-IO-interpolate") {
+
+    }
 }

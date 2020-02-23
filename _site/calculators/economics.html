@@ -11,10 +11,13 @@
 <!-- import jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<!-- import math.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.0/math.js"></script>
+
 <!-- import scripts -->
 <script src="/assets/js/display.js"></script>
 <script src="/assets/js/typing-text.js"></script>
-<script src="/assets/js/rotating-card.js"></script>
+<script src="/assets/js/economics.js"></script>
 
 <!-- Animation on Scroll -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -101,10 +104,77 @@
 
 <!-- back to top button -->
 <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>	
-		
-		<div style="display:flex; flex-wrap:wrap; justify-content:center;">
-			<div style="flex: 0 1 1475px; padding:20px;"> <!-- total allowable width -->
-					
+
+		<div class="row">
+			<div class="side">
+                
+                    <h2>Economics</h2>
+                    
+                        <a href="">Interest Rates</a><br>
+                    
+                
+                    <h2>Numerical Solutions</h2>
+                    
+                        <a href="">Bisection</a><br>
+                    
+                        <a href="">Gaussian</a><br>
+                    
+                
+			</div>
+			<div class="main">
+				<!-- Content -->
+				<h1>Compound Interest Factors</h1>
+
+<div class="multiple-column">
+    <div id="calculation-type">
+        <h2>Factors</h2>
+        <h3>Single Payments</h3>
+        <button class="factor">F/P</button>
+        <button class="factor">P/F</button>
+    
+        <h3>Uniform Payment Series</h3>
+        <button class="factor">A/F</button>
+        <button class="factor">A/P</button>
+        <button class="factor">F/A</button>
+        <button class="factor">P/A</button>
+    
+        <h3>Arithmetic Gradient</h3>
+        <button class="factor">A/G</button>
+        <button class="factor">P/G</button>
+    </div>
+    <div id="calculation-IO">
+        <h2>Input</h2>
+        <h3>Calculating Nothing</h3>
+        <label class="amount-label" for="amount">?</label><br>
+        <input class="amount" type="number"><br>
+        <label for="rate">Rate</label><br>
+        <input id="rate" type="number"><br>
+        <label for="period">Period</label><br>
+        <input id="period" type="number"><br>
+
+        <button class="submit">Submit</button>
+
+        <h2>Output</h2>
+        <p class="output">Answer</p>
+    </div>
+    <div id="calculation-IO-interpolate">
+        <h2>Input</h2>
+        <h3>Calculating Nothing</h3>
+        <button id="calcRate">Rate</button>
+        <button id="calcPeriod">Period</button><br>
+
+        <label class="first-label" for="amount">?</label><br>
+        <input class="first-amount" type="number"><br>
+        <label class="second-label" for="amount">?</label><br>
+        <input class="second-amount" type="number"><br>
+        <label class="calculate-label" for="calculate">?</label><br>
+        <input class="calculate" type="number"><br>
+        <button class="submit">Submit</button>
+
+        <h2>Output</h2>
+        <p class="output">Answer</p>
+    </div>
+</div>
 			</div>
 		</div>
 		
@@ -142,4 +212,5 @@
         duration: 2000
     });
 </script>
+	</body>
 </html>
