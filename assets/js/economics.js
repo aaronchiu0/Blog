@@ -6,6 +6,8 @@ var scope = {
 var selectedFactor = -1;
 var selectedCalc = "";
 
+var factorNames = [ "F/P", "P/F", "A/F", "A/P", "F/A", "P/A", "A/G", "P/G" ];
+
 // expressions to evaluate
 var expressions = [
     fp = math.parse('(1+i)^n'),
@@ -122,4 +124,9 @@ $(document).ready(function(){
         math.format(ans, {precision: 10});
         $("#calculation-IO-interpolate .output").text(ans);
     });
+
+    // print out formulas
+    for (let i = expressions.length-1; i >= 0; i--) {
+        $("#formula-heading").after("$$"+"("+factorNames[i]+",i, n)="+expressions[i].toTex()+"$$"+"<br>");
+    }
 });
