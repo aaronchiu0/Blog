@@ -120,7 +120,16 @@ $(document).ready(function(){
 
         selectedCalc == "rate" ? scope.n = known : scope.i = known;
 
-        var ans = NewtonRaphson(first/second, 2, 100, 0.0000000001, 0.01);
+        var ans = -1;
+        if (selectedCalc == "rate") {
+            scope.n = known;
+            ans = NewtonRaphson(first/second, 0.001, 100, 0.0000000001, 0.0001);
+        }
+        else {
+            scope.i = known;
+            ans = NewtonRaphson(first/second, 2, 100, 0.0000000001, 0.0001);
+        }
+
         math.format(ans, {precision: 10});
         $("#calculation-IO-interpolate .output").text(ans);
     });
