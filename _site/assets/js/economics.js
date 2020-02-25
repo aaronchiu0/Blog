@@ -93,12 +93,12 @@ $(document).ready(function(){
         console.log(amount, factor, scope);
 
         var ans = amount*factor;
-        math.format(ans, {precision: 10});
-        $("#calculation-IO .output").text(ans);
 
-        NewtonRaphson(2, 100, 0.0000000001, 0.01);
+        $("#calculation-IO .output").text(
+            "$\\begin{align}"+factorNames[selectedFactor].charAt(0)+"&="+factorNames[selectedFactor].charAt(2)+"("+factorNames[selectedFactor]+",i, n)\\\\&="+amount+"("+factorNames[selectedFactor]+","+scope.i+","+scope.n+")\\\\&="+amount+"("+factor+")\\\\&="+ans+"\\end{align}$");
 
 
+        MathJax.Hub.Typeset();
     });
 
     $("#calculation-IO-interpolate #calcRate").click(function() {
@@ -136,6 +136,6 @@ $(document).ready(function(){
 
     // print out formulas
     for (let i = expressions.length-1; i >= 0; i--) {
-        $("#formula-heading").after("$$"+"("+factorNames[i]+",i, n)="+expressions[i].toTex()+"$$"+"<br>");
+        $("#formula-heading").after("$$"+"("+factorNames[i]+",i, n)="+expressions[i].toTex({parenthesis: 'auto'})+"$$"+"<br>");
     }
 });
