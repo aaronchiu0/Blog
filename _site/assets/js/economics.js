@@ -1,3 +1,8 @@
+// Round to precision
+function precise(x) {
+    return Number.parseFloat(x).toPrecision(6);
+}
+
 // global variables
 var scope = {
     i: -1,
@@ -93,6 +98,9 @@ $(document).ready(function(){
         console.log(amount, factor, scope);
 
         var ans = amount*factor;
+
+        factor = precise(factor);
+        ans = precise(ans);
 
         $("#calculation-IO .output").text(
             "$\\begin{align}"+factorNames[selectedFactor].charAt(0)+"&="+factorNames[selectedFactor].charAt(2)+"("+factorNames[selectedFactor]+",i, n)\\\\&="+amount+"("+factorNames[selectedFactor]+","+scope.i+","+scope.n+")\\\\&="+amount+"("+factor+")\\\\&="+ans+"\\end{align}$");
