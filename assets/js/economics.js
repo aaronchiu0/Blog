@@ -1,6 +1,6 @@
 // Round to precision
-function precise(x) {
-    return Number.parseFloat(x).toPrecision(6);
+function precise(x, p) {
+    return Number.parseFloat(x).toPrecision(p);
 }
 
 // global variables
@@ -11,57 +11,67 @@ var scope = {
 var selectedFactor = -1;
 var selectedCalc = "";
 
-var factorNames = [ "F/P", "P/F", "A/F", "A/P", "F/A", "P/A", "A/G", "P/G" ];
+// expression objects definition
+class Factor {
+    constructor(name, expression) {
+        this.m_name = name;
+        this.m_expression = expression;
+    }
+    
+    get name(){        return this.m_name;}
+    get expression(){  return this.m_expression;}
+    get parsed(){      return math.parse(this.m_expression);}
+    get compiled(){    return math.compile(this.m_expression);}
+
+    set name(name){                 this.m_name = name;}
+    set expression(expression){     this.m_expression = expression;}
+
+    eval(scope) {
+        return this.compiled.evaluate(scope);
+    }
+
+    derivative(x) {
+        return math.derivative(this.parsed, x);
+    }
+
+    eval_derivative(x, scope) {
+        return this.derivative(x).evaluate(scope);
+    }
+}
 
 // expressions to evaluate
-var expressions = [
-    fp = math.parse('(1+i)^n'),
-    pf = math.parse('1/(1+i)^n'),
-    af = math.parse('i/((1+i)^n-1)'),
-    ap = math.parse('i*(1+i)^n/((1+i)^n-1)'),
-    fa = math.parse('((1+i)^n-1)/i'),
-    pa = math.parse('((1+i)^n-1)/(i*(1+i)^n)'),
-    ag = math.parse('1/i-n/((1+i)^n-1)'),
-    pg = math.parse('((1+i)^n-i*n-1)/(i^2*(1+i)^n)'),
+var factors = [
+    fp = new Factor("F/P", '(1+i)^n'),
+    pf = new Factor("P/F", '1/(1+i)^n'),
+    af = new Factor("A/F", 'i/((1+i)^n-1)'),
+    ap = new Factor("A/P", 'i*(1+i)^n/((1+i)^n-1)'),
+    fa = new Factor("F/A", '((1+i)^n-1)/i'),
+    pa = new Factor("P/A", '((1+i)^n-1)/(i*(1+i)^n)'),
+    ag = new Factor("A/G", '1/i-n/((1+i)^n-1)'),
+    pg = new Factor("P/G", '((1+i)^n-i*n-1)/(i^2*(1+i)^n)')
 ];
 
-// compile expressions
-var compiled_expressions = new Array;
-for (let i = 0; i < expressions.length; i++) {
-    compiled_expressions.push(expressions[i].compile());
-}
-
-var derivative_i = new Array;
-for (let i = 0; i < expressions.length; i++) {
-    derivative_i.push(math.derivative(expressions[i], 'i'));
-}
-
-var derivative_n = new Array;
-for (let i = 0; i < expressions.length; i++) {
-    derivative_n.push(math.derivative(expressions[i], 'n'));
-}
-
-function NewtonRaphson(equals, x, nmax, eps, del) {
+function NewtonRaphson(shift, x, nmax, eps, del) {
     var n, fx, fp;
 
     selectedCalc == "rate" ? scope.i = x : scope.n = x;
-    console.log(selectedFactor, equals, scope);
+    console.log(selectedFactor, shift, scope);
 
-    fx = compiled_expressions[selectedFactor].evaluate(scope) - equals;
+    fx = factors[selectedFactor].eval(scope) - shift;
     console.log(0, x, fx);
 
     for (n = 1; n <= nmax; n++) {
-        selectedCalc == "rate" ? fp = derivative_i[selectedFactor].evaluate(scope) : fp = derivative_n[selectedFactor].evaluate(scope);
+        selectedCalc == "rate" ? fp = factors[selectedFactor].eval_derivative('i', scope) : fp = factors[selectedFactor].eval_derivative('n', scope);
 
         if (Math.abs(fp) < del) {
             console.log("small derivative")
-            return;
+            break;
         }
 
         let d = fx/fp;
         x = x - d;
         selectedCalc == "rate" ? scope.i = x : scope.n = x;
-        fx = compiled_expressions[selectedFactor].evaluate(scope) - equals;
+        fx = factors[selectedFactor].eval(scope) - shift;
 
         console.log(n, x, fx);
 
@@ -93,17 +103,17 @@ $(document).ready(function(){
             n: parseFloat($("#period").val())
         };
 
-        var factor = compiled_expressions[selectedFactor].evaluate(scope);
+        var factor = factors[selectedFactor].eval(scope);
 
         console.log(amount, factor, scope);
 
         var ans = amount*factor;
 
-        factor = precise(factor);
-        ans = precise(ans);
+        factor = precise(factor, 8);
+        ans = precise(ans, 8);
 
         $("#calculation-IO .output").text(
-            "$\\begin{align}"+factorNames[selectedFactor].charAt(0)+"&="+factorNames[selectedFactor].charAt(2)+"("+factorNames[selectedFactor]+",i, n)\\\\&="+amount+"("+factorNames[selectedFactor]+","+scope.i+","+scope.n+")\\\\&="+amount+"("+factor+")\\\\&="+ans+"\\end{align}$");
+            "$\\begin{align}"+factors[selectedFactor].name.charAt(0)+"&="+factors[selectedFactor].name.charAt(2)+"("+factors[selectedFactor].name+",i, n)\\\\&="+amount+"("+factors[selectedFactor].name+","+scope.i+","+scope.n+")\\\\&="+amount+"("+factor+")\\\\&="+ans+"\\end{align}$");
 
 
         MathJax.Hub.Typeset();
@@ -128,22 +138,34 @@ $(document).ready(function(){
 
         selectedCalc == "rate" ? scope.n = known : scope.i = known;
 
+        var shift = first/second;
+
         var ans = -1;
         if (selectedCalc == "rate") {
             scope.n = known;
-            ans = NewtonRaphson(first/second, 0.001, 100, 0.0000000001, 0.0001);
+            ans = NewtonRaphson(shift, 0.001, 100, 0.0000000001, 0.0001);
         }
         else {
             scope.i = known;
-            ans = NewtonRaphson(first/second, 2, 100, 0.0000000001, 0.0001);
+            ans = NewtonRaphson(shift, 2, 100, 0.0000000001, 0.0001);
         }
 
-        math.format(ans, {precision: 10});
-        $("#calculation-IO-interpolate .output").text(ans);
+        ans = precise(ans, 8);
+
+        if (selectedCalc == "rate"){
+            $("#calculation-IO-interpolate .output").text(
+                "$\\begin{align}"+factors[selectedFactor].name.charAt(0)+"&="+factors[selectedFactor].name.charAt(2)+"("+factors[selectedFactor].name+",i, n)\\\\"+first+"&="+second+"("+factors[selectedFactor].name+",i,"+scope.n+")\\\\"+shift+"&=("+factors[selectedFactor].name+",i,"+scope.n+")\\\\i&="+ans+"\\end{align}$");
+        }
+        else {
+            $("#calculation-IO-interpolate .output").text(
+                "$\\begin{align}"+facto[selectedFactor].name.charAt(0)+"&="+factors[selectedFactor].name.charAt(2)+"("+factors[selectedFactor].name+",i, n)\\\\"+first+"&="+second+"("+factors[selectedFactor].name+","+scope.i+",n)\\\\"+shift+"&=("+factors[selectedFactor].name+","+scope.i+",n)\\\\n&="+ans+"\\end{align}$");
+        }
+
+        MathJax.Hub.Typeset();
     });
 
     // print out formulas
-    for (let i = expressions.length-1; i >= 0; i--) {
-        $("#formula-heading").after("$$"+"("+factorNames[i]+",i, n)="+expressions[i].toTex({parenthesis: 'auto'})+"$$"+"<br>");
+    for (let i = factors.length-1; i >= 0; i--) {
+        $("#formula-heading").after("$$"+"("+factors[i].name+",i, n)="+factors[i].parsed.toTex({parenthesis: 'auto'})+"$$"+"<br>");
     }
 });

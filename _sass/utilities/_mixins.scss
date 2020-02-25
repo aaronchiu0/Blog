@@ -15,7 +15,7 @@
 }
 
 @mixin column($children...) {
-    @include flexbox-container(row, flex-start, center);
+    @include flexbox-container(row, flex-start, flex-start);
     @for $i from 0 to length($children) {
         #{nth($children, $i+1)} {
             flex: 1 0 100/length($children)*1%;

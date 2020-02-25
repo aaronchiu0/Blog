@@ -207,7 +207,7 @@ body { background: #f1f1f1; }
 
 .calculators-card .calculators-container { padding: 0 16px; }
 
-.multiple-column { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: center; }
+.multiple-column { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: flex-start; }
 
 .multiple-column #calculation-type { flex: 1 0 33.3333333333%; }
 
