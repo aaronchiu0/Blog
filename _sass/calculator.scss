@@ -2,7 +2,7 @@
 @import "utilities/mixins";
 
 .row-calculators {
-    @include flexbox-container(row, flex-start, center);
+    @include flexbox-container(row, center, center);
 }
 
 .calculators-card {
@@ -20,7 +20,6 @@
         box-shadow: 1px 8px 16px 1px rgba(0, 0, 0, 0.2);
     }
 
-
     .calculators-image {
         height: 175px;
         object-fit: cover;
@@ -28,6 +27,18 @@
 
     .calculators-container {
         padding: 0 16px;
+    }
+}
+
+
+    
+@media screen and (max-width: $timeline-change) {
+    .row-calculators {
+        flex-direction: column;
+    }
+
+    .calculators-card {
+        width: auto;
     }
 }
 

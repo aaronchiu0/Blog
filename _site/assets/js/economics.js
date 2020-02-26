@@ -1,41 +1,54 @@
 // Round to precision
-function precise(x, p) {
-    return Number.parseFloat(x).toPrecision(p);
-}
+const precise = (x, p) => Number.parseFloat(x).toPrecision(p);
 
 // global variables
 var scope = {
     i: -1,
     n: -1
 };
-var selectedFactor = -1;
+var selectedFactor = 0;
 var selectedCalc = "";
 
 // expression objects definition
 class Factor {
-    constructor(name, expression) {
+    constructor(name, expression, print=expression) {
         this.m_name = name;
         this.m_expression = expression;
+        this.m_print = print;
     }
     
-    get name(){        return this.m_name;}
-    get expression(){  return this.m_expression;}
-    get parsed(){      return math.parse(this.m_expression);}
-    get compiled(){    return math.compile(this.m_expression);}
+    get name() {        return this.m_name; }
+    get expression() {  return this.m_expression; }
+    get parsed() {      return math.parse(this.m_expression); }
+    get compiled() {    return math.compile(this.m_expression); }
 
-    set name(name){                 this.m_name = name;}
-    set expression(expression){     this.m_expression = expression;}
+    get ungiven() {     return this.m_name.charAt(0); }
+    get given() {       return this.m_name.charAt(2); }
 
-    eval(scope) {
-        return this.compiled.evaluate(scope);
+    get print(){        return math.parse(this.m_print); }
+
+    set name(name) {                 this.m_name = name; }
+    set expression(expression) {     this.m_expression = expression; }
+
+    eval(scope) { return this.compiled.evaluate(scope); }
+    derivative(x) { return math.derivative(this.parsed, x); }
+    eval_derivative(x, scope) { return this.derivative(x).evaluate(scope); }
+
+    formatted(i, n) { return "("+this.m_name +","+ i +","+ n +")"; }
+    printTex() { return this.print.toTex({parenthesis: 'auto'}); }
+}
+
+class GrowthFactor extends Factor {
+    constructor(name, expression, adjusted, print) {
+        super(name, expression, print);
+        this.m_adjusted_i = adjusted;
     }
 
-    derivative(x) {
-        return math.derivative(this.parsed, x);
-    }
+    get adjusted_i() { return math.parse(this.m_adjusted_i); }
 
-    eval_derivative(x, scope) {
-        return this.derivative(x).evaluate(scope);
+    formatted(g, i, n) { return "("+this.m_name +","+ g +","+ i +","+ n +")"; }
+    printTex() { 
+        return `${super.printTex()} \\qquad i^o=${this.adjusted_i.toTex({parenthesis: 'auto'})}`;
     }
 }
 
@@ -48,7 +61,9 @@ var factors = [
     fa = new Factor("F/A", '((1+i)^n-1)/i'),
     pa = new Factor("P/A", '((1+i)^n-1)/(i*(1+i)^n)'),
     ag = new Factor("A/G", '1/i-n/((1+i)^n-1)'),
-    pg = new Factor("P/G", '((1+i)^n-i*n-1)/(i^2*(1+i)^n)')
+    pg = new Factor("P/G", '((1+i)^n-i*n-1)/(i^2*(1+i)^n)'),
+
+    pa = new GrowthFactor("P/A", '((1+i)^n-1)/(i*(1+i)^n)*(1/(1+g))', '(1+i)/(1+g)-1', '((1+i^o)^n-1)/(i^o*(1+i^o)^n)*(1/(1+g))')
 ];
 
 function NewtonRaphson(shift, x, nmax, eps, del) {
@@ -64,7 +79,7 @@ function NewtonRaphson(shift, x, nmax, eps, del) {
         selectedCalc == "rate" ? fp = factors[selectedFactor].eval_derivative('i', scope) : fp = factors[selectedFactor].eval_derivative('n', scope);
 
         if (Math.abs(fp) < del) {
-            console.log("small derivative")
+            console.log("small derivative");
             break;
         }
 
@@ -84,18 +99,7 @@ function NewtonRaphson(shift, x, nmax, eps, del) {
 } 
 
 $(document).ready(function(){
-    $("#calculation-type .factor").click(function() {
-        selectedFactor = $(this).index(".factor");
-        $("#calculation-IO h3").text("Calculating "+$(this).text());
-        $("#calculation-IO .amount-label").text($(this).text().charAt(2));
-        $("#calculation-IO-interpolate .first-label").text($(this).text().charAt(0));
-        $("#calculation-IO-interpolate .second-label").text($(this).text().charAt(2));
-
-        console.log(selectedFactor, $(this).text());
-    });
-
-
-    $("#calculation-IO .submit").click(function() {
+    const update = function() {
         var amount = parseFloat($(".amount").val());
 
         scope = {
@@ -113,11 +117,37 @@ $(document).ready(function(){
         ans = precise(ans, 8);
 
         $("#calculation-IO .output").text(
-            "$\\begin{align}"+factors[selectedFactor].name.charAt(0)+"&="+factors[selectedFactor].name.charAt(2)+"("+factors[selectedFactor].name+",i, n)\\\\&="+amount+"("+factors[selectedFactor].name+","+scope.i+","+scope.n+")\\\\&="+amount+"("+factor+")\\\\&="+ans+"\\end{align}$");
+            "$\\begin{align}"+factors[selectedFactor].ungiven+"&="+factors[selectedFactor].given+"("+factors[selectedFactor].name+",i, n)\\\\&="+amount+"("+factors[selectedFactor].name+","+scope.i+","+scope.n+")\\\\&="+amount+"("+factor+")\\\\&="+ans+"\\end{align}$");
 
 
         MathJax.Hub.Typeset();
-    });
+    };
+
+    const selectCalc = function() {
+        selectedFactor = $(this).index(".factor");
+        $("#calculation-IO h3").text("Calculating "+factors[selectedFactor].name);
+        $("#calculation-IO .amount-label").text(factors[selectedFactor].given);
+        $("#calculation-IO-interpolate .first-label").text(factors[selectedFactor].ungiven);
+        $("#calculation-IO-interpolate .second-label").text(factors[selectedFactor].given);
+
+        console.log(selectedFactor, $(this).text());
+
+        update();
+    };
+
+    // on ready self-invoking
+    (function() {
+        $("#calculation-IO h3").text("Calculating "+factors[selectedFactor].name);
+        $("#calculation-IO .amount-label").text(factors[selectedFactor].given);
+        $("#calculation-IO-interpolate .first-label").text(factors[selectedFactor].ungiven);
+        $("#calculation-IO-interpolate .second-label").text(factors[selectedFactor].given);
+
+        update();
+    })();
+
+    $("#calculation-type .factor").click(selectCalc);
+
+    $("#calculation-IO .amount, #calculation-IO #rate, #calculation-IO #period").change(update);
 
     $("#calculation-IO-interpolate #calcRate").click(function() {
         $("#calculation-IO-interpolate h3").text("Calculating "+$(this).text());
@@ -154,11 +184,11 @@ $(document).ready(function(){
 
         if (selectedCalc == "rate"){
             $("#calculation-IO-interpolate .output").text(
-                "$\\begin{align}"+factors[selectedFactor].name.charAt(0)+"&="+factors[selectedFactor].name.charAt(2)+"("+factors[selectedFactor].name+",i, n)\\\\"+first+"&="+second+"("+factors[selectedFactor].name+",i,"+scope.n+")\\\\"+shift+"&=("+factors[selectedFactor].name+",i,"+scope.n+")\\\\i&="+ans+"\\end{align}$");
+                "$\\begin{align}"+factors[selectedFactor].ungiven+"&="+factors[selectedFactor].given+factors[selectedFactor].formatted("i", "n")+"\\\\"+first+"&="+second+factors[selectedFactor].formatted("i", scope.n)+"\\\\"+shift+"&="+factors[selectedFactor].formatted("i", scope.n)+"\\\\i&="+ans+"\\end{align}$");
         }
         else {
             $("#calculation-IO-interpolate .output").text(
-                "$\\begin{align}"+facto[selectedFactor].name.charAt(0)+"&="+factors[selectedFactor].name.charAt(2)+"("+factors[selectedFactor].name+",i, n)\\\\"+first+"&="+second+"("+factors[selectedFactor].name+","+scope.i+",n)\\\\"+shift+"&=("+factors[selectedFactor].name+","+scope.i+",n)\\\\n&="+ans+"\\end{align}$");
+                "$\\begin{align}"+factors[selectedFactor].ungiven+"&="+factors[selectedFactor].given+"("+factors[selectedFactor].formatted("i", "n")+"\\\\"+first+"&="+second+factors[selectedFactor].formatted(scope.i, "n")+"\\\\"+shift+"&="+factors[selectedFactor].formatted(scope.i, "n")+"\\\\n&="+ans+"\\end{align}$");
         }
 
         MathJax.Hub.Typeset();
@@ -166,6 +196,11 @@ $(document).ready(function(){
 
     // print out formulas
     for (let i = factors.length-1; i >= 0; i--) {
-        $("#formula-heading").after("$$"+"("+factors[i].name+",i, n)="+factors[i].parsed.toTex({parenthesis: 'auto'})+"$$"+"<br>");
+        if (i == 8) {
+            $("#formula-heading").after("$$"+factors[i].formatted("g", "i", "n")+"="+factors[i].printTex()+"$$"+"<br>");
+            continue;
+        }
+
+        $("#formula-heading").after("$$"+factors[i].formatted("i", "n")+"="+factors[i].printTex()+"$$"+"<br>");
     }
 });
