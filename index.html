@@ -53,26 +53,31 @@ title: Home
 
         <!-- Education and Experience -->
         <section id="timeline-section">
-            <h1 class="title">Education & Experience</h1>
-            <div class="timeline">
-                {% for item in site.data.brief-education-experience %}
-                    <div {% cycle 
-                        'class="container left" 
+            {% for item in site.data.brief-education-experience %}
+            {% assign my_counter = my_counter | plus:1 %}
+                <h1 class="title">{{item.section}}</h1>
+                <div class="timeline">
+                    {% for subitem in item.details %}
+                    {% assign test = my_counter | modulo: 2 %} 
+                    <div {% if test == 1 %}
+                        class="container left" 
                         data-aos="swing-in-right-fwd-timeline"
-                        ', 
-                        'class="container right"
+                        {% else %}
+                        class="container right"
                         data-aos="swing-in-left-fwd-timeline"
-                        ' 
-                    %}>
+                        {% endif %}
+                    >
                         <div class="content">
-                            <h2 style="margin-top:0" class="timeline-font">{{item.date}}</h2>
-                            <h3 class="timeline-font">{{item.title}}</h3>
-                            <h4 class="timeline-font">{{item.subtitle}}</h4>
-                            <p class="timeline-font">{{item.description}}</p>
+                            <h2 style="margin-top:0" class="timeline-font">{{subitem.date}}</h2>
+                            <h3 class="timeline-font">{{subitem.title}}</h3>
+                            <h4 class="timeline-font">{{subitem.subtitle}}</h4>
+                            <p class="timeline-font">{{subitem.description}}</p>
                         </div>
                     </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
+            {% endfor %}
         </section>
 
         <!-- Navigation Bar -->

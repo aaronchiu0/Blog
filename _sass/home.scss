@@ -197,17 +197,22 @@ body {
 
 /* Education timeline */
 #timeline-section {
-    background: map-get($colours, background);
-    padding-bottom: 25px;
+  background: map-get($colours, background);
+  padding-bottom: 25px;
+
+  .title {
+    margin: 10px;
+    padding: 10px;
   }
+}
   
-  /* The actual timeline (the vertical ruler) */
-  .timeline {
+/* The actual timeline (the vertical ruler) */
+.timeline {
     position: relative;
     max-width: $total-width;
     margin: 0 auto;
     z-index: 10;
-  }
+}
   
   /* The actual timeline (the vertical ruler) */
   .timeline::after {

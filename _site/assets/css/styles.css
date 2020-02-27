@@ -148,6 +148,8 @@ body { background: #f1f1f1; }
 /* Education timeline */
 #timeline-section { background: #f1f1f1; padding-bottom: 25px; }
 
+#timeline-section .title { margin: 10px; padding: 10px; }
+
 /* The actual timeline (the vertical ruler) */
 .timeline { position: relative; max-width: 1475px; margin: 0 auto; z-index: 10; }
 
