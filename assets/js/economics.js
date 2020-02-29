@@ -146,16 +146,16 @@ $(document).ready(function(){
 
         let shift = first/second;
 
-        let ans = -1;
+        var ans = -1;
         if (selectedCalc == "rate") {
             scope = { i: 0.001, n: known };
 
-            ans = NewtonRaphson(`${f.expression}-${shift}`, `${f.derivative('i')}`, scope.i, 75, 0.0000000001, 0.0001);
+            ans = NewtonRaphson(`${f.expression}-${shift}`, `${f.derivative('i')}`, scope.i, 50, 0.0000000001, 0.0001);
         }
         else {
             scope = { i: known, n: 2 };
 
-            ans = NewtonRaphson(`${f.expression}-${shift}`,`${f.derivative('n')}`, scope.n, 75, 0.0000000001, 0.0001);
+            ans = NewtonRaphson(`${f.expression}-${shift}`,`${f.derivative('n')}`, scope.n, 50, 0.0000000001, 0.0001);
         }
 
         ans = precise(ans, 8);
@@ -189,22 +189,24 @@ $(document).ready(function(){
         selectedFactor = $(this).index(".factor");
         update();
     });
-
-    $("#calculation-IO-interpolate #calcRate").click(function() {
+    
+    $("#calculation-IO-interpolate #calcRate, #calculation-IO-interpolate #calcPeriod").click(function() {
         $("#calculation-IO-interpolate h3").text("Calculating "+$(this).text());
-        $(".calculate-label").text("Period");
-        selectedCalc = "rate";
-    });
 
-    $("#calculation-IO-interpolate #calcPeriod").click(function() {
-        $("#calculation-IO-interpolate h3").text("Calculating "+$(this).text());
-        $(".calculate-label").text("Rate");
-        selectedCalc = "period";
-    });
+        if ($(this).is("#calculation-IO-interpolate #calcRate")) {
+            $(".calculate-label").text("Period");
+            selectedCalc = "rate";
+        }
+        else {
+            $(".calculate-label").text("Rate");
+            selectedCalc = "period";
+        }
 
-    $("#calculation-IO-interpolate .submit").click(function() {
         interpolateFactor();
     });
+
+    $("#calculation-IO .submit").click(calcFactor);
+    $("#calculation-IO-interpolate .submit").click(interpolateFactor);
 
     // on load
     update();
@@ -218,8 +220,6 @@ $(document).ready(function(){
     for (let i = factors.length-1; i >= 0; i--) {
         var tex;
         if (i == 8) {
-            // $("#formula-heading").after(tex(`\\begin{align}${factors[i].formatted("g", "i", "n")}&=${factors[i].printTex()} \\\\ ${factors[i].printTexAdjusted()}\\end{align}`));
-
             tex = katex.renderToString(`\\begin{aligned}${factors[i].formatted("g", "i", "n")}&=${factors[i].printTex()} \\\\ ${factors[i].printTexAdjusted()}\\end{aligned}`, {
                 throwOnError: false,
                 displayMode: true
@@ -227,8 +227,6 @@ $(document).ready(function(){
             $("#formula-heading").after(tex);
             continue;
         }
-
-        // $("#formula-heading").after(tex(`${factors[i].formatted("i", "n")}=${factors[i].printTex()}`)+"<br>");
 
         tex = katex.renderToString(`${factors[i].formatted("i", "n")}=${factors[i].printTex()}`, {
             throwOnError: false,
