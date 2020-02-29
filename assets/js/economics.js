@@ -183,7 +183,7 @@ $(document).ready(function(){
 
         if (selectedCalc == "rate"){
             $("#calculation-IO-interpolate .output").text(function() {
-                return `$\\begin{align}${ungiven}&=${given}${obj.formatted("i", "n")}\\\\${first}&=${second}${obj.formatted("i", scope.n)}\\\\${shift}&=${obj.formatted("i", scope.n)}\\\\i&=${ans}\\end{align}$`
+                return `$\\begin{align}${ungiven}&=${given}${f.formatted("i", "n")}\\\\${first}&=${second}${f.formatted("i", scope.n)}\\\\${shift}&=${f.formatted("i", scope.n)}\\\\i&=${toPercent(ans)}\\end{align}$`
             });
         }
         else {
