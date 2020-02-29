@@ -1,7 +1,7 @@
 // Round to precision
 const precise = (x, p) => Number.parseFloat(x).toPrecision(p);
-const financial = (x) => Number.parseFloat(x).toPrecision(2);
-const toPercent = (x) => isNaN(x) ? `${x}` : `${x*100}\\%`;
+const financial = (x) => Number.parseFloat(x).toFixed(2);
+const toPercent = (x) => isNaN(x) ? `${x}` : `${precise(x*100, 8)*1}\\%`; // fix precision errors
 const tex = (str) => `$$ ${str} $$`;
 
 // global variables
@@ -159,9 +159,10 @@ $(document).ready(function(){
         }
 
         ans = precise(ans, 8);
+        console.log(ans, toPercent(ans));
 
         if (selectedCalc == "rate"){         
-            katex.render(`\\begin{aligned}${ungiven}&=${given}${f.formatted("i", "n")}\\\\${first}&=${second}${f.formatted("i", scope.n)}\\\\${shift}&=${f.formatted("i", scope.n)}\\\\i&=${toPercent(ans)}\\end{aligned}`, document.querySelector('#calculation-IO-interpolate .output'), {
+            katex.render(`\\begin{aligned}${ungiven}&=${given}${f.formatted("i", "n")}\\\\${first}&=${second}${f.formatted("i", scope.n)}\\\\${precise(shift, 4)}&=${f.formatted("i", scope.n)}\\\\i&=${toPercent(ans)}\\end{aligned}`, document.querySelector('#calculation-IO-interpolate .output'), {
                 throwOnError: false
             });
         }
