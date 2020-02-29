@@ -14,10 +14,18 @@
 <!-- import math.js-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.0/math.js"></script>
 
+<!-- Load React. -->
+<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+<!-- load jsx -->
+<script src="https://unpkg.com/babel-standalone@latest/babel.min.js"></script>
+
 <!-- import scripts -->
 <script src="/assets/js/display.js"></script>
 <script src="/assets/js/typing-text.js"></script>
-<script src="/assets/js/economics.js"></script>
+<script src="/assets/js/economics.js" type="text/babel"></script>
 
 <!-- Animation on Scroll -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -26,7 +34,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- mathjax -->
-<script type="text/x-mathjax-config">
+<!-- <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 		tex2jax: {
 			inlineMath: [['$','$'], ['\\(','\\)']],
@@ -35,30 +43,31 @@
 	});
 </script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
-</script>
-
-<!-- To top Button -->
-<!-- <script>
-	//Get the button
-	var mybutton = document.getElementById("myBtn");
-
-	// When the user scrolls down 20px from the top of the document, show the button
-	window.onscroll = function() {scrollFunction()};
-
-	function scrollFunction() {
-		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-			mybutton.style.display = "block";
-		} else {
-			mybutton.style.display = "block";
-		}
-	}
-
-	// When the user clicks on the button, scroll to the top of the document
-	function topFunction() {
-		document.body.scrollTop = 0;
-		document.documentElement.scrollTop = 0;
-	}
 </script> -->
+
+<!-- katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js" integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js" integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF" crossorigin="anonymous"
+onload="renderMathInElement(document.body);"></script>
+
+<!-- Delimiters -->
+<script>
+	$(document).ready(function () { // this need jquery
+	  renderMathInElement(document.body, {
+		// ...options...
+		delimiters: [
+		  { left: "$$", right: "$$", display: true },
+		  { left: "$", right: "$", display: false },
+		  { left: "\\[", right: "\\]", display: true }
+		]
+	  });
+	});
+</script>
 
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
 <!-- Begin Jekyll SEO tag v2.6.1 -->
@@ -644,4 +653,6 @@ v_y< 0 \implies m\differtiate{v_y(t)}{t}=-mg+kv_y^2 %]]></script></p>
         duration: 2000
     });
 </script>
+
+<script src="/assets/js/katex-render.js"></script>
 </html>

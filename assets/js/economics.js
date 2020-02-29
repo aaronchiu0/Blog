@@ -1,5 +1,6 @@
 // Round to precision
 const precise = (x, p) => Number.parseFloat(x).toPrecision(p);
+const financial = (x) => Number.parseFloat(x).toPrecision(2);
 const toPercent = (x) => isNaN(x) ? `${x}` : `${x*100}\\%`;
 const tex = (str) => `$$ ${str} $$`;
 
@@ -53,16 +54,16 @@ class GrowthFactor extends Factor {
 
 // expressions to evaluate
 var factors = [
-    fp = new Factor("F/P", '(1+i)^n'),
-    pf = new Factor("P/F", '1/(1+i)^n'),
-    af = new Factor("A/F", 'i/((1+i)^n-1)'),
-    ap = new Factor("A/P", 'i*(1+i)^n/((1+i)^n-1)'),
-    fa = new Factor("F/A", '((1+i)^n-1)/i'),
-    pa = new Factor("P/A", '((1+i)^n-1)/(i*(1+i)^n)'),
-    ag = new Factor("A/G", '1/i-n/((1+i)^n-1)'),
-    pg = new Factor("P/G", '((1+i)^n-i*n-1)/(i^2*(1+i)^n)'),
+    new Factor("F/P", '(1+i)^n'),
+    new Factor("P/F", '1/(1+i)^n'),
+    new Factor("A/F", 'i/((1+i)^n-1)'),
+    new Factor("A/P", 'i*(1+i)^n/((1+i)^n-1)'),
+    new Factor("F/A", '((1+i)^n-1)/i'),
+    new Factor("P/A", '((1+i)^n-1)/(i*(1+i)^n)'),
+    new Factor("A/G", '1/i-n/((1+i)^n-1)'),
+    new Factor("P/G", '((1+i)^n-i*n-1)/(i^2*(1+i)^n)'),
 
-    pa = new GrowthFactor("P/A", '((1+i)^n-1)/(i*(1+i)^n)*(1/(1+g))', '(1+i)/(1+g)-1', '((1+i^o)^n-1)/(i^o*(1+i^o)^n)*(1/(1+g))')
+    new GrowthFactor("P/A", '((1+i)^n-1)/(i*(1+i)^n)*(1/(1+g))', '(1+i)/(1+g)-1', '((1+i^o)^n-1)/(i^o*(1+i^o)^n)*(1/(1+g))')
 ];
 
 const changeScope = (x) => {
@@ -99,8 +100,18 @@ function NewtonRaphson(f_x, fprime_x, x, nmax, eps, del) {
     return x;
 } 
 
+class Car extends React.Component {
+    render() {
+      return (
+        <p>Hello</p>
+      )
+    }
+}
+
+//ReactDOM.render(<Car />, document.getElementById("test"));
+
 $(document).ready(function(){
-    const calcFactor = function() {
+    const calcFactor = () => {
         let amount = parseFloat($(".amount").val());
 
         scope = {
@@ -115,16 +126,51 @@ $(document).ready(function(){
         let ans = amount*factor;
 
         factor = precise(factor, 8);
+        ans = financial(ans);
+
+        const obj = factors[selectedFactor];
+        const {given, ungiven} = obj;
+
+        katex.render(`\\begin{aligned}${ungiven}&=${given}${obj.formatted("i", "n")}\\\\&=${amount}${obj.formatted(scope.i, scope.n)}\\\\&=${amount}(${factor})\\\\&=${ans}\\end{aligned}`, document.querySelector('#calculation-IO .output'), {
+            throwOnError: false
+         });
+    };
+
+    const interpolateFactor = () => {
+        let first = parseFloat($("#calculation-IO-interpolate .first-amount").val());
+        let second = parseFloat($("#calculation-IO-interpolate .second-amount").val());
+        var known = parseFloat($(".calculate").val());
+
+        let f = factors[selectedFactor];
+        const {given, ungiven} = f;
+
+        let shift = first/second;
+
+        let ans = -1;
+        if (selectedCalc == "rate") {
+            scope = { i: 0.001, n: known };
+
+            ans = NewtonRaphson(`${f.expression}-${shift}`, `${f.derivative('i')}`, scope.i, 75, 0.0000000001, 0.0001);
+        }
+        else {
+            scope = { i: known, n: 2 };
+
+            ans = NewtonRaphson(`${f.expression}-${shift}`,`${f.derivative('n')}`, scope.n, 75, 0.0000000001, 0.0001);
+        }
+
         ans = precise(ans, 8);
 
-        $("#calculation-IO .output").text(function() {
-            const obj = factors[selectedFactor];
-            const {given, ungiven} = obj;
-            return "$\\begin{align}"+ungiven+"&="+given+obj.formatted("i", "n")+"\\\\&="+amount+obj.formatted(scope.i, scope.n)+"\\\\&="+amount+"("+factor+")\\\\&="+ans+"\\end{align}$"
-        });
-
-        MathJax.Hub.Typeset();
-    };
+        if (selectedCalc == "rate"){         
+            katex.render(`\\begin{aligned}${ungiven}&=${given}${f.formatted("i", "n")}\\\\${first}&=${second}${f.formatted("i", scope.n)}\\\\${shift}&=${f.formatted("i", scope.n)}\\\\i&=${toPercent(ans)}\\end{aligned}`, document.querySelector('#calculation-IO-interpolate .output'), {
+                throwOnError: false
+            });
+        }
+        else {
+            katex.render(`\\begin{aligned}${ungiven}&=${given}${f.formatted("i", "n")}\\\\${first}&=${second}${f.formatted(scope.i, "n")}\\\\${shift}&=${f.formatted(scope.i, "n")}\\\\n&=${ans}\\end{aligned}`, document.querySelector('#calculation-IO-interpolate .output'), {
+                throwOnError: false
+            });
+        }
+    }
 
     const update = function() {
         const {name, given, ungiven} = factors[selectedFactor];
@@ -136,14 +182,13 @@ $(document).ready(function(){
         console.log(selectedFactor, $(this).text());
 
         calcFactor();
+        interpolateFactor();
     };
 
     $("#calculation-type .factor").click(function() {
         selectedFactor = $(this).index(".factor");
         update();
     });
-
-    $("#calculation-IO .amount, #calculation-IO #rate, #calculation-IO #period").change(calcFactor);
 
     $("#calculation-IO-interpolate #calcRate").click(function() {
         $("#calculation-IO-interpolate h3").text("Calculating "+$(this).text());
@@ -158,53 +203,37 @@ $(document).ready(function(){
     });
 
     $("#calculation-IO-interpolate .submit").click(function() {
-        let first = parseFloat($("#calculation-IO-interpolate .first-amount").val());
-        let second = parseFloat($("#calculation-IO-interpolate .second-amount").val());
-        var known = parseFloat($(".calculate").val());
-
-        let f = factors[selectedFactor];
-        const {given, ungiven} = f;
-
-        let shift = first/second;
-
-        let ans = -1;
-        if (selectedCalc == "rate") {
-            scope = { i: 0.001, n: known };
-
-            ans = NewtonRaphson(`${f.expression}-${shift}`, `${f.derivative('i')}`, scope.i, 100, 0.0000000001, 0.0001);
-        }
-        else {
-            scope = { i: known, n: 2 };
-
-            ans = NewtonRaphson(`${f.expression}-${shift}`,`${f.derivative('n')}`, scope.n, 100, 0.0000000001, 0.0001);
-        }
-
-        ans = precise(ans, 8);
-
-        if (selectedCalc == "rate"){
-            $("#calculation-IO-interpolate .output").text(function() {
-                return `$\\begin{align}${ungiven}&=${given}${obj.formatted("i", "n")}\\\\${first}&=${second}${obj.formatted("i", scope.n)}\\\\${shift}&=${obj.formatted("i", scope.n)}\\\\i&=${ans}\\end{align}$`
-            });
-        }
-        else {
-            $("#calculation-IO-interpolate .output").text(function() {
-                return `$\\begin{align}${ungiven}&=${given}${f.formatted("i", "n")}\\\\${first}&=${second}${f.formatted(scope.i, "n")}\\\\${shift}&=${f.formatted(scope.i, "n")}\\\\n&=${ans}\\end{align}$`
-            });
-        }
-
-        MathJax.Hub.Typeset();
+        interpolateFactor();
     });
 
     // on load
     update();
+    interpolateFactor();
+
+    // on change
+    $("#calculation-IO .amount, #calculation-IO #rate, #calculation-IO #period").on('input', calcFactor);
+    $("#calculation-IO-interpolate .first-amount, #calculation-IO-interpolate .second-amount, #calculation-IO-interpolate .calculate").on('input', interpolateFactor); // resource heavy
 
     // print out formulas
     for (let i = factors.length-1; i >= 0; i--) {
+        var tex;
         if (i == 8) {
-            $("#formula-heading").after(tex(`\\begin{align}${factors[i].formatted("g", "i", "n")}&=${factors[i].printTex()} \\\\ ${factors[i].printTexAdjusted()}\\end{align}`));
+            // $("#formula-heading").after(tex(`\\begin{align}${factors[i].formatted("g", "i", "n")}&=${factors[i].printTex()} \\\\ ${factors[i].printTexAdjusted()}\\end{align}`));
+
+            tex = katex.renderToString(`\\begin{aligned}${factors[i].formatted("g", "i", "n")}&=${factors[i].printTex()} \\\\ ${factors[i].printTexAdjusted()}\\end{aligned}`, {
+                throwOnError: false,
+                displayMode: true
+            });
+            $("#formula-heading").after(tex);
             continue;
         }
 
-        $("#formula-heading").after(tex(`${factors[i].formatted("i", "n")}=${factors[i].printTex()}`)+"<br>");
+        // $("#formula-heading").after(tex(`${factors[i].formatted("i", "n")}=${factors[i].printTex()}`)+"<br>");
+
+        tex = katex.renderToString(`${factors[i].formatted("i", "n")}=${factors[i].printTex()}`, {
+            throwOnError: false,
+            displayMode: true
+        });
+        $("#formula-heading").after(`${tex}<br>`);
     }
 });
