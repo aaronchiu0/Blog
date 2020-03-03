@@ -13,11 +13,8 @@ function clamp(num, min, max) {
 
 $(document).ready(function(){
     $(window).scroll(function() {
-        var y = $(this).scrollTop();    // distance from top of page in px
-        var opacity = clamp(1 - y / 250, 0, 1);      // opacity lowering calculation
-        $(".hero-title-container").css({
-            "opacity": opacity
-        });
+        var y = $(this).scrollTop();                // distance from top of page in px
+        var opacity = clamp(1 - y / 250, 0, 1);     // opacity lowering calculation
 
         if (opacity > 0) {
             $("#hero-title").show();
