@@ -100,30 +100,85 @@ function NewtonRaphson(f_x, fprime_x, x, nmax, eps, del) {
     return x;
 } 
 
-class Car extends React.Component {
-    render() {
-      return (
-        <p>Hello</p>
-      )
+// start react section
+
+class App extends React.Component {
+    render () {
+        let rows = [];
+        rows.push(<h2 key={-1}>Factors</h2>);
+        for (let i = 0; i < factors.length - 1; i++) {
+            switch (i) {
+                case 0:
+                    rows.push(<h3 key={i+100}>Single Payments</h3>);       
+                    break;
+                case 2:
+                    rows.push(<h3 key={i+100}>Uniform Payment Series</h3>);
+                    break;
+                case 6:
+                    rows.push(<h3 key={i+100}>Arithmetic Gradient</h3>);
+                    break;
+            }
+            rows.push(<button key={i} className="factor">{factors[i].name}</button>);      
+        }
+        return (<div className="center">{rows}</div>)
     }
 }
 
-//ReactDOM.render(<Car />, document.getElementById("test"));
+ReactDOM.render(<App />, document.getElementById("calculation-type"));
 
-$(document).ready(function(){
-    const calcFactor = () => {
-        let amount = parseFloat($(".amount").val());
+class CalculationIO extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {amount: 0, rate: 0, period: 0, tex: ""};
+    }
+
+    render () {
+        return (
+            <form>
+                <h2>Input</h2>
+                <h3>Calculating Nothing</h3>
+                <div className="center">
+                    <label className="amount-label" htmlFor="amount">?</label><br />
+                    <input className="amount" name="amount" type="number" onChange={this.handleInputChange} value={this.state.amount}placeholder="Amount" /><br />
+                    <label htmlFor="rate">Rate</label><br />
+                    <input id="rate" name="rate" type="number" onChange={this.handleInputChange} value={this.state.rate} placeholder="Rate" /><br />
+                    <label htmlFor="period">Period</label><br />
+                    <input id="period" name="period" type="number" onChange={this.handleInputChange} value={this.state.period} placeholder="Period" /><br />
+
+                    <button className="submit">Update</button>
+                </div>
+
+                <h2 className="output-header">Output</h2>
+                <p className="output center">Answer</p>
+            </form>   
+        );
+    }
+
+    
+    handleInputChange = (e) => {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        this.setState({[name]: parseFloat(value)}, () => {
+            console.log(this.state.amount, this.state.rate, this.state.period)
+            this.calcFactor();
+        });
+    }
+
+    calcFactor = () => {
+        //let amount = parseFloat($(".amount").val());
 
         scope = {
-            i: parseFloat($("#rate").val()),
-            n: parseFloat($("#period").val())
+            i: this.state.rate,
+            n: this.state.period
         };
 
         let factor = factors[selectedFactor].eval(scope);
 
-        console.log(amount, factor, scope);
+        console.log(this.state.amount, factor, scope);
 
-        let ans = amount*factor;
+        let ans = this.state.amount*factor;
 
         factor = precise(factor, 8);
         ans = financial(ans);
@@ -131,11 +186,15 @@ $(document).ready(function(){
         const obj = factors[selectedFactor];
         const {given, ungiven} = obj;
 
-        katex.render(`\\begin{aligned}${ungiven}&=${given}${obj.formatted("i", "n")}\\\\&=${amount}${obj.formatted(scope.i, scope.n)}\\\\&=${amount}(${factor})\\\\&=${ans}\\end{aligned}`, document.querySelector('#calculation-IO .output'), {
+        katex.render(`\\begin{aligned}${ungiven}&=${given}${obj.formatted("i", "n")}\\\\&=${this.state.amount}${obj.formatted(scope.i, scope.n)}\\\\&=${this.state.amount}(${factor})\\\\&=${ans}\\end{aligned}`, document.querySelector('#calculation-IO .output'), {
             throwOnError: false
-         });
-    };
+        });
+    }
+}
 
+ReactDOM.render(<CalculationIO />, document.getElementById("calculation-IO"));
+
+$(document).ready(function(){
     const interpolateFactor = () => {
         let first = parseFloat($("#calculation-IO-interpolate .first-amount").val());
         let second = parseFloat($("#calculation-IO-interpolate .second-amount").val());
@@ -149,12 +208,10 @@ $(document).ready(function(){
         var ans = -1;
         if (selectedCalc == "rate") {
             scope = { i: 0.001, n: known };
-
             ans = NewtonRaphson(`${f.expression}-${shift}`, `${f.derivative('i')}`, scope.i, 50, 0.0000000001, 0.0001);
         }
         else {
             scope = { i: known, n: 2 };
-
             ans = NewtonRaphson(`${f.expression}-${shift}`,`${f.derivative('n')}`, scope.n, 50, 0.0000000001, 0.0001);
         }
 
@@ -182,7 +239,7 @@ $(document).ready(function(){
 
         console.log(selectedFactor, $(this).text());
 
-        calcFactor();
+        //calcFactor();
         interpolateFactor();
     };
 
@@ -196,17 +253,19 @@ $(document).ready(function(){
 
         if ($(this).is("#calculation-IO-interpolate #calcRate")) {
             $(".calculate-label").text("Period");
+            $(".calculate").attr('placeholder','Period');
             selectedCalc = "rate";
         }
         else {
             $(".calculate-label").text("Rate");
+            $(".calculate").attr('placeholder','Rate');
             selectedCalc = "period";
         }
 
         interpolateFactor();
     });
 
-    $("#calculation-IO .submit").click(calcFactor);
+    //$("#calculation-IO .submit").click(calcFactor);
     $("#calculation-IO-interpolate .submit").click(interpolateFactor);
 
     // on load
@@ -214,7 +273,6 @@ $(document).ready(function(){
     interpolateFactor();
 
     // on change
-    $("#calculation-IO .amount, #calculation-IO #rate, #calculation-IO #period").on('input', calcFactor);
     $("#calculation-IO-interpolate .first-amount, #calculation-IO-interpolate .second-amount, #calculation-IO-interpolate .calculate").on('input', interpolateFactor); // resource heavy
 
     // print out formulas
