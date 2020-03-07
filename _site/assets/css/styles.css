@@ -220,6 +220,17 @@ body { background: #f1f1f1; }
 
 .multiple-column #calculation-IO-interpolate { flex: 1 0 33.3333333333%; }
 
+<<<<<<< HEAD
+=======
+@media screen and (max-width: 700px) { .multiple-column { flex-direction: column; flex: 1 0 auto; width: auto; } }
+
+.multiple-column #calculation-type, .multiple-column #calculation-IO, .multiple-column #calculation-IO-interpolate { width: 100%; }
+
+.multiple-column #calculation-type .center, .multiple-column #calculation-IO .center, .multiple-column #calculation-IO-interpolate .center { text-align: center; }
+
+.multiple-column h2, .multiple-column h3 { text-align: center; }
+
+>>>>>>> parent of eff70d4... update to react js
 /* Dax */
 @font-face { /* (900) Black */ font-family: 'Dax'; src: url(../fonts/Dax/Dax-Black.ttf); font-weight: normal; font-style: normal; }
 

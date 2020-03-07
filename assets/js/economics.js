@@ -105,6 +105,7 @@ function NewtonRaphson(f_x, fprime_x, x, nmax, eps, del) {
     return x;
 } 
 
+<<<<<<< HEAD
 // start react section
 
 function MathDisplay(props) { // katex to string
@@ -204,9 +205,34 @@ class CalculationIO extends React.Component {
         const {amount, rate, period} = this.state;
 
         let factor = factors[selectedFactor].eval(rate, period);
+=======
+class Car extends React.Component {
+    render() {
+      return (
+        <p>Hello</p>
+      )
+    }
+}
+
+//ReactDOM.render(<Car />, document.getElementById("test"));
+
+$(document).ready(function(){
+    const calcFactor = () => {
+        let amount = parseFloat($(".amount").val());
+
+        scope = {
+            i: parseFloat($("#rate").val()),
+            n: parseFloat($("#period").val())
+        };
+>>>>>>> parent of eff70d4... update to react js
 
         console.log(rate, amount, period, factor);
 
+<<<<<<< HEAD
+=======
+        console.log(amount, factor, scope);
+
+>>>>>>> parent of eff70d4... update to react js
         let ans = amount*factor;
 
         factor = precise(factor, 8);
@@ -215,13 +241,19 @@ class CalculationIO extends React.Component {
         const obj = factors[selectedFactor];
         const {given, ungiven} = factors[selectedFactor];
 
+<<<<<<< HEAD
         this.setState({tex: `\\begin{aligned}${ungiven}&=${given}${obj.formatted("i", "n")}\\\\&=${amount}${obj.formatted(rate, period)}\\\\&=${amount}(${factor})\\\\&=${ans}\\end{aligned}`});   
     }
 }
 
 //ReactDOM.render(<CalculationIO />, document.getElementById("calculation-IO"));
+=======
+        katex.render(`\\begin{aligned}${ungiven}&=${given}${obj.formatted("i", "n")}\\\\&=${amount}${obj.formatted(scope.i, scope.n)}\\\\&=${amount}(${factor})\\\\&=${ans}\\end{aligned}`, document.querySelector('#calculation-IO .output'), {
+            throwOnError: false
+         });
+    };
+>>>>>>> parent of eff70d4... update to react js
 
-$(document).ready(function(){
     const interpolateFactor = () => {
         let first = parseFloat($("#calculation-IO-interpolate .first-amount").val());
         let second = parseFloat($("#calculation-IO-interpolate .second-amount").val());
@@ -235,10 +267,12 @@ $(document).ready(function(){
         var ans = -1;
         if (selectedCalc == "rate") {
             scope = { i: 0.001, n: known };
+
             ans = NewtonRaphson(`${f.expression}-${shift}`, `${f.derivative('i')}`, scope.i, 50, 0.0000000001, 0.0001);
         }
         else {
             scope = { i: known, n: 2 };
+
             ans = NewtonRaphson(`${f.expression}-${shift}`,`${f.derivative('n')}`, scope.n, 50, 0.0000000001, 0.0001);
         }
 
@@ -265,7 +299,7 @@ $(document).ready(function(){
 
         console.log(selectedFactor, $(this).text());
 
-        //calcFactor();
+        calcFactor();
         interpolateFactor();
     };
 
@@ -279,19 +313,17 @@ $(document).ready(function(){
 
         if ($(this).is("#calculation-IO-interpolate #calcRate")) {
             $(".calculate-label").text("Period");
-            $(".calculate").attr('placeholder','Period');
             selectedCalc = "rate";
         }
         else {
             $(".calculate-label").text("Rate");
-            $(".calculate").attr('placeholder','Rate');
             selectedCalc = "period";
         }
 
         interpolateFactor();
     });
 
-    //$("#calculation-IO .submit").click(calcFactor);
+    $("#calculation-IO .submit").click(calcFactor);
     $("#calculation-IO-interpolate .submit").click(interpolateFactor);
 
     // on load
@@ -299,6 +331,7 @@ $(document).ready(function(){
     interpolateFactor();
 
     // on change
+    $("#calculation-IO .amount, #calculation-IO #rate, #calculation-IO #period").on('input', calcFactor);
     $("#calculation-IO-interpolate .first-amount, #calculation-IO-interpolate .second-amount, #calculation-IO-interpolate .calculate").on('input', interpolateFactor); // resource heavy
 
     // print out formulas
