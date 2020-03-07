@@ -1,0 +1,658 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Force of Resistance and its Effect on the Acceleration, Velocity, & Position Functions in Two & Three Dimensions</title>
+
+<!-- stylesheet -->
+<link rel="stylesheet" href="/assets/css/styles.css">
+
+<!-- import jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- import math.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.0/math.js"></script>
+
+<!-- Load React. -->
+<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+<!-- load jsx -->
+<script src="https://unpkg.com/babel-standalone@latest/babel.min.js"></script>
+
+<!-- import scripts -->
+<script src="/assets/js/display.js"></script>
+<script src="/assets/js/typing-text.js"></script>
+<script src="/assets/js/economics.js" type="text/babel"></script>
+
+<!-- Animation on Scroll -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+<!-- icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- mathjax -->
+<!-- <script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			processEscapes: true
+		}
+	});
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script> -->
+
+<!-- katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js" integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js" integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF" crossorigin="anonymous"
+onload="renderMathInElement(document.body);"></script>
+
+<!-- Delimiters -->
+<script>
+	$(document).ready(function () { // this need jquery
+	  renderMathInElement(document.body, {
+		// ...options...
+		delimiters: [
+		  { left: "$$", right: "$$", display: true },
+		  { left: "$", right: "$", display: false },
+		  { left: "\\[", right: "\\]", display: true }
+		]
+	  });
+	});
+</script>
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Force of Resistance and its Effect on the Acceleration, Velocity, &amp; Position Functions in Two &amp; Three Dimensions</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Force of Resistance and its Effect on the Acceleration, Velocity, &amp; Position Functions in Two &amp; Three Dimensions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="$$ \DeclareMathOperator{\arctanh}{arctanh} \DeclareMathOperator{\sech}{sech} \newcommand{\differtiate}[2]{\: \dfrac{\strut\mathrm{d}}{\strut\mathrm{d{#2}}}{\left(#1\right)}} \newcommand{\differtial}[1]{\: \mathrm{d}{#1}} \newcommand{\vect}[1]{\boldsymbol{#1}} $$ Introduction It can be noted that the acceleration of an object is the sum of all the forces acting upon it by Newton’s Second Law. Notice that we can write this equation in either with velocity and position as well. The key here is to notice that acceleration is the derivative of velocity and position is the integral of velocity with respect to time. We can split this net force into components in the x and y coordinates and by extension, the z coordinates. Of course, all these are defined for time greater than 0." />
+<meta property="og:description" content="$$ \DeclareMathOperator{\arctanh}{arctanh} \DeclareMathOperator{\sech}{sech} \newcommand{\differtiate}[2]{\: \dfrac{\strut\mathrm{d}}{\strut\mathrm{d{#2}}}{\left(#1\right)}} \newcommand{\differtial}[1]{\: \mathrm{d}{#1}} \newcommand{\vect}[1]{\boldsymbol{#1}} $$ Introduction It can be noted that the acceleration of an object is the sum of all the forces acting upon it by Newton’s Second Law. Notice that we can write this equation in either with velocity and position as well. The key here is to notice that acceleration is the derivative of velocity and position is the integral of velocity with respect to time. We can split this net force into components in the x and y coordinates and by extension, the z coordinates. Of course, all these are defined for time greater than 0." />
+<link rel="canonical" href="http://localhost:4000/2018/07/25/Air-Resistance.html" />
+<meta property="og:url" content="http://localhost:4000/2018/07/25/Air-Resistance.html" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-25T00:00:00-04:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/2018/07/25/Air-Resistance.html","dateModified":"2018-07-25T00:00:00-04:00","datePublished":"2018-07-25T00:00:00-04:00","headline":"Force of Resistance and its Effect on the Acceleration, Velocity, &amp; Position Functions in Two &amp; Three Dimensions","description":"$$ \\DeclareMathOperator{\\arctanh}{arctanh} \\DeclareMathOperator{\\sech}{sech} \\newcommand{\\differtiate}[2]{\\: \\dfrac{\\strut\\mathrm{d}}{\\strut\\mathrm{d{#2}}}{\\left(#1\\right)}} \\newcommand{\\differtial}[1]{\\: \\mathrm{d}{#1}} \\newcommand{\\vect}[1]{\\boldsymbol{#1}} $$ Introduction It can be noted that the acceleration of an object is the sum of all the forces acting upon it by Newton’s Second Law. Notice that we can write this equation in either with velocity and position as well. The key here is to notice that acceleration is the derivative of velocity and position is the integral of velocity with respect to time. We can split this net force into components in the x and y coordinates and by extension, the z coordinates. Of course, all these are defined for time greater than 0.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018/07/25/Air-Resistance.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+	</head>
+	<body>						
+		<!-- Header -->
+<div class="header">
+    <h1 id="title" 
+        data-aos="fade-right"
+    >
+        Aaron Chiu
+    </h1>
+    <p id="subtitle"
+        data-aos="fade-right"
+        data-aos-delay="500"
+    >
+        Automotive Engineer in Training
+    </p>
+</div>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+    
+	<a href="/" >Home</a>
+
+	<a href="/calculators.html" >Calculators</a>
+
+	<a href="/blog.html" >Blog</a>
+
+	<a href="/courses.html" >Courses</a>
+
+</div>
+
+<!-- back to top button -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>	
+		
+		<div style="display:flex; flex-wrap:wrap; justify-content:center;">
+			<div style="flex: 0 1 1475px; padding:20px;"> <!-- total allowable width -->
+				<div style="padding:20px">
+	<h1>Force of Resistance and its Effect on the Acceleration, Velocity, & Position Functions in Two & Three Dimensions</h1>
+	<p>
+		<strong>Jul 25, 2018</strong>
+		
+		
+	</p>
+	<div style="display:none">
+	$$
+	\DeclareMathOperator{\arctanh}{arctanh}
+	\DeclareMathOperator{\sech}{sech}
+
+	\newcommand{\differtiate}[2]{\: \dfrac{\strut\mathrm{d}}{\strut\mathrm{d{#2}}}{\left(#1\right)}}
+	\newcommand{\differtial}[1]{\: \mathrm{d}{#1}}
+	\newcommand{\vect}[1]{\boldsymbol{#1}}
+	$$
+</div>
+<h1 id="introduction">Introduction</h1>
+<p>It can be noted that the acceleration of an object is the sum of all the forces acting upon it by Newton’s Second Law.</p>
+
+<script type="math/tex; mode=display">\vect{F}_{Net} = \Sigma\vect{F} = m\vect{a(t)} = m\differtiate{\vect{v(t)}}{t}</script>
+
+<p>Notice that we can write this equation in either with velocity and position as well.</p>
+
+<script type="math/tex; mode=display">\Sigma\vect{F} = m\vect{a(t)} = m\differtiate{\vect{v(t)}}{t} = m\: \dfrac{\mathrm{d}^2}{\mathrm{dt^2}}{(\vect{s(t)})}</script>
+
+<p>The key here is to notice that acceleration is the derivative of velocity and position is the integral of velocity with respect to time.</p>
+
+<p>We can split this net force into components in the x and y coordinates and by extension, the z coordinates.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    \Sigma\vect{F} &= \overbrace{\begin{pmatrix} \Sigma F_x \\ \Sigma F_y \end{pmatrix}}^{\mathbb{R}^2} &
+    \Sigma\vect{F} &= \overbrace{\begin{pmatrix} \Sigma F_x \\ \Sigma F_y \\ \Sigma F_z \end{pmatrix}}^{\mathbb{R}^3}    
+\end{align} %]]></script>
+
+<p>Of course, all these are defined for time greater than 0.
+<!--more--></p>
+
+<h1 id="no-resistance">No Resistance</h1>
+<p>In the horizontal x-direction, no force due to gravity is exerted on the object and no other force is present but in the vertical y-direction, there is.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    \begin{pmatrix} F_x \\ F_y \end{pmatrix} &= \begin{pmatrix} 0 \\ F_g \end{pmatrix} 
+    & \mathrm{where} \; F_g &= -mg \\ %
+    \begin{pmatrix} m\differtiate{v_x(t)}{t} \\[0.3em] m\differtiate{v_y(t)}{t} \end{pmatrix} &= \begin{pmatrix} 0 \\ -mg \end{pmatrix} &
+\end{align} %]]></script>
+
+<h2 id="horizontal-direction">Horizontal Direction</h2>
+<p>Solving in the x-direction results in:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    m\differtiate{v_x}{t} &= 0 & v_x(0) &= v_{xo} \\
+    \int m \: \differtial{v_x(t)} &= 0 \\
+    mv_x + C &= 0 & v_x(0) = v_{xo} &\implies C = -mv_{xo} \\
+    mv_x - mv_{xo} &= 0
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore v_x(t) = v_{xo}}</script>
+
+<p>This means the velocity function is constant and is independent of time in the x-direction as well as the mass of the object. From here, we can find the acceleration and position functions easily from here.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    a_x(t) &= \differtiate{v_x(t)}{t} \\
+    &= \differtiate{v_{xo}}{t}
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore a_x(t) = 0}</script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    x(t) &= \int v_x(t) & x(0) &= x_o \\
+    &= \int v_{xo} \differtial{t} \\
+    &= v_{xo}t + C & x(0) = x_o &\implies C = x_o
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore x(t) = v_{xo}t + x_o}</script>
+
+<h2 id="vertical-direction">Vertical Direction</h2>
+<p>Solving in the y-direction results in:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    m\differtiate{v_y(t)}{t} &= -mg & v_y(0) &= v_{yo} \\
+    \int m \differtial{v_y} &= \int -mg \differtial{t} \\
+    mv_y &= -mgt + C & v_y(0) = v_{yo} &\implies C = mv_{yo} \\
+    mv_y &= -mgt + mv_{yo}
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore v_y(t) = -gt + v_{yo}}</script>
+
+<p>We can find the acceleration and position function now.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    a_y(t) &= \differtiate{v_y(t)}{t} \\
+    &= \differtiate{-gt + v_{yo}}{t}
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore a_y(t) = -g}</script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    y(t) &= \int v_x(t) & y(0) &= y_o \\
+    &= \int \left(-gt + v_{yo}\right) \differtial{t} \\
+    &= -\dfrac{1}{2}gt^2 + v_{yo}t + C & y(0) = y_o &\implies C = y_o
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore y(t) = -\dfrac{1}{2}gt^2 + v_{yo}t + y_o}</script>
+
+<h2 id="summary">Summary</h2>
+<p>Overall, we have our functions for acceleration, velocity, and position.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    \vect{a(t)} &= \begin{pmatrix} 0 \\ -g \end{pmatrix} \\
+    \vect{v(t)} &= \begin{pmatrix} v_{xo} \\ -gt + v_{yo} \end{pmatrix} \\
+    \vect{s(t)} &= \begin{pmatrix} v_{xo}t + x_o \\ -\dfrac{1}{2}gt^2 + v_{yo}t + y_o \end{pmatrix}
+\end{align} %]]></script>
+
+<p>Take notice how all of these functions are independent of the mass of the object.
+In three dimensions, the x and y functions are the same as the x function in two dimensions and the z function is the same as the y function.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    \vect{a(t)} &= \begin{pmatrix} 0 \\ 0 \\ -g \end{pmatrix} \\
+    \vect{v(t)} &= \begin{pmatrix} v_{xo} \\ v_{yo}\\ -gt + v_{zo} \end{pmatrix} \\
+    \vect{s(t)} &= \begin{pmatrix} v_{xo}t + x_o \\ v_{yo}t + y_o\\ -\dfrac{1}{2}gt^2 + v_{zo}t + z_o \end{pmatrix}
+\end{align} %]]></script>
+
+<p>It is possible to rotated the xy plane such that xz plane is the only plane that contains motion. This enables to just use the two-dimensional version.</p>
+
+<h1 id="resistance-proportional-to-velocity">Resistance Proportional to Velocity</h1>
+<p>A force of resistance is exerted on the object opposite of the velocity. This means in any direction, this force exists. In this situation, the force is directly proportional to velocity $F_R \propto \vect{v}$.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    \begin{pmatrix} F_x \\ F_y \end{pmatrix} &= \begin{pmatrix} F_R \\ F_g + F_R \end{pmatrix} 
+    & \mathrm{where} \;  \begin{matrix} F_g = -mg \\ F_R = -kv \end{matrix}\\ %
+    \begin{pmatrix} m\differtiate{v_x(t)}{t} \\[0.3em] m\differtiate{v_y(t)}{t} \end{pmatrix} &= \begin{pmatrix} -kv \\ -mg - kv \end{pmatrix} &
+\end{align} %]]></script>
+
+<h2 id="horizontal-direction-1">Horizontal Direction</h2>
+<p>Solving in the x-direction results in:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    m\differtiate{v_x}{t} &= -kv_x & v_x(0) &= v_{xo} \\
+    \int \dfrac{\differtial{v_x}}{v_x} &= \int -\dfrac{k}{m} \differtial{t}\\
+    \ln|v_x| &= -\dfrac{k}{m}t + C & v_x(0) = v_{xo} &\implies C = \ln|v_{xo}| \\
+    \ln|v_x| &= -\dfrac{k}{m}t + \ln|v_{xo}|
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\Aboxed{\therefore v_x(t) &= v_{xo}e^{-\tfrac{k}{m}t}} %]]></script>
+
+<p>We can find the acceleration and position function now.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    a_x(t) &= \differtiate{v_x(t)}{t} \\
+    &= \differtiate{v_{xo}e^{-\tfrac{k}{m}t}}{t}
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore a_x(t) = -\frac{k}{m}v_{xo}e^{-\tfrac{k}{m}t}}</script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    x(t) &= \int v_x(t) & x(0) &= x_o \\
+    &= \int v_{xo}e^{-\tfrac{k}{m}t} \differtial{t} \\
+    &=-\frac{m}{k} v_{xo}e^{-\tfrac{k}{m}t} + C & x(0) = x_o &\implies C = x_o + \frac{m}{k}v_{xo} \\
+    &= -\frac{m}{k}v_{xo}e^{-\tfrac{k}{m}t} + x_o + \frac{m}{k}v_{xo}
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore x(t) = \frac{m}{k}v_{xo}\left(1-e^{-\tfrac{k}{m}t}\right) + x_o}</script>
+
+<h2 id="vertical-direction-1">Vertical Direction</h2>
+<p>Solving in the y-direction results in:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    m\differtiate{v_y(t)}{t} &= -mg - kv_y & v_y(0) &= v_{yo} \\
+    \differtiate{v_y(t)}{t} &= -g - \frac{k}{m}v_y \\
+    \int \frac{\differtial{v_y}}{-g - \tfrac{k}{m}v_y} &= \int \differtial{t} \\
+    -\frac{m}{k}\ln\left|-g - \frac{k}{m}v_y\right| &= t + C & v_y(0) = v_{yo} &\implies C = -\frac{m}{k}\ln\left|-g - \frac{k}{m}v_{yo}\right| \\
+    -\frac{m}{k}\ln\left|-g - \frac{k}{m}v_y\right| &= t - \frac{m}{k}\ln\left|-g - \frac{k}{m}v_{yo}\right| \\
+    \ln\left|-g - \frac{k}{m}v_y\right| &= -\frac{k}{m}t + \ln\left|-g - \frac{k}{m}v_{yo}\right| \\
+    -g - \frac{k}{m}v_y &= e^{-\tfrac{k}{m}t}\left(-g - \frac{k}{m}v_{yo}\right) \\
+    -\frac{k}{m}v_y &= e^{-\tfrac{k}{m}t}\left(-g - \frac{k}{m}v_{yo}\right) + g
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore v_y(t) = e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}}</script>
+
+<p>We can find the acceleration and position function now.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    a_y(t) &= \differtiate{v_y(t)}{t} \\
+    &= \differtiate{e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}}{t}
+\end{align*} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore a_y(t) = -\frac{k}{m}\left(\frac{mg}{k} + v_{yo}\right)e^{-\tfrac{k}{m}t}}</script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    y(t) &= \int v_y(t) & y(0) &= y_o \\
+    &= \int \left(e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}\right) \differtial{t} \\
+    &= -\frac{m}{k}e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}t + C & y(0) = y_o &\implies C = y_o + \frac{m}{k}\left(\frac{mg}{k} + v_{yo}\right) \\
+    &= -\frac{m}{k}e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}t + y_o + \frac{m}{k}\left(\frac{mg}{k} + v_{yo}\right)
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore y(t) = \frac{m}{k}\left(\frac{mg}{k} + v_{yo}\right)\left(1 - e^{-\tfrac{k}{m}t}\right) - \frac{mg}{k}t + y_o}</script>
+
+<p>We can see if we would not accelerate indefinitely but will reach a terminal velocity.</p>
+
+<p><script type="math/tex">% <![CDATA[
+\begin{align*}
+    v_T &= \lim_{t\to\infty}\left(v_y(t)\right) \\
+    &= \lim_{t\to\infty}\left(e^{-\tfrac{k}{m}t}\left(\frac{mg}{k} + v_{yo}\right) - \frac{mg}{k}\right)
+\end{align*} %]]></script>
+<script type="math/tex">\boxed{v_T = -\frac{mg}{k}}</script></p>
+
+<h2 id="summary-1">Summary</h2>
+<p>Overall, we have our functions for acceleration, velocity, and position.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    \vect{a(t)} &= 
+    \begin{pmatrix} -\dfrac{k}{m}v_{xo}e^{-\tfrac{k}{m}t} \\ -\dfrac{k}{m}\left(\dfrac{mg}{k} + v_{yo}\right)e^{-\tfrac{k}{m}t} \end{pmatrix} \\
+    \vect{v(t)} &= 
+    \begin{pmatrix} v_{xo}e^{-\tfrac{k}{m}t} \\ e^{-\tfrac{k}{m}t}\left(\dfrac{mg}{k} + v_{yo}\right) - \dfrac{mg}{k} \end{pmatrix} \\
+    \vect{s(t)} &= 
+    \begin{pmatrix} \dfrac{m}{k}v_{xo}\left(1-e^{-\tfrac{k}{m}t}\right)+x_o \\ \dfrac{m}{k}\left(\dfrac{mg}{k} + v_{yo}\right)\left(1 - e^{-\tfrac{k}{m}t}\right) - \dfrac{mg}{k}t + y_o \end{pmatrix}
+\end{align} %]]></script>
+
+<p>In three dimensions, the x and y functions are the same as the x function in two dimensions and the z function is the same as the y function.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    \vect{a(t)} &= \begin{pmatrix} -\dfrac{k}{m}v_{xo}e^{-\tfrac{k}{m}t} \\ -\dfrac{k}{m}v_{xo}e^{-\tfrac{k}{m}t} \\ -\dfrac{k}{m}\left(\dfrac{mg}{k} + v_{yo}\right)e^{-\tfrac{k}{m}t} \end{pmatrix} \\
+    \vect{v(t)} &= \begin{pmatrix} v_{xo}e^{-\tfrac{k}{m}t} \\ v_{xo}e^{-\tfrac{k}{m}t} \\ e^{-\tfrac{k}{m}t}\left(\dfrac{mg}{k} + v_{yo}\right) - \dfrac{mg}{k} \end{pmatrix} \\
+    \vect{s(t)} &= \begin{pmatrix} \dfrac{m}{k}v_{xo}\left(1-e^{-\tfrac{k}{m}t}\right)+x_o \\ \dfrac{m}{k}v_{xo}\left(1-e^{-\tfrac{k}{m}t}\right)+x_o \\ \dfrac{m}{k}\left(\dfrac{mg}{k} + v_{yo}\right)\left(1 - e^{-\tfrac{k}{m}t}\right) - \dfrac{mg}{k}t + y_o \end{pmatrix}
+\end{align} %]]></script>
+
+<p>It is possible to rotated the xy plane such that xz plane is the only plane that contains motion. This enables to just use the two-dimensional version.</p>
+
+<h1 id="resistance-proportional-to-the-square-of-velocity">Resistance Proportional to the Square of Velocity</h1>
+<p>The relationship, $F_R \propto \vect{v}^2$ will lead to a more accurate model but is more difficult equation to solve analytically. The velocity always opposes the direction the object is heading. Therefore, the force can be positive or negative.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    \begin{pmatrix} F_x \\ F_y \end{pmatrix} &= \begin{pmatrix} F_R \\ F_g + F_R \end{pmatrix} 
+    & \mathrm{where} \;  \begin{matrix} F_g = -mg \\ F_R = \pm kv^2   \rightarrow -kv|v| \end{matrix}\\ %
+    \begin{pmatrix} m\differtiate{v_x(t)}{t} \\[0.3em] m\differtiate{v_y(t)}{t} \end{pmatrix} &= \begin{pmatrix} \pm kv^2 \\ -mg \pm kv^2 \end{pmatrix} &
+\end{align} %]]></script>
+
+<p>It is necessary to evaluate separately whether the velocity is positive or negative.</p>
+
+<h2 id="horizontal-direction-2">Horizontal Direction</h2>
+<p>Velocity can only be positive to simplify calculations.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    m\differtiate{v_x}{t} &= -kv_x^2 & v_x(0) &= v_{xo} \\
+    \int \dfrac{\differtial{v_x}}{v_x^2} &= \int -\dfrac{k}{m} \differtial{t}\\
+    -\frac{1}{v_x} &= -\dfrac{k}{m}t + C & v_x(0) = v_{xo} &\implies C = -\frac{1}{v_{xo}} \\
+    -\frac{1}{v_x} &= -\dfrac{k}{m}t - \frac{1}{v_{xo}} \\
+    \frac{1}{v_x} &= \dfrac{k}{m}t + \frac{1}{v_{xo}} \\
+    v_x &= \frac{1}{\tfrac{k}{m}t + \tfrac{1}{v_{xo}}} \\
+    &= \frac{1}{\tfrac{kv_{xo}t+m}{mv_{xo}}}
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore v_x(t) = \frac{mv_{xo}}{kv_{xo}t+m}}</script>
+
+<p>We can find the acceleration and position function now.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    a_x(t) &= \differtiate{v_x(t)}{t} \\
+    &= \differtiate{\frac{mv_{xo}}{kv_{xo}t+m}}{t} \\
+    &= -mv_{xo}\left(\frac{1}{(kv_{xo}t+m)^2}\right)kv_{xo}
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore a_x(t) = -\frac{mkv_{xo}^2}{(kv_{xo}t+m)^2}}</script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    x(t) &= \int v_x(t) & x(0) &= x_o \\
+    &= \int \frac{mv_{xo}}{kv_{xo}t+m} \differtial{t} \\
+    &= \frac{mv_{xo}}{kv_{xo}}\ln\left|kv_{xo}t+m\right| + C & x(0) = x_o &\implies C = x_o - \frac{m}{k}\ln(m) \\
+    &= \frac{m}{k}\ln\left|kv_{xo}t+m\right| + x_o - \frac{m}{k}\ln(m)
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore x(t) = x_o + \frac{m}{k}\ln\left|\frac{kv_{xo}t+m}{m}\right|}</script>
+
+<h2 id="vertical-direction-2">Vertical Direction</h2>
+<p>It is necessary to determine whether the force of resistance is positive or negative and that will determine what the sign for velocity will be. Nonetheless, we will need to solve for two separate situations.</p>
+
+<h3 id="upward-velocity">Upward Velocity</h3>
+<p><script type="math/tex">v_y\geq 0 \implies m\differtiate{v_y(t)}{t}=-mg-kv_y^2</script></p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    m\differtiate{v_y(t)}{t} &= -mg - kv_y^2 & v_y(0) &= v_{yo} \\
+    \differtiate{v_y(t)}{t} &= -g - \frac{k}{m}v_y \\
+    \int \frac{\differtial{v_y}}{-g - \tfrac{k}{m}v_y^2} &= \int \differtial{t} & \int\frac{dx}{a+bx^2} &= \frac{1}{\sqrt{ab}}\arctan\left(\sqrt{\frac{b}{a}}x\right) + C \\
+    \frac{-1}{\sqrt{g\tfrac{k}{m}}}\arctan\left(\sqrt{\frac{\tfrac{k}{m}}{g}}v_y\right) &= t + C \\
+    v_y(0) = v_{yo} &\implies C = -\sqrt{\frac{m}{kg}}\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) \\
+    -\sqrt{\frac{m}{kg}}\arctan\left(\sqrt{\frac{k}{mg}}v_{y}\right) &= t - \sqrt{\frac{m}{kg}}\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) \\
+    \arctan\left(\sqrt{\frac{k}{mg}}v_{y}\right) &= -\sqrt{\frac{kg}{m}}t + \arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) \\
+    \sqrt{\frac{k}{mg}}v_{y} &= \tan\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore v_y(t) = \sqrt{\frac{mg}{k}}\tan\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}</script>
+
+<p>We can find the acceleration and position function now.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    a_y(t) &= \differtiate{v_y(t)}{t} \\
+    &= \differtiate{\sqrt{\frac{mg}{k}}\tan\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}{t}
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore a_y(t) = -g\sec^2\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}</script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    y(t) &= \int v_x(t), \quad\quad y(0) = y_o \\
+    &= \int \sqrt{\frac{mg}{k}}\tan\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right) \differtial{t} \\
+    &= \sqrt{\frac{mg}{k}}\sqrt{\frac{m}{kg}}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + C \\
+    &= \frac{m}{k}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + C \\ 
+    y(0) = y_o &\implies C = y_o - \frac{m}{k}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)\right| \\ 
+    y(t) &= \frac{m}{k}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + y_o - \frac{m}{k}\ln\left|\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)\right|
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore y(t) = \frac{m}{k}\ln\left|\frac{\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}{\cos\left(\arctan\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)}\right|}</script>
+
+<h3 id="downward-velocity">Downward Velocity</h3>
+<p><script type="math/tex">% <![CDATA[
+v_y< 0 \implies m\differtiate{v_y(t)}{t}=-mg+kv_y^2 %]]></script></p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    m\differtiate{v_y(t)}{t} &= kv_y^2 - mg & v_y(0) &= v_{yo} \\
+    \differtiate{v_y(t)}{t} &= \frac{k}{m}v_y^2 - g \\
+    \int \frac{\differtial{v_y}}{\tfrac{k}{m}v_y^2 - g} &= \int \differtial{t} & \int\frac{dx}{a-bx^2} &= \frac{1}{\sqrt{ab}}\arctanh\left(\sqrt{\frac{b}{a}}x\right) + C \\
+    \frac{-1}{\sqrt{g\tfrac{k}{m}}}\arctanh\left(\sqrt{\frac{\tfrac{k}{m}}{g}}v_y\right) &= t + C \\
+    v_y(0) = v_{yo} &\implies C = -\sqrt{\frac{m}{kg}}\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) \\
+    -\sqrt{\frac{m}{kg}}\arctanh\left(\sqrt{\frac{k}{mg}}v_{y}\right) &= t - \sqrt{\frac{m}{kg}}\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) \\
+    \arctanh\left(\sqrt{\frac{k}{mg}}v_{y}\right) &= -\sqrt{\frac{kg}{m}}t + \arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) \\
+    \sqrt{\frac{k}{mg}}v_{y} &= \tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore v_y(t) = \sqrt{\frac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}</script>
+
+<p>We can find the acceleration and position function now.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    a_y(t) &= \differtiate{v_y(t)}{t} \\
+    &= \differtiate{\sqrt{\frac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}{t}
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore a_y(t) = -g\sech^2\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}</script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    y(t) &= \int v_x(t), \quad\quad y(0) = y_o \\
+    &= \int \sqrt{\frac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right) \differtial{t} \\
+    &= -\sqrt{\frac{mg}{k}}\sqrt{\frac{m}{kg}}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + C \\
+    &= -\frac{m}{k}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + C \\ 
+    y(0) = y_o &\implies C = y_o + \frac{m}{k}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)\right| \\ 
+    y(t) &= -\frac{m}{k}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right| + y_o + \frac{m}{k}\ln\left|\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)\right|
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore y(t) = y_o - \frac{m}{k}\ln\left|\frac{\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)}{\cosh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right)\right)}\right|}</script>
+
+<p>Again we can calculate the terminal velocity of the object.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    v_T &= \lim_{t\to\infty}\left(v_y(t)\right) \\
+    &= \lim_{t\to\infty}\left(\sqrt{\frac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\frac{k}{mg}}v_{yo}\right) - \sqrt{\frac{kg}{m}}t\right)\right)
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{v_T = -\sqrt{\frac{mg}{k}}}</script>
+
+<h3 id="summary-of-vertical-direction">Summary of Vertical Direction</h3>
+<p>Overall, we have our functions for acceleration, velocity, and position in the vertical direction. Of course the absolute values are unnecessary since the functions are only defined for $t\geq0$.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    a_y(t) &= \begin{cases} 
+        -g\sec^2\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) & v\geq 0 \\
+        -g\sech^2\left(\arctanh\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) & v<0 \\
+    \end{cases} \\
+    v_y(t) &= \begin{cases} 
+        \sqrt{\dfrac{mg}{k}}\tan\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) & v\geq 0 \\
+        \sqrt{\dfrac{mg}{k}}\tanh\left(\arctanh\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) & v<0 \\
+    \end{cases} \\
+    y(t) &= \begin{cases} 
+        y_o + \dfrac{m}{k}\ln\left(\dfrac{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right)}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) & v\geq 0 \\
+        y_o - \dfrac{m}{k}\ln\left(\dfrac{\cosh\left(\arctanh\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right)}{\cosh\left(\arctanh\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) & v<0 \\
+    \end{cases}
+\end{align} %]]></script>
+
+<p>When $v_y$ transitions from $0^+\rightarrow0^-$, it can be noted that $v_{yo}=0$. This simplifies our set of equations. However, it is necessary to shift the functions to match the when it transitions. We can calculate when this time delay, $\tau$, is.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    v_y(t) &= \sqrt{\dfrac{mg}{k}}\tan\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) \\
+    \sqrt{\dfrac{k}{mg}}v_y &= \tan\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) \\
+    \arctan\left(\sqrt{\dfrac{k}{mg}}v_y\right) &= \arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t \\
+    \arctan\left(\sqrt{\dfrac{k}{mg}}v_y\right) - \arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) &= -\sqrt{\dfrac{kg}{m}}t \\
+    -\sqrt{\dfrac{m}{kg}}\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_y\right) - \arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right) &= t
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{\therefore \tau = \sqrt{\dfrac{m}{kg}}\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)}</script>
+
+<p>As well, due to this simplification, we must compensate for the distance lost in the position functions. We can find how much that is by evaluating the position function at $\tau$.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    y_\tau &= y_o + \dfrac{m}{k}\ln\left(\dfrac{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}\sqrt{\dfrac{m}{kg}}\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) \\ 
+    &= y_o + \dfrac{m}{k}\ln\left(\dfrac{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) \\ 
+    &= y_o + \dfrac{m}{k}\ln\left(\dfrac{1}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right)
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">\boxed{y_\tau = y_o + \dfrac{m}{k}\ln\left(\sqrt{1+\dfrac{k}{mg}v_{yo}^2}\right)}</script>
+
+<p>Through these simplifications, we now have our final vertical equations. The bounds have changed to be dependant on time.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    a_y(t) &= \begin{cases} 
+        -g\sec^2\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) & t\leq \tau \\
+        -g\sech^2\left(-\sqrt{\dfrac{kg}{m}}(t-\tau)\right) & t>\tau \\
+    \end{cases} \\
+    v_y(t) &= \begin{cases} 
+        \sqrt{\dfrac{mg}{k}}\tan\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right) & t\leq \tau \\
+        \sqrt{\dfrac{mg}{k}}\tanh\left(-\sqrt{\dfrac{kg}{m}}(t-\tau)\right) & t>\tau \\
+    \end{cases} \\
+    y(t) &= \begin{cases} 
+        y_o + \dfrac{m}{k}\ln\left(\dfrac{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) - \sqrt{\dfrac{kg}{m}}t\right)}{\cos\left(\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right)\right)}\right) & t\leq \tau \\
+        y_\tau - \dfrac{m}{k}\ln\left(\cosh\left(\sqrt{\dfrac{kg}{m}}(t-\tau)\right)\right) & t>\tau
+    \end{cases}
+\end{align} %]]></script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    \text{Where, } \quad \tau &= \sqrt{\dfrac{m}{kg}}\arctan\left(\sqrt{\dfrac{k}{mg}}v_{yo}\right) \\
+    y_\tau &= y_o + \dfrac{m}{k}\ln\left(\sqrt{1+\dfrac{k}{mg}v_{yo}^2}\right)
+\end{align} %]]></script>
+
+<p>Of course, if the initial velocity is negative, the first set of equations are still valid.</p>
+
+<h2 id="summary-2">Summary</h2>
+<p>Overall, we have our functions for acceleration, velocity, and position. The equations shortened can be found above.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    \vect{a(t)} &= 
+    \begin{pmatrix} -\dfrac{mkv_{xo}^2}{(kv_{xo}t+m)^2} \\ a_y(t) \end{pmatrix} \\
+    \vect{v(t)} &= 
+    \begin{pmatrix} \dfrac{mv_{xo}}{kv_{xo}t+m} \\ v_y(t) \end{pmatrix} \\
+    \vect{s(t)} &= 
+    \begin{pmatrix} x_o + \dfrac{m}{k}\ln\left|\dfrac{kv_{xo}t+m}{m}\right| \\ y(t) \end{pmatrix}
+\end{align} %]]></script>
+
+<p>In three dimensions, the x and y functions are the same as the x function in two dimensions and the z function is the same as the y function.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    \vect{a(t)} &= \begin{pmatrix} -\dfrac{mkv_{xo}^2}{(kv_{xo}t+m)^2} \\ -\dfrac{mkv_{xo}^2}{(kv_{xo}t+m)^2} \\ a_z(t) \end{pmatrix} \\
+    \vect{v(t)} &= \begin{pmatrix} \dfrac{mv_{xo}}{kv_{xo}t+m} \\ \dfrac{mv_{xo}}{kv_{xo}t+m} \\ v_z(t) \end{pmatrix} \\
+    \vect{s(t)} &= \begin{pmatrix} x_o + \dfrac{m}{k}\ln\left|\dfrac{kv_{xo}t+m}{m}\right| \\ x_o + \dfrac{m}{k}\ln\left|\dfrac{kv_{xo}t+m}{m}\right| \\ z(t) \end{pmatrix}
+\end{align} %]]></script>
+
+<h1 id="projecting-from-three-to-two-dimensions">Projecting from Three to Two Dimensions</h1>
+<p>It is possible to rotated the xy plane such that xz plane is the only plane that contains motion. This enables to just use the two-dimensional version making it computationally easier. This is only possible since the x and y coordinates are not affected by the force of gravity and are defined by the same equation.</p>
+
+<p>We first project the original $\mathbb{R}^3$ onto the xy plane. This results in a $\mathbb{R}^2$ vector that includes the magnitude of the xy plane and z coordinate. To convert back. We need to project the vector onto the x and y coordinates separately.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+    \vect{v_{o}} &= \overbrace{\begin{pmatrix} a \\ b \\ c \end{pmatrix}}^{\mathbb{R}^3} & &\Longleftrightarrow &
+    \vect{v_{o(proj)}} &= \overbrace{\begin{pmatrix} \sqrt{a^2+b^2} \\ c \end{pmatrix}}^{\mathbb{R}^2} \implies 
+    \vect{v_{proj}(t)} = \begin{pmatrix} v_{xy} \\ v_z \end{pmatrix} \\
+    \vect{v_{proj}(t)} &= \overbrace{\begin{pmatrix} v_{xy} \\ v_z \end{pmatrix}}^{\mathbb{R}^2} & &\Longleftrightarrow &
+    \vect{v(t)} &= \overbrace{\begin{pmatrix} v_{xy}\dfrac{a}{\sqrt{a^2+b^2}} \\ v_{xy}\dfrac{b}{\sqrt{a^2+b^2}} \\ v_z \end{pmatrix}}^{\mathbb{R}^3}
+\end{align} %]]></script>
+
+</div>	
+			</div>
+		</div>
+		
+		<div class="footer">
+    <!-- Contact -->
+    <div id="footer-container">
+        <div class="footer-sections">
+        <h3 class=contact>Permanent Address</h3> 
+        <p class=contact>170 Elbern Markell Drive<br>Brampton, ON, L6X 2Z9</p>
+        </div>
+        
+        <div class="footer-sections">
+        <h3 class=contact>Current Address</h3> 
+        <p class=contact>14 Cottrill Street<br>Hamilton, ON, L8S 3L4</p>
+        </div>
+        
+        <div class="footer-sections">
+        <h3 class=contact>Contact Information</h3>
+        <p class=contact>chiua10@mcmaster.ca<br>
+        <strong>Cell:</strong>  (647) 283-2389</p>
+        </div>
+    </div>
+    <!-- Social Media -->
+    <div class="footer-sections">
+    <h3 class=contact>Social Media</h3>
+    <a href="https://www.facebook.com/profile.php?id=100018624766241" class="fa fa-facebook"></a>
+    <a href="https://www.linkedin.com/in/aaron-chiu/" class="fa fa-linkedin"></a>
+    </div>
+</div>		
+
+<!-- Animation on Scroll -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 2000
+    });
+</script>
+
+<script src="/assets/js/katex-render.js"></script>
+</html>

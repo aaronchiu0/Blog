@@ -2,22 +2,65 @@
 title: Economics
 layout: default-with-side-menu
 ---
+<<<<<<< HEAD
 <!-- include script -->
 <script src="/assets/js/economics.js" type="text/babel"></script>
 
 <div>
 
 <h1 style="text-align: center;">Compound Interest Factors</h1>
+=======
+
+<h1>Compound Interest Factors</h1>
+<!-- <script type="math/tex; mode=display"> tex code </script> -->
+>>>>>>> parent of 5feb739... center and update
 
 <div id="test"></div>
 
 <div class="multiple-column">
+<<<<<<< HEAD
     <div id="calculation-type"></div>
     <div id="calculation-IO"></div>
+=======
+    <div id="calculation-type">
+        <h2>Factors</h2>
+        <h3>Single Payments</h3>
+        <button class="factor">F/P</button>
+        <button class="factor">P/F</button>
+    
+        <h3>Uniform Payment Series</h3>
+        <button class="factor">A/F</button>
+        <button class="factor">A/P</button>
+        <button class="factor">F/A</button>
+        <button class="factor">P/A</button>
+    
+        <h3>Arithmetic Gradient</h3>
+        <button class="factor">A/G</button>
+        <button class="factor">P/G</button>
+    </div>
+    <div id="calculation-IO">
+        <h2>Input</h2>
+        <h3>Calculating Nothing</h3>
+        <label class="amount-label" for="amount">?</label><br>
+        <input class="amount" type="number" value="0"><br>
+        <label for="rate" >Rate</label><br>
+        <input id="rate" type="number" value="0"><br>
+        <label for="period">Period</label><br>
+        <input id="period" type="number" value="0"><br>
+
+        <button class="submit">Update</button>
+
+        <h2 class="output-header">Output</h2>
+        <p class="output">Answer</p>
+    </div>
+>>>>>>> parent of 5feb739... center and update
     <div id="calculation-IO-interpolate">
         <h2>Calculate for rate or period</h2>
         <h3>Calculating Nothing</h3>
+        <button id="calcRate">Rate</button>
+        <button id="calcPeriod">Period</button><br>
 
+<<<<<<< HEAD
         <div class="center">
             <button id="calcRate">Rate</button>
             <button id="calcPeriod">Period</button><br>
@@ -30,13 +73,20 @@ layout: default-with-side-menu
             <input class="calculate" type="number" value="0" placeholder="Amount"><br>
             <button class="submit">Update</button>
         </div>
+=======
+        <label class="first-label" for="amount">?</label><br>
+        <input class="first-amount" type="number" value="0"><br>
+        <label class="second-label" for="amount" value="0">?</label><br>
+        <input class="second-amount" type="number" value="0"><br>
+        <label class="calculate-label" for="calculate">?</label><br>
+        <input class="calculate" type="number" value="0"><br>
+        <button class="submit">Update</button>
+>>>>>>> parent of 5feb739... center and update
 
         <h2>Output</h2>
-        <p class="output center">Answer</p>
+        <p class="output">Answer</p>
     </div>
 </div>
 <div>
-    <h2 id="formula-heading" style="text-align: center;">Formulas for Factors</h2> 
-</div>
-
+    <h2 id="formula-heading">Formulas for Factors</h2> 
 </div>

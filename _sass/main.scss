@@ -91,12 +91,12 @@ p {
 	padding: 30px;
 	text-align: center;
 	background: map-get($colours, header);
-  	color: white;
+  color: white;
 }
 
 /* Style the top navigation bar */
 .navbar {
-  	@include flexbox-container(row, flex-start, flex-start);
+  @include flexbox-container(row, flex-start, flex-start);
 	background-color: map-get($colours, nav);
 }
 
@@ -116,36 +116,22 @@ p {
 
 /* Column container */
 .row { 
-	@include flexbox-container(row, flex-start, flex-start); 
-	flex-wrap: nowrap;
-
-	@media screen and (max-width: $side-change) {
-		flex-direction: column;
-	}
+  @include flexbox-container(row, flex-start, flex-start); 
 }
 
 /* Create two unequal columns that sits next to each other */
 /* Sidebar/left column */
 .side {
-	flex: 0 0 $side-width;
+	flex: 0 1 $side-width;
 	background-color: map-get($colours, background);
-	padding: 20px;
-	  
-	@media screen and (max-width: $side-change) {
-		width: auto;
-	}
+  padding: 20px;
 }
 
 /* Main column */
 .main {
-	flex: 1 1 $content-width; 
+	flex: 1 0;
 	background-color: white;
 	padding: 20px;
-
-		  
-	@media screen and (max-width: $side-change) {
-		width: 100%;
-	}
 }
 
 /* Fake image, just for this example */
@@ -162,7 +148,7 @@ p {
   }
   
   .navbar a {
-    width: 100%;
+    width: 100vw;
   }
 }
 

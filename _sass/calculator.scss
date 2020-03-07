@@ -29,6 +29,8 @@
         padding: 0 16px;
     }
 }
+
+
     
 @media screen and (max-width: $timeline-change) {
     .row-calculators {
@@ -36,31 +38,14 @@
     }
 
     .calculators-card {
-        width: 95%;
+        width: auto;
     }
 }
 
 // Economics
 .multiple-column {
-    @include column("#calculation-type", "#calculation-IO", "#calculation-IO-interpolate") {}
+    @include column("#calculation-type", "#calculation-IO", "#calculation-IO-interpolate") {
 
-    @media screen and (max-width: $side-change) {
-        flex-direction: column;
-        flex: 1 0 auto;
-
-        width: auto;
-    }
-
-    #calculation-type, #calculation-IO, #calculation-IO-interpolate {
-        width: 100%;
-
-        .center {
-            text-align: center;
-        }
-    }
-
-    h2, h3 {
-        text-align: center;
     }
 
     label {
