@@ -5,7 +5,7 @@ const toPercent = (x) => isNaN(x) ? `${x}` : `${precise(x*100, 8)*1}\\%`; // fix
 const tex = (str) => `$$ ${str} $$`;
 
 // global variables
-var scope = { i: -1, n: -1 };
+var scope = { i: 0, n: 0 };
 var selectedFactor = 0;
 var selectedCalc = "";
 
@@ -30,7 +30,9 @@ class Factor {
     set name(name) {                 this.m_name = name; }
     set expression(expression) {     this.m_expression = expression; }
 
-    eval(scope) { return this.compiled.evaluate(scope); }
+    static toScope = (_i, _n) => { return {i: _i, n: _n }; }
+
+    eval(i, n) { return this.compiled.evaluate(this.constructor.toScope(i, n)); }
     derivative(x) { return math.derivative(this.parsed, x); }
     eval_derivative(x, scope) { return this.derivative(x).evaluate(scope); }
 
@@ -66,20 +68,21 @@ var factors = [
     new GrowthFactor("P/A", '((1+i)^n-1)/(i*(1+i)^n)*(1/(1+g))', '(1+i)/(1+g)-1', '((1+i^o)^n-1)/(i^o*(1+i^o)^n)*(1/(1+g))')
 ];
 
-const changeScope = (x) => {
-    selectedCalc == "rate" ? scope.i = x : scope.n = x;
+const changeScope = (select, x) => {
+    select == "rate" ? scope.i = x : scope.n = x;
     return scope;
 }
 
 function NewtonRaphson(f_x, fprime_x, x, nmax, eps, del) {
+    console.time("Newton Raphson");
     let n, fx, fp;
     console.log(f_x, fprime_x, scope);
 
-    fx = math.evaluate(f_x, changeScope(x));
+    fx = math.evaluate(f_x, changeScope(selectedCalc, x));
     console.log(0, x, fx);
 
     for (n = 1; n <= nmax; n++) {
-        fp = math.evaluate(fprime_x, changeScope(x));
+        fp = math.evaluate(fprime_x, changeScope(selectedCalc, x));
 
         if (Math.abs(fp) < del) {
             console.log("small derivative");
@@ -88,7 +91,7 @@ function NewtonRaphson(f_x, fprime_x, x, nmax, eps, del) {
 
         let d = fx/fp;
         x = x - d;
-        fx = math.evaluate(f_x, changeScope(x));
+        fx = math.evaluate(f_x, changeScope(selectedCalc, x));
 
         console.log(n, x, fx);
 
@@ -97,30 +100,58 @@ function NewtonRaphson(f_x, fprime_x, x, nmax, eps, del) {
             break;
         }
     }
+    console.timeEnd("Newton Raphson");
+
     return x;
 } 
 
 // start react section
 
+function MathDisplay(props) { // katex to string
+    var math = katex.renderToString(props.data, {
+        throwOnError: false,
+        displayMode: true
+    });
+    return <p dangerouslySetInnerHTML={ {__html: math} }/>;
+}
+
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {select: ""};
+    }
+
     render () {
         let rows = [];
         rows.push(<h2 key={-1}>Factors</h2>);
         for (let i = 0; i < factors.length - 1; i++) {
             switch (i) {
-                case 0:
-                    rows.push(<h3 key={i+100}>Single Payments</h3>);       
-                    break;
-                case 2:
-                    rows.push(<h3 key={i+100}>Uniform Payment Series</h3>);
-                    break;
-                case 6:
-                    rows.push(<h3 key={i+100}>Arithmetic Gradient</h3>);
-                    break;
+                case 0: rows.push(<h3 key={i+100}>Single Payments</h3>); break;
+                case 2: rows.push(<h3 key={i+100}>Uniform Payment Series</h3>); break;
+                case 6: rows.push(<h3 key={i+100}>Arithmetic Gradient</h3>); break;
             }
-            rows.push(<button key={i} className="factor">{factors[i].name}</button>);      
+            rows.push(<button key={i} name={i} onClick={e => this.handleSelect(e, "name")} className="factor">{factors[i].name}</button>);      
         }
-        return (<div className="center">{rows}</div>)
+        return (
+            <div>
+                <div className="center">{rows}</div>
+                <CalculationIO />
+            </div>
+        );
+    }
+
+    
+    handleSelect(e) {
+        const target = event.target;
+        const value = target.name;
+        console.log(value);
+        const name = target.name;
+
+        selectedFactor = value;
+        // this.setState({select: parseFloat(value)}, () => {
+        //     //console.log({Amount: this.state.amount, Rate:this.state.rate, Period: this.state.period});
+        //     //this.calcFactor();
+        // });
     }
 }
 
@@ -139,60 +170,56 @@ class CalculationIO extends React.Component {
                 <h3>Calculating Nothing</h3>
                 <div className="center">
                     <label className="amount-label" htmlFor="amount">?</label><br />
-                    <input className="amount" name="amount" type="number" onChange={this.handleInputChange} value={this.state.amount}placeholder="Amount" /><br />
+                    <input className="amount" name="amount" type="number" onChange={this.handleInputChange} value={this.state.amount} placeholder="Amount" /><br />
                     <label htmlFor="rate">Rate</label><br />
                     <input id="rate" name="rate" type="number" onChange={this.handleInputChange} value={this.state.rate} placeholder="Rate" /><br />
                     <label htmlFor="period">Period</label><br />
                     <input id="period" name="period" type="number" onChange={this.handleInputChange} value={this.state.period} placeholder="Period" /><br />
 
-                    <button className="submit">Update</button>
+                    <button className="submit">Update</button>  
                 </div>
 
                 <h2 className="output-header">Output</h2>
-                <p className="output center">Answer</p>
+                <MathDisplay className="output center" data={this.state.tex} />
             </form>   
         );
     }
-
     
+    componentDidMount() {
+        this.calcFactor();
+    }
+
     handleInputChange = (e) => {
         const target = event.target;
         const value = target.value;
         const name = target.name;
 
         this.setState({[name]: parseFloat(value)}, () => {
-            console.log(this.state.amount, this.state.rate, this.state.period)
+            console.log({Amount: this.state.amount, Rate:this.state.rate, Period: this.state.period});
             this.calcFactor();
         });
     }
 
     calcFactor = () => {
-        //let amount = parseFloat($(".amount").val());
+        const {amount, rate, period} = this.state;
 
-        scope = {
-            i: this.state.rate,
-            n: this.state.period
-        };
+        let factor = factors[selectedFactor].eval(rate, period);
 
-        let factor = factors[selectedFactor].eval(scope);
+        console.log(rate, amount, period, factor);
 
-        console.log(this.state.amount, factor, scope);
-
-        let ans = this.state.amount*factor;
+        let ans = amount*factor;
 
         factor = precise(factor, 8);
         ans = financial(ans);
 
         const obj = factors[selectedFactor];
-        const {given, ungiven} = obj;
+        const {given, ungiven} = factors[selectedFactor];
 
-        katex.render(`\\begin{aligned}${ungiven}&=${given}${obj.formatted("i", "n")}\\\\&=${this.state.amount}${obj.formatted(scope.i, scope.n)}\\\\&=${this.state.amount}(${factor})\\\\&=${ans}\\end{aligned}`, document.querySelector('#calculation-IO .output'), {
-            throwOnError: false
-        });
+        this.setState({tex: `\\begin{aligned}${ungiven}&=${given}${obj.formatted("i", "n")}\\\\&=${amount}${obj.formatted(rate, period)}\\\\&=${amount}(${factor})\\\\&=${ans}\\end{aligned}`});   
     }
 }
 
-ReactDOM.render(<CalculationIO />, document.getElementById("calculation-IO"));
+//ReactDOM.render(<CalculationIO />, document.getElementById("calculation-IO"));
 
 $(document).ready(function(){
     const interpolateFactor = () => {
@@ -232,8 +259,8 @@ $(document).ready(function(){
 
     const update = function() {
         const {name, given, ungiven} = factors[selectedFactor];
-        $("#calculation-IO h3").text(`Calculating ${name}`);
-        $("#calculation-IO .amount-label").text(`${given}`);
+        //$("#calculation-IO h3").text(`Calculating ${name}`);
+        //$("#calculation-IO .amount-label").text(`${given}`);
         $("#calculation-IO-interpolate .first-label").text(`${ungiven}`);
         $("#calculation-IO-interpolate .second-label").text(`${given}`);
 
