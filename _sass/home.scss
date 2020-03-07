@@ -17,7 +17,7 @@ body {
     .hero-title-container {
         @include flexbox-container(column, center, center);
         height: 100%;
-        width: 100%;
+        width: 100%; 
         position: relative;
         background: inherit;
 
