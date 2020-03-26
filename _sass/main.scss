@@ -12,10 +12,11 @@ body {
   margin: 0;
   height: 100%;
   background: map-get($colours, background);
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 .content-body {
-	max-width: $content-width;
+	//max-width: $content-width;
 	margin: auto;
 }
 
@@ -149,6 +150,10 @@ p {
   
   .navbar a {
     width: 100vw;
+  }
+
+  .main {
+	  width: 100%;
   }
 }
 

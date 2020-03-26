@@ -1,8 +1,12 @@
 /* Center and scale the image nicely */
-@mixin centerScaleBackground($image){
-    background-position: center;
+@mixin centerScaleBackground($image, $size: cover) {
+    @if $size != cover {
+        background-position: left;
+    } @else {
+        background-position: center;
+    }
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: $size;
     background-image: url($image);
 }
 

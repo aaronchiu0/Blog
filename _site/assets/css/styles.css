@@ -7,9 +7,9 @@
 * { box-sizing: border-box; }
 
 /* Style the body */
-body { font-family: 'RobotoCondensed', sans-serif; margin: 0; height: 100%; background: #f1f1f1; }
+body { font-family: 'RobotoCondensed', sans-serif; margin: 0; height: 100%; background: #f1f1f1; overflow-x: hidden; /* Hide horizontal scrollbar */ }
 
-.content-body { max-width: 1200px; margin: auto; }
+.content-body { margin: auto; }
 
 h1, h2, h3 { font-family: 'Roboto', sans-serif; }
 
@@ -63,7 +63,8 @@ p { font-family: 'RobotoCondensed', sans-serif; }
 
 /* Responsive layout - when the screen is less than 550px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) { .row, .navbar { flex-direction: column; }
-  .navbar a { width: 100vw; } }
+  .navbar a { width: 100vw; }
+  .main { width: 100%; } }
 
 /* Social Media Icons */
 .fa { padding: 10px; font-size: 30px; width: 35px; height: 35px; text-align: center; text-decoration: none; margin: 5px 2px; }
@@ -197,11 +198,17 @@ body { background: #f1f1f1; }
 /* Responsiveness transitions */
 /* Center and scale the image nicely */
 /* flexbox container*/
+.calculator-header-container { background-position: left; background-repeat: no-repeat; background-size: 80%; background-image: url("/assets/images/economics.jpg"); box-sizing: border-box; box-shadow: inset -45vw 0 5vw -5vw #1c3c87; height: 100px; display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center; }
+
+.calculator-header-container h1, .calculator-header-container h2 { margin: 10px 20px; color: #FFF; }
+
+@media screen and (max-width: 950px) { .calculator-header-container h1 { display: none; } }
+
 .row-calculators { display: flex; flex-flow: row wrap; justify-content: center; align-items: center; }
 
 .calculators-card { height: 325px; width: 45%; margin: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
 
-.calculators-card:link, .calculators-card:visited { color: black; text-decoration: none; }
+.calculators-card:link, .calculators-card:visited { color: #111; text-decoration: none; }
 
 .calculators-card:hover, .calculators-card:active { box-shadow: 1px 8px 16px 1px rgba(0, 0, 0, 0.2); }
 
@@ -220,7 +227,25 @@ body { background: #f1f1f1; }
 
 .multiple-column #calculation-IO-interpolate { flex: 1 0 33.3333333333%; }
 
-@media screen and (max-width: 700px) { .multiple-column { flex-direction: column; flex: 1 0 auto; width: auto; } }
+.multiple-column .select { position: relative; display: inline-block; margin-bottom: 15px; width: 75%; background: #E6E6E6; text-align: center; border-bottom: 1px solid #333; }
+
+.multiple-column .select select { display: inline-block; width: 100%; cursor: pointer; padding: 10px 15px; outline: 0; border: 0; border-radius: 0; background: inherit; color: #7B7B7B; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
+
+.multiple-column .select option { background: #FFF; }
+
+.multiple-column .select select::-ms-expand { display: none; }
+
+.multiple-column .select:hover, .multiple-column .select select:focus { color: #000000; background: #CCCCCC; }
+
+.multiple-column .select select:disabled { opacity: 0.5; pointer-events: none; }
+
+.multiple-column .select__arrow { position: absolute; top: 16px; right: 15px; width: 0; height: 0; pointer-events: none; border-style: solid; border-width: 8px 5px 0 5px; border-color: #7B7B7B transparent transparent transparent; }
+
+.multiple-column .select select:hover ~ .select__arrow, .multiple-column .select select:focus ~ .select__arrow { border-top-color: #000000; }
+
+.multiple-column .select select:disabled ~ .select__arrow { border-top-color: #CCCCCC; }
+
+@media screen and (max-width: 950px) { .multiple-column { flex-direction: column; flex: 1 0 auto; width: auto; } }
 
 .multiple-column #calculation-type, .multiple-column #calculation-IO, .multiple-column #calculation-IO-interpolate { width: 100%; }
 
@@ -231,6 +256,10 @@ body { background: #f1f1f1; }
 .multiple-column label { padding: 5px; }
 
 .multiple-column input[type=number] { padding: 4px 10px; margin: 2px 10px 10px; border: none; border-bottom: 1px solid #333; }
+
+.multiple-column button { background-color: #E6E6E6; border: none; padding: 8px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 4px 2px; cursor: pointer; }
+
+.multiple-column button:hover { background: #CCCCCC; }
 
 /* Dax */
 @font-face { /* (900) Black */ font-family: 'Dax'; src: url(../fonts/Dax/Dax-Black.ttf); font-weight: normal; font-style: normal; }
@@ -285,6 +314,23 @@ body { background: #f1f1f1; }
 @font-face { /* (300) Light */ font-family: 'RobotoCondensed'; src: url(../fonts/RobotoCondensed/RobotoCondensed-Light.ttf); font-weight: light; font-style: normal; }
 
 @font-face { /* (300) Light Italic */ font-family: 'RobotoCondensed'; src: url(../fonts/RobotoCondensed/RobotoCondensed-LightItalic.ttf); font-weight: light; font-style: italic; }
+
+/* Mohave */
+@font-face { /* (700) Bold */ font-family: 'Mohave'; src: url(../fonts/Mohave/Mohave-Bold.otf); font-weight: bold; font-style: normal; }
+
+@font-face { /* (700) Bold Italic */ font-family: 'Mohave'; src: url(../fonts/Mohave/Mohave-BoldItalic.otf); font-weight: bold; font-style: italic; }
+
+@font-face { /* (500) Medium */ font-family: 'Mohave'; src: url(../fonts/Mohave/Mohave-Medium.otf); font-weight: 500; font-style: normal; }
+
+@font-face { /* (500) Medium Italic */ font-family: 'Mohave'; src: url(../fonts/Mohave/Mohave-MediumItalic.otf); font-weight: 500; font-style: italic; }
+
+@font-face { /* (400) Regular */ font-family: 'Mohave'; src: url(../fonts/Mohave/Mohave-Regular.otf); font-weight: normal; font-style: normal; }
+
+@font-face { /* (400) Regular Italic */ font-family: 'Mohave'; src: url(../fonts/Mohave/Mohave-Italic.otf); font-weight: normal; font-style: italic; }
+
+@font-face { /* (300) Light */ font-family: 'Mohave'; src: url(../fonts/Mohave/Mohave-Light.otf); font-weight: light; font-style: normal; }
+
+@font-face { /* (300) Regular Italic */ font-family: 'Mohave'; src: url(../fonts/Mohave/Mohave-LightItalic.otf); font-weight: light; font-style: italic; }
 
 /* Colour Scheme */
 /* Dimensions */

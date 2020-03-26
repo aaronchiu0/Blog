@@ -5,7 +5,7 @@ const toPercent = (x) => isNaN(x) ? `${x}` : `${precise(x*100, 8)*1}\\%`; // fix
 const tex = (str) => `$$ ${str} $$`;
 
 // global variables
-var scope = { i: -1, n: -1 };
+var scope = { i: 0, n: 0 };
 var selectedFactor = 0;
 var selectedCalc = "";
 
@@ -186,13 +186,18 @@ $(document).ready(function(){
         interpolateFactor();
     };
 
-    $("#calculation-type .factor").click(function() {
-        selectedFactor = $(this).index(".factor");
+    // $("#calculation-type .factor").click(function() {
+    //     selectedFactor = $(this).index(".factor");
+    //     update();
+    // });
+
+    $('.select select').on('change', function() {
+        selectedFactor = this.value;
         update();
     });
     
     $("#calculation-IO-interpolate #calcRate, #calculation-IO-interpolate #calcPeriod").click(function() {
-        $("#calculation-IO-interpolate h3").text("Calculating "+$(this).text());
+        $("#calculation-IO-interpolate h3").text(`Calculating ${$(this).text()} with ${factors[selectedFactor].name}`);
 
         if ($(this).is("#calculation-IO-interpolate #calcRate")) {
             $(".calculate-label").text("Period");
@@ -226,13 +231,25 @@ $(document).ready(function(){
                 displayMode: true
             });
             $("#formula-heading").after(tex);
+            $("#formula-heading").after(`<h3>Geometric Gradient</h3>`);
             continue;
         }
 
+        
         tex = katex.renderToString(`${factors[i].formatted("i", "n")}=${factors[i].printTex()}`, {
             throwOnError: false,
             displayMode: true
         });
         $("#formula-heading").after(`${tex}<br>`);
+
+        if (i == 0) {
+            $("#formula-heading").after(`<h3>Single Payments</h3>`);
+        }
+        if (i == 2) {
+            $("#formula-heading").after(`<h3>Uniform Payment Series</h3>`);
+        }
+        if (i == 6) {
+            $("#formula-heading").after(`<h3>Arithmetic Gradient</h3>`);
+        }
     }
 });
