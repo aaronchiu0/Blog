@@ -22,8 +22,11 @@
 <!-- load jsx -->
 <script src="https://unpkg.com/babel-standalone@latest/babel.min.js"></script>
 
+<!-- import modules -->
+<script type="module" src="/assets/js/modules/helpers.js"></script>
+
 <!-- import scripts -->
-<script src="/assets/js/display.js"></script>
+<script type="module" src="/assets/js/display.js"></script>
 <script src="/assets/js/typing-text.js"></script>
 
 <!-- Animation on Scroll -->
@@ -137,7 +140,7 @@ onload="renderMathInElement(document.body);"></script>
 
 <div class="row-calculators">
 	
-		<a class="calculators-card" href="/calculators/economics.html">
+		<a class="calculators-card" href="/calculators/compound-interest-factors.html">
 			<img class="calculators-image" src="/assets/images/economics.jpg" alt="Economics" style="width:100%">
 			<div class="calculators-container">
 				<h2>Economics</h2>
@@ -145,11 +148,27 @@ onload="renderMathInElement(document.body);"></script>
 			</div>
 		</a>
 	
-		<a class="calculators-card" href="/calculators/numerical-solutions.html">
-			<img class="calculators-image" src="/assets/images/numerical-solutions.jpg" alt="Economics" style="width:100%">
+		<a class="calculators-card" href="">
+			<img class="calculators-image" src="/assets/images/numerical-solutions.jpg" alt="Numerical Solutions" style="width:100%">
 			<div class="calculators-container">
 				<h2>Numerical Solutions</h2>
 				<p>Why do advanced calculations by hand when a computer can do it for you.</p>
+			</div>
+		</a>
+	
+		<a class="calculators-card" href="">
+			<img class="calculators-image" src="/assets/images/heat-transfer.jpg" alt="Thermodynamics & Heat Transfer" style="width:100%">
+			<div class="calculators-container">
+				<h2>Thermodynamics & Heat Transfer</h2>
+				<p>When you are really feeling the heat of the calculations</p>
+			</div>
+		</a>
+	
+		<a class="calculators-card" href="/calculators/binomial.html">
+			<img class="calculators-image" src="/assets/images/statistics.jpg" alt="Statistics" style="width:100%">
+			<div class="calculators-container">
+				<h2>Statistics</h2>
+				<p>For all your gambling and gacha needs</p>
 			</div>
 		</a>
 	

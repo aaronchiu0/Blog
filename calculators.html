@@ -9,8 +9,8 @@ layout: default-with-side-introduction
 
 <div class="row-calculators">
 	{% for item in site.data.calculators %}
-		<a class="calculators-card" href="{{item.link}}">
-			<img class="calculators-image" src="{{item.image}}" alt="Economics" style="width:100%">
+		<a class="calculators-card" href="{{item.calculators.first.link}}">
+			<img class="calculators-image" src="{{item.image}}" alt="{{item.title}}" style="width:100%">
 			<div class="calculators-container">
 				<h2>{{item.title}}</h2>
 				<p>{{item.description}}</p>

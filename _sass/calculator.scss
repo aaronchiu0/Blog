@@ -1,28 +1,6 @@
 @import "utilities/variables";
 @import "utilities/mixins";
 
-.calculator-header-container {
-    @include centerScaleBackground("/assets/images/economics.jpg", 80%);
-
-    box-sizing: border-box;
-    box-shadow: inset -45vw 0 5vw -5vw rgb(28, 60, 135);
- 
-    height: 100px;
-
-    @include flexbox-container(row, space-between, center);
-
-    h1, h2 {
-        margin: 10px 20px;
-        color: #FFF;
-    }
-
-    @media screen and (max-width: $timeline-change) {
-        h1 {
-            display: none;
-        }
-    }
-}
-
 .row-calculators {
     @include flexbox-container(row, center, center);
 }
@@ -63,119 +41,458 @@
 }
 
 // Economics
-.multiple-column {
-    @include column("#calculation-type", "#calculation-IO", "#calculation-IO-interpolate") {}
+#compound-interest-factors {
+    .calculator-header-container {
+        @include centerScaleBackground("/assets/images/economics.jpg", 80%);
+    
+        box-sizing: border-box;
+        box-shadow: inset -45vw 0 5vw -5vw rgb(28, 60, 135);
+     
+        height: 100px;
+    
+        @include flexbox-container(row, space-between, center);
+    
+        h1, h2 {
+            padding: 10px 20px;
+            color: #FFF;
+        }
+    
+        @media screen and (max-width: $timeline-change) {
+            h1 {
+                display: none;
+            }
+        }
+    }
 
-    .select {
-        position: relative;
-        display: inline-block;
-        margin-bottom: 15px;
-        width: 75%;
-        background: #E6E6E6;
+    .multiple-column {
+        @include column("#calculation-type", "#calculation-IO", "#calculation-IO-interpolate") {
         text-align: center;
-        border-bottom: 1px solid map-get($colours, nav);
+        }
 
-        select {
+        .select {
+            position: relative;
             display: inline-block;
+            margin-bottom: 15px;
+            width: 75%;
+            background: #E6E6E6;
+            text-align: center;
+            border-bottom: 1px solid map-get($colours, nav);
+
+            select {
+                display: inline-block;
+                width: 100%;
+                cursor: pointer;
+                padding: 10px 15px;
+                outline: 0;
+                border: 0;
+                border-radius: 0;
+                background: inherit;
+                color: #7B7B7B;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
+
+            option {
+                background: #FFF;
+            }
+        }
+
+        .select select::-ms-expand {
+            display: none;
+        }
+
+        .select:hover,
+        .select select:focus {
+            color: #000000;
+            background: #CCCCCC;
+        }
+
+        .select select:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .select__arrow {
+            position: absolute;
+            top: 16px;
+            right: 15px;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+            border-style: solid;
+            border-width: 8px 5px 0 5px;
+            border-color: #7B7B7B transparent transparent transparent;
+        }
+
+
+        .select select:hover ~ .select__arrow,
+        .select select:focus ~ .select__arrow {
+            border-top-color: #000000;
+        }
+
+        .select select:disabled ~ .select__arrow {
+            border-top-color: #CCCCCC;
+        }
+        
+
+        @media screen and (max-width: $timeline-change) {
+            flex-direction: column;
+            flex: 1 0 auto;
+
+            width: auto;
+        }
+
+        #calculation-type, #calculation-IO, #calculation-IO-interpolate {
             width: 100%;
-            cursor: pointer;
-            padding: 10px 15px;
-            outline: 0;
-            border: 0;
-            border-radius: 0;
-            background: inherit;
-            color: #7B7B7B;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
+            text-align: center;
+
+            .center {
+                text-align: center;
+            }
         }
 
-        option {
-            background: #FFF;
-        }
-    }
-
-      .select select::-ms-expand {
-        display: none;
-      }
-
-      .select:hover,
-      .select select:focus {
-        color: #000000;
-        background: #CCCCCC;
-      }
-
-      .select select:disabled {
-        opacity: 0.5;
-        pointer-events: none;
-      }
-
-      .select__arrow {
-        position: absolute;
-        top: 16px;
-        right: 15px;
-        width: 0;
-        height: 0;
-        pointer-events: none;
-        border-style: solid;
-        border-width: 8px 5px 0 5px;
-        border-color: #7B7B7B transparent transparent transparent;
-      }
-
-
-      .select select:hover ~ .select__arrow,
-      .select select:focus ~ .select__arrow {
-        border-top-color: #000000;
-      }
-
-      .select select:disabled ~ .select__arrow {
-        border-top-color: #CCCCCC;
-      }
-      
-
-    @media screen and (max-width: $timeline-change) {
-        flex-direction: column;
-        flex: 1 0 auto;
-
-        width: auto;
-    }
-
-    #calculation-type, #calculation-IO, #calculation-IO-interpolate {
-        width: 100%;
-
-        .center {
+        h2, h3 {
             text-align: center;
         }
-    }
 
-    h2, h3 {
-        text-align: center;
-    }
+        label {
+            padding: 5px;
+        }
 
-    label {
-        padding: 5px;
-    }
+        input[type=number] {
+            padding: 4px 10px;
+            margin: 2px 10px 10px;
+            border: none;
+            border-bottom: 1px solid map-get($colours, nav);
+        }
 
-    input[type=number] {
-        padding: 4px 10px;
-        margin: 2px 10px 10px;
-        border: none;
-        border-bottom: 1px solid map-get($colours, nav);
+        button {
+            background-color: #E6E6E6;
+            border: none;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+        
+            &:hover {
+                background: #CCCCCC;
+            }
+        }
     }
+}
 
-    button {
-        background-color: #E6E6E6;
-        border: none;
-        padding: 8px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-        margin: 4px 2px;
-        cursor: pointer;
+// Depreciation
+#depreciation {
+    .calculator-header-container {
+        @include centerScaleBackground("/assets/images/economics.jpg", 80%);
     
-        &:hover {
+        box-sizing: border-box;
+        box-shadow: inset -45vw 0 5vw -5vw rgb(28, 60, 135);
+     
+        height: 100px;
+    
+        @include flexbox-container(row, space-between, center);
+    
+        h1, h2 {
+            padding: 10px 20px;
+            color: #FFF;
+        }
+    
+        @media screen and (max-width: $timeline-change) {
+            h1 {
+                display: none;
+            }
+        }
+    }
+
+    .multiple-column {
+    @include column("#calculation-type", "#calculation-IO-interpolate") {
+        text-align: center;
+    }
+
+        .select {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+            width: 75%;
+            background: #E6E6E6;
+            text-align: center;
+            border-bottom: 1px solid map-get($colours, nav);
+
+            select {
+                display: inline-block;
+                width: 100%;
+                cursor: pointer;
+                padding: 10px 15px;
+                outline: 0;
+                border: 0;
+                border-radius: 0;
+                background: inherit;
+                color: #7B7B7B;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
+
+            option {
+                background: #FFF;
+            }
+        }
+
+        .select select::-ms-expand {
+            display: none;
+        }
+
+        .select:hover,
+        .select select:focus {
+            color: #000000;
             background: #CCCCCC;
+        }
+
+        .select select:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .select__arrow {
+            position: absolute;
+            top: 16px;
+            right: 15px;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+            border-style: solid;
+            border-width: 8px 5px 0 5px;
+            border-color: #7B7B7B transparent transparent transparent;
+        }
+
+
+        .select select:hover ~ .select__arrow,
+        .select select:focus ~ .select__arrow {
+            border-top-color: #000000;
+        }
+
+        .select select:disabled ~ .select__arrow {
+            border-top-color: #CCCCCC;
+        }
+        
+
+        @media screen and (max-width: $timeline-change) {
+            flex-direction: column;
+            flex: 1 0 auto;
+
+            width: auto;
+        }
+
+        h2, h3 {
+            text-align: center;
+        }
+
+        label {
+            padding: 5px;
+        }
+
+        input[type=number] {
+            padding: 4px 10px;
+            margin: 2px 10px 10px;
+            border: none;
+            border-bottom: 1px solid map-get($colours, nav);
+        }
+
+        button {
+            background-color: #E6E6E6;
+            border: none;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+        
+            &:hover {
+                background: #CCCCCC;
+            }
+        }
+    }
+}
+
+// lumped capacitance
+// #binomial {
+//     .calculator-header-container {
+//         @include centerScaleBackground("/assets/images/statistics.jpg", 80%);
+    
+//         box-sizing: border-box;
+//         box-shadow: inset -45vw 0 5vw -5vw rgb(28, 60, 135);
+     
+//         height: 100px;
+    
+//         @include flexbox-container(row, space-between, center);
+    
+//         h1, h2 {
+//             padding: 10px 20px;
+//             color: #FFF;
+//         }
+    
+//         @media screen and (max-width: $timeline-change) {
+//             h1 {
+//                 display: none;
+//             }
+//         }
+//     }
+
+//     .multiple-column {
+//         @include column("#binomial", "#required-trials") {
+//             text-align: center;
+//         }
+//     }
+// }
+
+// Binomial
+#binomial {
+    .calculator-header-container {
+        @include centerScaleBackground("/assets/images/statistics.jpg", 80%);
+    
+        box-sizing: border-box;
+        box-shadow: inset -45vw 0 5vw -5vw rgb(25, 38, 78);
+     
+        height: 100px;
+    
+        @include flexbox-container(row, space-between, center);
+    
+        h1, h2 {
+            padding: 10px 20px;
+            color: #FFF;
+        }
+    
+        @media screen and (max-width: $timeline-change) {
+            h1 {
+                display: none;
+            }
+        }
+    }
+
+    .multiple-column {
+        @include column("#binomial", "#required-trials") {
+            text-align: center;
+        }
+
+        .select {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+            width: 75%;
+            background: #E6E6E6;
+            text-align: center;
+            border-bottom: 1px solid map-get($colours, nav);
+
+            select {
+                display: inline-block;
+                width: 100%;
+                cursor: pointer;
+                padding: 10px 15px;
+                outline: 0;
+                border: 0;
+                border-radius: 0;
+                background: inherit;
+                color: #7B7B7B;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
+
+            option {
+                background: #FFF;
+            }
+        }
+
+        .select select::-ms-expand {
+            display: none;
+        }
+
+        .select:hover,
+        .select select:focus {
+            color: #000000;
+            background: #CCCCCC;
+        }
+
+        .select select:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .select__arrow {
+            position: absolute;
+            top: 16px;
+            right: 15px;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+            border-style: solid;
+            border-width: 8px 5px 0 5px;
+            border-color: #7B7B7B transparent transparent transparent;
+        }
+
+
+        .select select:hover ~ .select__arrow,
+        .select select:focus ~ .select__arrow {
+            border-top-color: #000000;
+        }
+
+        .select select:disabled ~ .select__arrow {
+            border-top-color: #CCCCCC;
+        }
+        
+
+        @media screen and (max-width: $timeline-change) {
+            flex-direction: column;
+            flex: 1 0 auto;
+
+            width: auto;
+        }
+
+        #calculation-type, #calculation-IO, #calculation-IO-interpolate {
+            width: 100%;
+            text-align: center;
+
+            .center {
+                text-align: center;
+            }
+        }
+
+        h2, h3 {
+            text-align: center;
+        }
+
+        label {
+            padding: 5px;
+        }
+
+        input[type=number] {
+            padding: 4px 10px;
+            margin: 2px 10px 10px;
+            border: none;
+            border-bottom: 1px solid map-get($colours, nav);
+        }
+
+        button {
+            background-color: #E6E6E6;
+            border: none;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+        
+            &:hover {
+                background: #CCCCCC;
+            }
         }
     }
 }

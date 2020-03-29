@@ -1,8 +1,4 @@
-// Round to precision
-const precise = (x, p) => Number.parseFloat(x).toPrecision(p);
-const financial = (x) => Number.parseFloat(x).toFixed(2);
-const toPercent = (x) => isNaN(x) ? `${x}` : `${precise(x*100, 8)*1}\\%`; // fix precision errors
-const tex = (str) => `$$ ${str} $$`;
+import * as Helpers from "./modules/Helpers.js"; 
 
 // global variables
 var scope = { i: 0, n: 0 };
@@ -34,7 +30,7 @@ class Factor {
     derivative(x) { return math.derivative(this.parsed, x); }
     eval_derivative(x, scope) { return this.derivative(x).evaluate(scope); }
 
-    formatted(i, n) { return `( ${this.m_name}, ${toPercent(i)}, ${n})`; }
+    formatted(i, n) { return `( ${this.m_name}, ${Helpers.toPercent(i)}, ${n})`; }
     printTex() { return this.print.toTex({parenthesis: 'auto'}); }
 }
 
@@ -46,7 +42,7 @@ class GrowthFactor extends Factor {
 
     get adjusted_i() { return math.parse(this.m_adjusted_i); }
 
-    formatted(g, i, n) { return `( ${this.m_name}, ${g}, ${toPercent(i)}, ${n})`; }
+    formatted(g, i, n) { return `( ${this.m_name}, ${g}, ${Helpers.toPercent(i)}, ${n})`; }
     printTexAdjusted() {
         return `i^o&=${this.adjusted_i.toTex({parenthesis: 'auto'})}`;
     }
@@ -100,16 +96,6 @@ function NewtonRaphson(f_x, fprime_x, x, nmax, eps, del) {
     return x;
 } 
 
-class Car extends React.Component {
-    render() {
-      return (
-        <p>Hello</p>
-      )
-    }
-}
-
-//ReactDOM.render(<Car />, document.getElementById("test"));
-
 $(document).ready(function(){
     const calcFactor = () => {
         let amount = parseFloat($(".amount").val());
@@ -125,8 +111,8 @@ $(document).ready(function(){
 
         let ans = amount*factor;
 
-        factor = precise(factor, 8);
-        ans = financial(ans);
+        factor = Helpers.precise(factor, 8);
+        ans = Helpers.financial(ans);
 
         const obj = factors[selectedFactor];
         const {given, ungiven} = obj;
@@ -158,11 +144,11 @@ $(document).ready(function(){
             ans = NewtonRaphson(`${f.expression}-${shift}`,`${f.derivative('n')}`, scope.n, 50, 0.0000000001, 0.0001);
         }
 
-        ans = precise(ans, 8);
-        console.log(ans, toPercent(ans));
+        ans = Helpers.precise(ans, 8);
+        console.log(ans, Helpers.toPercent(ans));
 
         if (selectedCalc == "rate"){         
-            katex.render(`\\begin{aligned}${ungiven}&=${given}${f.formatted("i", "n")}\\\\${first}&=${second}${f.formatted("i", scope.n)}\\\\${precise(shift, 4)}&=${f.formatted("i", scope.n)}\\\\i&=${toPercent(ans)}\\end{aligned}`, document.querySelector('#calculation-IO-interpolate .output'), {
+            katex.render(`\\begin{aligned}${ungiven}&=${given}${f.formatted("i", "n")}\\\\${first}&=${second}${f.formatted("i", scope.n)}\\\\${Helpers.precise(shift, 4)}&=${f.formatted("i", scope.n)}\\\\i&=${herlper.toPercent(ans)}\\end{aligned}`, document.querySelector('#calculation-IO-interpolate .output'), {
                 throwOnError: false
             });
         }
