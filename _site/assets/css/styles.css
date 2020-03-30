@@ -2,7 +2,9 @@
 /* Dimensions */
 /* Responsiveness transitions */
 /* Center and scale the image nicely */
-/* flexbox container*/
+/* flexbox container */
+/* for multiple columns with optional content*/
+/* heading bar for calculators */
 /* document */
 * { box-sizing: border-box; }
 
@@ -99,7 +101,9 @@ p.contact { margin-top: 0; }
 /* Dimensions */
 /* Responsiveness transitions */
 /* Center and scale the image nicely */
-/* flexbox container*/
+/* flexbox container */
+/* for multiple columns with optional content*/
+/* heading bar for calculators */
 body { background: #f1f1f1; }
 
 .hero-header { margin: 0; height: 100vh; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url("/assets/images/engineering-plans.jpg"); /* Keep background fixed */ background-attachment: fixed; }
@@ -197,7 +201,9 @@ body { background: #f1f1f1; }
 /* Dimensions */
 /* Responsiveness transitions */
 /* Center and scale the image nicely */
-/* flexbox container*/
+/* flexbox container */
+/* for multiple columns with optional content*/
+/* heading bar for calculators */
 .row-calculators { display: flex; flex-flow: row wrap; justify-content: center; align-items: center; }
 
 .calculators-card { height: 325px; width: 45%; margin: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
@@ -217,7 +223,13 @@ body { background: #f1f1f1; }
 
 #compound-interest-factors .calculator-header-container h1, #compound-interest-factors .calculator-header-container h2 { padding: 10px 20px; color: #FFF; }
 
+#compound-interest-factors .calculator-header-container h1 { padding: 10px 20px; color: #FFF; }
+
 @media screen and (max-width: 950px) { #compound-interest-factors .calculator-header-container h1 { display: none; } }
+
+#compound-interest-factors .calculator-header-container h2 { padding: 10px 20px; color: #FFF; }
+
+@media screen and (max-width: 950px) { #compound-interest-factors .calculator-header-container h2 { color: #FFF; } }
 
 #compound-interest-factors .multiple-column { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: flex-start; }
 
@@ -265,7 +277,13 @@ body { background: #f1f1f1; }
 
 #depreciation .calculator-header-container h1, #depreciation .calculator-header-container h2 { padding: 10px 20px; color: #FFF; }
 
+#depreciation .calculator-header-container h1 { padding: 10px 20px; color: #FFF; }
+
 @media screen and (max-width: 950px) { #depreciation .calculator-header-container h1 { display: none; } }
+
+#depreciation .calculator-header-container h2 { padding: 10px 20px; color: #FFF; }
+
+@media screen and (max-width: 950px) { #depreciation .calculator-header-container h2 { color: #FFF; } }
 
 #depreciation .multiple-column { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: flex-start; }
 
@@ -307,11 +325,17 @@ body { background: #f1f1f1; }
 
 #binomial .calculator-header-container h1, #binomial .calculator-header-container h2 { padding: 10px 20px; color: #FFF; }
 
+#binomial .calculator-header-container h1 { padding: 10px 20px; color: #FFF; }
+
 @media screen and (max-width: 950px) { #binomial .calculator-header-container h1 { display: none; } }
+
+#binomial .calculator-header-container h2 { padding: 10px 20px; color: #FFF; }
+
+@media screen and (max-width: 950px) { #binomial .calculator-header-container h2 { color: #FFF; } }
 
 #binomial .multiple-column { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: flex-start; }
 
-#binomial .multiple-column #binomial { flex: 1 0 50%; text-align: center; }
+#binomial .multiple-column #at-least-X { flex: 1 0 50%; text-align: center; }
 
 #binomial .multiple-column #required-trials { flex: 1 0 50%; text-align: center; }
 

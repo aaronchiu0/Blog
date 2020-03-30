@@ -30,7 +30,7 @@ class Factor {
     derivative(x) { return math.derivative(this.parsed, x); }
     eval_derivative(x, scope) { return this.derivative(x).evaluate(scope); }
 
-    formatted(i, n) { return `( ${this.m_name}, ${Helpers.toPercent(i)}, ${n})`; }
+    formatted(i, n) { return `( ${this.m_name}, ${Helpers.toPercent(i, true)}, ${n})`; }
     printTex() { return this.print.toTex({parenthesis: 'auto'}); }
 }
 
@@ -42,7 +42,7 @@ class GrowthFactor extends Factor {
 
     get adjusted_i() { return math.parse(this.m_adjusted_i); }
 
-    formatted(g, i, n) { return `( ${this.m_name}, ${g}, ${Helpers.toPercent(i)}, ${n})`; }
+    formatted(g, i, n) { return `( ${this.m_name}, ${g}, ${Helpers.toPercent(i, true)}, ${n})`; }
     printTexAdjusted() {
         return `i^o&=${this.adjusted_i.toTex({parenthesis: 'auto'})}`;
     }
@@ -117,7 +117,7 @@ $(document).ready(function(){
         const obj = factors[selectedFactor];
         const {given, ungiven} = obj;
 
-        katex.render(`\\begin{aligned}${ungiven}&=${given}${obj.formatted("i", "n")}\\\\&=${amount}${obj.formatted(scope.i, scope.n)}\\\\&=${amount}(${factor})\\\\&=${ans}\\end{aligned}`, document.querySelector('#calculation-IO .output'), {
+        katex.render(String.raw`\begin{aligned}${ungiven}&=${given}${obj.formatted("i", "n")}\\&=${amount}${obj.formatted(scope.i, scope.n)}\\&=${amount}(${factor})\\&=${ans}\end{aligned}`, document.querySelector('#calculation-IO .output'), {
             throwOnError: false
          });
     };
@@ -145,15 +145,14 @@ $(document).ready(function(){
         }
 
         ans = Helpers.precise(ans, 8);
-        console.log(ans, Helpers.toPercent(ans));
 
         if (selectedCalc == "rate"){         
-            katex.render(`\\begin{aligned}${ungiven}&=${given}${f.formatted("i", "n")}\\\\${first}&=${second}${f.formatted("i", scope.n)}\\\\${Helpers.precise(shift, 4)}&=${f.formatted("i", scope.n)}\\\\i&=${Helpers.toPercent(ans)}\\end{aligned}`, document.querySelector('#calculation-IO-interpolate .output'), {
+            katex.render(String.raw`\begin{aligned}${ungiven}&=${given}${f.formatted("i", "n")}\\${first}&=${second}${f.formatted("i", scope.n)}\\${Helpers.precise(shift, 4)}&=${f.formatted("i", scope.n)}\\i&=${Helpers.toPercent(ans, true)}\end{aligned}`, document.querySelector('#calculation-IO-interpolate .output'), {
                 throwOnError: false
             });
         }
         else {
-            katex.render(`\\begin{aligned}${ungiven}&=${given}${f.formatted("i", "n")}\\\\${first}&=${second}${f.formatted(scope.i, "n")}\\\\${shift}&=${f.formatted(scope.i, "n")}\\\\n&=${ans}\\end{aligned}`, document.querySelector('#calculation-IO-interpolate .output'), {
+            katex.render(String.raw`\begin{aligned}${ungiven}&=${given}${f.formatted("i", "n")}\\${first}&=${second}${f.formatted(scope.i, "n")}\\${shift}&=${f.formatted(scope.i, "n")}\\n&=${ans}\end{aligned}`, document.querySelector('#calculation-IO-interpolate .output'), {
                 throwOnError: false
             });
         }
@@ -201,8 +200,10 @@ $(document).ready(function(){
     $("#calculation-IO-interpolate .submit").click(interpolateFactor);
 
     // on load
-    update();
-    interpolateFactor();
+    $(window).on('load', function() {
+        update();
+        interpolateFactor();
+    });
 
     // on change
     $("#calculation-IO .amount, #calculation-IO #rate, #calculation-IO #period").on('input', calcFactor);
@@ -212,7 +213,7 @@ $(document).ready(function(){
     for (let i = factors.length-1; i >= 0; i--) {
         var tex;
         if (i == 8) {
-            tex = katex.renderToString(`\\begin{aligned}${factors[i].formatted("g", "i", "n")}&=${factors[i].printTex()} \\\\ ${factors[i].printTexAdjusted()}\\end{aligned}`, {
+            tex = katex.renderToString(String.raw`\begin{aligned}${factors[i].formatted("g", "i", "n")}&=${factors[i].printTex()} \\ ${factors[i].printTexAdjusted()}\end{aligned}`, {
                 throwOnError: false,
                 displayMode: true
             });
@@ -222,7 +223,7 @@ $(document).ready(function(){
         }
 
         
-        tex = katex.renderToString(`${factors[i].formatted("i", "n")}=${factors[i].printTex()}`, {
+        tex = katex.renderToString(String.raw`${factors[i].formatted("i", "n")}=${factors[i].printTex()}`, {
             throwOnError: false,
             displayMode: true
         });

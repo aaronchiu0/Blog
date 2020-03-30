@@ -10,7 +10,7 @@
     background-image: url($image);
 }
 
-/* flexbox container*/ 
+/* flexbox container */ 
 @mixin flexbox-container($direction, $justify: flex-start, $align: flex-start) {
     display: flex;
 	flex-flow: $direction wrap;
@@ -18,12 +18,48 @@
     align-items: $align;
 }
 
+/* for multiple columns with optional content*/
 @mixin column($children...) {
     @include flexbox-container(row, flex-start, flex-start);
     @for $i from 0 to length($children) {
         #{nth($children, $i+1)} {
             flex: 1 0 100/length($children)*1%;
-            @content
+            @content;
+        }
+    }
+}
+
+/* heading bar for calculators */
+@mixin calculator-header-bar($image, $inset-color, $left-tex-color, $right-text-color: $left-tex-color) {
+    @include centerScaleBackground($image, 80%);
+    
+    box-sizing: border-box;
+    box-shadow: inset -45vw 0 5vw -5vw $inset-color;
+ 
+    height: 100px;
+
+    @include flexbox-container(row, space-between, center);
+
+    h1, h2 {
+        padding: 10px 20px;
+        color: #FFF;
+    }
+
+    h1 {
+        padding: 10px 20px;
+        color: $left-tex-color; 
+
+        @media screen and (max-width: $timeline-change) {
+            display: none;
+        }
+    }
+
+    h2 {
+        padding: 10px 20px;
+        color: $right-text-color;
+
+        @media screen and (max-width: $timeline-change) {
+            color: $left-tex-color;
         }
     }
 }
