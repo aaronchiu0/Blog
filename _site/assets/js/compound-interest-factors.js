@@ -1,4 +1,4 @@
-import * as Helpers from "./modules/Helpers.js"; 
+import * as Helpers from "./modules/helpers.js"; 
 
 // global variables
 var scope = { i: 0, n: 0 };
