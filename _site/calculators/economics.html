@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calculator</title>
+<title>Economics</title>
 
 <!-- stylesheet -->
 <link rel="stylesheet" href="/assets/css/styles.css">
@@ -73,14 +73,14 @@ onload="renderMathInElement(document.body);"></script>
 
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Calculator</title>
+<title>Economics</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Calculator" />
+<meta property="og:title" content="Economics" />
 <meta property="og:locale" content="en_US" />
-<link rel="canonical" href="http://localhost:4000/calculators.html" />
-<meta property="og:url" content="http://localhost:4000/calculators.html" />
+<link rel="canonical" href="http://localhost:4000/calculators/economics.html" />
+<meta property="og:url" content="http://localhost:4000/calculators/economics.html" />
 <script type="application/ld+json">
-{"@type":"WebPage","headline":"Calculator","url":"http://localhost:4000/calculators.html","@context":"https://schema.org"}</script>
+{"@type":"WebPage","headline":"Economics","url":"http://localhost:4000/calculators/economics.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 	</head>
@@ -118,60 +118,105 @@ onload="renderMathInElement(document.body);"></script>
 
 		<div class="row">
 			<div class="side">
-				<h2>About Me</h2>
-				<div id="side-container">
-					<img src="/assets/images/me.jpg" alt="Aaron Chiu Photo" id="side-picture";>
-					<p id="side-blurb">Land, air and sea. Vehicles are everywhere. We take our surroundings for granted but never thoroughly think about how such machines came to be and how they benefit society. I wondered how these vehicles ever worked in the first place. My interest in this field drives me to discover and teach more people about the technologies’ effectiveness and impact.</p>
-				</div>
-						
-				<!-- Contact -->
-				<!-- <h3>More Text</h3>
-				<p>Lorem ipsum dolor sit ame.</p>
-				<div class="fakeimg" style="height:60px;">Image</div><br>
-				<div class="fakeimg" style="height:60px;">Image</div><br>
-				<div class="fakeimg" style="height:60px;">Image</div> -->
+                
+                    <h2>Economics</h2>
+                    
+                        <a href="/calculators/compound-interest-factors.html">Compound Interest Factors</a><br>
+                    
+                        <a href="">Depreciation</a><br>
+                    
+                
+                    <h2>Numerical Solutions</h2>
+                    
+                        <a href="">Bisection</a><br>
+                    
+                        <a href="">Gaussian</a><br>
+                    
+                
+                    <h2>Thermodynamics & Heat Transfer</h2>
+                    
+                        <a href="">Lumped Capacitance</a><br>
+                    
+                
+                    <h2>Statistics</h2>
+                    
+                        <a href="/calculators/binomial.html">Binomial & Odds of Success</a><br>
+                    
+                
 			</div>
 			<div class="main">
 				<!-- Content -->
 				<div>
-	
-<h1>Calculators</h1>
-<p>A number of resources that can be used to check or verify manual calculations</p>
+<!-- include script -->
+<script src="/assets/js/compound-interest-factors.js" type="text/babel"></script>
 
-<div class="row-calculators">
-	
-		<a class="calculators-card" href="/calculators/compound-interest-factors.html">
-			<img class="calculators-image" src="/assets/images/economics.jpg" alt="Economics" style="width:100%">
-			<div class="calculators-container">
-				<h2>Economics</h2>
-				<p>For when you aren't trying to calculate interest rates manually.</p>
-			</div>
-		</a>
-	
-		<a class="calculators-card" href="">
-			<img class="calculators-image" src="/assets/images/numerical-solutions.jpg" alt="Numerical Solutions" style="width:100%">
-			<div class="calculators-container">
-				<h2>Numerical Solutions</h2>
-				<p>Why do advanced calculations by hand when a computer can do it for you.</p>
-			</div>
-		</a>
-	
-		<a class="calculators-card" href="">
-			<img class="calculators-image" src="/assets/images/heat-transfer.jpg" alt="Thermodynamics & Heat Transfer" style="width:100%">
-			<div class="calculators-container">
-				<h2>Thermodynamics & Heat Transfer</h2>
-				<p>When you are really feeling the heat of the calculations</p>
-			</div>
-		</a>
-	
-		<a class="calculators-card" href="/calculators/binomial.html">
-			<img class="calculators-image" src="/assets/images/statistics.jpg" alt="Statistics" style="width:100%">
-			<div class="calculators-container">
-				<h2>Statistics</h2>
-				<p>For all your gambling and gacha needs</p>
-			</div>
-		</a>
-	
+<h1 style="text-align: center;">Compound Interest Factors</h1>
+
+<div id="test"></div>
+
+<div class="multiple-column">
+    <div id="calculation-type">
+        <h2>Factors</h2>
+        <h3>Single Payments</h3>
+        <div class="center">
+            <button class="factor">F/P</button>
+            <button class="factor">P/F</button>
+        </div>
+
+        <h3>Uniform Payment Series</h3>
+        <div class="center">
+            <button class="factor">A/F</button>
+            <button class="factor">A/P</button>
+            <button class="factor">F/A</button>
+            <button class="factor">P/A</button>
+        </div>
+    
+        <h3>Arithmetic Gradient</h3>
+        <div class="center">
+            <button class="factor">A/G</button>
+            <button class="factor">P/G</button>
+        </div>
+    </div>
+    <div id="calculation-IO">
+        <h2>Input</h2>
+        <h3>Calculating Nothing</h3>
+        <div class="center">
+            <label class="amount-label" for="amount">?</label><br>
+            <input class="amount" type="number" value="0"><br>
+            <label for="rate" >Rate</label><br>
+            <input id="rate" type="number" value="0"><br>
+            <label for="period">Period</label><br>
+            <input id="period" type="number" value="0"><br>
+
+            <button class="submit">Update</button>
+        </div>
+
+        <h2 class="output-header">Output</h2>
+        <p class="output center">Answer</p>
+    </div>
+    <div id="calculation-IO-interpolate">
+        <h2>Calculate for rate or period</h2>
+        <h3>Calculating Nothing</h3>
+
+        <div class="center">
+            <button id="calcRate">Rate</button>
+            <button id="calcPeriod">Period</button><br>
+
+            <label class="first-label" for="amount">?</label><br>
+            <input class="first-amount" type="number" value="0"><br>
+            <label class="second-label" for="amount" value="0">?</label><br>
+            <input class="second-amount" type="number" value="0"><br>
+            <label class="calculate-label" for="calculate">?</label><br>
+            <input class="calculate" type="number" value="0"><br>
+            <button class="submit">Update</button>
+        </div>
+
+        <h2>Output</h2>
+        <p class="output center">Answer</p>
+    </div>
+</div>
+<div>
+    <h2 id="formula-heading" style="text-align: center;">Formulas for Factors</h2> 
 </div>
 
 </div>

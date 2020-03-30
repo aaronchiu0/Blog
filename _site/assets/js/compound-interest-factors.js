@@ -148,7 +148,7 @@ $(document).ready(function(){
         console.log(ans, Helpers.toPercent(ans));
 
         if (selectedCalc == "rate"){         
-            katex.render(`\\begin{aligned}${ungiven}&=${given}${f.formatted("i", "n")}\\\\${first}&=${second}${f.formatted("i", scope.n)}\\\\${Helpers.precise(shift, 4)}&=${f.formatted("i", scope.n)}\\\\i&=${herlper.toPercent(ans)}\\end{aligned}`, document.querySelector('#calculation-IO-interpolate .output'), {
+            katex.render(`\\begin{aligned}${ungiven}&=${given}${f.formatted("i", "n")}\\\\${first}&=${second}${f.formatted("i", scope.n)}\\\\${Helpers.precise(shift, 4)}&=${f.formatted("i", scope.n)}\\\\i&=${Helpers.toPercent(ans)}\\end{aligned}`, document.querySelector('#calculation-IO-interpolate .output'), {
                 throwOnError: false
             });
         }
