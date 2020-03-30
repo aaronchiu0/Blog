@@ -28,6 +28,7 @@
 <!-- import scripts -->
 <script type="module" src="/assets/js/display.js"></script>
 <script src="/assets/js/typing-text.js"></script>
+<script src="/assets/js/economics.js" type="text/babel"></script>
 
 <!-- Animation on Scroll -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -151,15 +152,13 @@ onload="renderMathInElement(document.body);"></script>
 
 <div id="compound-interest-factors">
 
-<div style="box-shadow: 1px 6px 10px 1px rgba(0, 0, 0, 0.2);">
-    <div class="calculator-header-container">
-        <h1>Economics</h1>
-        <h2>Compound Interest Factors</h2>
-    </div>
-</div>
+<h1 style="text-align: center;">Compound Interest Factors</h1>
+
+<div id="test"></div>
 
 <div class="multiple-column">
     <div id="calculation-type">
+<<<<<<< HEAD:_site/calculators/compound-interest-factors.html
         <h2>Selected Factors</h2>       
         <div class="select">
             <select>
@@ -182,6 +181,27 @@ onload="renderMathInElement(document.body);"></script>
                 A = Annuity <br>
                 G = Gradient <br>
             </p>
+=======
+        <h2>Factors</h2>
+        <h3>Single Payments</h3>
+        <div class="center">
+            <button class="factor">F/P</button>
+            <button class="factor">P/F</button>
+        </div>
+
+        <h3>Uniform Payment Series</h3>
+        <div class="center">
+            <button class="factor">A/F</button>
+            <button class="factor">A/P</button>
+            <button class="factor">F/A</button>
+            <button class="factor">P/A</button>
+        </div>
+    
+        <h3>Arithmetic Gradient</h3>
+        <div class="center">
+            <button class="factor">A/G</button>
+            <button class="factor">P/G</button>
+>>>>>>> parent of f938b2b... update economics:_site/calculators/economics.html
         </div>
     </div>
     <div id="calculation-IO">
@@ -218,8 +238,8 @@ onload="renderMathInElement(document.body);"></script>
         <p class="output center">Answer</p>
     </div>
 </div>
-<div style="text-align: center;">
-    <h2 id="formula-heading">Formulas for Factors</h2> 
+<div>
+    <h2 id="formula-heading" style="text-align: center;">Formulas for Factors</h2> 
 </div>
 
 </div>

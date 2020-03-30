@@ -1,0 +1,78 @@
+---
+title: Economics
+layout: default-with-side-menu
+---
+<div>
+<!-- include script -->
+<script src="/assets/js/economics.js" type="text/babel"></script>
+
+<h1 style="text-align: center;">Compound Interest Factors</h1>
+
+<div id="test"></div>
+
+<div class="multiple-column">
+    <div id="calculation-type">
+        <h2>Factors</h2>
+        <h3>Single Payments</h3>
+        <div class="center">
+            <button class="factor">F/P</button>
+            <button class="factor">P/F</button>
+        </div>
+
+        <h3>Uniform Payment Series</h3>
+        <div class="center">
+            <button class="factor">A/F</button>
+            <button class="factor">A/P</button>
+            <button class="factor">F/A</button>
+            <button class="factor">P/A</button>
+        </div>
+    
+        <h3>Arithmetic Gradient</h3>
+        <div class="center">
+            <button class="factor">A/G</button>
+            <button class="factor">P/G</button>
+        </div>
+    </div>
+    <div id="calculation-IO">
+        <h2>Input</h2>
+        <h3>Calculating Nothing</h3>
+        <div class="center">
+            <label class="amount-label" for="amount">?</label><br>
+            <input class="amount" type="number" value="0"><br>
+            <label for="rate" >Rate</label><br>
+            <input id="rate" type="number" value="0"><br>
+            <label for="period">Period</label><br>
+            <input id="period" type="number" value="0"><br>
+
+            <button class="submit">Update</button>
+        </div>
+
+        <h2 class="output-header">Output</h2>
+        <p class="output center">Answer</p>
+    </div>
+    <div id="calculation-IO-interpolate">
+        <h2>Calculate for rate or period</h2>
+        <h3>Calculating Nothing</h3>
+
+        <div class="center">
+            <button id="calcRate">Rate</button>
+            <button id="calcPeriod">Period</button><br>
+
+            <label class="first-label" for="amount">?</label><br>
+            <input class="first-amount" type="number" value="0"><br>
+            <label class="second-label" for="amount" value="0">?</label><br>
+            <input class="second-amount" type="number" value="0"><br>
+            <label class="calculate-label" for="calculate">?</label><br>
+            <input class="calculate" type="number" value="0"><br>
+            <button class="submit">Update</button>
+        </div>
+
+        <h2>Output</h2>
+        <p class="output center">Answer</p>
+    </div>
+</div>
+<div>
+    <h2 id="formula-heading" style="text-align: center;">Formulas for Factors</h2> 
+</div>
+
+</div>

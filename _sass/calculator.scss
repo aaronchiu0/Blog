@@ -12,7 +12,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
     &:link, &:visited {
-        color: #111;
+        color: black;
         text-decoration: none;
     }
 
@@ -41,6 +41,7 @@
 }
 
 // Economics
+<<<<<<< HEAD
 #compound-interest-factors {
     .calculator-header-container {
         @include centerScaleBackground("/assets/images/economics.jpg", 80%);
@@ -107,6 +108,14 @@
             color: #000000;
             background: #CCCCCC;
         }
+=======
+.multiple-column {
+    @include column("#calculation-type", "#calculation-IO", "#calculation-IO-interpolate") {}
+
+    @media screen and (max-width: $side-change) {
+        flex-direction: column;
+        flex: 1 0 auto;
+>>>>>>> parent of f938b2b... update economics
 
         .select select:disabled {
             opacity: 0.5;
@@ -319,6 +328,7 @@
             }
         }
     }
+<<<<<<< HEAD
 }
 
 // lumped capacitance
@@ -495,4 +505,6 @@
             }
         }
     }
+=======
+>>>>>>> parent of f938b2b... update economics
 }
