@@ -37,31 +37,35 @@ $(document).ready(function(){
                 x: i, y: Helpers.clamp(1 - cumulativeBinomial(k, i, p), 0, 1)
             });
 
-            if (1 - cumulativeBinomial(k, i, p) > 0.9999)
+            if (1 - cumulativeBinomial(k, i, p) > 0.999)
                 break;
             
         }
 
         console.log(data_set);
-
-        chart.options.scales ={
-            xAxes: [{
-                ticks: {
-                min: 0,
-                max: data_set.length-1
-                }
-            }],
-            yAxes: [{
-                ticks: {
-                min: 0,
-                max: 1
-                }
-            }]
+        
+        chart.options = {
+            scales: {
+                xAxes: [{
+                    ticks: {
+                    min: 0,
+                    max: data_set.length-1
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                    min: 0,
+                    max: 1
+                    }
+                }]
+            }
         };
         chart.update();
     }
 
-    $("#at-least-X #successes, #at-least-X #trials, #at-least-X #probability").on('input', calculateBinomial);
+    $("#at-least-X #successes, #at-least-X #trials, #at-least-X #probability").on('input', function(){
+        calculateBinomial(chart);
+    });
 
     $("#at-least-X #successes-slider").on('input', function(){
         $("#at-least-X #successes").val(this.value);

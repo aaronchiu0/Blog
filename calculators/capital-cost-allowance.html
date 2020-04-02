@@ -1,0 +1,75 @@
+---
+title: Tax & Capital Cost Allowance
+layout: default-with-side-menu
+---
+<div class="calculator" id="capital-cost-allowance">
+<script type="module" src="/assets/js/capital-cost-allowance.js"></script>
+
+<div style="box-shadow: 1px 6px 10px 1px rgba(0, 0, 0, 0.2);">
+    <div class="calculator-header-container">
+        <h1>Economics</h1>
+        <h2>Tax & Capital Cost Allowance</h2>
+    </div>
+</div>
+
+<div class="multiple-column">
+    <div id="factor-input">
+        <h1>Input for Factors</h1>
+        <label for="tax">Tax Rate</label><br>
+        <input id="tax" type="number" value="0">%<br>
+        <input id="tax-slider" type="range" min="0" max="100" step="1" class="slider" value="0"><br>
+
+        <label for="CCA">CCA (Capital Cost Allowance) Rate</label><br>
+        <input id="CCA" type="number" value="0">%<br>
+        <input id="CCA-slider" type="range" min="0" max="100" step="1" class="slider" value="0"><br>
+
+        <label for="MARR">After Tax Interest Rate</label><br>
+        <input id="MARR" type="number" value="0">%<br>
+        <input id="MARR-slider" type="range" min="0" max="100" step="1" class="slider" value="0"><br>
+    </div>
+    <div id="factor-output">
+        <h1>Factor Solutions</h1>
+        <h2>Capital Tax Factor (CTF)</h2>
+        <p id="CTF">Result</p>
+        <h2>Capital Salvage Factor (CSF)</h2>
+        <p id="CSF">Result</p>
+    </div>
+</div>
+
+<h1>Present and Annual Worth</h1>
+<h2>Present/Annual Worth Input</h2>
+<div class="multiple-column">
+    <div id="worth-input-1">
+        <label for="tax">Tax Rate</label><br>
+        <input id="tax" type="number" value="0">%<br>
+
+        <label for="CCA">CCA (Capital Cost Allowance) Rate</label><br>
+        <input id="CCA" type="number" value="0">%<br>
+
+        <label for="MARR">After Tax Interest Rate</label><br>
+        <input id="MARR" type="number" value="0">%<br>
+    </div>
+    <div id="worth-input-2">
+        <label for="FC">Capital Cost (First Cost)</label><br>
+        <input id="FC" type="number" value="0"><br>
+
+        <label for="SV">Proceeds from Disposition (Salvage Value)</label><br>
+        <input id="SV" type="number" value="0"><br>
+
+        <label for="savings">Annual Savings</label><br>
+        <input id="savings" type="number" value="0"><br>
+    </div>
+    <div id="worth-input-3">
+        <label for="life">Life</label><br>
+        <input id="life" type="number" value="0"><br>
+    </div>
+</div>
+<div id="worth-output">
+    <h2>Present Worth</h2>
+    <p id="PW-output"></p>
+
+    <h2>Annual Worth</h2>
+    <p id="AW-output"></p>
+</div>
+
+</div>

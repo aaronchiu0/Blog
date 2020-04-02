@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Economics</title>
+<title>Tax & Capital Cost Allowance</title>
 
 <!-- stylesheet -->
 <link rel="stylesheet" href="/assets/css/styles.css">
@@ -76,14 +76,14 @@ onload="renderMathInElement(document.body);"></script>
 
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Economics</title>
+<title>Tax &amp; Capital Cost Allowance</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Economics" />
+<meta property="og:title" content="Tax &amp; Capital Cost Allowance" />
 <meta property="og:locale" content="en_US" />
-<link rel="canonical" href="http://localhost:4000/calculators/economics.html" />
-<meta property="og:url" content="http://localhost:4000/calculators/economics.html" />
+<link rel="canonical" href="http://localhost:4000/calculators/capital-cost-allowance.html" />
+<meta property="og:url" content="http://localhost:4000/calculators/capital-cost-allowance.html" />
 <script type="application/ld+json">
-{"@type":"WebPage","headline":"Economics","url":"http://localhost:4000/calculators/economics.html","@context":"https://schema.org"}</script>
+{"@type":"WebPage","headline":"Tax &amp; Capital Cost Allowance","url":"http://localhost:4000/calculators/capital-cost-allowance.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 	</head>
@@ -126,19 +126,13 @@ onload="renderMathInElement(document.body);"></script>
                     
                         <a href="/calculators/compound-interest-factors.html">Compound Interest Factors</a><br>
                     
-                        <a href="">Depreciation</a><br>
+                        <a href="/calculators/capital-cost-allowance.html">Tax & Capital Cost Allowance</a><br>
                     
                 
                     <h2>Numerical Solutions</h2>
                     
-                        <a href="">Bisection</a><br>
-                    
-                        <a href="">Gaussian</a><br>
-                    
                 
                     <h2>Thermodynamics & Heat Transfer</h2>
-                    
-                        <a href="">Lumped Capacitance</a><br>
                     
                 
                     <h2>Statistics</h2>
@@ -149,77 +143,74 @@ onload="renderMathInElement(document.body);"></script>
 			</div>
 			<div class="main">
 				<!-- Content -->
-				<div>
-<!-- include script -->
-<script src="/assets/js/compound-interest-factors.js" type="text/babel"></script>
+				<div class="calculator" id="capital-cost-allowance">
+<script type="module" src="/assets/js/capital-cost-allowance.js"></script>
 
-<h1 style="text-align: center;">Compound Interest Factors</h1>
-
-<div id="test"></div>
-
-<div class="multiple-column">
-    <div id="calculation-type">
-        <h2>Factors</h2>
-        <h3>Single Payments</h3>
-        <div class="center">
-            <button class="factor">F/P</button>
-            <button class="factor">P/F</button>
-        </div>
-
-        <h3>Uniform Payment Series</h3>
-        <div class="center">
-            <button class="factor">A/F</button>
-            <button class="factor">A/P</button>
-            <button class="factor">F/A</button>
-            <button class="factor">P/A</button>
-        </div>
-    
-        <h3>Arithmetic Gradient</h3>
-        <div class="center">
-            <button class="factor">A/G</button>
-            <button class="factor">P/G</button>
-        </div>
-    </div>
-    <div id="calculation-IO">
-        <h2>Input</h2>
-        <h3>Calculating Nothing</h3>
-        <div class="center">
-            <label class="amount-label" for="amount">?</label><br>
-            <input class="amount" type="number" value="0"><br>
-            <label for="rate" >Rate</label><br>
-            <input id="rate" type="number" value="0"><br>
-            <label for="period">Period</label><br>
-            <input id="period" type="number" value="0"><br>
-
-            <button class="submit">Update</button>
-        </div>
-
-        <h2 class="output-header">Output</h2>
-        <p class="output center">Answer</p>
-    </div>
-    <div id="calculation-IO-interpolate">
-        <h2>Calculate for rate or period</h2>
-        <h3>Calculating Nothing</h3>
-
-        <div class="center">
-            <button id="calcRate">Rate</button>
-            <button id="calcPeriod">Period</button><br>
-
-            <label class="first-label" for="amount">?</label><br>
-            <input class="first-amount" type="number" value="0"><br>
-            <label class="second-label" for="amount" value="0">?</label><br>
-            <input class="second-amount" type="number" value="0"><br>
-            <label class="calculate-label" for="calculate">?</label><br>
-            <input class="calculate" type="number" value="0"><br>
-            <button class="submit">Update</button>
-        </div>
-
-        <h2>Output</h2>
-        <p class="output center">Answer</p>
+<div style="box-shadow: 1px 6px 10px 1px rgba(0, 0, 0, 0.2);">
+    <div class="calculator-header-container">
+        <h1>Economics</h1>
+        <h2>Tax & Capital Cost Allowance</h2>
     </div>
 </div>
-<div>
-    <h2 id="formula-heading" style="text-align: center;">Formulas for Factors</h2> 
+
+<div class="multiple-column">
+    <div id="factor-input">
+        <h1>Input for Factors</h1>
+        <label for="tax">Tax Rate</label><br>
+        <input id="tax" type="number" value="0">%<br>
+        <input id="tax-slider" type="range" min="0" max="100" step="1" class="slider" value="0"><br>
+
+        <label for="CCA">CCA (Capital Cost Allowance) Rate</label><br>
+        <input id="CCA" type="number" value="0">%<br>
+        <input id="CCA-slider" type="range" min="0" max="100" step="1" class="slider" value="0"><br>
+
+        <label for="MARR">After Tax Interest Rate</label><br>
+        <input id="MARR" type="number" value="0">%<br>
+        <input id="MARR-slider" type="range" min="0" max="100" step="1" class="slider" value="0"><br>
+    </div>
+    <div id="factor-output">
+        <h1>Factor Solutions</h1>
+        <h2>Capital Tax Factor (CTF)</h2>
+        <p id="CTF">Result</p>
+        <h2>Capital Salvage Factor (CSF)</h2>
+        <p id="CSF">Result</p>
+    </div>
+</div>
+
+<h1>Present and Annual Worth</h1>
+<h2>Present/Annual Worth Input</h2>
+<div class="multiple-column">
+    <div id="worth-input-1">
+        <label for="tax">Tax Rate</label><br>
+        <input id="tax" type="number" value="0">%<br>
+
+        <label for="CCA">CCA (Capital Cost Allowance) Rate</label><br>
+        <input id="CCA" type="number" value="0">%<br>
+
+        <label for="MARR">After Tax Interest Rate</label><br>
+        <input id="MARR" type="number" value="0">%<br>
+    </div>
+    <div id="worth-input-2">
+        <label for="FC">Capital Cost (First Cost)</label><br>
+        <input id="FC" type="number" value="0"><br>
+
+        <label for="SV">Proceeds from Disposition (Salvage Value)</label><br>
+        <input id="SV" type="number" value="0"><br>
+
+        <label for="savings">Annual Savings</label><br>
+        <input id="savings" type="number" value="0"><br>
+    </div>
+    <div id="worth-input-3">
+        <label for="life">Life</label><br>
+        <input id="life" type="number" value="0"><br>
+    </div>
+</div>
+<div id="worth-output">
+    <h2>Present Worth</h2>
+    <p id="PW-output"></p>
+
+    <h2>Annual Worth</h2>
+    <p id="AW-output"></p>
 </div>
 
 </div>

@@ -219,6 +219,34 @@ body { background: #f1f1f1; }
 @media screen and (max-width: 950px) { .row-calculators { flex-direction: column; }
   .calculators-card { width: 95%; } }
 
+.calculator .select { position: relative; display: inline-block; margin-bottom: 15px; width: 75%; background: #E6E6E6; text-align: center; border-bottom: 1px solid #333; }
+
+.calculator .select select { display: inline-block; width: 100%; cursor: pointer; padding: 10px 15px; outline: 0; border: 0; border-radius: 0; background: inherit; color: #7B7B7B; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
+
+.calculator .select option { background: #FFF; }
+
+.calculator .select select::-ms-expand { display: none; }
+
+.calculator .select:hover, .calculator .select select:focus { color: #000000; background: #CCCCCC; }
+
+.calculator .select select:disabled { opacity: 0.5; pointer-events: none; }
+
+.calculator .select__arrow { position: absolute; top: 16px; right: 15px; width: 0; height: 0; pointer-events: none; border-style: solid; border-width: 8px 5px 0 5px; border-color: #7B7B7B transparent transparent transparent; }
+
+.calculator .select select:hover ~ .select__arrow, .calculator .select select:focus ~ .select__arrow { border-top-color: #000000; }
+
+.calculator .select select:disabled ~ .select__arrow { border-top-color: #CCCCCC; }
+
+.calculator h2, .calculator h3 { text-align: center; }
+
+.calculator label { padding: 10px 5px; margin: 5px; }
+
+.calculator input[type=number] { padding: 4px 10px; margin: 5px 10px 10px; border: none; border-bottom: 1px solid #333; }
+
+.calculator button { background-color: #E6E6E6; border: none; padding: 8px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 4px 2px; cursor: pointer; }
+
+.calculator button:hover { background: #CCCCCC; }
+
 #compound-interest-factors .calculator-header-container { background-position: left; background-repeat: no-repeat; background-size: 80%; background-image: url("/assets/images/economics.jpg"); box-sizing: border-box; box-shadow: inset -45vw 0 5vw -5vw #1c3c87; height: 100px; display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center; }
 
 #compound-interest-factors .calculator-header-container h1, #compound-interest-factors .calculator-header-container h2 { padding: 10px 20px; color: #FFF; }
@@ -233,45 +261,13 @@ body { background: #f1f1f1; }
 
 #compound-interest-factors .multiple-column { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: flex-start; }
 
-#compound-interest-factors .multiple-column #calculation-type { flex: 1 0 33.3333333333%; text-align: center; }
+#compound-interest-factors .multiple-column #calculation-type { flex: 1 0 33.3333333333%; width: 100%; text-align: center; }
 
-#compound-interest-factors .multiple-column #calculation-IO { flex: 1 0 33.3333333333%; text-align: center; }
+#compound-interest-factors .multiple-column #calculation-IO { flex: 1 0 33.3333333333%; width: 100%; text-align: center; }
 
-#compound-interest-factors .multiple-column #calculation-IO-interpolate { flex: 1 0 33.3333333333%; text-align: center; }
-
-#compound-interest-factors .multiple-column .select { position: relative; display: inline-block; margin-bottom: 15px; width: 75%; background: #E6E6E6; text-align: center; border-bottom: 1px solid #333; }
-
-#compound-interest-factors .multiple-column .select select { display: inline-block; width: 100%; cursor: pointer; padding: 10px 15px; outline: 0; border: 0; border-radius: 0; background: inherit; color: #7B7B7B; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
-
-#compound-interest-factors .multiple-column .select option { background: #FFF; }
-
-#compound-interest-factors .multiple-column .select select::-ms-expand { display: none; }
-
-#compound-interest-factors .multiple-column .select:hover, #compound-interest-factors .multiple-column .select select:focus { color: #000000; background: #CCCCCC; }
-
-#compound-interest-factors .multiple-column .select select:disabled { opacity: 0.5; pointer-events: none; }
-
-#compound-interest-factors .multiple-column .select__arrow { position: absolute; top: 16px; right: 15px; width: 0; height: 0; pointer-events: none; border-style: solid; border-width: 8px 5px 0 5px; border-color: #7B7B7B transparent transparent transparent; }
-
-#compound-interest-factors .multiple-column .select select:hover ~ .select__arrow, #compound-interest-factors .multiple-column .select select:focus ~ .select__arrow { border-top-color: #000000; }
-
-#compound-interest-factors .multiple-column .select select:disabled ~ .select__arrow { border-top-color: #CCCCCC; }
+#compound-interest-factors .multiple-column #calculation-IO-interpolate { flex: 1 0 33.3333333333%; width: 100%; text-align: center; }
 
 @media screen and (max-width: 950px) { #compound-interest-factors .multiple-column { flex-direction: column; flex: 1 0 auto; width: auto; } }
-
-#compound-interest-factors .multiple-column #calculation-type, #compound-interest-factors .multiple-column #calculation-IO, #compound-interest-factors .multiple-column #calculation-IO-interpolate { width: 100%; text-align: center; }
-
-#compound-interest-factors .multiple-column #calculation-type .center, #compound-interest-factors .multiple-column #calculation-IO .center, #compound-interest-factors .multiple-column #calculation-IO-interpolate .center { text-align: center; }
-
-#compound-interest-factors .multiple-column h2, #compound-interest-factors .multiple-column h3 { text-align: center; }
-
-#compound-interest-factors .multiple-column label { padding: 5px; }
-
-#compound-interest-factors .multiple-column input[type=number] { padding: 4px 10px; margin: 2px 10px 10px; border: none; border-bottom: 1px solid #333; }
-
-#compound-interest-factors .multiple-column button { background-color: #E6E6E6; border: none; padding: 8px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 4px 2px; cursor: pointer; }
-
-#compound-interest-factors .multiple-column button:hover { background: #CCCCCC; }
 
 #depreciation .calculator-header-container { background-position: left; background-repeat: no-repeat; background-size: 80%; background-image: url("/assets/images/economics.jpg"); box-sizing: border-box; box-shadow: inset -45vw 0 5vw -5vw #1c3c87; height: 100px; display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center; }
 
@@ -287,39 +283,45 @@ body { background: #f1f1f1; }
 
 #depreciation .multiple-column { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: flex-start; }
 
-#depreciation .multiple-column #calculation-type { flex: 1 0 50%; text-align: center; }
+#depreciation .multiple-column #calculation-type { flex: 1 0 50%; width: 100%; text-align: center; }
 
-#depreciation .multiple-column #calculation-IO-interpolate { flex: 1 0 50%; text-align: center; }
-
-#depreciation .multiple-column .select { position: relative; display: inline-block; margin-bottom: 15px; width: 75%; background: #E6E6E6; text-align: center; border-bottom: 1px solid #333; }
-
-#depreciation .multiple-column .select select { display: inline-block; width: 100%; cursor: pointer; padding: 10px 15px; outline: 0; border: 0; border-radius: 0; background: inherit; color: #7B7B7B; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
-
-#depreciation .multiple-column .select option { background: #FFF; }
-
-#depreciation .multiple-column .select select::-ms-expand { display: none; }
-
-#depreciation .multiple-column .select:hover, #depreciation .multiple-column .select select:focus { color: #000000; background: #CCCCCC; }
-
-#depreciation .multiple-column .select select:disabled { opacity: 0.5; pointer-events: none; }
-
-#depreciation .multiple-column .select__arrow { position: absolute; top: 16px; right: 15px; width: 0; height: 0; pointer-events: none; border-style: solid; border-width: 8px 5px 0 5px; border-color: #7B7B7B transparent transparent transparent; }
-
-#depreciation .multiple-column .select select:hover ~ .select__arrow, #depreciation .multiple-column .select select:focus ~ .select__arrow { border-top-color: #000000; }
-
-#depreciation .multiple-column .select select:disabled ~ .select__arrow { border-top-color: #CCCCCC; }
+#depreciation .multiple-column #calculation-IO-interpolate { flex: 1 0 50%; width: 100%; text-align: center; }
 
 @media screen and (max-width: 950px) { #depreciation .multiple-column { flex-direction: column; flex: 1 0 auto; width: auto; } }
 
-#depreciation .multiple-column h2, #depreciation .multiple-column h3 { text-align: center; }
+#capital-cost-allowance .calculator-header-container { background-position: left; background-repeat: no-repeat; background-size: 80%; background-image: url("/assets/images/economics.jpg"); box-sizing: border-box; box-shadow: inset -45vw 0 5vw -5vw #1c3c87; height: 100px; display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center; }
 
-#depreciation .multiple-column label { padding: 5px; }
+#capital-cost-allowance .calculator-header-container h1, #capital-cost-allowance .calculator-header-container h2 { padding: 10px 20px; color: #FFF; }
 
-#depreciation .multiple-column input[type=number] { padding: 4px 10px; margin: 2px 10px 10px; border: none; border-bottom: 1px solid #333; }
+#capital-cost-allowance .calculator-header-container h1 { padding: 10px 20px; color: #FFF; }
 
-#depreciation .multiple-column button { background-color: #E6E6E6; border: none; padding: 8px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 4px 2px; cursor: pointer; }
+@media screen and (max-width: 950px) { #capital-cost-allowance .calculator-header-container h1 { display: none; } }
 
-#depreciation .multiple-column button:hover { background: #CCCCCC; }
+#capital-cost-allowance .calculator-header-container h2 { padding: 10px 20px; color: #FFF; }
+
+@media screen and (max-width: 950px) { #capital-cost-allowance .calculator-header-container h2 { color: #FFF; } }
+
+#capital-cost-allowance .multiple-column { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: flex-start; }
+
+#capital-cost-allowance .multiple-column #factor-input { flex: 1 0 50%; width: 100%; text-align: center; }
+
+#capital-cost-allowance .multiple-column #factor-output { flex: 1 0 50%; width: 100%; text-align: center; }
+
+@media screen and (max-width: 950px) { #capital-cost-allowance .multiple-column { flex-direction: column; flex: 1 0 auto; width: auto; } }
+
+#capital-cost-allowance .multiple-column { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: flex-start; }
+
+#capital-cost-allowance .multiple-column #worth-input-1 { flex: 1 0 33.3333333333%; width: 100%; text-align: center; }
+
+#capital-cost-allowance .multiple-column #worth-input-2 { flex: 1 0 33.3333333333%; width: 100%; text-align: center; }
+
+#capital-cost-allowance .multiple-column #worth-input-3 { flex: 1 0 33.3333333333%; width: 100%; text-align: center; }
+
+@media screen and (max-width: 950px) { #capital-cost-allowance .multiple-column { flex-direction: column; flex: 1 0 auto; width: auto; } }
+
+#capital-cost-allowance #worth-input { text-align: center; }
+
+#capital-cost-allowance #worth-output { text-align: center; }
 
 #binomial .calculator-header-container { background-position: left; background-repeat: no-repeat; background-size: 80%; background-image: url("/assets/images/statistics.jpg"); box-sizing: border-box; box-shadow: inset -45vw 0 5vw -5vw #19264e; height: 100px; display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center; }
 
@@ -335,43 +337,11 @@ body { background: #f1f1f1; }
 
 #binomial .multiple-column { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: flex-start; }
 
-#binomial .multiple-column #at-least-X { flex: 1 0 50%; text-align: center; }
+#binomial .multiple-column #at-least-X { flex: 1 0 50%; width: 100%; text-align: center; }
 
-#binomial .multiple-column #required-trials { flex: 1 0 50%; text-align: center; }
-
-#binomial .multiple-column .select { position: relative; display: inline-block; margin-bottom: 15px; width: 75%; background: #E6E6E6; text-align: center; border-bottom: 1px solid #333; }
-
-#binomial .multiple-column .select select { display: inline-block; width: 100%; cursor: pointer; padding: 10px 15px; outline: 0; border: 0; border-radius: 0; background: inherit; color: #7B7B7B; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
-
-#binomial .multiple-column .select option { background: #FFF; }
-
-#binomial .multiple-column .select select::-ms-expand { display: none; }
-
-#binomial .multiple-column .select:hover, #binomial .multiple-column .select select:focus { color: #000000; background: #CCCCCC; }
-
-#binomial .multiple-column .select select:disabled { opacity: 0.5; pointer-events: none; }
-
-#binomial .multiple-column .select__arrow { position: absolute; top: 16px; right: 15px; width: 0; height: 0; pointer-events: none; border-style: solid; border-width: 8px 5px 0 5px; border-color: #7B7B7B transparent transparent transparent; }
-
-#binomial .multiple-column .select select:hover ~ .select__arrow, #binomial .multiple-column .select select:focus ~ .select__arrow { border-top-color: #000000; }
-
-#binomial .multiple-column .select select:disabled ~ .select__arrow { border-top-color: #CCCCCC; }
+#binomial .multiple-column #required-trials { flex: 1 0 50%; width: 100%; text-align: center; }
 
 @media screen and (max-width: 950px) { #binomial .multiple-column { flex-direction: column; flex: 1 0 auto; width: auto; } }
-
-#binomial .multiple-column #calculation-type, #binomial .multiple-column #calculation-IO, #binomial .multiple-column #calculation-IO-interpolate { width: 100%; text-align: center; }
-
-#binomial .multiple-column #calculation-type .center, #binomial .multiple-column #calculation-IO .center, #binomial .multiple-column #calculation-IO-interpolate .center { text-align: center; }
-
-#binomial .multiple-column h2, #binomial .multiple-column h3 { text-align: center; }
-
-#binomial .multiple-column label { padding: 5px; }
-
-#binomial .multiple-column input[type=number] { padding: 4px 10px; margin: 2px 10px 10px; border: none; border-bottom: 1px solid #333; }
-
-#binomial .multiple-column button { background-color: #E6E6E6; border: none; padding: 8px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 4px 2px; cursor: pointer; }
-
-#binomial .multiple-column button:hover { background: #CCCCCC; }
 
 /* Dax */
 @font-face { /* (900) Black */ font-family: 'Dax'; src: url(../fonts/Dax/Dax-Black.ttf); font-weight: normal; font-style: normal; }

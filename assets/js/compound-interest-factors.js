@@ -1,4 +1,5 @@
 import * as Helpers from "./modules/helpers.js"; 
+import factors from "./modules/interest-factors.js";
 
 // global variables
 var scope = { i: 0, n: 0 };
@@ -48,19 +49,19 @@ class GrowthFactor extends Factor {
     }
 }
 
-// expressions to evaluate
-var factors = [
-    new Factor("F/P", '(1+i)^n'),
-    new Factor("P/F", '1/(1+i)^n'),
-    new Factor("A/F", 'i/((1+i)^n-1)'),
-    new Factor("A/P", 'i*(1+i)^n/((1+i)^n-1)'),
-    new Factor("F/A", '((1+i)^n-1)/i'),
-    new Factor("P/A", '((1+i)^n-1)/(i*(1+i)^n)'),
-    new Factor("A/G", '1/i-n/((1+i)^n-1)'),
-    new Factor("P/G", '((1+i)^n-i*n-1)/(i^2*(1+i)^n)'),
+// // expressions to evaluate
+// var factors = [
+//     new Factor("F/P", '(1+i)^n'),
+//     new Factor("P/F", '1/(1+i)^n'),
+//     new Factor("A/F", 'i/((1+i)^n-1)'),
+//     new Factor("A/P", 'i*(1+i)^n/((1+i)^n-1)'),
+//     new Factor("F/A", '((1+i)^n-1)/i'),
+//     new Factor("P/A", '((1+i)^n-1)/(i*(1+i)^n)'),
+//     new Factor("A/G", '1/i-n/((1+i)^n-1)'),
+//     new Factor("P/G", '((1+i)^n-i*n-1)/(i^2*(1+i)^n)'),
 
-    new GrowthFactor("P/A", '((1+i)^n-1)/(i*(1+i)^n)*(1/(1+g))', '(1+i)/(1+g)-1', '((1+i^o)^n-1)/(i^o*(1+i^o)^n)*(1/(1+g))')
-];
+//     new GrowthFactor("P/A", '((1+i)^n-1)/(i*(1+i)^n)*(1/(1+g))', '(1+i)/(1+g)-1', '((1+i^o)^n-1)/(i^o*(1+i^o)^n)*(1/(1+g))')
+// ];
 
 const changeScope = (x) => {
     selectedCalc == "rate" ? scope.i = x : scope.n = x;

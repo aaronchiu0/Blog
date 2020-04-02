@@ -24,6 +24,7 @@
     @for $i from 0 to length($children) {
         #{nth($children, $i+1)} {
             flex: 1 0 100/length($children)*1%;
+            width: 100%;
             @content;
         }
     }

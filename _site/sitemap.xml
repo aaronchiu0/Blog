@@ -26,6 +26,9 @@
 <loc>http://localhost:4000/calculators.html</loc>
 </url>
 <url>
+<loc>http://localhost:4000/calculators/capital-cost-allowance.html</loc>
+</url>
+<url>
 <loc>http://localhost:4000/calculators/compound-interest-factors.html</loc>
 </url>
 <url>
@@ -35,13 +38,6 @@
 <loc>http://localhost:4000/calculators/depreciation.html</loc>
 </url>
 <url>
-<loc>http://localhost:4000/calculators/economics.html</loc>
-</url>
-<url>
 <loc>http://localhost:4000/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/calculators/numerical-solutions.html</loc>
-<lastmod>2020-03-06T19:41:02-05:00</lastmod>
 </url>
 </urlset>
