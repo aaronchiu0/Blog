@@ -72,9 +72,9 @@ $(document).ready(function(){
             throwOnError: false
         });
 
-        // katex.render(String.raw`\begin{aligned}PW&=\underbrace{-FC\cdot CTF}_{Capital\:Cost}+\underbrace{Savings\cdot (1-t)(P/A,i,n)}_{Tax\:from\:Savings}+\underbrace{SV\cdot CSF \cdot(P/F,i,n)}_{Proceeds\:from\:Disposition}\\&=${FC}\cdot CTF+(${savings})(1-${Helpers.toPercent(t, true)})${factors[5].formatted(i,life)}+${SV}\cdot CSF${factors[1].formatted(i,life)}\\&=(${FC})(${capitalFactor})+(${savings})(${1-t})(${P_A})+(${SV})(${salvageFactor})(${P_F})\\&=${terms[0]}+${terms[1]}+${terms[2]}\\&=${ans}\end{aligned}`, document.querySelector('#worth-output #AW-output'), {
-        //     throwOnError: false
-        // });
+        katex.render(String.raw`\begin{aligned}PW&=\underbrace{-FC\cdot CTF}_{Capital\:Cost}+\underbrace{Savings\cdot (1-t)(P/A,i,n)}_{Tax\:from\:Savings}+\underbrace{SV\cdot CSF \cdot(P/F,i,n)}_{Proceeds\:from\:Disposition}\\&=${FC}\cdot CTF+(${savings})(1-${Helpers.toPercent(t, true)})${factors[5].formatted(i,life)}+${SV}\cdot CSF${factors[1].formatted(i,life)}\\&=(${FC})(${capitalFactor})+(${savings})(${1-t})(${P_A})+(${SV})(${salvageFactor})(${P_F})\\&=${terms[0]}+${terms[1]}+${terms[2]}\\&=${ans}\end{aligned}`, document.querySelector('#worth-output #AW-output'), {
+            throwOnError: false
+        });
     }
 
     $("#worth-input-1 > input, #worth-input-2 > input, #worth-input-3 > input").on('input', calcWorth);
