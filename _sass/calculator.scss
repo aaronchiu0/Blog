@@ -107,7 +107,7 @@
         border-top-color: #CCCCCC;
     }
 
-    h2, h3 {
+    h1, h2, h3 {
         text-align: center;
     }
 
@@ -211,11 +211,7 @@
         } 
     }
 
-    #worth-input {
-        text-align: center;
-    }
-
-    #worth-output {
+    #worth-input, #worth-output {
         text-align: center;
     }
 
@@ -237,6 +233,12 @@
             flex: 1 0 auto;
 
             width: auto;
+        }
+    }
+
+    #theory {
+        h2, h3 {
+            text-align: left;
         }
     }
 }

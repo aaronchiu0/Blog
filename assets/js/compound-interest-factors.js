@@ -204,11 +204,23 @@ $(document).ready(function(){
     $(window).on('load', function() {
         update();
         interpolateFactor();
+
+        textColour();
     });
 
+    // change text colour
+    function textColour() {       
+        $("input").each(function(index) {
+            if($(this).val() == "0")
+                $(this).css("color", "red");
+            else
+                $(this).css("color", "black");
+        });
+    }
+        
     // on change
-    $("#calculation-IO .amount, #calculation-IO #rate, #calculation-IO #period").on('input', calcFactor);
-    $("#calculation-IO-interpolate .first-amount, #calculation-IO-interpolate .second-amount, #calculation-IO-interpolate .calculate").on('input', interpolateFactor); // resource heavy
+    $("#calculation-IO .amount, #calculation-IO #rate, #calculation-IO #period").on('input', () => {calcFactor(); textColour();});
+    $("#calculation-IO-interpolate .first-amount, #calculation-IO-interpolate .second-amount, #calculation-IO-interpolate .calculate").on('input', () => {interpolateFactor(); textColour();}); // resource heavy
 
     // print out formulas
     for (let i = factors.length-1; i >= 0; i--) {

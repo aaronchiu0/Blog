@@ -3,7 +3,7 @@ import * as Helpers from "./modules/helpers.js";
 function binomialCoef (n, k) {
     let product = 1;
     for (let i = 1; i <= k; i++) {
-        product *= (n + 1 + i)/i 
+        product *= (n + 1 + i)/i; 
     }
     return product;
 }

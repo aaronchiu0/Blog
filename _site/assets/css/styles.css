@@ -237,7 +237,7 @@ body { background: #f1f1f1; }
 
 .calculator .select select:disabled ~ .select__arrow { border-top-color: #CCCCCC; }
 
-.calculator h2, .calculator h3 { text-align: center; }
+.calculator h1, .calculator h2, .calculator h3 { text-align: center; }
 
 .calculator label { padding: 10px 5px; margin: 5px; }
 
@@ -319,9 +319,7 @@ body { background: #f1f1f1; }
 
 @media screen and (max-width: 950px) { #capital-cost-allowance .multiple-column { flex-direction: column; flex: 1 0 auto; width: auto; } }
 
-#capital-cost-allowance #worth-input { text-align: center; }
-
-#capital-cost-allowance #worth-output { text-align: center; }
+#capital-cost-allowance #worth-input, #capital-cost-allowance #worth-output { text-align: center; }
 
 #binomial .calculator-header-container { background-position: left; background-repeat: no-repeat; background-size: 80%; background-image: url("/assets/images/statistics.jpg"); box-sizing: border-box; box-shadow: inset -45vw 0 5vw -5vw #19264e; height: 100px; display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center; }
 
@@ -342,6 +340,8 @@ body { background: #f1f1f1; }
 #binomial .multiple-column #required-trials { flex: 1 0 50%; width: 100%; text-align: center; }
 
 @media screen and (max-width: 950px) { #binomial .multiple-column { flex-direction: column; flex: 1 0 auto; width: auto; } }
+
+#binomial #theory h2, #binomial #theory h3 { text-align: left; }
 
 /* Dax */
 @font-face { /* (900) Black */ font-family: 'Dax'; src: url(../fonts/Dax/Dax-Black.ttf); font-weight: normal; font-style: normal; }
