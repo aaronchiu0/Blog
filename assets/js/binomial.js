@@ -3,7 +3,7 @@ import * as Helpers from "./modules/helpers.js";
 function binomialCoef (n, k) {
     let product = 1;
     for (let i = 1; i <= k; i++) {
-        product *= (n + 1 + i)/i; 
+        product *= (n + 1 - i)/i; 
     }
     return product;
 }
@@ -12,13 +12,57 @@ const binomial = (k, n, p) => binomialCoef(n, k)*Math.pow(p, k)*Math.pow(1-p, n-
 
 function cumulativeBinomial (k, n, p) {
     let sum = 0;
-    for (let i = 0; i < k; i++) {
+    for (let i = 0; i <= k; i++) {
         sum += binomial(i, n, p);
     }
     return sum;
 }
 
-const expectedTrials = (r, p) => Math.log(1-r)/Math.log(1-p);
+function cumulativeBinomialDifferential(required, scope, x, h) {
+    const {k, n, p} = scope;
+    //console.log({k: k, p: p}, "x+h:", x+h);
+    //console.log((-required+1-cumulativeBinomial(k, x+h, p) - (-required+1-cumulativeBinomial(k, x-h, p)))/(2*h));
+    return (-required+1-cumulativeBinomial(k, x+h, p) - (-required+1-cumulativeBinomial(k, x-h, p)))/(2*h);
+}
+
+function NewtonRaphson(required, scope, x, nmax, eps, del) {
+    const {k, n: trials, p} = scope;
+    let n, fx, fp;
+
+    fx = -required+1-cumulativeBinomial(k-1, x, p);
+
+    console.group("Binomial: Newton Raphson");
+    console.time("Newton Raphson");
+
+    for (n = 1; n <= nmax; n++) {
+        fp = cumulativeBinomialDifferential(required, {k: k-1, trials, p}, x, 0.0001);
+
+        if (Math.abs(fp) < del) {
+            console.warn("Small Derivative: Out of Bounds");
+            break;
+        }
+
+        let d = fx/fp;
+        x = x - d;
+        fx = -required+1-cumulativeBinomial(k-1, x, p);
+
+        if (Math.abs(d) < eps) {
+            console.log("Convergence");
+            break;
+        }
+    }
+
+    console.log(`Newton Raphson has ran ${n} time(s)`)
+    console.timeEnd("Newton Raphson");
+    console.groupEnd();
+
+    console.log({x: x});
+    return x;
+} 
+
+//NewtonRaphson({k: 1, n: 50, p: 0.01}, 1, 50, 0.0000000001, 0.0001);
+
+
 
 $(document).ready(function(){
     // Chance Calculator
@@ -28,21 +72,19 @@ $(document).ready(function(){
         let n = parseFloat($("#at-least-X #trials").val());
         let p = parseFloat($("#at-least-X #probability").val());
 
-        let ans = 1 - cumulativeBinomial(k, n, p);
+        let ans = 1 - cumulativeBinomial(k-1, n, p);
         $("#at-least-X .output").text(Helpers.toPercent(Helpers.clamp(ans, 0, 1)));  
 
         data_set.splice(0, data_set.length);
         for (let i = 0; i <= 300; i+=1) {
             data_set.push({
-                x: i, y: Helpers.clamp(1 - cumulativeBinomial(k, i, p), 0, 1)
+                x: i, y: Helpers.clamp(1 - cumulativeBinomial(k-1, i, p), 0, 1)
             });
 
-            if (1 - cumulativeBinomial(k, i, p) > 0.999)
+            if (1 - cumulativeBinomial(k-1, i, p) > 0.999)
                 break;
             
         }
-
-        console.log(data_set);
         
         chart.options = {
             scales: {
@@ -84,16 +126,38 @@ $(document).ready(function(){
 
     // Required Probability
     function calculateRequired() {
+        let k = parseFloat($("#required-trials #successes").val());
         let r = parseFloat($("#required-trials #req-probability").val());
         let p = parseFloat($("#required-trials #probability").val());
 
-        let ans = expectedTrials(r, p);
-        $("#required-trials .output").text(ans);  
+
+        let test = 1;
+        if (p >= 0.07)
+            test = 5;
+        else if(p >= 0.01)
+            test = 100;
+        else if(p >= 0.001)
+            test = 1000;
+
+        if (k >= 3)
+            test = 1000;
+
+        console.log({test: test});
+        let ans = NewtonRaphson(r, {k: k, n: 50, p: p}, test, 50, 0.0000000001, 0.0001);
+
+        if (ans <= 0 || ans == test)
+            $("#required-trials .output").text("~1"); 
+        else
+            $("#required-trials .output").text(ans);  
     }
 
-    $("#required-trials #req-probability, #required-trials #probability").on('input', calculateRequired);
+    $("#required-trials #successes, #required-trials #req-probability, #required-trials #probability").on('input', calculateRequired);
 
-        
+    $("#required-trials #successes-slider").on('input', function(){
+        $("#required-trials #successes").val(this.value);     
+        calculateRequired();
+    });
+
     $("#required-trials #req-probability-slider").on('input', function(){
         $("#required-trials #req-probability").val(this.value);     
         calculateRequired();

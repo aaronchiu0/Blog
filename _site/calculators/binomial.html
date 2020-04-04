@@ -16,11 +16,11 @@
 
 <!-- Load React. -->
 <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<!-- <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script> -->
+<!-- <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script> -->
 
 <!-- load jsx -->
-<script src="https://unpkg.com/babel-standalone@latest/babel.min.js"></script>
+<!-- <script src="https://unpkg.com/babel-standalone@latest/babel.min.js"></script> -->
 
 <!-- import modules -->
 <script type="module" src="/assets/js/modules/helpers.js"></script>
@@ -160,7 +160,7 @@ onload="renderMathInElement(document.body);"></script>
 
         <label>X Number of Successes</label><br>
         <input id="successes" type="number" value="1"><br>
-        <input id="successes-slider" type="range" min="1" max="100" step="1" class="slider" value="1"><br>
+        <input id="successes-slider" type="range" min="1" max="10" step="1" class="slider" value="1"><br>
 
         <label>Number of Trials</label><br>
         <input id="trials" type="number" value="100"><br>
@@ -175,7 +175,11 @@ onload="renderMathInElement(document.body);"></script>
     </div>
     <div id="required-trials">
         <h1>Required Trials Calculator</h1>
-        <p>Expected number of trials to acheive at least one or more successes for a certain probability</p>
+        <p>Expected number of trials to acheive at least X or more successes for a certain probability</p>
+
+        <label>X Number of Successes</label><br>
+        <input id="successes" type="number" value="1"><br>
+        <input id="successes-slider" type="range" min="1" max="10" step="1" class="slider" value="1"><br>
 
         <label>Required Probability</label><br>
         <input id="req-probability" type="number" value="0.95"><br>
@@ -187,6 +191,8 @@ onload="renderMathInElement(document.body);"></script>
 
         <label>Expected Number of Trials</label>
         <h3 class="output">Ans</h3>
+
+        <p><strong>Note:</strong> ~1 can mean one of two things. Either the number of trials is pretty much 1. Or it can mean the values entered are too extreme (Especially if NaN shows up). Verify and interpret the result with caution. </p>
     </div>
 </div>
 
@@ -240,7 +246,8 @@ onload="renderMathInElement(document.body);"></script>
 
         $$ P > 1-\sum _{i=0}^{k-1}{n \choose i}p^{i}(1-p)^{n-i} $$
 
-        Simply solve for $n$ and we have our number of trials.
+        Simply solve for $n$ and we have our number of trials. <br>
+        Of courses, as you can see it isn't very simple, and so we will employ some help from the computer and solve this numerically. Mainly using Newton-Raphson's Method to finding what $n$ should be.
     </p>
 
 </div>

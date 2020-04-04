@@ -79,9 +79,10 @@ $(document).ready(function(){
         P_F = Helpers.precise(P_F, 6);
         A_P = Helpers.precise(A_P, 6);
         A_F = Helpers.precise(A_F, 6);
-        for (let i = 0; i < termsPW.length; i++)
+        for (let i = 0; i < termsPW.length; i++) {
             termsPW[i] = Helpers.precise(termsPW[i], 6);
             termsAW[i] = Helpers.precise(termsAW[i], 6);
+        }
         ansPW = Helpers.precise(ansPW, 6);
         ansAW = Helpers.precise(ansAW, 6);
 
@@ -127,8 +128,6 @@ $(document).ready(function(){
         let tax_Rate = parseFloat($("#UCC-computation #tax").val())/100;
         let CCA_Rate = parseFloat($("#UCC-computation #CCA").val())/100;
 
-        console.log(tax_Rate, CCA_Rate, $("#UCC-table tbody tr").length);
-
         for (let i = 0; i < $("#UCC-table tbody tr").length; i++) {
             let UCC_Start = 0;
             if (i == 0)
@@ -150,15 +149,13 @@ $(document).ready(function(){
             let taxBenefit = UCC_End * tax_Rate;
 
             
-            $("#UCC-table .UCC-start").eq(i+1).text(UCC_End);
+            $("#UCC-table .UCC-start").eq(i+1).text(Helpers.financial(UCC_End));
 
             $("#UCC-table .adjust").eq(i).text(Helpers.financial(adjust));
             $("#UCC-table .UCC-base").eq(i).text(Helpers.financial(UCC_Base));
             $("#UCC-table .CCA").eq(i).text(Helpers.financial(CCA));
             $("#UCC-table .UCC-end").eq(i).text(Helpers.financial(UCC_End));
             $("#UCC-table .tax-benefit").eq(i).text(Helpers.financial(taxBenefit));
-
-            console.log(UCC_Start, additions, salvage, adjust, UCC_Base, CCA, UCC_End, taxBenefit); 
         }
     }
 

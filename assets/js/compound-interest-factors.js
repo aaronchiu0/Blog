@@ -70,16 +70,17 @@ const changeScope = (x) => {
 
 function NewtonRaphson(f_x, fprime_x, x, nmax, eps, del) {
     let n, fx, fp;
-    console.log(f_x, fprime_x, scope);
 
     fx = math.evaluate(f_x, changeScope(x));
-    console.log(0, x, fx);
+
+    console.group("Interest Factors: Newton Raphson");
+    console.time("Newton Raphson");
 
     for (n = 1; n <= nmax; n++) {
         fp = math.evaluate(fprime_x, changeScope(x));
 
         if (Math.abs(fp) < del) {
-            console.log("small derivative");
+            console.log("Small Derivative: Out of Bounds");
             break;
         }
 
@@ -87,13 +88,16 @@ function NewtonRaphson(f_x, fprime_x, x, nmax, eps, del) {
         x = x - d;
         fx = math.evaluate(f_x, changeScope(x));
 
-        console.log(n, x, fx);
-
         if (Math.abs(d) < eps) {
             console.log("Convergence");
             break;
         }
     }
+
+    console.log(`Newton Raphson has ran ${n} time(s)`)
+    console.timeEnd("Newton Raphson");
+    console.groupEnd();
+
     return x;
 } 
 
@@ -107,8 +111,6 @@ $(document).ready(function(){
         };
 
         let factor = factors[selectedFactor].eval(scope);
-
-        console.log(amount, factor, scope);
 
         let ans = amount*factor;
 
@@ -166,8 +168,6 @@ $(document).ready(function(){
         $("#calculation-IO-interpolate .first-label").text(`${ungiven}`);
         $("#calculation-IO-interpolate .second-label").text(`${given}`);
 
-        console.log(selectedFactor, $(this).text());
-
         calcFactor();
         interpolateFactor();
     };
@@ -203,7 +203,6 @@ $(document).ready(function(){
     // on load
     $(window).on('load', function() {
         update();
-        interpolateFactor();
 
         textColour();
     });
