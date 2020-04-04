@@ -213,6 +213,93 @@ onload="renderMathInElement(document.body);"></script>
     <p id="AW-output"></p>
 </div>
 
+<div id="UCC-computation">
+    <h1>Undepreciated Capital Costs Computations</h1>
+    <div class="multiple-column">
+        <div id="UCC-input-1">
+            <label for="tax">Tax Rate</label><br>
+            <input id="tax" type="number" value="0">%<br>
+        </div>
+        <div id="UCC-input-2">
+            <label for="CCA">CCA (Capital Cost Allowance) Rate</label><br>
+            <input id="CCA" type="number" value="0">%<br>
+        </div>
+    </div>
+    <table id="UCC-table">
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>UCC Beginning</th>
+                <th>Additions</th>
+                <th>Dispositions</th>
+                <th>Adjustment</th>
+                <th>Base UCC</th>
+                <th>CCA</th>
+                <th>UCC Ending</th>
+                <th>Tax Benefit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Year 1</th>
+                <td class="UCC-start"><input value="0"></td>
+                <td class="additions"><input value="0"></td>
+                <td class="salvage"><input value="0"></td>
+                <td class="adjust">Output</td>
+                <td class="UCC-base">Output</td>
+                <td class="CCA">Output</td>
+                <td class="UCC-end">Output</td>
+                <td class="tax-benefit">Output</td>
+            </tr>
+            <tr>
+                <th>Year 2</th>
+                <td class="UCC-start">Output</td>
+                <td class="additions"><input value="0"></td>
+                <td class="salvage"><input value="0"></td>
+                <td class="adjust">Output</td>
+                <td class="UCC-base">Output</td>
+                <td class="CCA">Output</td>
+                <td class="UCC-end">Output</td>
+                <td class="tax-benefit">Output</td>
+            </tr>
+            <tr>
+                <th>Year 3</th>
+                <td class="UCC-start">Output</td>
+                <td class="additions"><input value="0"></td>
+                <td class="salvage"><input value="0"></td>
+                <td class="adjust">Output</td>
+                <td class="UCC-base">Output</td>
+                <td class="CCA">Output</td>
+                <td class="UCC-end">Output</td>
+                <td class="tax-benefit">Output</td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="add-row">Add Year</button>
+</div>
+
+<div class="theory">
+    <h1>A Bit of Theory</h1>
+    <h2>Undepreciated Capital Costs</h2>
+    <p>
+        Calculating UCC is very systematic and thus, is usually done in a spreadsheet software. However, what calculations to do will be explained here. <br> <br>
+
+        First of all, we have to understand that <Strong>UCC Ending</Strong> of the previous year is the same as the <strong>UCC Beginning</strong> for the current year. For example, if a company had \$10 000 as their UCC Ending for 2009, then their UCC Beginning will be \$10 000 for 2010. <br> <br>
+        
+        Your <strong>Additions</strong> will be what you have purchased and your <strong>Dispositions</strong> will be what you have sold. Your <strong>Adjustment</strong> will just be your additions subtracted by your dispositions. <br> <br>
+
+        You <strong>Base UCC</strong> will depend on your adjustment. If the adjustment is positive, you Base UCC will be your UCC Starting plus half of your adjustment. If your adjustment is negative, your Base UCC will simply be your UCC Starting plus your adjustment. <br> <br>
+        
+        Your <strong>CCA</strong> will be your Base UCC multiplied by your CCA rate. <br> <br>
+
+        Finally, your <strong>UCC Ending</strong> will be your UCC Beginning plus any additions, subtracted by any dispositions, and subtracted by your CCA. This will become your UCC Beginning for the next year as said before. <br> <br>
+
+        Additionally, your <strong>Tax Benefit</strong> will be your UCC Ending multiplied by the tax rate.
+        
+    </p>
+
+</div>
+
 </div>
 			</div>
 		</div>
@@ -222,12 +309,12 @@ onload="renderMathInElement(document.body);"></script>
     <div id="footer-container">
         <div class="footer-sections">
         <h3 class=contact>Permanent Address</h3> 
-        <p class=contact>170 Elbern Markell Drive<br>Brampton, ON, L6X 2Z9</p>
+        <p class=contact>Brampton, ON, L6X 2Z9 <br> Canada</p>
         </div>
         
         <div class="footer-sections">
         <h3 class=contact>Current Address</h3> 
-        <p class=contact>14 Cottrill Street<br>Hamilton, ON, L8S 3L4</p>
+        <p class=contact>Hamilton, ON, L8S 3L4 <br> Canada</p>
         </div>
         
         <div class="footer-sections">

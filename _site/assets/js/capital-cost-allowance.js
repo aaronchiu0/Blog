@@ -101,6 +101,80 @@ $(document).ready(function(){
     });
 
 
+    // UCC Computation
+    $("#add-row").click(function(){
+        $("#UCC-table tbody").append(`
+            <tr>
+                <th>Year ${$("#UCC-table tbody tr").length+1}</th>
+                <td class="UCC-start">Output</td>
+                <td class="additions"><input value="0"></td>
+                <td class="salvage"><input value="0"></td>
+                <td class="adjust">Output</td>
+                <td class="UCC-base">Output</td>
+                <td class="CCA">Output</td>
+                <td class="UCC-end">Output</td>
+                <td class="tax-benefit">Output</td>
+            </tr>
+        `);
+        console.log("Add row", $("#UCC-table tbody tr").length);
+
+        calcUCC();
+
+        textColour();
+    });
+
+    function calcUCC() {
+        let tax_Rate = parseFloat($("#UCC-computation #tax").val())/100;
+        let CCA_Rate = parseFloat($("#UCC-computation #CCA").val())/100;
+
+        console.log(tax_Rate, CCA_Rate, $("#UCC-table tbody tr").length);
+
+        for (let i = 0; i < $("#UCC-table tbody tr").length; i++) {
+            let UCC_Start = 0;
+            if (i == 0)
+                UCC_Start = parseFloat($("#UCC-table .UCC-start input").eq(i).val());
+            else
+                UCC_Start = parseFloat($("#UCC-table .UCC-start").eq(i).text());
+
+            let additions = parseFloat($("#UCC-table .additions input").eq(i).val());
+            let salvage = parseFloat($("#UCC-table .salvage input").eq(i).val());
+
+            let adjust = additions - salvage;
+
+            let UCC_Base = adjust > 0 ? UCC_Start + adjust / 2 : UCC_Start + adjust;
+
+            let CCA = UCC_Base * CCA_Rate;
+
+            let UCC_End = UCC_Start + additions - salvage - CCA;
+
+            let taxBenefit = UCC_End * tax_Rate;
+
+            
+            $("#UCC-table .UCC-start").eq(i+1).text(UCC_End);
+
+            $("#UCC-table .adjust").eq(i).text(Helpers.financial(adjust));
+            $("#UCC-table .UCC-base").eq(i).text(Helpers.financial(UCC_Base));
+            $("#UCC-table .CCA").eq(i).text(Helpers.financial(CCA));
+            $("#UCC-table .UCC-end").eq(i).text(Helpers.financial(UCC_End));
+            $("#UCC-table .tax-benefit").eq(i).text(Helpers.financial(taxBenefit));
+
+            console.log(UCC_Start, additions, salvage, adjust, UCC_Base, CCA, UCC_End, taxBenefit); 
+        }
+    }
+
+    $("#UCC-computation #tax, #UCC-computation #CCA").on("input", function(){
+        calcUCC();
+
+        textColour();
+    });
+
+    $("#UCC-table").on("input", "input", function(){
+        calcUCC();
+
+        textColour();
+    });
+
+
     // change text colour
     function textColour() {       
         $("input").each(function(index) {
@@ -116,6 +190,7 @@ $(document).ready(function(){
     $(window).on('load', function() {
         calcFactors();
         calcWorth();
+        calcUCC();
 
         textColour();
     });

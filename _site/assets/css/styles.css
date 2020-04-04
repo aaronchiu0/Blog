@@ -247,6 +247,8 @@ body { background: #f1f1f1; }
 
 .calculator button:hover { background: #CCCCCC; }
 
+.calculator .theory h2, .calculator .theory h3 { text-align: left; }
+
 #compound-interest-factors .calculator-header-container { background-position: left; background-repeat: no-repeat; background-size: 80%; background-image: url("/assets/images/economics.jpg"); box-sizing: border-box; box-shadow: inset -45vw 0 5vw -5vw #1c3c87; height: 100px; display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center; }
 
 #compound-interest-factors .calculator-header-container h1, #compound-interest-factors .calculator-header-container h2 { padding: 10px 20px; color: #FFF; }
@@ -321,6 +323,22 @@ body { background: #f1f1f1; }
 
 #capital-cost-allowance #worth-input, #capital-cost-allowance #worth-output { text-align: center; }
 
+#capital-cost-allowance #UCC-computation .multiple-column { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: flex-start; }
+
+#capital-cost-allowance #UCC-computation .multiple-column #UCC-input-1 { flex: 1 0 50%; width: 100%; text-align: center; }
+
+#capital-cost-allowance #UCC-computation .multiple-column #UCC-input-2 { flex: 1 0 50%; width: 100%; text-align: center; }
+
+@media screen and (max-width: 950px) { #capital-cost-allowance #UCC-computation .multiple-column { flex-direction: column; flex: 1 0 auto; width: auto; } }
+
+#capital-cost-allowance #UCC-computation table { border-collapse: collapse; width: 100%; table-layout: fixed; }
+
+#capital-cost-allowance #UCC-computation table td, #capital-cost-allowance #UCC-computation table th { border: 1px solid #dddddd; text-align: left; padding: 8px; }
+
+#capital-cost-allowance #UCC-computation table tr:nth-child(even) { background-color: #dddddd; }
+
+#capital-cost-allowance #UCC-computation table input { width: 100%; }
+
 #binomial .calculator-header-container { background-position: left; background-repeat: no-repeat; background-size: 80%; background-image: url("/assets/images/statistics.jpg"); box-sizing: border-box; box-shadow: inset -45vw 0 5vw -5vw #19264e; height: 100px; display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center; }
 
 #binomial .calculator-header-container h1, #binomial .calculator-header-container h2 { padding: 10px 20px; color: #FFF; }
@@ -340,8 +358,6 @@ body { background: #f1f1f1; }
 #binomial .multiple-column #required-trials { flex: 1 0 50%; width: 100%; text-align: center; }
 
 @media screen and (max-width: 950px) { #binomial .multiple-column { flex-direction: column; flex: 1 0 auto; width: auto; } }
-
-#binomial #theory h2, #binomial #theory h3 { text-align: left; }
 
 /* Dax */
 @font-face { /* (900) Black */ font-family: 'Dax'; src: url(../fonts/Dax/Dax-Black.ttf); font-weight: normal; font-style: normal; }

@@ -31,7 +31,7 @@
 }
 
 /* heading bar for calculators */
-@mixin calculator-header-bar($image, $inset-color, $left-tex-color, $right-text-color: $left-tex-color) {
+@mixin calculator-header-bar($image, $inset-color, $left-text-color, $right-text-color: $left-text-color) {
     @include centerScaleBackground($image, 80%);
     
     box-sizing: border-box;
@@ -48,7 +48,7 @@
 
     h1 {
         padding: 10px 20px;
-        color: $left-tex-color; 
+        color: $left-text-color; 
 
         @media screen and (max-width: $timeline-change) {
             display: none;
@@ -60,7 +60,7 @@
         color: $right-text-color;
 
         @media screen and (max-width: $timeline-change) {
-            color: $left-tex-color;
+            color: $left-text-color;
         }
     }
 }

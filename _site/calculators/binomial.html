@@ -193,7 +193,7 @@ onload="renderMathInElement(document.body);"></script>
 <h1>Distribution of X Number of Successes</h1>
 <canvas id="myChart"></canvas>
 
-<div id="theory">
+<div class="theory">
     <h1>A Bit of Theory</h1>
     <h2>Chance of Independent Events</h2>
     <h3>At Least One Success</h3>
@@ -211,7 +211,7 @@ onload="renderMathInElement(document.body);"></script>
 
         $$ P(X=k) = {\binom n k}p^{k}(1-p)^{n-k}$$
 
-        ${\binom n k}$ is the Binomial Coeffeicent more often known as $_nC_k$ <br>
+        ${\binom n k}$ is the Binomial Coeffeicent more often known as $_nC_k$. <br>
         This can be computed as: <br>
 
         $$ {\binom n k} = {\frac {n!}{k!(n-k)!}} = {\prod _{i=1}^{k}{\frac {n+1-i}{i}}} $$
@@ -238,7 +238,7 @@ onload="renderMathInElement(document.body);"></script>
     <p>
         We can formulate the same idea as with at least one case.
 
-        $$ P \geq 1-\sum _{i=0}^{k-1}{n \choose i}p^{i}(1-p)^{n-i} $$
+        $$ P > 1-\sum _{i=0}^{k-1}{n \choose i}p^{i}(1-p)^{n-i} $$
 
         Simply solve for $n$ and we have our number of trials.
     </p>
@@ -255,12 +255,12 @@ onload="renderMathInElement(document.body);"></script>
     <div id="footer-container">
         <div class="footer-sections">
         <h3 class=contact>Permanent Address</h3> 
-        <p class=contact>170 Elbern Markell Drive<br>Brampton, ON, L6X 2Z9</p>
+        <p class=contact>Brampton, ON, L6X 2Z9 <br> Canada</p>
         </div>
         
         <div class="footer-sections">
         <h3 class=contact>Current Address</h3> 
-        <p class=contact>14 Cottrill Street<br>Hamilton, ON, L8S 3L4</p>
+        <p class=contact>Hamilton, ON, L8S 3L4 <br> Canada</p>
         </div>
         
         <div class="footer-sections">

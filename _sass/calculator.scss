@@ -138,6 +138,12 @@
             background: #CCCCCC;
         }
     }
+
+    .theory {
+        h2, h3 {
+            text-align: left;
+        }
+    }
 }
 
 // Economics
@@ -215,6 +221,42 @@
         text-align: center;
     }
 
+    #UCC-computation {
+        .multiple-column {
+            @include column("#UCC-input-1", "#UCC-input-2") {
+                text-align: center;
+            } 
+    
+            @media screen and (max-width: $timeline-change) {
+                flex-direction: column;
+                flex: 1 0 auto;
+    
+                width: auto;
+            } 
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+
+            table-layout: fixed;
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px; 
+            }
+    
+            tr:nth-child(even) { 
+                background-color: #dddddd;
+            }
+
+            input {
+                width: 100%;
+            }  
+        }
+    }
+
 }
 
 // Binomial
@@ -233,12 +275,6 @@
             flex: 1 0 auto;
 
             width: auto;
-        }
-    }
-
-    #theory {
-        h2, h3 {
-            text-align: left;
         }
     }
 }
