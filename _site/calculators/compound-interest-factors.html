@@ -83,7 +83,7 @@ onload="renderMathInElement(document.body);"></script>
 <link rel="canonical" href="http://localhost:4000/calculators/compound-interest-factors.html" />
 <meta property="og:url" content="http://localhost:4000/calculators/compound-interest-factors.html" />
 <script type="application/ld+json">
-{"@type":"WebPage","headline":"Compound Interest Factors","url":"http://localhost:4000/calculators/compound-interest-factors.html","@context":"https://schema.org"}</script>
+{"@type":"WebPage","url":"http://localhost:4000/calculators/compound-interest-factors.html","headline":"Compound Interest Factors","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 	</head>
@@ -213,6 +213,28 @@ onload="renderMathInElement(document.body);"></script>
         <p class="output center">Answer</p>
     </div>
 </div>
+
+<div class="theory">
+    <h1>A Bit of Theory</h1>
+    <h2>Calculating Rate or Period</h2>
+    <p>
+        Calculating the rate or period of the factor is a bit more involved than calculating the factor itself given the other variables. Either there is no analytical solution or were too lazy to find one. Thankfully, there are two methods to calculate them and will be explained here.
+    </p>
+    <h3>Linear Interpolation</h3>
+    <p>
+        Linear interpolation can be used by hand if a computer or spreadsheet software isn't available. You will two points that are near what you desire retrieved from tables or otherwise. It assumes the data point you desire is defined by the two retrieved points. The formula for linear interpolations is as follows:
+
+        $$ y = y_1+ (x-x_1)\frac{y_2-y_1}{x_2-x_1} $$ 
+
+        $x$ is the point you deisre and the other points $(x_1, y_1)$ and $(x_2, y_2)$ are your two retrieved points. It does not matter which order you the two coordinates in.
+    </p>
+    <h3>Numerical Methods</h3>
+    <p>
+        Solving by numerical methods can yield a more accurate answer but is more difficult to set up. In the calculators above, the Newton-Raphson Method was used to achieve our answer.
+    </p>
+</div>
+
+
 <div style="text-align: center;">
     <h2 id="formula-heading">Formulas for Factors</h2> 
 </div>

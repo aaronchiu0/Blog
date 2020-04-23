@@ -10,7 +10,9 @@ function binomialCoef (n, k) {
 
 const binomial = (k, n, p) => binomialCoef(n, k)*Math.pow(p, k)*Math.pow(1-p, n-k);
 
-function cumulativeBinomial (k, n, p) {
+function cumulativeBinomial(scope) {
+    const {k, n, p} = scope;
+
     let sum = 0;
     for (let i = 0; i <= k; i++) {
         sum += binomial(i, n, p);
@@ -18,24 +20,28 @@ function cumulativeBinomial (k, n, p) {
     return sum;
 }
 
-function cumulativeBinomialDifferential(required, scope, x, h) {
+function cumulativeBinomialDifferential(scope, x, h) {
     const {k, n, p} = scope;
     //console.log({k: k, p: p}, "x+h:", x+h);
     //console.log((-required+1-cumulativeBinomial(k, x+h, p) - (-required+1-cumulativeBinomial(k, x-h, p)))/(2*h));
-    return (-required+1-cumulativeBinomial(k, x+h, p) - (-required+1-cumulativeBinomial(k, x-h, p)))/(2*h);
+    return (-cumulativeBinomial({k: k, n: x+h, p: p}) - (-cumulativeBinomial({k: k, n: x-h, p: p})))/(2*h);
 }
 
 function NewtonRaphson(required, scope, x, nmax, eps, del) {
     const {k, n: trials, p} = scope;
     let n, fx, fp;
 
-    fx = -required+1-cumulativeBinomial(k-1, x, p);
+    fx = -required+1-cumulativeBinomial({k: k-1, n: x, p: p});
 
     console.group("Binomial: Newton Raphson");
     console.time("Newton Raphson");
 
+    console.log(scope);
+
+    console.log({n: 0, x: x, fx: fx});
+
     for (n = 1; n <= nmax; n++) {
-        fp = cumulativeBinomialDifferential(required, {k: k-1, trials, p}, x, 0.0001);
+        fp = cumulativeBinomialDifferential({k: k-1, trials, p}, x, 0.0001);
 
         if (Math.abs(fp) < del) {
             console.warn("Small Derivative: Out of Bounds");
@@ -44,7 +50,9 @@ function NewtonRaphson(required, scope, x, nmax, eps, del) {
 
         let d = fx/fp;
         x = x - d;
-        fx = -required+1-cumulativeBinomial(k-1, x, p);
+        fx = -required+1-cumulativeBinomial({k: k-1, n: x, p: p});
+
+        console.log({n: n, x: x, fx: fx});
 
         if (Math.abs(d) < eps) {
             console.log("Convergence");
@@ -72,16 +80,16 @@ $(document).ready(function(){
         let n = parseFloat($("#at-least-X #trials").val());
         let p = parseFloat($("#at-least-X #probability").val());
 
-        let ans = 1 - cumulativeBinomial(k-1, n, p);
+        let ans = 1 - cumulativeBinomial({k: k-1, n: n, p: p});
         $("#at-least-X .output").text(Helpers.toPercent(Helpers.clamp(ans, 0, 1)));  
 
         data_set.splice(0, data_set.length);
         for (let i = 0; i <= 300; i+=1) {
             data_set.push({
-                x: i, y: Helpers.clamp(1 - cumulativeBinomial(k-1, i, p), 0, 1)
+                x: i, y: Helpers.clamp(1 - cumulativeBinomial({k: k-1, n: i, p: p}), 0, 1)
             });
 
-            if (1 - cumulativeBinomial(k-1, i, p) > 0.999)
+            if (1 - cumulativeBinomial({k: k-1, n: i, p: p}) > 0.999)
                 break;
             
         }
@@ -144,6 +152,9 @@ $(document).ready(function(){
 
         console.log({test: test});
         let ans = NewtonRaphson(r, {k: k, n: 50, p: p}, test, 50, 0.0000000001, 0.0001);
+
+        Helpers.NewtonRaphson(cumulativeBinomial, cumulativeBinomialDifferential, r, {k: k, n: 50, p: p}, test, 50, 0.0000000001, 0.0001);
+
 
         if (ans <= 0 || ans == test)
             $("#required-trials .output").text("~1"); 

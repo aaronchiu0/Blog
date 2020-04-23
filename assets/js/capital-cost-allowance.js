@@ -146,7 +146,7 @@ $(document).ready(function(){
 
             let UCC_End = UCC_Start + additions - salvage - CCA;
 
-            let taxBenefit = UCC_End * tax_Rate;
+            let taxBenefit = CCA * tax_Rate;
 
             
             $("#UCC-table .UCC-start").eq(i+1).text(Helpers.financial(UCC_End));
