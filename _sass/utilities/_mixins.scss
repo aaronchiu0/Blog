@@ -16,6 +16,7 @@
 	flex-flow: $direction wrap;
     justify-content: $justify;
     align-items: $align;
+    @content;
 }
 
 /* for multiple columns with optional content*/

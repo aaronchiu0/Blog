@@ -83,15 +83,15 @@ $(document).ready(function(){
             termsPW[i] = Helpers.precise(termsPW[i], 6);
             termsAW[i] = Helpers.precise(termsAW[i], 6);
         }
-        ansPW = Helpers.precise(ansPW, 6);
-        ansAW = Helpers.precise(ansAW, 6);
+        ansPW = Helpers.financial(ansPW, 6);
+        ansAW = Helpers.financial(ansAW, 6);
 
         // print
-        katex.render(String.raw`\begin{aligned}PW&=\underbrace{-FC\cdot CTF}_{Capital\:Cost}+\underbrace{Savings\cdot (1-t)(P/A,i,n)}_{Tax\:from\:Savings}+\underbrace{SV\cdot CSF \cdot(P/F,i,n)}_{Proceeds\:from\:Disposition}\\&=${FC}\cdot CTF+(${savings})(1-${Helpers.toPercent(t, true)})${factors[5].formatted(i,life)}+${SV}\cdot CSF${factors[1].formatted(i,life)}\\&=(${FC})(${capitalFactor})+(${savings})(${1-t})(${P_A})+(${SV})(${salvageFactor})(${P_F})\\&=${termsPW[0]}+${termsPW[1]}+${termsPW[2]}\\&=${ansPW}\end{aligned}`, document.querySelector('#worth-output #PW-output'), {
+        katex.render(String.raw`\begin{aligned}PW&=\underbrace{-FC\cdot CTF}_{Capital\:Cost}+\underbrace{Savings\cdot (1-t)(P/A,i,n)}_{Tax\:from\:Savings}+\underbrace{SV\cdot CSF \cdot(P/F,i,n)}_{Proceeds\:from\:Disposition}\\&=${FC}\cdot CTF+(${savings})(1-${Helpers.toPercent(t, true)})${factors[5].formatted(i,life)}+${SV}\cdot CSF${factors[1].formatted(i,life)}\\&=(${FC})(${capitalFactor})+(${savings})(${Helpers.precise(1-t, 6)})(${P_A})+(${SV})(${salvageFactor})(${P_F})\\&=${termsPW[0]}+${termsPW[1]}+${termsPW[2]}\\&=${ansPW}\end{aligned}`, document.querySelector('#worth-output #PW-output'), {
             throwOnError: false
         });
 
-        katex.render(String.raw`\begin{aligned}AW&=\underbrace{-FC\cdot CTF\cdot (A/P,i,n)}_{Capital\:Cost}+\underbrace{Savings\cdot (1-t)}_{Tax\:from\:Savings}+\underbrace{SV\cdot CSF \cdot(A/F,i,n)}_{Proceeds\:from\:Disposition}\\&=${FC}\cdot CTF\cdot ${factors[3].formatted(i,life)}+(${savings})(1-${Helpers.toPercent(t, true)})+${SV}\cdot CSF${factors[2].formatted(i,life)}\\&=(${FC})(${capitalFactor})(${A_P})+(${savings})(${1-t})+(${SV})(${salvageFactor})(${A_F})\\&=${termsAW[0]}+${termsAW[1]}+${termsAW[2]}\\&=${ansAW}\end{aligned}`, document.querySelector('#worth-output #AW-output'), {
+        katex.render(String.raw`\begin{aligned}AW&=\underbrace{-FC\cdot CTF\cdot (A/P,i,n)}_{Capital\:Cost}+\underbrace{Savings\cdot (1-t)}_{Tax\:from\:Savings}+\underbrace{SV\cdot CSF \cdot(A/F,i,n)}_{Proceeds\:from\:Disposition}\\&=${FC}\cdot CTF\cdot ${factors[3].formatted(i,life)}+(${savings})(1-${Helpers.toPercent(t, true)})+${SV}\cdot CSF${factors[2].formatted(i,life)}\\&=(${FC})(${capitalFactor})(${A_P})+(${savings})(${Helpers.precise(1-t, 6)})+(${SV})(${salvageFactor})(${A_F})\\&=${termsAW[0]}+${termsAW[1]}+${termsAW[2]}\\&=${ansAW}\end{aligned}`, document.querySelector('#worth-output #AW-output'), {
             throwOnError: false
         });
     }

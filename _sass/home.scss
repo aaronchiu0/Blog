@@ -1,62 +1,281 @@
 @import "utilities/variables";
 @import "utilities/mixins";
 
-body {
-  background: map-get($colours, background);
-}
+html#landing-page {
+    scroll-snap-type: y mandatory;
+    //width: 100vw;
 
-.hero-header {
-  margin: 0;
-  height: 100vh;
-
-  @include centerScaleBackground("/assets/images/engineering-plans.jpg");
-
-  /* Keep background fixed */
-  background-attachment: fixed;
-
-  .hero-title-container {
-    @include flexbox-container(column, center, center);
-    height: 100%;
-    width: 100%;
-    position: relative;
-    background: inherit;
-
-    #hero-title {
-      font-family: 'Dax', sans-serif;
-      font-weight: 400;
-      margin: 0;
-      width: 75vw;
-      font-size: 7.5vmin;
-      text-align: left;
-      padding: 10px;
-      position: fixed;
-      display: block;
-  
-      color: white;
+    body {
+        //width: 100vw;
+        //height: 100vw;
     }
-  }
+
+    section {
+        scroll-snap-align: start;
+        height: 100vh;
+        width: 100%; 
+    }
 }
 
-.sticky-parent {
-  width: 100%;
+$sidebar-width: calc(2*3px + 2*4px + 2*12px);
+#side-navbar {
+    @include flexbox-container(column, center, center);
+    position: fixed;
+    height: 100vh;
+    width: $sidebar-width;
+    z-index: 1000;
+    left: 0; 
+    top: 0;
+    background: map-get($colours, nav);
+
+    .side-button { 
+        @include flexbox-container(row, center, center) { flex-wrap: nowrap; };
+        cursor: pointer; 
+        width: inherit;
+        height: 40px;
+ 
+        .bar1, .bar2 {
+            height: inherit; 
+            width: 3px;
+            background-color: map-get($colours, footer);
+            transition: 0.5s;
+        }
+
+        .bar1 {
+            margin-left: 12px;
+            margin-right: 4px;
+        }
+        
+        .bar2 { 
+            margin-left: 4px;
+            margin-right: 12px; 
+        }
+
+        .change.bar1 {
+            -webkit-transform: rotate(30deg) translate(7px, 0px);
+            transform: rotate(30deg) translate(7px, 0px);
+        }
+
+        .change.bar2 {
+            -webkit-transform: rotate(-30deg) translate(-7px, 0px);
+            transform: rotate(-30deg) translate(-7px, 0px);
+        }
+    }
 }
 
-.about-container {
-    height: 110vh;
+.aside-section {
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 100;
+}
+
+.aside-left {
+    width: calc(35% - #{$sidebar-width});
+    left: $sidebar-width;
+    background-color: #ff5964;
+    -webkit-transform: translateX(calc(-100% - #{$sidebar-width}));
+    -moz-transform: translateX(calc(-100% - #{$sidebar-width}));
+    -ms-transform: translateX(calc(-100% - #{$sidebar-width}));
+    -o-transform: translateX(calc(-100% - #{$sidebar-width}));
+    transform: translateX(calc(-100% - #{$sidebar-width}));
+    transition: transform 0.4s ease-in-out; 
+
+    @media screen and (max-width: $timeline-change) {
+        width: 100%;
+    }
+}
+  
+.aside-right {
+    display: block;
+    width: 65%;
+    right: 0;
+    background-color: #38618c;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+
+    @media screen and (max-width: $timeline-change) {
+        display: none;
+    }
+}
+  
+.aside-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 150px;
+    text-align: left;
+    padding-left: 50px;
+    
+    li {
+        margin-bottom: 20px;
+    }
+}
+  
+.aside-content {
+    margin-top: 150px;
+    padding: 0 40px;
+    position: relative;
+    color: white;
+    text-align: center;
+    
+    h1 {
+        font-family: 'Dax', sans-serif;
+        font-weight: 400;
+        font-size: 4.5vmin;
+
+        /* Underline after */
+        &:after {
+            background: none repeat scroll 0 0 white;
+            bottom: -6px;
+            content: "";
+            display: block;
+            height: 2px;
+            position: relative;
+            width: 100px;
+            margin: auto;
+        }
+    }
+
+    #contact-side-nav {
+        @include flexbox-container(row, center, center);
+
+        img {
+            height: 300px;
+            width: 250px;
+            padding: 20px;
+        }
+
+        & > div:nth-of-type(1) {
+            height: 300px;
+            width: 250px;
+        }
+
+        & > div:nth-of-type(2) {
+            width: 250px;
+            height: 300px;
+
+            @media screen and (max-width: 1400px) {
+                width: 500px;
+                height: 150px;
+
+                div {
+                    display: inline-block;
+                    width: 250px;
+                }
+
+                div:nth-of-type(1) {
+                    float: left;
+                }
+            }
+        }
+    }
+}
+  
+  
+.aside-anchor::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    background-color: #ff5964;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 3px;
+}
+  
+.aside-anchor::before {
+    border-radius: 3px;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    background-color: #fff;
+    left: 0;
+    height: 3px;
+    z-index: 100;
+    width: 50%;
+    -webkit-transition: transform 0.2s ease-in-out;
+    -o-transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+}
+  
+.aside-anchor:hover:before {
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+}
+  
+.aside-anchor {
+    padding-bottom: 7px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+    position: relative;
+    font-weight: 500;
+}
+
+.show-aside.aside-left {
+    transform: translateY(0%);
+}
+  
+.show-aside.aside-right {
+    transform: translateX(0%);
+}
+
+
+#main-wrapper {
+    //width: calc(100vw - #{$sidebar-width});
+    margin-left: $sidebar-width;
+    margin-right: 0;
+}
+
+#hero-header {
+    @include centerScaleBackground("/assets/images/engineering-plans.jpg");
+
+    /* Keep background fixed */
+    background-attachment: fixed;
+
+    #hero-title-container {
+        @include flexbox-container(column, center, center);
+        height: 100%;
+        width: 100%; 
+        position: relative;
+        //background: inherit;
+
+        #hero-title {
+            font-family: 'Dax', sans-serif;
+            font-weight: 400;
+            margin: 0;
+            width: 75vw;
+            font-size: 7.5vmin;
+            text-align: left;
+            padding: 10px;
+            position: fixed;
+            display: block;
+        
+            color: white;
+        }
+    }
+}
+
+#about-container {
+    // border shadow in animation.scss
+
     @include flexbox-container(row, flex-start, center);
-    background-color: white;
-
     @include centerScaleBackground("/assets/images/partial-engine.jpg");
 
-    width: 100%;
-    box-sizing: border-box;
-    box-shadow: inset 55vw 0 5vw -5vw #FFF;
+    //box-shadow: inset 55vw 0 5vw -5vw #FFF;
 
-    z-index: 100;
-
-    position: sticky;
-    top: 0;
-
+    @media screen and (max-width: $side-change) {
+        box-shadow: none;
+    }
+    
     /* About actual content */
     #about-text {
         flex: 1 0 50vw;
@@ -73,10 +292,6 @@ body {
             @media screen and (max-width: $side-change) {
                 font-size: 3.75vh;
             }
-        }
-        
-        h1:before, h1:after {
-            content: '"';
         }
 
         /* Title */
@@ -95,43 +310,35 @@ body {
                 position: relative;
                 width: 100px;
             }
-        }
+        } 
         
         /* Paragraph */
         p {
             font-family: 'RobotoCondensed', sans-serif;
             font-weight: 400;
-            margin: auto;
             padding: 0px 20px;
         }
 
         @media screen and (max-width: $side-change) {
-            flex: 1 0 90vw;
-            max-width: 90vw;
-            padding: 10vw;
+            flex: 1 0 90%;
+            max-width: 90%;
+            padding: 10%;
             background: white;
+
+            P {
+                font-size: 2vh;
+            }
         }
     }
 }
 
-.skills-container {
-    height: 110vh;
+#skills-container {
+    // border shadow in animation.scss
+
     @include flexbox-container(row, flex-end, center);
     background-color: #111;
 
     @include centerScaleBackground("/assets/images/turbocharger-inside.jpg");
-
-    width: 100%;
-    box-sizing: border-box;
-    box-shadow: inset -45vw 0 5vw -5vw #111;
-
-    z-index: 100;
-
-    /* temporary fix for scroll bar*/
-    overflow-x: hidden;
-
-    position: sticky;
-    top: 0;
 
     /* About actual content */
     #skills-text {
@@ -187,252 +394,153 @@ body {
         }
 
         @media screen and (max-width: $side-change) {
-            flex: 1 0 90vw;
-            max-width: 90vw;
-            padding: 10vw;
+            flex: 1 0 90%;
+            max-width: 90%;
+            padding: 10%;
             background: #111;
+
+            P {
+                font-size: 2vh;
+            }
         }
     }
 }
 
 /* Education timeline */
-#timeline-section {
-  background: map-get($colours, background);
-  padding-bottom: 25px;
+// #timeline-section {
+//   background: map-get($colours, background);
+//   padding-bottom: 25px;
 
-  .title {
-    margin: 10px;
-    padding: 10px;
-  }
-}
-  
-/* The actual timeline (the vertical ruler) */
-.timeline {
-    position: relative;
-    max-width: $total-width;
-    margin: 0 auto;
-    z-index: 10;
-}
-  
-/* The actual timeline (the vertical ruler) */
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 6px;
-  background-color: map-get($colours, nav);
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -3px;
-}
-
-/* Container around content */
-.container {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-}
-
-/* The circles on the timeline */
-.container::after {
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -17px;
-  background-color: white;
-  border: 4px solid #FF9F55;
-  top: 25px;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-/* Place the container to the left */
-.left {
-  left: 0;
-  z-index: 10;
-}
-
-/* Place the container to the right */
-.right {
-  left: 50%;
-  z-index: 10;
-}
-
-/* Add arrows to the left container (pointing right) */
-.left::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 32px;
-  width: 0;
-  z-index: 1;
-  right: 30px;
-  border: medium solid white;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
-}
-
-/* Add arrows to the right container (pointing left) */
-.right::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 32px;
-  width: 0;
-  z-index: 1;
-  left: 30px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-}
-
-/* Fix the circle for containers on the right side */
-.right::after {
-  left: -16px;
-}
-
-/* The actual content */
-.content {
-  padding: 20px 30px;
-  background-color: white;
-  position: relative;
-  border-radius: 6px;
-}
-
-/* Media queries - Responsive timeline on screens */
-@media screen and (max-width: $timeline-change) {
-/* Place the timelime to the left */
-  .timeline::after {
-    left: 31px;
-  }
-
-/* Full-width containers */
-  .container {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
-  }
-
-/* Make sure that all arrows are pointing leftwards */
-  .container::before {
-    left: 60px;
-    border: medium solid white;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent white transparent transparent;
-  }
-
-/* Make sure all circles are at the same spot */
-  .left::after, .right::after {
-    left: 15px;
-  }
-
-/* Make all right containers behave like the left ones */
-  .right {
-    left: 0%;
-  }
-}
-
-// $container-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
-
-// $gutter: 30px;
-// $border-width: 4px;
-// $dot-diameter: 8px;
-
-// body {
-//   background: linear-gradient(55deg,#4E75B9 30%,#5CBF98 90%);
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   min-height: 100vh;
-//   width: 100vw;
-//   margin: 0;
-//   padding: 12vh 100px;
-//   font-family: 'Source Sans Pro', arial, sans-serif;
-//   font-weight: 300;
-//   color: #333;
-//   box-sizing: border-box;
-//   * {
-//     box-sizing: border-box;
-//   }
-// }
-
-// .timeline {
-//   width:100%;
-//   max-width:800px;
-//   background:#fff;
-//   padding: 100px 50px;
-//   position: relative;
-//   box-shadow: $container-shadow;
-//   &:before {
-//     content: '';
-//     position: absolute;
-//     top: 0px;
-//     left:calc(33% + 15px); //$gutter/2
-//     bottom: 0px;
-//     width: $border-width;
-//     background: #ddd;
-//   }
-//   &:after {
-//     content: "";
-//     display: table;
-//     clear: both;
-//   } 
-// }
-
-// .entry {
-//   clear: both;
-//   text-align: left;
-//   position: relative;
 //   .title {
-//     margin-bottom: .5em;
-//     float: left;
-//     width: 33%;
-//     padding-right: $gutter;
-//     text-align: right;
-//     position: relative;
-//     &:before {
-//       content: '';
-//       position: absolute;
-//       width: $dot-diameter;
-//       height: $dot-diameter;
-//       border: $border-width solid salmon;
-//       background-color:#fff;
-//       border-radius:100%;
-//       top: 15%;
-//       right: -$dot-diameter;
-//       z-index: 99;
-//     }
-//     h3 {
-//       margin: 0;
-//       font-size: 120%;
-//     }
-//     p {
-//       margin: 0;
-//       font-size: 100%;
-//     }
+//     margin: 10px;
+//     padding: 10px;
 //   }
-//   .body {
-//     margin: 0 0 3em;
-//     float: right;
-//     width: 66%;
-//     padding-left: $gutter;
-//     p {
-//       line-height: 1.4em;
-//       &:first-child {
-//         margin-top: 0;
-//         font-weight: 400;
-//       }
-//     }
-//     ul {
-//       color:#aaa;
-//       padding-left: 0;
-//       list-style-type: none;
-//       li:before {
-//         content: "–";
-//         margin-right: .5em;
-//       }
-//     }
+// }
+  
+// /* The actual timeline (the vertical ruler) */
+// .timeline {
+//     position: relative;
+//     max-width: $total-width;
+//     margin: 0 auto;
+//     z-index: 10;
+// }
+  
+// /* The actual timeline (the vertical ruler) */
+// .timeline::after {
+//   content: '';
+//   position: absolute;
+//   width: 6px;
+//   background-color: map-get($colours, nav);
+//   top: 0;
+//   bottom: 0;
+//   left: 50%;
+//   margin-left: -3px;
+// }
+
+// /* Container around content */
+// .container {
+//   padding: 10px 40px;
+//   position: relative;
+//   background-color: inherit;
+//   width: 50%;
+// }
+
+// /* The circles on the timeline */
+// .container::after {
+//   content: '';
+//   position: absolute;
+//   width: 25px;
+//   height: 25px;
+//   right: -17px;
+//   background-color: white;
+//   border: 4px solid #FF9F55;
+//   top: 25px;
+//   border-radius: 50%;
+//   z-index: 1;
+// }
+
+// /* Place the container to the left */
+// .left {
+//   left: 0;
+//   z-index: 10;
+// }
+
+// /* Place the container to the right */
+// .right {
+//   left: 50%;
+//   z-index: 10;
+// }
+
+// /* Add arrows to the left container (pointing right) */
+// .left::before {
+//     content: " ";
+//     height: 0;
+//     position: absolute;
+//     top: 32px;
+//     width: 0;
+//     z-index: 1;
+//     right: 30px;
+//     border: medium solid white;
+//     border-width: 10px 0 10px 10px;
+//     border-color: transparent transparent transparent white;
+// }
+
+// /* Add arrows to the right container (pointing left) */
+// .right::before {
+//     content: " ";
+//     height: 0;
+//     position: absolute;
+//     top: 32px;
+//     width: 0;
+//     z-index: 1;
+//     left: 30px;
+//     border: medium solid white;
+//     border-width: 10px 10px 10px 0;
+//     border-color: transparent white transparent transparent;
+// }
+
+// /* Fix the circle for containers on the right side */
+// .right::after {
+//     left: -16px;
+// }
+
+// /* The actual content */
+// .content {
+//     padding: 20px 30px;
+//     background-color: white;
+//     position: relative;
+//     border-radius: 6px;
+// }
+
+// /* Media queries - Responsive timeline on screens */
+// @media screen and (max-width: $timeline-change) {
+// /* Place the timelime to the left */
+//   .timeline::after {
+//     left: 31px;
+//   }
+
+// /* Full-width containers */
+//   .container {
+//     width: 100%;
+//     padding-left: 70px;
+//     padding-right: 25px;
+//   }
+
+// /* Make sure that all arrows are pointing leftwards */
+//   .container::before {
+//     left: 60px;
+//     border: medium solid white;
+//     border-width: 10px 10px 10px 0;
+//     border-color: transparent white transparent transparent;
+//   }
+
+// /* Make sure all circles are at the same spot */
+//   .left::after, .right::after {
+//     left: 15px;
+//   }
+
+// /* Make all right containers behave like the left ones */
+//   .right {
+//     left: 0%;
 //   }
 // }

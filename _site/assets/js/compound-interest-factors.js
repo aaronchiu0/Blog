@@ -167,6 +167,7 @@ $(document).ready(function(){
         $("#calculation-IO .amount-label").text(`${given}`);
         $("#calculation-IO-interpolate .first-label").text(`${ungiven}`);
         $("#calculation-IO-interpolate .second-label").text(`${given}`);
+        $("#calculation-IO-interpolate h3").text(`Calculating ${$(this).text()} with ${factors[selectedFactor].name}`);
 
         calcFactor();
         interpolateFactor();
