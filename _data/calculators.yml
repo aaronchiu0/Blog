@@ -24,10 +24,12 @@
     #   link:
 - title: Statistics
   image: /assets/images/statistics.jpg
-  description: For all your gambling and gacha needs
+  description: For all your gambling and gaming needs
   calculators: 
     - name: Binomial & Odds of Success
       link: /calculators/binomial.html
+    - name: Markov Chains & Stationary Probabilities
+      link: /calculators/markov-chains.html
   
   
   

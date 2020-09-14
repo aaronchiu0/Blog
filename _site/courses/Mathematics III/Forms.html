@@ -1,0 +1,454 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forms of Differential Equations</title>
+
+<!-- stylesheet -->
+<link rel="stylesheet" href="/assets/css/styles.css">
+
+<!-- import jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- import math.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.0/math.js"></script>
+
+<!-- import modules -->
+<script type="module" src="/assets/js/modules/helpers.js"></script>
+
+<!-- import scripts -->
+<script type="module" src="/assets/js/landing-page.js"></script>
+<script src="/assets/js/typing-text.js"></script>
+
+<!-- Animation on Scroll -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+<!-- icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- mathjax -->
+<!-- <script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			processEscapes: true
+		}
+	});
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script> -->
+
+<!-- chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<!-- katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js" integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js" integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF" crossorigin="anonymous"
+onload="renderMathInElement(document.body);"></script>
+
+<!-- Delimiters -->
+<script>
+	$(document).ready(function () { // this need jquery
+	  renderMathInElement(document.body, {
+		// ...options...
+		delimiters: [
+		  { left: "$$", right: "$$", display: true },
+		  { left: "$", right: "$", display: false },
+		  { left: "\\[", right: "\\]", display: true }
+		]
+	  });
+	});
+</script>
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Forms of Differential Equations</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Forms of Differential Equations" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/courses/Mathematics%20III/Forms.html" />
+<meta property="og:url" content="http://localhost:4000/courses/Mathematics%20III/Forms.html" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/courses/Mathematics%20III/Forms.html","headline":"Forms of Differential Equations","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+	</head>
+	<body>						
+		<!-- Header -->
+<div class="header">
+    <h1 id="title" 
+        data-aos="fade-right"
+    >
+        Aaron Chiu
+    </h1>
+    <p id="subtitle"
+        data-aos="fade-right"
+        data-aos-delay="500"
+    >
+        Automotive Engineer in Training
+    </p>
+</div>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+    
+	<a href="/" >Home</a>
+
+	<a href="/calculators.html" >Calculators</a>
+
+	<a href="/courses.html" >Courses</a>
+
+</div>
+
+<!-- back to top button -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>	
+
+		<div class="row">
+			<div class="side">
+                
+                    <h2>Mathematics II</h2>
+                    
+                        <a href="/courses/Mathematics II/Pre Integration.html">Pre Integration</a><br>
+                    
+                        <a href="/courses/Mathematics II/FTC.html">FTC</a><br>
+                    
+                        <a href="/courses/Mathematics II/Techniques.html">Techniques</a><br>
+                    
+                        <a href="/courses/Mathematics II/Applications.html">Applications</a><br>
+                    
+                        <a href="/courses/Mathematics II/Improper Integrals.html">Improper Integrals</a><br>
+                    
+                
+                    <h2>Mathematics III</h2>
+                    
+                        <a href="/courses/Mathematics III/Introduction.html">Introduction</a><br>
+                    
+                        <a href="/courses/Mathematics III/Forms.html">Forms</a><br>
+                    
+                
+			</div>
+			<div class="main">
+				<!-- Content -->
+				<div class="centerMargins">
+<h1>Mathematics III</h1>
+<!-- Forms of Differential Equations -->
+<h2>Forms of Differential Equations</h2>	
+
+<!-- ODE -->
+<h3>Ordinary Differential Equations (ODE)</h3>	
+<p> 
+    Come in the form of: $$\frac{dy}{dx} = f(x)$$
+    To solve these:
+    
+    $$\begin{aligned}
+        dy &= f(x) \ dx & &\text{Multply by $dx$} \\
+        \int dy &= \int f(x) \ dx + C & &\text{Integrate both sides}\\
+        y &= \int f(x) \ dx + C
+    \end{aligned}$$
+
+    Apply initial conditions (ie find $C$) if given.
+</p>
+
+<details>
+    <summary>Example of an Ordinary Differential Equation</summary>
+    <p>
+        The acceleration of a particle is defined as $a(t)=t^2-t+1$, its initial position is $x(0)=2$, and its initial velocity is $v(0)=1$. Find the position function $x(t)$<br>
+        As we know:
+        
+        $$\begin{aligned}
+            &\text{position} & &=x(t) \\
+            &\text{velocity} & &=\frac{dx}{dt} \\
+            &\text{acceleration} & &=\frac{d^2t}{dt^2} \text{or} \frac{dv}{dt}
+        \end{aligned}$$
+        
+        We have to find the velocity function first.
+        
+        $$\begin{aligned}
+            a(t) = \frac{dv}{dt} &= t^2-t+1 \\
+            dv &= [t^2-t+1] \ dt \\
+            \int dv &= \int[t^2-t+1] \ dt \\
+            v(t) &= \frac{1}{3}t^3-\frac{1}{2}t^2+t+C_1 \\
+        \end{aligned}$$
+        
+        We have to solve for the initial condition of $C_1$ given $v(0)=1$.
+        
+        $$\begin{aligned}
+            v(0) &= 1 \\
+            1 &= \frac{1}{3}(0)^3-\frac{1}{2}(0)^2+(0)+C_1 \\
+            C_1 &= 1
+        \end{aligned}$$
+        
+        Our velocity function is $v(t)=\frac{1}{3}t^3-\frac{1}{2}t^2+t+1$. We can find the position function in a similar manner.
+        
+        $$\begin{aligned}                                                                             
+            v(t) = \frac{dx}{dt} &= \frac{1}{3}t^3-\frac{1}{2}t^2+t+1 \\
+            dx &= [\frac{1}{3}t^3-\frac{1}{2}t^2+t+1] \ dt \\
+            \int dx &= \int[\frac{1}{3}t^3-\frac{1}{2}t^2+t+1] \ dt \\
+            x(t) &= \frac{1}{12}t^4-\frac{1}{6}t^3+\frac{1}{2}t^2+t+C_2 \\
+        \end{aligned}$$
+        
+        We have to again solve for the initial condition of $C_2$ given $x(0)=2$.
+        
+        $$\begin{aligned}
+            x(0) &= 2 \\
+            2 &= \frac{1}{12}(0)^4-\frac{1}{6}(0)^3+\frac{1}{2}(0)^2+(0)+C_2 \\
+            C_1 &= 2
+        \end{aligned}$$
+        
+        $$ \therefore x(t)=\frac{1}{12}t^4-\frac{1}{6}t^3+\frac{1}{2}t^2+t+2 $$
+    </p>
+</details>
+
+<!-- VSDE -->
+<h3>Variable Seperable Differential Equations (VSDE)</h3>	
+<p> 
+    Come in the form of: $$\frac{dy}{dx} = f(x)g(y)$$
+    To solve these:
+    
+    $$\begin{aligned}
+        \frac{dy}{g(y)} &= f(x) \ dx & &\text{Multiply by $dx$ and divide by $g(y)$} \\
+        \int \frac{dy}{g(y)} &= \int f(x) \ dx + C & &\text{Integrate both sides}
+    \end{aligned}$$
+
+    Apply initial conditions (ie find $C$) if given.
+</p>
+
+<details>
+    <summary>Example of a Variable Seperable Differential Equation</summary>
+    <p>
+        Solve the <abbr title="Initial Value Problem">IVP</abbr> given $\displaystyle y'-\frac{3-2x}{y}=0$ and $y(2)=-4$. <br>
+        
+        $$\begin{aligned}
+            y'-\frac{3-2x}{y} &= 0 \\
+            \frac{dy}{dx} &= \frac{3-2x}{y} \\
+            y \ dy &= [3-2x] \ dx \\
+            \int y \ dy &= \int [3-2x] \ dx \\
+            \frac{1}{2}y^2 &= 3x-x^2+C \\
+            y^2 &= 6x-2x^2+2C \\
+            y &= \pm \sqrt{6x-2x^2+2C}
+        \end{aligned}$$
+        
+        Now we have to solve for the initial value (ie $C$). Notice how the positive in the plus or minus is inadmissable to due the fact that it cannot equal $-4$ when positive.
+        
+        $$\begin{aligned}
+            y(2) &= -4 \\
+            -4 &= -\sqrt{6(2)-2(2)^2+2C} \\
+            4 &= \sqrt{12-8+2C} \\
+            16 &= 4+2C \\
+            12 &= 2C \\
+        \end{aligned}$$
+        
+        Notice how we don't need to solve for what $C$ is, only $2C$, as it is still a constant.
+        
+        $$ \therefore y=-\sqrt{6x-2x^2+12} $$
+    </p>
+</details>
+
+<!-- LDE -->
+<h3>Linear Differential Equations (LDE)</h3>	
+<p> 
+    Come in the form of: $$\frac{dy}{dx}+P(x)y=Q(x)$$
+    To solve these: $$\text{Multiply by $\displaystyle e^{\int P(x) \ dx}$}$$
+
+    The left hand side will become a sum of two factors similar to the product rule when finding derivatives. <br>
+    Apply initial conditions (ie find $C$) if given.
+</p>
+
+<details>
+    <summary>Example of a Linear Differential Equation</summary>
+    <p>
+        Solve $\displaystyle x^2y'+2xy=\sin^2x$. <br>
+        We have to get $y'$ but itself for it to be in its proper form.
+        
+        $$\begin{aligned}
+            x^2y'+2xy &= \sin^2x & I(x) &= e^{\int \frac{2}{x} \ dx} \\
+            y'+\frac{2y}{x} &= \frac{\sin^2x}{x^2} & &= e^{2\ln|x|} \\
+            x^2y'+2xy &= \sin^2(x) & &= x^2 \\
+            \frac{d(x^2y)}{dx} &= \sin^2x & &\text{Take note that it will always take the form of $\displaystyle \frac{df}{dx}$} \\
+            \int d(x^2y) &= \int\sin^2x \ dx \\
+            x^2y &= \int\frac{1}{2}(1-\cos (2x)) \ dx \\
+            x^2y &= \int(\frac{1}{2}-\frac{1}{2}\cos (2x)) \ dx \\
+            x^2y &= \frac{1}{2}x-\frac{\sin(2x)}{4} + C\\
+            y &= \frac{1}{2x}-\frac{\sin(2x)}{4x^2} + \frac{C}{x^2}\\
+        \end{aligned}$$
+    </p>
+</details>
+
+<!-- HDE -->
+<h3>Homogeneous Differential Equations (LDE)</h3>	
+<p> 
+    Come in the form of:
+    $$\begin{aligned}
+        P(x,y)y' &= Q(x,y) & &\text{where $P$ and $Q$ have the same total degree}
+    \end{aligned}$$
+
+    To solve these: 
+    
+    $$\begin{aligned}
+        &\text{Get into the form of} & \frac{dy}{dx} &= F\frac{y}{x} \\
+        &\text{Make the substitution}& v &= \frac{y}{x} \\
+        & & y &= vx \\
+        & & dy &= v'x + v		
+    \end{aligned}$$
+
+    These will become <abbr title="Variable Seperable Differential Equations">VSDE</abbr> and we can continue from there. <br>
+    Apply initial conditions (ie find $C$) if given.
+</p>
+
+<details>
+    <summary>Example of a Homogeneous Differential Equation</summary>
+    <p>
+        Solve $\displaystyle xyy'=y^2-3x^2$. <br>
+        
+        $$\begin{aligned}
+            xyy' &= y^2-3x^2 & &\text{Divide by $x^2$ to be able to substitute} \\
+            \frac{y}{x}y' &= \bigg(\frac{y}{x}\bigg)-3 & &\text{Substitute by $v=\frac{y}{x}$ and $y'=v'x+v$} \\
+            v(v'x+v) &= v^2-3  \\
+            v'x+v &= \frac{v^2-3}{v} \\
+            \frac{dv}{dx}x &= \frac{v^2-3}{v}-v \\
+            \frac{x}{dx} &= \frac{v^2-3-v^2}{v} \cdot \frac{1}{dv} \\
+            \frac{dx}{x} &= \frac{v}{-3} \ dv \\
+            \int v \ dv &= \int -3 \frac{dx}{x} \\
+            \frac{1}{2}v^2 &= -3\ln|x|+ln|C| \\
+            v^2 &= 2\ln\bigg|\frac{C}{x^3}\bigg| \\
+            v &= \pm\sqrt{2\ln\bigg|\frac{C}{x^3}\bigg|} \\
+            \frac{y}{x} &= \pm\sqrt{2\ln\bigg|\frac{C}{x^3}\bigg|} \\
+            y &= \pm x \sqrt{2\ln\bigg|\frac{C}{x^3}\bigg|}
+        \end{aligned}$$
+        
+    </p>
+</details>
+
+<!-- Bernoulli -->
+<h3>Bernoulli Differential Equations</h3>	
+<p> 
+    Come in the form of:
+    $$\begin{aligned}
+        y'+P(x)y &= O(x)y^n & &\text{where $n \neq 0,1$}
+    \end{aligned}$$
+
+    To solve these: 
+    
+    $$\begin{aligned}
+        &\text{Divide by $y^n$} \\
+        &\text{Substitute by $v=y^{1-n}$}	
+    \end{aligned}$$
+
+    These will become <abbr title="Linear Differential Equations">LDE</abbr> and we can continue from there. <br>
+    Apply initial conditions (ie find $C$) if given.
+</p>
+
+<details>
+    <summary>Example of a Bernoulli Differential Equation</summary>
+    <p>
+        Solve $\displaystyle y'+\frac{2y}{x}=\frac{y^3}{x^2}$. <br>
+        We can see that this is Bernoulli and is $n=3$.
+        
+        $$\begin{aligned}
+            y'+\frac{2y}{x} &= \frac{y^3}{x^2} & v = y^{1-3} &\rightarrow v = \frac{1}{y^2} \\
+            -\frac{1}{2}v^{-\tfrac{3}{2}}v' + \frac{2 \tfrac{1}{\sqrt{v}}}{x} &= \frac{\Big(\tfrac{1}{\sqrt{v}}\Big)^3}{x^2} & y^2 = \frac{1}{v} &\rightarrow y = \frac{1}{\sqrt{v}}\\
+            v' + \frac{2}{x\sqrt{v}}\cdot\frac{1}{-\tfrac{1}{2}v^{-\tfrac{3}{2}}} &= \frac{1}{x^2v^{\tfrac{3}{2}}} \cdot \frac{1}{-\frac{1}{2}v^{-\tfrac{3}{2}}} & y' &= -\frac{1}{2}v^{-\tfrac{3}{2}} \\
+            v' + \frac{2}{x\sqrt{v}}\cdot\Big(-2v^{\tfrac{3}{2}}\Big) &= \frac{-2v^{\tfrac{3}{2}}}{x^2v^{\tfrac{3}{2}}} \\
+            v' - \frac{4v}{x} &= -\frac{2}{x^2} \\		
+        \end{aligned}$$
+        
+        This is a <abbr title="Linear Differential Equations">LDE</abbr> so we can follow those steps.
+        
+        $$\begin{aligned}
+            v' - \frac{4v}{x} &= -\frac{2}{x^2} & I(x) &= e^{\int 4\tfrac{1}{x} \ dx} \\
+            \frac{v'}{x^4} - \frac{4v}{x^5} &= -\frac{2}{x^6} & &= e^{4\ln|x|} \\	
+            \frac{d\Big(\tfrac{1}{x^4}v\Big)}{dx} &= -\frac{2}{x^6} & &= x^4 \\
+            \int d\bigg(\frac{v}{x^4}\bigg) &= \int -\frac{2}{x^6} \ dx \\	
+            \frac{v}{x^4} &= -2 \cdot -\frac{x^{-5}}{-5} + C \\
+            v &= \frac{2}{5x} + Cx^4 \\		
+            \frac{1}{y^2} &= \frac{2}{5x} + Cx^4 \\
+            y^2 &= \frac{1}{\tfrac{2}{5x} + Cx^4} \\
+            y &= \frac{1}{\pm\sqrt{\tfrac{2}{5x} + Cx^4}} \\	
+        \end{aligned}$$	
+    </p>
+</details>
+
+<!-- Exact -->
+<h3>Exact Differential Equations (EDE)</h3>	
+<p> 
+    Come in the form of:
+    $$\begin{aligned}
+        M(x,y) \ dx + N(x,y) \ dy = 0
+    \end{aligned}$$
+    
+    $$\begin{aligned}
+        &\text{Are exact if} & M_y &= N_x & \text{i.e.} \ \frac{\partial M}{\partial y} &= \frac{\partial N}{\partial x}
+    \end{aligned}$$
+
+    To solve these: 
+    
+    $$\begin{aligned}
+        &\text{Divide by $y^n$} \\
+        &\text{Substitute by $v=y^{1-n}$}	
+    \end{aligned}$$
+
+    These will become <abbr title="Linear Differential Equations">LDE</abbr> and we can continue from there. <br>
+    Apply initial conditions (ie find $C$) if given.
+</p>
+
+<details>
+    <summary>Example of a Bernoulli Differential Equation</summary>
+    <p>
+        Solve $\displaystyle y'+\frac{2y}{x}=\frac{y^3}{x^2}$. <br>
+
+        <!-- solution -->
+        
+    </p>
+</details>
+
+
+</div>
+
+			</div>
+		</div>
+		
+		<div class="footer">
+    <!-- Contact -->
+    <div id="footer-container">
+        <div class="footer-sections">
+        <h3 class=contact>Permanent Address</h3> 
+        <p class=contact>Brampton, ON, L6X 2Z9 <br> Canada</p>
+        </div>
+        
+        <div class="footer-sections">
+        <h3 class=contact>Current Address</h3> 
+        <p class=contact>Hamilton, ON, L8S 3L4 <br> Canada</p>
+        </div>
+        
+        <div class="footer-sections">
+        <h3 class=contact>Contact Information</h3>
+        <p class=contact>chiua10@mcmaster.ca<br>
+        <strong>Cell:</strong>  (647) 283-2389</p>
+        </div>
+    </div>
+    <!-- Social Media -->
+    <div class="footer-sections">
+    <h3 class=contact>Social Media</h3>
+    <a href="https://www.facebook.com/profile.php?id=100018624766241" class="fa fa-facebook"></a>
+    <a href="https://www.linkedin.com/in/aaron-chiu/" class="fa fa-linkedin"></a>
+    </div>
+</div>		
+
+<!-- Animation on Scroll -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 2000,
+        disable: 'mobile'
+    });
+</script>
+
+<script src="/assets/js/katex-render.js"></script>
+	</body>
+</html>

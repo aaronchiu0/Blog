@@ -1,0 +1,28 @@
+---
+---
+<!doctype html>
+<html>
+	<head>
+		{% include head.html %}
+	</head>
+	<body>						
+		{% include default-header.html %}
+
+		<div class="row">
+			<div class="side">
+                {% for item in site.data.courses %}
+                    <h2>{{item.title}}</h2>
+                    {% for course in item.courses %}
+                        <a href="{{course.link}}">{{course.name}}</a><br>
+                    {% endfor %}
+                {% endfor %}
+			</div>
+			<div class="main">
+				<!-- Content -->
+				{{ content }}
+			</div>
+		</div>
+		
+		{% include footer.html %}
+	</body>
+</html>

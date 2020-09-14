@@ -2,7 +2,7 @@
   link: /
 - name: Calculators
   link: /calculators.html
-- name: Blog
-  link: /blog.html
+#- name: Blog
+#  link: /blog.html
 - name: Courses
   link: /courses.html

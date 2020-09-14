@@ -148,9 +148,7 @@
 
 // Economics
 #compound-interest-factors {
-    .calculator-header-container {
-        @include calculator-header-bar("/assets/images/economics.jpg", rgb(28, 60, 135), #FFF,);
-    }
+    @include calculator-header-bar("/assets/images/economics.jpg", rgb(28, 60, 135), #FFF,);
 
     .multiple-column {
         @include column("#calculation-type", "#calculation-IO", "#calculation-IO-interpolate") {
@@ -168,9 +166,7 @@
 
 // Depreciation
 #depreciation {
-    .calculator-header-container {
-        @include calculator-header-bar("/assets/images/economics.jpg", rgb(28, 60, 135), #FFF,);
-    }
+    @include calculator-header-bar("/assets/images/economics.jpg", rgb(28, 60, 135), #FFF,);
 
     .multiple-column {
         @include column("#calculation-type", "#calculation-IO-interpolate") {
@@ -187,9 +183,7 @@
 }
 
 #capital-cost-allowance {
-    .calculator-header-container {
-        @include calculator-header-bar("/assets/images/economics.jpg", rgb(28, 60, 135), #FFF,);
-    }
+    @include calculator-header-bar("/assets/images/economics.jpg", rgb(28, 60, 135), #FFF,);
 
     .multiple-column {
         @include column("#factor-input", "#factor-output") {
@@ -261,9 +255,7 @@
 
 // Binomial
 #binomial {
-    .calculator-header-container {
-        @include calculator-header-bar("/assets/images/statistics.jpg", rgb(25, 38, 78), #FFF);
-    }
+    @include calculator-header-bar("/assets/images/statistics.jpg", rgb(25, 38, 78), #FFF);
 
     .multiple-column {
         @include column("#at-least-X", "#required-trials") {
@@ -275,6 +267,26 @@
             flex: 1 0 auto;
 
             width: auto;
+        }
+    }
+}
+
+// Markov Chains
+#markov-chains {
+    @include calculator-header-bar("/assets/images/statistics.jpg", rgb(25, 38, 78), #FFF);
+
+    #calculations {
+        p {
+            text-align: center;
+        }
+
+        textarea {
+            width: 300px;
+            height: 150px;
+            
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 }

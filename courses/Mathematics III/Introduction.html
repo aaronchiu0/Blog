@@ -1,0 +1,76 @@
+---
+title: Introduction to Differential Equations
+layout: default-with-side-menu-courses
+---		
+<div class="centerMargins">
+<h1>Mathematics III</h1>
+<!-- Introduction -->
+<h2>Introduction to Differential Equations</h2>
+<!-- Definitions -->
+<h3>Definitions</h3>
+<dl class="inline" style="--min-width:100px";>
+    <dt >ODE</dt> <dd><dfn id="ODE">Ordinary Differential Equations</dfn> are differential equations with one variable as a function of another</dd>
+    <dt>PDE</dt> <dd><dfn id="PDE">Partial Differential Equations</dfn> are differential equations with multiple variables as a function of another</dd>
+    <dt>Order</dt> <dd>This is the <i>order</i> of the highest derivative</dd>
+    <dt>Degree</dt> <dd>This is the <i>power</i> of the highest derivative</dd>
+    <dt>Linear</dt> <dd>No multiplications with other dependent variables and their derivatives</dd>
+    <dt>Non Linear</dt> <dd>Multiplications with other dependent variables or their derivatives</dd>
+</dl>
+
+<p>
+    <b>Initial Value Problems (IVP)</b> <br>
+    Problems that involve conditions that are given at the same value of the independent variable <br> <br>
+    <b>Boundary Value Problems (BVP)</b> <br>
+    Problems that involve conditions that are given at different values of the independent variable
+</p>
+
+<h3>Proving a Solution of a Differential Equation</h3>
+<ol>
+    <li>Find all derivatives needed from the solution according to the differential equation</li>
+    <li>Substitute the derivitves into the differtial equation</li>
+    <li>If the result is zero, then the solution is an actual solution. If it is not, it is not a solution</li>
+</ol>
+
+<details>
+    <summary>Example of Proving a solution to Differential Equation</summary>
+    <p>
+        Show that the given function $y = Ce^{5x}$ is a solution of $y'-5y=0$ where $C$ is constant. Find $C$ if $y(0)=2$. <br>
+        We will have to find the solution's derivative and substitute it into the differential equation.
+        
+        $$\begin{aligned}
+            y &= Ce^{5x} &  y'-5y &= 0 \\
+            y' &= 5Ce^{5x} & 5Ce^{5x} - 5Ce^{5x} &= 0 \\
+            & & 0 &= 0
+        \end{aligned}$$
+        
+        We have to next find what $C$ is by substituting the initial bounds.
+        
+        $$\begin{aligned}
+            y(0) &= 2 \\
+            Ce^{5(0)} &= 2 \\
+            C &= 2
+        \end{aligned}$$	
+    </p>
+</details>
+
+<h3>Mathematical Models</h3>
+
+<dl class="inline" style="--min-width:100px";>
+    <dt>Growth</dt> <dd>$\displaystyle \frac{dP}{dt}=kP$</dd>
+    <dt>Decay</dt> <dd>$\displaystyle \frac{dN}{dt}=kN$</dd>
+    <dt>Cooling</dt> <dd>$\displaystyle \frac{dT}{dt}=-k(T-A)$</dd>
+    <dt>Current</dt> <dd>$\displaystyle i=C\frac{dv}{dt}$</dd>
+</dl>
+
+<details>
+    <summary>Example of Mathematical Model</summary>
+    <p>
+        The acceration of a car is proportianlto the difference between 250 km/h and the velocity of the car. <br>
+        The resulting mathematical model would be: $$\frac{dv}{dt}=k(250-v)$$
+        Remembering to add the constant $k$ is essential.
+        
+    </p>
+</details>
+
+</div>
+

@@ -1,0 +1,57 @@
+---
+title: Pre Integration
+layout: default-with-side-menu-courses
+---	
+
+<div class="centerMargins">
+<h1>Mathematics II</h1>
+
+<h2>Fundamental Theorems of Calculus (FTC)</h2>
+<!-- FTC Part 1-->
+<h3>Part 1</h3>
+<p>
+$$ \text{If: } g(x) = \int_a^x f(t) dt \qquad \text{Then: } g'(x) = f(x) $$
+$$ \text{Alternatively: } \frac{d}{dx}\int_a^x f(t) dt = f(x) $$
+
+Take note that the upper limit is in the form of $\int_a^x f(t) dt$ and not any other form.
+</p>
+
+<details>
+    <summary> Example </summary>
+    <p>
+        Evaluate: $\displaystyle g'(x) = \int_a^{x^2} \sin(t) dt$. <br>
+        Due to the the integral not being the form of $\int_a^x f(t) dt$, we need to do a substitution.
+
+        $$\begin{aligned}
+            g(x) &= \int_a^{x^2} \sin(t) dt & u &= x^2 \\
+            g(x) &= \int_a^u \sin(t) dt & \\
+            g'(u) &= \sin(u) &
+        \end{aligned}$$
+
+        We need to undo our substitution, however cannot directly undo it. Therefore, we will need to use the chain rule.
+
+        $$\begin{aligned}
+            \frac{dg}{du} &= \sin(u) & \\
+            \frac{dg}{dx}\frac{dx}{du} &= \sin(u) & \\
+            \frac{dg}{dx} &= \sin(u) \ \frac{du}{dx} & du &= 2x \ dx
+        \end{aligned}$$
+
+        $$ \frac{dg}{dx} = \sin(x^2) \ 2x $$
+    </p>
+</details>
+
+<!-- Part 2 FTC -->
+<h3>Part 2</h3>
+$$\int_a^b f(x) \ dx = F(b) - F(a)$$
+<center>Where $F$ is the anti derivative (integral) of $f$</center>
+<p>
+    <b>Applications</b><br>
+    If a particle is defined by a speed of $v(x)$, Then the displacement and speed through the time $a \leq t \leq b$ are:
+    $$ \begin{aligned}
+        \overrightharpoon{d} \ \text{(Displacement)} &= \int_a^b v(t) \ dt \\
+        \text{$d$ (Distance)} &= \int_a^b |v(t)| \ dt
+    \end{aligned} $$
+</p>
+
+    
+</div>

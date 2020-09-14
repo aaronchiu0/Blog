@@ -1,19 +1,45 @@
 ---
 title: Courses
+layout: default-with-side-introduction
 ---
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Home</title>
-	</head>	
-	<body>		
-		<h1>Courses I've Taken</h1>
-		{% for course in site.courses %}
-			<h2><a class=blog-title href="{{ course.url }}">{{ course.title }}</a></h2>
-			<h5>{{ course.date | date: "%b %d, %Y"}}</h5>
-			<div class="fakeimg" style="height:200px;">Image</div>
-			<p>{{ course.excerpt }}</p>
-		{% endfor %}
-	</body>
-</html>
+<div>
+<h1>Courses</h1>
+<p>A summary of some courses that I have taken (Incomplete). This is meant as a review.</p>
+
+<div class="row-courses">
+	{% for item in site.data.courses %}
+		<a class="courses-card" href="{{item.courses.first.link}}">
+			<img class="courses-image" src="{{item.image}}" alt="{{item.title}}" style="width:100%">
+			<div class="courses-container">
+				<h2>{{item.title}}</h2>
+				<p>{{item.description}}</p>
+			</div>
+		</a>
+	{% endfor %}
+</div>
+
+</div>
+
+<style>
+    @media screen and (max-width: 950px) {
+        .side {
+            display: none;
+        }
+    }
+</style>   
+
+<script>
+    let cards = document.querySelectorAll(".calculators-card");
+    console.log(cards);
+
+    cards.forEach(function(card) {
+        let href = card.getAttribute("href");
+        console.log(href);
+        if(href.trim().length < 1) {      
+            card.setAttribute("href", "#");
+
+            card.style.opacity = "0.5";
+            card.style.filter = "grayscale(100%)";
+        }
+    });
+</script>

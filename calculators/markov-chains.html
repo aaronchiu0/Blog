@@ -1,0 +1,44 @@
+---
+title: Markov Chains & Stationary Probabilites
+layout: default-with-side-menu
+---
+<div class="calculator" id="markov-chains">
+<script type="module" src="/assets/js/markov-chains.js"></script>
+
+<div style="box-shadow: 1px 6px 10px 1px rgba(0, 0, 0, 0.2);">
+    <div class="calculator-header-container">
+        <h1>Statistics</h1>
+        <h2>Markov Chains & Stationary Probabilites</h2>
+    </div>
+</div>
+
+<div id="calculations">
+    <h1>Probability Transition Matrix</h1>
+    <p>$P_{ij}$ where $i$ transitions to $j$</p>
+    <textarea id="transition-matrix">
+        0.5 0.5 0
+        0.25 0.5 0.25
+        0 0.5 0.5
+    </textarea>
+
+    <h1>Stationary Vector</h1>
+    <div id="stationary-ans">-</div>
+    <button id="stationary-calc">Recalculate</button>
+
+    <h1>After n number of jumps</h1>
+    <input id="jumps" type="number" value="1"><br>
+    <div id="jump-ans">-</div>
+    <button id="step-calc">Recalculate</button>
+</div>
+
+<div class="theory">
+    <h1>A Bit of Theory</h1>
+    <h2>Markov Chains</h2>
+    <p>
+        -
+        
+    </p>
+
+</div>
+
+</div>

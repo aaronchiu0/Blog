@@ -102,8 +102,6 @@ onload="renderMathInElement(document.body);"></script>
 
 	<a href="/calculators.html" >Calculators</a>
 
-	<a href="/blog.html" >Blog</a>
-
 	<a href="/courses.html" >Courses</a>
 
 </div>
@@ -163,13 +161,37 @@ onload="renderMathInElement(document.body);"></script>
 			<img class="calculators-image" src="/assets/images/statistics.jpg" alt="Statistics" style="width:100%">
 			<div class="calculators-container">
 				<h2>Statistics</h2>
-				<p>For all your gambling and gacha needs</p>
+				<p>For all your gambling and gaming needs</p>
 			</div>
 		</a>
 	
 </div>
 
 </div>
+
+<style>
+    @media screen and (max-width: 950px) {
+        .side {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    let cards = document.querySelectorAll(".calculators-card");
+    console.log(cards);
+
+    cards.forEach(function(card) {
+        let href = card.getAttribute("href");
+        console.log(href);
+        if(href.trim().length < 1) {      
+            card.setAttribute("href", "#");
+
+            card.style.opacity = "0.5";
+            card.style.filter = "grayscale(100%)";
+        }
+    });
+</script>
 			</div>
 		</div>
 		

@@ -20,3 +20,27 @@ layout: default-with-side-introduction
 </div>
 
 </div>
+
+<style>
+    @media screen and (max-width: 950px) {
+        .side {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    let cards = document.querySelectorAll(".calculators-card");
+    console.log(cards);
+
+    cards.forEach(function(card) {
+        let href = card.getAttribute("href");
+        console.log(href);
+        if(href.trim().length < 1) {      
+            card.setAttribute("href", "#");
+
+            card.style.opacity = "0.5";
+            card.style.filter = "grayscale(100%)";
+        }
+    });
+</script>

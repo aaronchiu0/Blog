@@ -102,8 +102,6 @@ onload="renderMathInElement(document.body);"></script>
 
 	<a href="/calculators.html" >Calculators</a>
 
-	<a href="/blog.html" >Blog</a>
-
 	<a href="/courses.html" >Courses</a>
 
 </div>
@@ -132,6 +130,21 @@ onload="renderMathInElement(document.body);"></script>
 	<!-- Blog Section -->
 	<h1>Latest Posts</h1>
 
+	<h2>Introduction to Markov Chains</h2>
+	<h5>Aug 22, 2020</h5>
+	<div class="fakeimg" style="height:200px;">Image</div>
+	<p><p>Markov chains are fairly simple to understand and the concept is easy to understand. They’re used in many different applicaitons such as in finance, statistical modeling, and queueing theory. A famous examnples is in its implemenation in Google’s page ranking algorithm, PageRank.</p>
+
+<p>Here is a scenario, outside there are only two different temperatures, hot and cold. You want to be able to predict the temperature outside. What we may know is that if one day is cold, it relates to what tomorrow’s temperature will be. This is esestially what a Markov Chain attempts to capture. The probablility of staying in the same state and transitioning to the next.</p>
+
+<p>Let’s add more information. We observe that there’s a 60% chance of it staying cold and a 50% chance of it staying hot. We can then get the tranisiton probablilites by subtracting one.</p>
+
+<p><img src="/assets/images/blog-images/Markov-Chain-Example.png" alt="Markov Chain Example" />
+<img src="/assets/images/blog-images/Markov-Chain-Example.png" width="50" /></p>
+
+</p>
+	<p><a href="/2020/08/22/Markov-Chains.html">Read More</a></p>
+
 	<h2>Kiwifruit</h2>
 	<h5>Aug 22, 2018</h5>
 	<div class="fakeimg" style="height:200px;">Image</div>
@@ -146,57 +159,6 @@ berry of several species of woody vines in the genus Actinidia.</p>
 	<p><p>An apple is a sweet, edible fruit produced by an apple tree.</p>
 </p>
 	<p><a href="/2018/08/21/apples.html">Read More</a></p>
-
-	<h2>Introduction to Markov Chains</h2>
-	<h5>Aug 20, 2018</h5>
-	<div class="fakeimg" style="height:200px;">Image</div>
-	<p><p>A banana is an edible fruit – botanically a berry – produced by several kinds
-of large herbaceous flowering plants in the genus Musa.</p>
-
-<p>In some countries, bananas used for cooking may be called “plantains”,
-distinguishing them from dessert bananas. The fruit is variable in size, color,
-and firmness, but is usually elongated and curved, with soft flesh rich in
-starch covered with a rind, which may be green, yellow, red, purple, or brown
-when ripe.</p>
-
-</p>
-	<p><a href="/2018/08/20/bananas.html">Read More</a></p>
-
-	<h2>Force of Resistance and its Effect on the Acceleration, Velocity, & Position Functions in Two & Three Dimensions</h2>
-	<h5>Jul 25, 2018</h5>
-	<div class="fakeimg" style="height:200px;">Image</div>
-	<p><div style="display:none">
-	$$
-	\DeclareMathOperator{\arctanh}{arctanh}
-	\DeclareMathOperator{\sech}{sech}
-
-	\newcommand{\differtiate}[2]{\: \dfrac{\strut\mathrm{d}}{\strut\mathrm{d{#2}}}{\left(#1\right)}}
-	\newcommand{\differtial}[1]{\: \mathrm{d}{#1}}
-	\newcommand{\vect}[1]{\boldsymbol{#1}}
-	$$
-</div>
-<h1 id="introduction">Introduction</h1>
-<p>It can be noted that the acceleration of an object is the sum of all the forces acting upon it by Newton’s Second Law.</p>
-
-<script type="math/tex; mode=display">\vect{F}_{Net} = \Sigma\vect{F} = m\vect{a(t)} = m\differtiate{\vect{v(t)}}{t}</script>
-
-<p>Notice that we can write this equation in either with velocity and position as well.</p>
-
-<script type="math/tex; mode=display">\Sigma\vect{F} = m\vect{a(t)} = m\differtiate{\vect{v(t)}}{t} = m\: \dfrac{\mathrm{d}^2}{\mathrm{dt^2}}{(\vect{s(t)})}</script>
-
-<p>The key here is to notice that acceleration is the derivative of velocity and position is the integral of velocity with respect to time.</p>
-
-<p>We can split this net force into components in the x and y coordinates and by extension, the z coordinates.</p>
-
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{align}
-    \Sigma\vect{F} &= \overbrace{\begin{pmatrix} \Sigma F_x \\ \Sigma F_y \end{pmatrix}}^{\mathbb{R}^2} &
-    \Sigma\vect{F} &= \overbrace{\begin{pmatrix} \Sigma F_x \\ \Sigma F_y \\ \Sigma F_z \end{pmatrix}}^{\mathbb{R}^3}    
-\end{align} %]]></script>
-
-<p>Of course, all these are defined for time greater than 0.</p>
-</p>
-	<p><a href="/2018/07/25/Air-Resistance.html">Read More</a></p>
 
 </div>
 			</div>

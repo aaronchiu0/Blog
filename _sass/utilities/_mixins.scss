@@ -33,35 +33,37 @@
 
 /* heading bar for calculators */
 @mixin calculator-header-bar($image, $inset-color, $left-text-color, $right-text-color: $left-text-color) {
-    @include centerScaleBackground($image, 80%);
+    .calculator-header-container {
+        @include centerScaleBackground($image, 80%);
+        
+        box-sizing: border-box;
+        box-shadow: inset -45vw 0 5vw -5vw $inset-color;
     
-    box-sizing: border-box;
-    box-shadow: inset -45vw 0 5vw -5vw $inset-color;
- 
-    height: 100px;
+        height: 100px;
 
-    @include flexbox-container(row, space-between, center);
+        @include flexbox-container(row, space-between, center);
 
-    h1, h2 {
-        padding: 10px 20px;
-        color: #FFF;
-    }
-
-    h1 {
-        padding: 10px 20px;
-        color: $left-text-color; 
-
-        @media screen and (max-width: $timeline-change) {
-            display: none;
+        h1, h2 {
+            padding: 10px 20px;
+            color: #FFF;
         }
-    }
 
-    h2 {
-        padding: 10px 20px;
-        color: $right-text-color;
+        h1 {
+            padding: 10px 20px;
+            color: $left-text-color; 
 
-        @media screen and (max-width: $timeline-change) {
-            color: $left-text-color;
+            @media screen and (max-width: $timeline-change) {
+                display: none;
+            }
+        }
+
+        h2 {
+            padding: 10px 20px;
+            color: $right-text-color;
+
+            @media screen and (max-width: $timeline-change) {
+                color: $left-text-color;
+            }
         }
     }
 }

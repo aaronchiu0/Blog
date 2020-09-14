@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markov Chains & Stationary Probabilites</title>
+
+<!-- stylesheet -->
+<link rel="stylesheet" href="/assets/css/styles.css">
+
+<!-- import jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- import math.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.0/math.js"></script>
+
+<!-- import modules -->
+<script type="module" src="/assets/js/modules/helpers.js"></script>
+
+<!-- import scripts -->
+<script type="module" src="/assets/js/landing-page.js"></script>
+<script src="/assets/js/typing-text.js"></script>
+
+<!-- Animation on Scroll -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+<!-- icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- mathjax -->
+<!-- <script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			processEscapes: true
+		}
+	});
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script> -->
+
+<!-- chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<!-- katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js" integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js" integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF" crossorigin="anonymous"
+onload="renderMathInElement(document.body);"></script>
+
+<!-- Delimiters -->
+<script>
+	$(document).ready(function () { // this need jquery
+	  renderMathInElement(document.body, {
+		// ...options...
+		delimiters: [
+		  { left: "$$", right: "$$", display: true },
+		  { left: "$", right: "$", display: false },
+		  { left: "\\[", right: "\\]", display: true }
+		]
+	  });
+	});
+</script>
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Markov Chains &amp; Stationary Probabilites</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Markov Chains &amp; Stationary Probabilites" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/calculators/markov-chains.html" />
+<meta property="og:url" content="http://localhost:4000/calculators/markov-chains.html" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/calculators/markov-chains.html","headline":"Markov Chains &amp; Stationary Probabilites","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+	</head>
+	<body>						
+		<!-- Header -->
+<div class="header">
+    <h1 id="title" 
+        data-aos="fade-right"
+    >
+        Aaron Chiu
+    </h1>
+    <p id="subtitle"
+        data-aos="fade-right"
+        data-aos-delay="500"
+    >
+        Automotive Engineer in Training
+    </p>
+</div>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+    
+	<a href="/" >Home</a>
+
+	<a href="/calculators.html" >Calculators</a>
+
+	<a href="/courses.html" >Courses</a>
+
+</div>
+
+<!-- back to top button -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>	
+
+		<div class="row">
+			<div class="side">
+                
+                    <h2>Economics</h2>
+                    
+                        <a href="/calculators/compound-interest-factors.html">Compound Interest Factors</a><br>
+                    
+                        <a href="/calculators/capital-cost-allowance.html">Tax & Capital Cost Allowance</a><br>
+                    
+                
+                    <h2>Numerical Solutions</h2>
+                    
+                
+                    <h2>Thermodynamics & Heat Transfer</h2>
+                    
+                
+                    <h2>Statistics</h2>
+                    
+                        <a href="/calculators/binomial.html">Binomial & Odds of Success</a><br>
+                    
+                        <a href="/calculators/markov-chains.html">Markov Chains & Stationary Probabilities</a><br>
+                    
+                
+			</div>
+			<div class="main">
+				<!-- Content -->
+				<div class="calculator" id="markov-chains">
+<script type="module" src="/assets/js/markov-chains.js"></script>
+
+<div style="box-shadow: 1px 6px 10px 1px rgba(0, 0, 0, 0.2);">
+    <div class="calculator-header-container">
+        <h1>Statistics</h1>
+        <h2>Markov Chains & Stationary Probabilites</h2>
+    </div>
+</div>
+
+<div id="calculations">
+    <h1>Probability Transition Matrix</h1>
+    <p>$P_{ij}$ where $i$ transitions to $j$</p>
+    <textarea id="transition-matrix">
+        0.5 0.5 0
+        0.25 0.5 0.25
+        0 0.5 0.5
+    </textarea>
+
+    <h1>Stationary Vector</h1>
+    <div id="stationary-ans">-</div>
+    <button id="stationary-calc">Recalculate</button>
+
+    <h1>After n number of jumps</h1>
+    <input id="jumps" type="number" value="1"><br>
+    <div id="jump-ans">-</div>
+    <button id="step-calc">Recalculate</button>
+</div>
+
+<div class="theory">
+    <h1>A Bit of Theory</h1>
+    <h2>Markov Chains</h2>
+    <p>
+        -
+        
+    </p>
+
+</div>
+
+</div>
+			</div>
+		</div>
+		
+		<div class="footer">
+    <!-- Contact -->
+    <div id="footer-container">
+        <div class="footer-sections">
+        <h3 class=contact>Permanent Address</h3> 
+        <p class=contact>Brampton, ON, L6X 2Z9 <br> Canada</p>
+        </div>
+        
+        <div class="footer-sections">
+        <h3 class=contact>Current Address</h3> 
+        <p class=contact>Hamilton, ON, L8S 3L4 <br> Canada</p>
+        </div>
+        
+        <div class="footer-sections">
+        <h3 class=contact>Contact Information</h3>
+        <p class=contact>chiua10@mcmaster.ca<br>
+        <strong>Cell:</strong>  (647) 283-2389</p>
+        </div>
+    </div>
+    <!-- Social Media -->
+    <div class="footer-sections">
+    <h3 class=contact>Social Media</h3>
+    <a href="https://www.facebook.com/profile.php?id=100018624766241" class="fa fa-facebook"></a>
+    <a href="https://www.linkedin.com/in/aaron-chiu/" class="fa fa-linkedin"></a>
+    </div>
+</div>		
+
+<!-- Animation on Scroll -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 2000,
+        disable: 'mobile'
+    });
+</script>
+
+<script src="/assets/js/katex-render.js"></script>
+	</body>
+</html>

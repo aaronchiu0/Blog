@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Improper Integrals</title>
+
+<!-- stylesheet -->
+<link rel="stylesheet" href="/assets/css/styles.css">
+
+<!-- import jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- import math.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.0/math.js"></script>
+
+<!-- import modules -->
+<script type="module" src="/assets/js/modules/helpers.js"></script>
+
+<!-- import scripts -->
+<script type="module" src="/assets/js/landing-page.js"></script>
+<script src="/assets/js/typing-text.js"></script>
+
+<!-- Animation on Scroll -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+<!-- icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- mathjax -->
+<!-- <script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [['$','$'], ['\\(','\\)']],
+			processEscapes: true
+		}
+	});
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script> -->
+
+<!-- chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<!-- katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js" integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js" integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF" crossorigin="anonymous"
+onload="renderMathInElement(document.body);"></script>
+
+<!-- Delimiters -->
+<script>
+	$(document).ready(function () { // this need jquery
+	  renderMathInElement(document.body, {
+		// ...options...
+		delimiters: [
+		  { left: "$$", right: "$$", display: true },
+		  { left: "$", right: "$", display: false },
+		  { left: "\\[", right: "\\]", display: true }
+		]
+	  });
+	});
+</script>
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Improper Integrals</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Improper Integrals" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/courses/Mathematics%20II/Improper%20Integrals.html" />
+<meta property="og:url" content="http://localhost:4000/courses/Mathematics%20II/Improper%20Integrals.html" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/courses/Mathematics%20II/Improper%20Integrals.html","headline":"Improper Integrals","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+	</head>
+	<body>						
+		<!-- Header -->
+<div class="header">
+    <h1 id="title" 
+        data-aos="fade-right"
+    >
+        Aaron Chiu
+    </h1>
+    <p id="subtitle"
+        data-aos="fade-right"
+        data-aos-delay="500"
+    >
+        Automotive Engineer in Training
+    </p>
+</div>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+    
+	<a href="/" >Home</a>
+
+	<a href="/calculators.html" >Calculators</a>
+
+	<a href="/courses.html" >Courses</a>
+
+</div>
+
+<!-- back to top button -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>	
+
+		<div class="row">
+			<div class="side">
+                
+                    <h2>Mathematics II</h2>
+                    
+                        <a href="/courses/Mathematics II/Pre Integration.html">Pre Integration</a><br>
+                    
+                        <a href="/courses/Mathematics II/FTC.html">FTC</a><br>
+                    
+                        <a href="/courses/Mathematics II/Techniques.html">Techniques</a><br>
+                    
+                        <a href="/courses/Mathematics II/Applications.html">Applications</a><br>
+                    
+                        <a href="/courses/Mathematics II/Improper Integrals.html">Improper Integrals</a><br>
+                    
+                
+                    <h2>Mathematics III</h2>
+                    
+                        <a href="/courses/Mathematics III/Introduction.html">Introduction</a><br>
+                    
+                        <a href="/courses/Mathematics III/Forms.html">Forms</a><br>
+                    
+                
+			</div>
+			<div class="main">
+				<!-- Content -->
+				<div class="centerMargins">
+<h1>Mathematics II</h1>
+<!-- Improper Integrals -->
+
+<h2>Improper Integrals</h2>
+There are two such types of Improper Integrals, Infinite and Discontinuous.
+
+<h3>Infinite Integrals</h3>
+$$\begin{aligned}
+    \int_a^\infty f(x) \ dx &= \lim_{t\to\infty} \int_a^t f(x) \ dx & \text{Where $a$ is a constant} \\
+    \int_{-\infty}^b f(x) \ dx &= \lim_{t\to-\infty} \int_t^b f(x) \ dx & \text{Where $b$ is a constant}
+\end{aligned}$$
+
+If the limit exists, the integrals are called convergent. If not, they are divergent.
+
+</div>
+			</div>
+		</div>
+		
+		<div class="footer">
+    <!-- Contact -->
+    <div id="footer-container">
+        <div class="footer-sections">
+        <h3 class=contact>Permanent Address</h3> 
+        <p class=contact>Brampton, ON, L6X 2Z9 <br> Canada</p>
+        </div>
+        
+        <div class="footer-sections">
+        <h3 class=contact>Current Address</h3> 
+        <p class=contact>Hamilton, ON, L8S 3L4 <br> Canada</p>
+        </div>
+        
+        <div class="footer-sections">
+        <h3 class=contact>Contact Information</h3>
+        <p class=contact>chiua10@mcmaster.ca<br>
+        <strong>Cell:</strong>  (647) 283-2389</p>
+        </div>
+    </div>
+    <!-- Social Media -->
+    <div class="footer-sections">
+    <h3 class=contact>Social Media</h3>
+    <a href="https://www.facebook.com/profile.php?id=100018624766241" class="fa fa-facebook"></a>
+    <a href="https://www.linkedin.com/in/aaron-chiu/" class="fa fa-linkedin"></a>
+    </div>
+</div>		
+
+<!-- Animation on Scroll -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 2000,
+        disable: 'mobile'
+    });
+</script>
+
+<script src="/assets/js/katex-render.js"></script>
+	</body>
+</html>

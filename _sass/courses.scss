@@ -1,0 +1,135 @@
+body {
+	margin: 0;
+}
+
+/* beginning of document */
+.centerMargins {
+	width: 80%;
+	margin: auto;
+	margin-top:50px; 
+	padding:1px 16px;
+}
+
+
+/* collapsible class */
+details {
+	background-color: #777;
+	color: white;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: none;
+	text-align: left;  
+	outline: none;
+    font-size: 15px;
+    
+    .open {
+        padding: 0px;
+    }
+}
+
+details p {
+	padding: 0 18px;
+	overflow: hidden;
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.row-courses {
+    @include flexbox-container(row, center, center);
+}
+
+.courses-card {
+    height: 325px;
+    width: 45%;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    &:link, &:visited {
+        color: #111;
+        text-decoration: none;
+    }
+
+    &:hover, &:active {
+        box-shadow: 1px 8px 16px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .courses-image {
+        height: 175px;
+        object-fit: cover;
+    }
+
+    .courses-container {
+        padding: 0 16px;
+    }
+}
+    
+@media screen and (max-width: $timeline-change) {
+    .row-courses {
+        flex-direction: column;
+    }
+
+    .courses-card {
+        width: 95%;
+    }
+}
+
+/* table properties*/
+table.ttable { 
+    padding: 5px; 
+	text-align: center;
+	vertical-align: middle;
+    border-collapse: collapse; 
+}
+table.ttable th { 
+    border-bottom: 1px solid black;
+    padding: 5px; 
+	text-align: center;
+	vertical-align: middle;
+	width: 20px;
+}
+ 
+table.ttable td { 
+    padding: 5px; 
+	text-align: center;
+	vertical-align: middle;
+	width: 20px;
+ }
+ 
+table.ttable td:first-child {
+  border-right: 1px solid black;
+}
+
+/* generic table */
+table.generic {
+	text-align: center;
+	vertical-align: middle;
+    table-layout : fixed;
+	width: 75%
+}
+
+table.generic th { 
+    border-bottom: 1px solid black;
+    padding: 5px; 
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* inline description */
+dl.inline {
+  --min-width: 50px;
+}
+
+dl.inline dd {
+  display: inline;
+  margin: 0;
+}
+dl.inline dd:after {
+	display: block;
+	content: '';
+}
+dl.inline dt{
+	font-weight: bold;
+	display: inline-block;
+	min-width: var(--min-width);
+}

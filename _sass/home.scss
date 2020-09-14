@@ -2,7 +2,7 @@
 @import "utilities/mixins";
 
 html#landing-page {
-    scroll-snap-type: y mandatory;
+    //scroll-snap-type: y mandatory;
     //width: 100vw;
 
     body {
@@ -81,6 +81,23 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
     transform: translateX(calc(-100% - #{$sidebar-width}));
     transition: transform 0.4s ease-in-out; 
 
+    img {
+        height: 300px;
+        width: 250px;
+        padding: 20px;
+
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        left: auto;
+        border-radius: 50%;
+        display: none;
+
+        @media screen and (max-width: $timeline-change) {
+            display: unset;
+        }
+    }
+
     @media screen and (max-width: $timeline-change) {
         width: 100%;
     }
@@ -139,6 +156,7 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
             width: 100px;
             margin: auto;
         }
+
     }
 
     #contact-side-nav {

@@ -22,7 +22,9 @@ title: Home
                 {% for item in site.data.navigation %}
                 <li><a href="{{ item.link }}" {% if page.url == item.link %}{% endif %} class="aside-anchor">{{ item.name }}</a></li>
                 {% endfor %}
-            </ul>
+
+            </ul>               
+            <img src="/assets/images/me.jpg" alt="Aaron Chiu Photo">
         </div>
         <div class="aside-section aside-right">
             <div class="aside-content">
@@ -73,6 +75,7 @@ title: Home
                 <p  id="hero-title"
                     data-aos="fade-right"
                     data-aos-delay="1500"
+                    style="display: block;"
                 >   Aaron Chiu, <br> Automotive Engineer in Training, <br> Emphasizing Quality & Productivity
                 </p>
             </div>
