@@ -3,9 +3,7 @@ title: Home
 ---
 <!doctype html>
 <html id="landing-page">
-<head>
-    {% include head.html %}
-</head>
+<head>{% include head.html %}</head>
 <body>
     <!-- side navigation -->
     <div id="side-navbar">
@@ -37,27 +35,27 @@ title: Home
                     <div>
                         <div class="footer-sections">
                         <h3 class=contact>Contact Information</h3>
-                        <p class=contact>chiua10@mcmaster.ca<br>
-                        <strong>Cell:</strong>  (647) 283-2389</p>
+                        <p class=contact>{{site.data.information.email}}<br>
+                        <strong>Cell:</strong>  {{site.data.information.phone}}</p>
                         </div>
 
                         <!-- Social Media -->
                         <div class="footer-sections">
                         <h3 class=contact>Social Media</h3>
-                        <a href="https://www.facebook.com/profile.php?id=100018624766241" class="fa fa-facebook"></a>
-                        <a href="https://www.linkedin.com/in/aaron-chiu/" class="fa fa-linkedin"></a>
+                        <a href="{{site.data.information.facebook}}" class="fa fa-facebook"></a>
+                        <a href="{{site.data.information.linkedin}}" class="fa fa-linkedin"></a>
                         </div>
                     </div>	                    
                     
                     <div>
                         <div class="footer-sections">
                         <h3 class=contact>Permanent Address</h3> 
-                        <p class=contact>Brampton, ON, L6X 2Z9 <br> Canada</p>
+                        <p class=contact>{{site.data.information.permanent-address}}</p>
                         </div>
                         
                         <div class="footer-sections">
                         <h3 class=contact>Current Address</h3> 
-                        <p class=contact>Hamilton, ON, L8S 3L4 <br> Canada</p>
+                        <p class=contact>{{site.data.information.current-address}}</p>
                         </div>
                     </div>
                 </div>
@@ -89,7 +87,7 @@ title: Home
             <!-- <div id="about-text"> -->
                 <h1>"To apply future engineering approaches to current transportation technologies."</h1>
                 <h2>About</h2>
-                <p>Land, air and sea. Vehicles are everywhere. We take our surroundings for granted but never thoroughly think about how such machines came to fruition. I always wonder how these vehicles ever worked in the first place. My interest in this field drives me to discover and teach more people about the technologies’ effectiveness and impact.</p>
+                <p>{{site.data.information.introduction}}</p>
             </div>
         </section>
 
@@ -104,64 +102,84 @@ title: Home
                     </span>
                 </h1>
                 <h2>Brief Summary</h2>
-                <p style="margin-bottom:10px">With my proficiency in Solidworks, AutoCAD, CATIA, in addition to interpreting geometric and numeric constraints in technical drawings give me the necessary skills for designing and communicating technical concepts and ideas.</p>
-
-                <p style="margin-bottom:10px">I more than 40 hours of materials testing experience such as Rockwell and Vickers Hardness tests, I know various treatments and their effects on ferrous and non-ferrous alloys, properties of polymers, and composite materials. This knowledge helps me choose the right material for the job.</p>
-
-                <p>My knowledge in both mechanical design and material properties will aid my ambitions in motive power, transportation technologies, and heavy industries.</p>
+                <p style="margin-bottom:10px">{{site.data.information.summary[0]}}</p>
+                <p style="margin-bottom:10px">{{site.data.information.summary[1]}}</p>
+                <p>{{site.data.information.summary[2]}}</p>
             </div>
         </section>
 
         <!-- Education -->
-        <!-- <section id="timeline-section">
-            <h1 class="title">Education</h1>
-                <div class="timeline">
-                    <div class="container left"  data-aos="swing-in-right-fwd-timeline">
-                        <div class="content">
-                            <h2 style="margin-top:0" class="timeline-font">Expected Completion December 2022</h2>
-                            <h3 class="timeline-font">McMaster University</h3>
-                            <h4 class="timeline-font">Bachelor of Technology in Automotive & Vehicle Engineering Technology (Co-op)</h4>
-                            <p class="timeline-font">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
-                        </div>
-                        <div class="content">
-                            <h2 style="margin-top:0" class="timeline-font">Expected Completion December 2022</h2>
-                            <h3 class="timeline-font">McMaster University</h3>
-                            <h4 class="timeline-font">Bachelor of Technology in Automotive & Vehicle Engineering Technology (Co-op)</h4>
-                            <p class="timeline-font">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
-                        </div>
+        <section id="education-container">
+            <!-- <div id="education-sub-container"> -->
+                <!-- <div class=negative-shape></div> -->
+                <div id="education-text-container">
+                    <h1>Education</h1>
+                    <div>
+                        {% for item in site.data.information.education %}
+                            <h2>{{item.institution}}</h2>
+                            <h3>{{item.date}}</h3>
+                            <h4>{{item.title}}</h4>
+                            {% case forloop.index %}
+                            {% when 1 %}
+                                <dl>
+                                    {% for point in item.description %}
+                                        <dt><strong>{{point.summary}}</strong></dt> <dd>{{point.detail}}</dd>
+                                    {% endfor %}
+                                </dl>
+                            {% when 2 %}
+                                <ul>
+                                    {% for point in item.description %}
+                                        <li>{{point}}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endcase %}
+                        {% endfor %}
                     </div>
                 </div>
-        </section> -->
+            <!-- </div> -->
+
+        </section>
 
         <!-- Experience -->
-        <!-- <section id="timeline-section">
-            {% for item in site.data.brief-education-experience %}
-            {% assign my_counter = my_counter | plus:1 %}
-                <h1 class="title">{{item.section}}</h1>
-                <div class="timeline">
-                    {% for subitem in item.details %}
-                    {% assign test = my_counter | modulo: 2 %} 
-                    <div {% if test == 1 %}
-                        class="container left" 
-                        data-aos="swing-in-right-fwd-timeline"
-                        {% else %}
-                        class="container right"
-                        data-aos="swing-in-left-fwd-timeline"
-                        {% endif %}
-                    >
-                        <div class="content">
-                            <h2 style="margin-top:0" class="timeline-font">{{subitem.date}}</h2>
-                            <h3 class="timeline-font">{{subitem.title}}</h3>
-                            <h4 class="timeline-font">{{subitem.subtitle}}</h4>
-                            <p class="timeline-font">{{subitem.description}}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
+
+        {% for item in site.data.information.experience %}
+        <section class="experience-container">
+            {% assign i = forloop.index | modulo:2 %}
+            {% case i %}
+            {% when 0 %}
+            <div class="right-experience-sub-container">
+                <img src="{{item.image}}">
+                <div class="experience-text-container">
+                    <h2>{{item.title}}</h2>
+                    <h3>{{item.subtitle}}</h3>
+                    <h4>{{item.date}}</h4>
+                    <ul>
+                        {% for point in item.description %}
+                            <li>{{point}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>      
             </div>
-            {% endfor %}
-        </section> -->
-    </div>
+            {% when 1 %}
+            <div class="left-experience-sub-container">
+                <div>
+                    <h2>{{item.title}}</h2>
+                    <h3>{{item.subtitle}}</h3>
+                    <h4>{{item.date}}</h4>
+                    <ul>
+                        {% for point in item.description %}
+                            <li>{{point}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <img src="{{item.image}}">      
+            </div>
+            {% endcase %}
+        </section>
+        {% endfor %}
+
+    <!-- End of body -->
+    </div> 
 
     <!-- Animation on Scroll -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

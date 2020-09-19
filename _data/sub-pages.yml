@@ -1,0 +1,58 @@
+# Calculators pages
+calculators:
+  - title: Economics
+    image: /assets/images/economics.jpg
+    description: For when you aren't trying to calculate interest rates manually.
+    pages:
+      - name: Compound Interest Factors
+        link: /calculators/compound-interest-factors.html
+      # - name: Depreciation
+      #   link: #/calculators/depreciation.html
+      - name: Tax & Capital Cost Allowance
+        link: /calculators/capital-cost-allowance.html
+  - title: Numerical Solutions
+    image: /assets/images/numerical-solutions.jpg
+    description: Why do advanced calculations by hand when a computer can do it for you.
+    pages:
+      # - name: Bisection
+      #   link:
+      # - name: Gaussian
+      #   link: 
+  - title: Thermodynamics & Heat Transfer
+    image: /assets/images/heat-transfer.jpg
+    description: When you are really feeling the heat of the calculations
+    pages:
+      # - name: Lumped Capacitance
+      #   link:
+  - title: Statistics
+    image: /assets/images/statistics.jpg
+    description: For all your gambling and gaming needs
+    pages: 
+      - name: Binomial & Odds of Success
+        link: /calculators/binomial.html
+      - name: Markov Chains & Stationary Probabilities
+        link: /calculators/markov-chains.html
+# Course pages
+courses:
+  - title: Mathematics II
+    image: /assets/images/integration.svg
+    description: Integration
+    pages:
+      - name: Pre Integration
+        link: /courses/Mathematics II/Pre Integration.html
+      - name: FTC
+        link: /courses/Mathematics II/FTC.html
+      - name: Techniques
+        link: /courses/Mathematics II/Techniques.html
+      - name: Applications
+        link: /courses/Mathematics II/Applications.html
+      - name: Improper Integrals
+        link: /courses/Mathematics II/Improper Integrals.html
+  - title: Mathematics III
+    image: /assets/images/differential-equation.svg
+    description: Differential equations
+    pages:
+      - name: Introduction
+        link: /courses/Mathematics III/Introduction.html
+      - name: Forms
+        link: /courses/Mathematics III/Forms.html

@@ -7,8 +7,8 @@ layout: default-with-side-introduction
 <p>A summary of some courses that I have taken (Incomplete). This is meant as a review.</p>
 
 <div class="row-courses">
-	{% for item in site.data.courses %}
-		<a class="courses-card" href="{{item.courses.first.link}}">
+	{% for item in site.data.sub-pages.courses %}
+		<a class="courses-card" href="{{item.pages.first.link}}">
 			<img class="courses-image" src="{{item.image}}" alt="{{item.title}}" style="width:100%">
 			<div class="courses-container">
 				<h2>{{item.title}}</h2>

@@ -1,0 +1,71 @@
+email: chiua10@mcmaster.ca
+phone: (647) 283-2389
+permanent-address: >
+  Brampton, ON, L6X 2Z9
+  Canada
+current-address: >
+  Hamilton, ON, L8S 3L4
+  Canada
+facebook: https://www.facebook.com/profile.php?id=100018624766241
+linkedin: https://www.linkedin.com/in/aaron-chiu/
+
+introduction:
+  Land, air and sea. Vehicles are everywhere. We take our surroundings for granted but never thoroughly think about how such machines came to be and how they benefit society. I wondered how these vehicles ever worked in the first place. My interest in this field drives me to discover and teach more people about the technologies’ effectiveness and impact.
+summary:
+  - With my proficiency in Solidworks, AutoCAD, CATIA, in addition to interpreting geometric and numeric constraints in technical drawings give me the necessary skills for designing and communicating technical concepts and ideas.
+  - I more than 40 hours of materials testing experience such as Rockwell and Vickers Hardness tests, I know various treatments and their effects on ferrous and non-ferrous alloys, properties of polymers, and composite materials. This knowledge helps me choose the right material for the job.
+  - My knowledge in both mechanical design and material properties will aid my ambitions in motive power, transportation technologies, and heavy industries.
+
+education:
+  - date: Expected Completion December 2022
+    institution: McMaster University
+    title: Bachelor of Technology in Automotive & Vehicle Engineering Technology (Co-op)
+    description: 
+      - summary: Dean's Honour List 
+        detail: Fall 2018 - Spring 2019
+      - summary: Relevant Coursework
+        detail: Technical Communications, C++ Programming, Design of Machine Elements, CAD, Structure & Properties of Materials, Engineering Statistics
+      - summary: Laboratory Experience
+        detail: Oscilloscope, Charpy Impact Test, Hardness & Tensile Testing, Etching Metals, Optical Microscope, Heat Treatment & Cold Working of Metals
+      - summary: Will be Awarded
+        detail: Bachelor of Technology Degree, Advanced Diploma in Mechanical Engineering Technology (Mohawk), and Business Management Certificate (Mohawk)
+  - date: June 2018
+    institution: Turner Fenton Secondary School
+    title: Secondary School Diploma with Honours
+    description: 
+      - Placed 1st in the robotics competition in Skills Ontario at the regional level & 5th at the provincial level
+      - Received honours in grades 10, 11, and 12
+      
+experience:
+  - date: Jul. 2020 -- Aug. 2020
+    title: Student Production Associate
+    subtitle: Honda of Canada Manufacturing
+    image: /assets/images/honda-mfg.jpg 
+    description: 
+      - Examined components and compared to documentation for quality, accuracy, and watched for imperfections
+      - Ensured quality work and resolved assembly problems through teamwork and communication
+      - Used pneumatic, DC, and hand tools to fasten parts and sub-assemblies
+  - date: October 2018 - Aprril 2020
+    title: Mechanical Team Associate
+    subtitle: Solar Car Project - McMaster University
+    image: /assets/images/solar-car.png
+    description: 
+      - Examined components and compared to documentation for quality, accuracy, and watched for imperfections
+      - Ensured quality work and resolved assembly problems through teamwork and communication
+      - Used pneumatic, DC, and hand tools to fasten parts and sub-assemblies}
+  - date: January 2019 - Decmeber 2019
+    title: Vice President – Finance
+    subtitle: Bachelor of Technology Association – McMaster University
+    image: /assets/images/btech-assoc.jpg
+    description: 
+      - Extensively used CAD software (SolidWorks) to design the associated parts, specifically suspension
+      - Machined parts to fit on the car according the predetermined specifications
+      - Gained experiences into the specific problems a suspension faces in a compact, lightweight vehicle
+  - date: September 2017 - June 2018
+    title: Director of Finance
+    subtitle: The Music Council – Turner Fenton Secondary School
+    image: /assets/images/music-council-group.jpg
+    description: 
+      - Reported on the conditions and the financial position of the association
+      - Kept account books and record keeping of the association's credits and debits
+      - Advised other members of alternate paths that are more cost-efficient and resulted in approximately 200% our opening balance at our year-end}

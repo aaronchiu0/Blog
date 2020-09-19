@@ -104,7 +104,9 @@ p.contact { margin-top: 0; }
 /* flexbox container */
 /* for multiple columns with optional content*/
 /* heading bar for calculators */
-html#landing-page section { scroll-snap-align: start; height: 100vh; width: 100%; }
+html#landing-page { scroll-snap-type: y proximity; }
+
+html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll-snap-align: start; }
 
 #side-navbar { display: flex; flex-flow: column wrap; justify-content: center; align-items: center; position: fixed; height: 100vh; width: calc(2*3px + 2*4px + 2*12px); z-index: 1000; left: 0; top: 0; background: #333; }
 
@@ -213,6 +215,45 @@ html#landing-page section { scroll-snap-align: start; height: 100vh; width: 100%
 
 @media screen and (max-width: 700px) { #skills-container #skills-text { flex: 1 0 90%; max-width: 90%; padding: 10%; background: #111; }
   #skills-container #skills-text P { font-size: 2vh; } }
+
+#education-container { background-color: #f6f4f2; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url("/assets/images/mcmaster-front.jpg"); display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: center; }
+
+#education-container #education-text-container { height: 75%; width: 80%; background-color: #f6f4f2; text-align: left; padding: 65px 135px 65px 65px; }
+
+#education-container #education-text-container h1 { display: inline-block; font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; margin: auto 0; height: 5vmin; }
+
+@media screen and (max-width: 900px) { #education-container #education-text-container h1 { height: 20vmin; } }
+
+@media screen and (max-width: 700px) { #education-container #education-text-container h1 { height: 11.5vh; font-size: 3.75vh; } }
+
+.experience-container { height: 50vh !important; background-color: #E1DBD4; }
+
+.experience-container .right-experience-sub-container { display: flex; flex-flow: column wrap; justify-content: center; align-items: center; height: inherit; background-color: #E1DBD4; }
+
+.experience-container .right-experience-sub-container div { width: 50%; padding: 100px 70px; }
+
+.experience-container .right-experience-sub-container img { width: 50%; height: auto; padding: 100px 50px 100px 75px; }
+
+.experience-container .left-experience-sub-container { display: flex; flex-flow: column wrap; justify-content: center; align-items: center; height: inherit; background-color: #E1DBD4; }
+
+.experience-container .left-experience-sub-container div { width: 50%; padding: 100px 70px; }
+
+.experience-container .left-experience-sub-container img { width: 50%; height: auto; padding: 100px 70px; max-width: 40%; }
+
+.reveal-text, .reveal-text:after { animation-delay: 2s; animation-iteration-count: 1; animation-duration: 800ms; animation-fill-mode: both; animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.reveal-text { position: relative; display: block; user-select: none; animation-name: reveal-text; color: black; white-space: nowrap; }
+
+.reveal-text:after { content: ""; position: absolute; z-index: 999; top: 0; left: 0; right: 0; bottom: 0; background-color: black; transform: scaleX(0); transform-origin: 0 50%; pointer-events: none; animation-name: revealer-text; }
+
+@keyframes reveal-text { from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); } }
+
+@keyframes revealer-text { 0%, 50% { transform-origin: 0 50%; }
+  60%, 100% { transform-origin: 100% 50%; }
+  50% { transform: scaleX(1); }
+  60% { transform: scaleX(1); }
+  100% { transform: scaleX(0); } }
 
 /* Education timeline */
 /* Colour Scheme */
@@ -393,8 +434,13 @@ html#landing-page section { scroll-snap-align: start; height: 100vh; width: 100%
 
 #markov-chains #calculations textarea { width: 300px; height: 150px; display: block; margin-left: auto; margin-right: auto; }
 
-body { margin: 0; }
-
+/* Colour Scheme */
+/* Dimensions */
+/* Responsiveness transitions */
+/* Center and scale the image nicely */
+/* flexbox container */
+/* for multiple columns with optional content*/
+/* heading bar for calculators */
 /* beginning of document */
 .centerMargins { width: 80%; margin: auto; margin-top: 50px; padding: 1px 16px; }
 
@@ -543,17 +589,12 @@ dl.inline dt { font-weight: bold; display: inline-block; min-width: var(--min-wi
 
 [data-aos="skills-text"].aos-animate { opacity: 1; transform: translateX(0); }
 
-/* For Left timeline */
-[data-aos="swing-in-right-fwd-timeline"] { opacity: 0; transform: rotateY(-90deg); transform-origin: right; transition-property: opacity, transform, transform-origin; }
+/* Education container animation */
+[data-aos="education-container"] { opacity: 0; transition-property: transform, opacity; }
 
-[data-aos="swing-in-right-fwd-timeline"].aos-animate { opacity: 1; transform: rotateY(0); }
+[data-aos="education-container"].aos-animate { opacity: 0; }
 
-@media screen and (max-width: 950px) { [data-aos="swing-in-right-fwd-timeline"] { opacity: 0; transform: rotateY(90deg); transform-origin: left; transition-property: opacity, transform; }
-  [data-aos="swing-in-right-fwd-timeline"].aos-animate { opacity: 1; transform: rotateY(0); } }
-
-/* For right timeline */
-[data-aos="swing-in-left-fwd-timeline"] { opacity: 0; transform: rotateY(90deg); transform-origin: left; transition-property: opacity, transform; }
-
-[data-aos="swing-in-left-fwd-timeline"].aos-animate { opacity: 1; transform: rotateY(0); }
+@media screen and (max-width: 700px) { [data-aos="education-container"] { transition-property: box-shadow; }
+  [data-aos="education-container"].aos-animate { box-shadow: none; } }
 
 /*# sourceMappingURL=styles.css.map */

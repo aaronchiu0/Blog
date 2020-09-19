@@ -61,40 +61,20 @@
     }
 }
 
-/* For Left timeline */
-[data-aos="swing-in-right-fwd-timeline"] {
+/* Education container animation */
+[data-aos="education-container"] {
     opacity: 0;
-    transform: rotateY(-90deg);
-    transform-origin: right;
-    transition-property: opacity, transform, transform-origin;
+    transition-property: transform, opacity;
   
     &.aos-animate {
-        opacity: 1;
-        transform: rotateY(0);
-    }
-
-    @media screen and (max-width: $timeline-change) {
         opacity: 0;
-        transform: rotateY(90deg);
-        transform-origin: left;
-        transition-property: opacity, transform;
-      
-        &.aos-animate {
-            opacity: 1;
-            transform: rotateY(0);
-        }
     }
-}
 
-/* For right timeline */
-[data-aos="swing-in-left-fwd-timeline"] {
-    opacity: 0;
-    transform: rotateY(90deg);
-    transform-origin: left;
-    transition-property: opacity, transform;
-  
-    &.aos-animate {
-        opacity: 1;
-        transform: rotateY(0);
+    @media screen and (max-width: $side-change) {
+        transition-property: box-shadow;
+        
+        &.aos-animate {
+            box-shadow: none;
+        }
     }
 }

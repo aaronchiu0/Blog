@@ -10,12 +10,22 @@
 
 		<div class="row">
 			<div class="side">
-                {% for item in site.data.calculators %}
-                    <h2>{{item.title}}</h2>
-                    {% for calculator in item.calculators %}
-                        <a href="{{calculator.link}}">{{calculator.name}}</a><br>
-                    {% endfor %}
-                {% endfor %}
+                {% case page.type %}
+                    {% when "calculator" %}
+                        {% for item in site.data.sub-pages.calculators %}
+                            <h2>{{item.title}}</h2>
+                            {% for page in item.pages %}
+                                <a href="{{page.link}}">{{page.name}}</a><br>
+                            {% endfor %}
+                        {% endfor %}
+                    {% when "course" %}
+                        {% for item in site.data.sub-pages.courses %}
+                            <h2>{{item.title}}</h2>
+                            {% for page in item.pages %}
+                                <a href="{{page.link}}">{{page.name}}</a><br>
+                            {% endfor %}
+                        {% endfor %}
+                {% endcase %}
 			</div>
 			<div class="main">
 				<!-- Content -->

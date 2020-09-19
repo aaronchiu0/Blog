@@ -15,7 +15,9 @@
 
 <!-- Navigation Bar -->
 <div class="navbar">
-    {% include navigation.html %}
+    {% for item in site.data.navigation %}
+	    <a href="{{ item.link }}" {% if page.url == item.link %}{% endif %}>{{ item.name }}</a>
+    {% endfor %}
 </div>
 
 <!-- back to top button -->

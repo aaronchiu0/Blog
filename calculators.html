@@ -8,8 +8,8 @@ layout: default-with-side-introduction
 <p>A number of resources that can be used to check or verify manual calculations</p>
 
 <div class="row-calculators">
-	{% for item in site.data.calculators %}
-		<a class="calculators-card" href="{{item.calculators.first.link}}">
+	{% for item in site.data.sub-pages.calculators %}
+		<a class="calculators-card" href="{{item.pages.first.link}}">
 			<img class="calculators-image" src="{{item.image}}" alt="{{item.title}}" style="width:100%">
 			<div class="calculators-container">
 				<h2>{{item.title}}</h2>
