@@ -106,6 +106,8 @@ p.contact { margin-top: 0; }
 /* heading bar for calculators */
 html#landing-page { scroll-snap-type: y proximity; }
 
+@media screen and (max-width: 950px) { html#landing-page { scroll-snap-type: 500px; } }
+
 html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll-snap-align: start; }
 
 #side-navbar { display: flex; flex-flow: column wrap; justify-content: center; align-items: center; position: fixed; height: 100vh; width: calc(2*3px + 2*4px + 2*12px); z-index: 1000; left: 0; top: 0; background: #333; }
@@ -218,13 +220,21 @@ html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll
 
 #education-container { background-color: #f6f4f2; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url("/assets/images/mcmaster-front.jpg"); display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: center; }
 
-#education-container #education-text-container { height: 75%; width: 80%; background-color: #f6f4f2; text-align: left; padding: 65px 135px 65px 65px; }
+#education-container #education-text-container { height: 75%; width: 80%; background-color: #f6f4f2; text-align: left; padding: 65px 135px 65px 65px; /* Title */ /* Paragraph */ }
 
-#education-container #education-text-container h1 { display: inline-block; font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; margin: auto 0; height: 5vmin; }
+#education-container #education-text-container h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; padding: 20px; margin: auto 0; height: 15vmin; }
 
-@media screen and (max-width: 900px) { #education-container #education-text-container h1 { height: 20vmin; } }
+@media screen and (max-width: 900px) { #education-container #education-text-container h1 { height: 10vmin; } }
 
 @media screen and (max-width: 700px) { #education-container #education-text-container h1 { height: 11.5vh; font-size: 3.75vh; } }
+
+#education-container #education-text-container h2 { font-family: 'Roboto', sans-serif; margin: auto; padding: 20px; /* Underline after */ }
+
+#education-container #education-text-container h2:after { background: none repeat scroll 0 0; bottom: -6px; content: ""; display: block; height: 3px; position: relative; width: 100px; }
+
+#education-container #education-text-container p { font-family: 'RobotoCondensed', sans-serif; font-weight: 400; margin: auto; padding: 0px 20px; }
+
+@media screen and (max-width: 700px) { #education-container #education-text-container P { font-size: 2vh; } }
 
 .experience-container { height: 50vh !important; background-color: #E1DBD4; }
 

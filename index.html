@@ -114,27 +114,25 @@ title: Home
                 <!-- <div class=negative-shape></div> -->
                 <div id="education-text-container">
                     <h1>Education</h1>
-                    <div>
-                        {% for item in site.data.information.education %}
-                            <h2>{{item.institution}}</h2>
-                            <h3>{{item.date}}</h3>
-                            <h4>{{item.title}}</h4>
-                            {% case forloop.index %}
-                            {% when 1 %}
-                                <dl>
-                                    {% for point in item.description %}
-                                        <dt><strong>{{point.summary}}</strong></dt> <dd>{{point.detail}}</dd>
-                                    {% endfor %}
-                                </dl>
-                            {% when 2 %}
-                                <ul>
-                                    {% for point in item.description %}
-                                        <li>{{point}}</li>
-                                    {% endfor %}
-                                </ul>
-                            {% endcase %}
-                        {% endfor %}
-                    </div>
+                    {% for item in site.data.information.education %}
+                        <h2>{{item.institution}}</h2>
+                        <h3>{{item.date}}</h3>
+                        <h4>{{item.title}}</h4>
+                        {% case forloop.index %}
+                        {% when 1 %}
+                            <dl>
+                                {% for point in item.description %}
+                                    <dt><strong>{{point.summary}}</strong></dt> <dd>{{point.detail}}</dd>
+                                {% endfor %}
+                            </dl>
+                        {% when 2 %}
+                            <ul>
+                                {% for point in item.description %}
+                                    <li>{{point}}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endcase %}
+                    {% endfor %}
                 </div>
             <!-- </div> -->
 

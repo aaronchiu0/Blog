@@ -4,6 +4,10 @@
 html#landing-page {
     scroll-snap-type: y proximity;
 
+    @media screen and (max-width: $timeline-change) {
+        scroll-snap-type: $picture-blurb-change;
+    }
+
     section {
         height: 100vh;
         width: 100%; 
@@ -432,21 +436,52 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
         padding: 65px 135px 65px 65px;
 
         h1 {
-            display: inline-block; 
             font-family: 'Dax', sans-serif;
             font-weight: 400;
             font-size: 4.5vmin;
-            margin: auto 0; 
-            height: 5vmin;
-            
+            padding: 20px; 
+            margin: auto 0;
+            height: 15vmin;
 
             @media screen and (max-width: 900px) {
-                height: 20vmin;
+                height: 10vmin;
             }
 
             @media screen and (max-width: $side-change) {
                 height: 11.5vh;
                 font-size: 3.75vh;
+            }
+        }
+
+        /* Title */
+        h2 {
+            font-family: 'Roboto', sans-serif;
+            margin: auto;
+            padding: 20px;
+        
+            /* Underline after */
+            &:after {
+                background: none repeat scroll 0 0;
+                bottom: -6px;
+                content: "";
+                display: block;
+                height: 3px;
+                position: relative;
+                width: 100px;
+            }
+        }
+
+        /* Paragraph */
+        p {
+            font-family: 'RobotoCondensed', sans-serif;
+            font-weight: 400;
+            margin: auto;
+            padding: 0px 20px;
+        }
+
+        @media screen and (max-width: $side-change) {
+            P {
+                font-size: 2vh;
             }
         }
     } 
