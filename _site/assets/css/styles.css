@@ -178,7 +178,7 @@ html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll
 
 #hero-header #hero-title-container { display: flex; flex-flow: column wrap; justify-content: center; align-items: center; height: 100%; width: 100%; position: relative; }
 
-#hero-header #hero-title-container #hero-title { font-family: 'Dax', sans-serif; font-weight: 400; margin: 0; width: 75vw; font-size: 7.5vmin; text-align: left; padding: 10px; position: fixed; display: block; color: white; }
+#hero-header #hero-title-container #hero-title { font-family: 'Dax', sans-serif; font-weight: 400; margin: 0; width: 75vw; font-size: 7.5vmin; text-align: left; padding: 0px 10px; display: block; color: white; }
 
 #about-container { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: center; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url("/assets/images/partial-engine.jpg"); /* About actual content */ }
 
@@ -213,7 +213,7 @@ html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll
 
 #skills-container #skills-text h2:after { background: none repeat scroll 0 0 white; bottom: -6px; content: ""; display: block; height: 3px; position: relative; width: 100px; }
 
-#skills-container #skills-text p { font-family: 'RobotoCondensed', sans-serif; font-weight: 400; margin: auto; padding: 0px 20px; color: white; }
+#skills-container #skills-text p { font-family: 'RobotoCondensed', sans-serif; font-weight: 400; margin: auto; color: white; }
 
 @media screen and (max-width: 700px) { #skills-container #skills-text { flex: 1 0 90%; max-width: 90%; padding: 10%; background: #111; }
   #skills-container #skills-text P { font-size: 2vh; } }
@@ -222,13 +222,13 @@ html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll
 
 #education-container #education-text-container { height: 75%; width: 80%; background-color: #f6f4f2; text-align: left; padding: 65px 135px 65px 65px; /* Title */ /* Paragraph */ }
 
-#education-container #education-text-container h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; padding: 20px; margin: auto 0; }
+#education-container #education-text-container h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; padding: 20px 0px; margin: auto 0; }
 
 @media screen and (max-width: 900px) { #education-container #education-text-container h1 { height: 10vmin; } }
 
 @media screen and (max-width: 700px) { #education-container #education-text-container h1 { height: 11.5vh; font-size: 3.75vh; } }
 
-#education-container #education-text-container h2 { font-family: 'Roboto', sans-serif; margin: auto; padding: 20px; /* Underline after */ }
+#education-container #education-text-container h2 { font-family: 'Roboto', sans-serif; margin: auto; padding: 20px 0px; /* Underline after */ }
 
 #education-container #education-text-container h2:after { background: none repeat scroll 0 0; bottom: -6px; content: ""; display: block; height: 3px; position: relative; width: 100px; }
 

@@ -9,7 +9,7 @@ html#landing-page {
     }
 
     section {
-        height: 100vh;
+        height: 100vh; 
         width: 100%; 
         overflow: hidden;
         scroll-snap-align: start;
@@ -272,8 +272,8 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
             width: 75vw;
             font-size: 7.5vmin;
             text-align: left;
-            padding: 10px;
-            position: fixed;
+            padding: 0px 10px;
+            //position: fixed;
             display: block;
         
             color: white;
@@ -396,7 +396,7 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
                 content: "";
                 display: block;
                 height: 3px;
-                position: relative;
+                position: relative; 
                 width: 100px;
             }
         }
@@ -406,13 +406,12 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
             font-family: 'RobotoCondensed', sans-serif;
             font-weight: 400;
             margin: auto;
-            padding: 0px 20px;
             color: white;
         }
 
         @media screen and (max-width: $side-change) {
             flex: 1 0 90%;
-            max-width: 90%;
+            max-width: 90%; 
             padding: 10%; 
             background: #111;
 
@@ -439,7 +438,7 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
             font-family: 'Dax', sans-serif;
             font-weight: 400;
             font-size: 4.5vmin;
-            padding: 20px; 
+            padding: 20px 0px; 
             margin: auto 0;
             // height: 15vmin;
 
@@ -457,7 +456,7 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
         h2 {
             font-family: 'Roboto', sans-serif;
             margin: auto;
-            padding: 20px;
+            padding: 20px 0px;
         
             /* Underline after */
             &:after {
