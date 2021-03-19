@@ -367,7 +367,7 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
             font-family: 'Dax', sans-serif;
             font-weight: 400;
             font-size: 4.5vmin;
-            padding: 20px;
+            padding: 20px 0px ;
             margin: auto 0;
             color: white;
             height: 15vmin;
@@ -378,15 +378,15 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
 
             @media screen and (max-width: $side-change) {
                 height: 11.5vh;
-                font-size: 3.75vh;
+                font-size: 3.75vh; 
             }
         }
 
         /* Title */
         h2 {
-            font-family: 'Roboto', sans-serif;
+            // font-family: 'Roboto', sans-serif;
             margin: auto;
-            padding: 20px;
+            padding: 20px 0px;
             color: white;
         
             /* Underline after */
@@ -441,7 +441,7 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
             font-size: 4.5vmin;
             padding: 20px; 
             margin: auto 0;
-            height: 15vmin;
+            // height: 15vmin;
 
             @media screen and (max-width: 900px) {
                 height: 10vmin;
