@@ -18,23 +18,25 @@ summary:
 
 education:
   - date: Expected Completion December 2022
-    institution: McMaster University
-    title: Bachelor of Technology in Automotive & Vehicle Engineering Technology (Co-op)
+    institution: McMaster <br> University
+    image: /assets/images/mcmaster-front.jpg
+    title: Bachelor of Technology, <br> Automotive & Vehicle Engineering Technology (Co-op)
+    color: e21d3a
     description: 
       - summary: Dean's Honour List 
         detail: Fall 2018 - Spring 2019
       - summary: Relevant Coursework
-        detail: Technical Communications, Management Principles C++ Programming, Design of Machine Elements, Advanced CAD, Structure & Properties of Materials, Engineering Statistics, Finite Element Analysis
+        detail: Management Principles, Design of Machine Elements, Advanced CAD, Structure & Properties of Materials, Engineering Statistics, FEA, Project Management
       - summary: Laboratory Experience
         detail: Oscilloscope, Charpy Impact Test, Hardness & Tensile Testing, Etching Metals, Optical Microscope, Heat Treatment & Cold Working of Metals
       - summary: Will be Awarded
         detail: Bachelor of Technology Degree, Advanced Diploma in Mechanical Engineering Technology (Mohawk), and Business Management Certificate (Mohawk)
-  # - date: June 2018
-  #   institution: Turner Fenton Secondary School
-  #   title: Secondary School Diploma with Honours
-  #   description: 
-  #     - Placed 1st in the robotics competition in Skills Ontario at the regional level & 5th at the provincial level
-  #     - Received honours in grades 10, 11, and 12
+  - date: June 2018
+    institution: Turner Fenton Secondary School
+    title: Secondary School Diploma with Honours
+    description: 
+      - Placed 1st in the robotics competition in Skills Ontario at the regional level & 5th at the provincial level
+      - Received honours in grades 10, 11, and 12
       
 experience:
   - date: Jul. 2020 -- Aug. 2020
