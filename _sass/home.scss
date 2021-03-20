@@ -426,11 +426,16 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
     background-color: white;
     height: 80vh !important;
 
+    @media screen and (max-width: $side-change) {
+        height: 100vh !important;
+    }
+
+
     h1 {
         font-family: 'Dax', sans-serif;
         font-weight: 400;
         font-size: 4.5vmin;
-        padding: 40px 6vw; 
+        padding: 40px 6vw 10px; 
         margin: auto 0;
         // height: 15vmin;
 
@@ -446,48 +451,78 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
 
     #education-card-row {
         display: grid;
-        grid-gap: 50px;
-        grid-template-columns: repeat(2, calc(70% - 10px));
+        grid-gap: 40px;
+        grid-template-columns: 10px repeat(2, calc(70% - 10px)) 10px;
         grid-template-rows: minmax(150px, 1fr);
-        padding: 0 20px;
+        grid-auto-flow: column;
+        overflow-x: scroll; 
+        
+        height: 65vh;
+        padding: 20px 0;
+        
+        @media screen and (max-width: $side-change) {
+            height: 80vh;
+        }
 
-        overflow: visible;
+        &::before, &::after {
+            content: ''; 
+        } 
+
+        /* width */
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: white; 
+
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #888; 
+        }
+        
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
     }
 
     #education-text-card {     
-        height: 60vh;
         width: 100%;
-        margin: 10px;
         background-color: white;  
         text-align: left;
         // padding: 65px 135px 65px 65px;
-        box-shadow: 1px 8px 16px 1px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.2);
 
         @include flexbox-container(row, flex-start, center);
 
         #side-img {
-            height: 25vh;
             width: 50%;
 
             // background image defined in html
             background-repeat: no-repeat;
             background-size: cover;
-        }
+            background-position: center;
+        } 
  
         /* Title */
         h2 {  
             width: 50%;
             margin: auto;
-            padding: 20px;
  
-            font-family: 'Roboto', sans-serif;
             font-family: 'NotoSans', sans-serif;
+            font-size: calc(24px + 3 * ((100vw - 960px) / 480));
             text-align: center;
             align-self: center;
         }
 
-        h3, h4, dl {
-            padding: 0px 20px;
+        h3, h4, dl, ul {
+            padding: 0px 20px; 
 
             font-family: 'NotoSans', sans-serif;
             font-size: calc(12px + 3 * ((100vw - 960px) / 480));
@@ -501,76 +536,39 @@ $sidebar-width: calc(2*3px + 2*4px + 2*12px);
         h3 {
             font-size: calc(16px + 3 * ((100vw - 960px) / 480));
         }
+
+        dd {
+            margin: 0px 0px 0px 20px;
+        }
+
+        ul {
+            padding: 0px 20px 0px 40px;
+        } 
     } 
 }
-
-// #education-container {
-//     background-color: #f6f4f2;
-//     @include centerScaleBackground("/assets/images/mcmaster-front.jpg");
-//     @include flexbox-container(row, flex-start, center);
-
-//     #education-text-container {     
-//         height: 75%; 
-//         width: 80%; 
-//         background-color: #f6f4f2;  
-//         text-align: left;
-//         padding: 65px 135px 65px 65px;
-
-//         h1 {
-//             font-family: 'Dax', sans-serif;
-//             font-weight: 400;
-//             font-size: 4.5vmin;
-//             padding: 20px 0px; 
-//             margin: auto 0;
-//             // height: 15vmin;
-
-//             @media screen and (max-width: 900px) {
-//                 height: 10vmin;
-//             }
-
-//             @media screen and (max-width: $side-change) {
-//                 height: 11.5vh;
-//                 font-size: 3.75vh;
-//             }
-//         }
-
-//         /* Title */
-//         h2 {
-//             font-family: 'Roboto', sans-serif;
-//             margin: auto;
-//             padding: 20px 0px;
-        
-//             /* Underline after */
-//             &:after {
-//                 background: none repeat scroll 0 0;
-//                 bottom: -6px;
-//                 content: "";
-//                 display: block;
-//                 height: 3px;
-//                 position: relative;
-//                 width: 100px;
-//             }
-//         }
-
-//         /* Paragraph */
-//         p {
-//             font-family: 'RobotoCondensed', sans-serif;
-//             font-weight: 400;
-//             margin: auto;
-//             padding: 0px 20px;
-//         }
-
-//         @media screen and (max-width: $side-change) {
-//             P {
-//                 font-size: 2vh;
-//             }
-//         }
-//     } 
-// }
 
 .experience-container {
     height: 50vh !important;
     background-color: #E1DBD4;
+
+    
+    h1 {
+        font-family: 'Dax', sans-serif;
+        font-weight: 400;
+        font-size: 4.5vmin;
+        padding: 40px 6vw 10px; 
+        margin: auto 0;
+        // height: 15vmin;
+
+        @media screen and (max-width: 900px) {
+            height: 10vmin;
+        }
+
+        @media screen and (max-width: $side-change) {
+            height: 11.5vh;
+            font-size: 3.75vh;
+        }
+    }
 
     .right-experience-sub-container {   
         @include flexbox-container(column, center, center);

@@ -24,7 +24,7 @@ education:
     color: e21d3a
     description: 
       - summary: Dean's Honour List 
-        detail: Fall 2018 - Spring 2019
+        detail: Fall 2018 - Spring 2020
       - summary: Relevant Coursework
         detail: Management Principles, Design of Machine Elements, Advanced CAD, Structure & Properties of Materials, Engineering Statistics, FEA, Project Management
       - summary: Laboratory Experience
@@ -32,8 +32,10 @@ education:
       - summary: Will be Awarded
         detail: Bachelor of Technology Degree, Advanced Diploma in Mechanical Engineering Technology (Mohawk), and Business Management Certificate (Mohawk)
   - date: June 2018
-    institution: Turner Fenton Secondary School
-    title: Secondary School Diploma with Honours
+    institution: Turner Fenton <br> Secondary School
+    image: /assets/images/turner-fenton.jpg
+    title: Secondary School Diploma, <br> with Honours
+    color: 044b72
     description: 
       - Placed 1st in the robotics competition in Skills Ontario at the regional level & 5th at the provincial level
       - Received honours in grades 10, 11, and 12

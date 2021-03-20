@@ -121,42 +121,30 @@ title: Home
         <!-- Education -->
         <section id="education-container">
             <h1>Education</h1>
-            <!-- <div id="education-text-container">
-                {% for item in site.data.information.education %}
-                    <h2>{{item.institution}}</h2>
-                    <h3>{{item.date}}</h3>
-                    <h4>{{item.title}}</h4> -->
-                    <!-- {% case forloop.index %}
-                    {% when 1 %} -->
-                        <!-- <dl>
-                            {% for point in item.description %}
-                                <dt><strong>{{point.summary}}</strong></dt> <dd>{{point.detail}}</dd>
-                            {% endfor %}
-                        </dl> -->
-                    <!-- {% when 2 %}
-                        <ul>
-                            {% for point in item.description %}
-                                <li>{{point}}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endcase %} -->
-                <!-- {% endfor %}
-            </div> -->
             <div id="education-card-row">
                 {% for item in site.data.information.education %}
                 <div id="education-text-card">
-                    <div style="width:100%;height:25vh;display:flex;">
+                    <div style="width:100%;height:35%;display:flex;">
                         <div id="side-img" style="background-image:url('{{item.image}}')"></div>
                         <h2>{{item.institution}}</h2>
                     </div>
-                    <div style="background-color: #{{item.color}}; height:35vh">
+                    <div style="background-color: #{{item.color}}; height:65%; width:100%"">
                         <h3>{{item.title}}</h3>
                         <h4>{{item.date}}</h4>
-                        <dl>
-                            {% for point in item.description %}
-                                <dt><strong>{{point.summary}}</strong></dt> <dd>{{point.detail}}</dd>
-                            {% endfor %}
-                        </dl>
+                        {% case forloop.index %}
+                        {% when 1 %}
+                            <dl>
+                                {% for point in item.description %}
+                                    <dt><strong>{{point.summary}}</strong></dt> <dd>{{point.detail}}</dd>
+                                {% endfor %}
+                            </dl>
+                        {% when 2 %}
+                            <ul>
+                                {% for point in item.description %}
+                                    <li>{{point}}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endcase %}
                     </div>
                 </div>
                 {% endfor %}
@@ -169,6 +157,7 @@ title: Home
 
         {% for item in site.data.information.experience %}
         <section class="experience-container">
+            <h1>Experience</h1>
             {% assign i = forloop.index | modulo:2 %}
             {% case i %}
             {% when 0 %}
