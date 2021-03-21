@@ -9,6 +9,15 @@ current-address:
 facebook: https://www.facebook.com/profile.php?id=100018624766241
 linkedin: https://www.linkedin.com/in/aaron-chiu/
 
+# Don't ask about the delays
+hero:
+  - phrase: Aaron Chiu
+    delay: 4500
+  - phrase: Automotive Engineer in Training,
+    delay: 1500
+  - phrase: Emphasizing Quality & Productivity
+    delay: 3000
+
 introduction:
   Land, air and sea. Vehicles are everywhere. We take our surroundings for granted but never thoroughly think about how such machines came to be and how they benefited society. I wondered how these vehicles ever worked in the first place. My interest in this field drives me to discover and teach more people about the technologies’ effectiveness and impact.
 summary:

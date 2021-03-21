@@ -65,36 +65,19 @@ title: Home
     
 
     <!-- Main Wrapper -->
-    <!-- Don't ask me about the delays-->
     <div id="main-wrapper">
         <!-- Header -->
         <section id="hero-header" data-aos="fade">
-        <!-- <section id="hero-header"> -->
-            <div id="hero-title-container">
-                <p  id="hero-title"
-                    data-aos="fade-right"
-                    data-aos-delay="4500"
-                >   Aaron Chiu
-                </p>
-                <p  id="hero-title"
-                    data-aos="fade-right"
-                    data-aos-delay="1500"
-                >   Automotive Engineer in Training,
-                </p>
-                <p  id="hero-title"
-                    data-aos="fade-right"
-                    data-aos-delay="3000"
-                >   Emphasizing Quality & Productivity
-                </p>
-            </div>
+            {% for item in site.data.information.hero %}
+            <p class="hero-title" data-aos="fade-right" data-aos-delay="{{item.delay}}">   
+                {{item.phrase}}
+            </p>
+            {% endfor %}
         </section>
-
 
         <!-- About -->
         <section id="about-container" data-aos="about-container" data-aos-duration="1500">
-        <!-- <section id="about-container"> -->
             <div id="about-text" data-aos="about-text">
-            <!-- <div id="about-text"> -->
                 <h1>"To apply future engineering approaches to current transportation technologies."</h1>
                 <h2>About</h2>
                 <p>{{site.data.information.introduction}}</p>
@@ -112,9 +95,9 @@ title: Home
                     </span>
                 </h1>
                 <h2>Brief Summary</h2>
-                <p style="margin-bottom:10px">{{site.data.information.summary[0]}}</p>
-                <p style="margin-bottom:10px">{{site.data.information.summary[1]}}</p>
-                <p>{{site.data.information.summary[2]}}</p>
+                {% for item in site.data.information.summary %}
+                    <p>{{item}}</p>
+                {% endfor %}
             </div>
         </section>
 
@@ -124,7 +107,7 @@ title: Home
             <div id="education-card-row">
                 {% for item in site.data.information.education %}
                 <div id="education-text-card">
-                    <div style="width:100%;height:35%;display:flex;">
+                    <div style="width:100%; height:35%; display:flex;">
                         <div id="side-img" style="background-image:url('{{item.image}}')"></div>
                         <h2>{{item.institution}}</h2>
                     </div>
@@ -149,49 +132,9 @@ title: Home
                 </div>
                 {% endfor %}
             </div>
-
-
         </section>
 
         <!-- Experience -->
-
-        <!-- {% for item in site.data.information.experience %}
-        <section class="experience-container">
-            <h1>Experience</h1>
-            {% assign i = forloop.index | modulo:2 %}
-            {% case i %}
-            {% when 0 %}
-            <div class="right-experience-sub-container">
-                <img src="{{item.image}}">
-                <div class="experience-text-container">
-                    <h2>{{item.title}}</h2>
-                    <h3>{{item.subtitle}}</h3>
-                    <h4>{{item.date}}</h4>
-                    <ul>
-                        {% for point in item.description %}
-                            <li>{{point}}</li>
-                        {% endfor %}
-                    </ul>
-                </div>      
-            </div>
-            {% when 1 %}
-            <div class="left-experience-sub-container">
-                <div>
-                    <h2>{{item.title}}</h2>
-                    <h3>{{item.subtitle}}</h3>
-                    <h4>{{item.date}}</h4>
-                    <ul>
-                        {% for point in item.description %}
-                            <li>{{point}}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                <img src="{{item.image}}">      
-            </div>
-            {% endcase %}
-        </section>
-        {% endfor %} -->
-
         <section id="experience-container">
             <h1>Experience</h1>
             <div id="experience-card-container">

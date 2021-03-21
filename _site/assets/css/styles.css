@@ -4,6 +4,8 @@
 /* Center and scale the image nicely */
 /* flexbox container */
 /* for multiple columns with optional content*/
+/* Scale text according to formula */
+/* underline under headrings at home */
 /* heading bar for calculators */
 /* document */
 * { box-sizing: border-box; }
@@ -103,12 +105,16 @@ p.contact { margin-top: 0; }
 /* Center and scale the image nicely */
 /* flexbox container */
 /* for multiple columns with optional content*/
+/* Scale text according to formula */
+/* underline under headrings at home */
 /* heading bar for calculators */
 html#landing-page { scroll-snap-type: y proximity; }
 
-@media screen and (max-width: 950px) { html#landing-page { scroll-snap-type: 500px; } }
+@media screen and (max-width: 700px) { html#landing-page { scroll-snap-type: none; } }
 
 html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll-snap-align: start; }
+
+html#landing-page h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; }
 
 #side-navbar { display: flex; flex-flow: column wrap; justify-content: center; align-items: center; position: fixed; height: 100vh; width: calc(2*3px + 2*4px + 2*12px); z-index: 1000; left: 0; top: 0; background: #333; }
 
@@ -144,9 +150,9 @@ html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll
 
 .aside-content { margin-top: 150px; padding: 0 40px; position: relative; color: white; text-align: center; }
 
-.aside-content h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; /* Underline after */ }
+.aside-content h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; }
 
-.aside-content h1:after { background: none repeat scroll 0 0 white; bottom: -6px; content: ""; display: block; height: 2px; position: relative; width: 100px; margin: auto; }
+.aside-content h1:after { background: none repeat scroll 0 0 white; bottom: -6px; content: ""; display: block; height: 3px; position: relative; width: 100px; margin: auto; }
 
 .aside-content #contact-side-nav { display: flex; flex-flow: row wrap; justify-content: center; align-items: center; }
 
@@ -174,61 +180,59 @@ html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll
 
 #main-wrapper { margin-left: calc(2*3px + 2*4px + 2*12px); margin-right: 0; }
 
-#hero-header { background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url("/assets/images/engineering-plans.jpg"); /* Keep background fixed */ background-attachment: fixed; }
+#hero-header { display: flex; flex-flow: column wrap; justify-content: center; align-items: center; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url("/assets/images/engineering-plans.jpg"); background-attachment: fixed; }
 
-#hero-header #hero-title-container { display: flex; flex-flow: column wrap; justify-content: center; align-items: center; height: 100%; width: 100%; position: relative; }
-
-#hero-header #hero-title-container #hero-title { font-family: 'Dax', sans-serif; font-weight: 400; margin: 0; width: 75vw; font-size: 7.5vmin; text-align: left; padding: 0px 10px; display: block; color: white; }
+#hero-header .hero-title { margin: 0; width: 75vw; display: block; font-family: 'Dax', sans-serif; font-weight: 400; font-size: 7.5vmin; color: white; }
 
 #about-container { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: center; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url("/assets/images/partial-engine.jpg"); /* About actual content */ }
 
 @media screen and (max-width: 700px) { #about-container { box-shadow: none; } }
 
-#about-container #about-text { flex: 1 0 50vw; max-width: 50vw; padding: 6vw 8vw; /* Title */ /* Paragraph */ }
+#about-container #about-text { max-width: 50vw; flex: 1 0 auto; padding: 6vw 8vw; /* Underline after title */ /* Paragraph */ }
 
-#about-container #about-text h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; padding: 20px; margin: 0; }
+#about-container #about-text h1, #about-container #about-text h2, #about-container #about-text p { padding: 20px; margin: 0; }
+
+#about-container #about-text h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; }
 
 @media screen and (max-width: 700px) { #about-container #about-text h1 { font-size: 3.75vh; } }
 
-#about-container #about-text h2 { font-family: 'Roboto', sans-serif; margin: auto; padding: 20px; /* Underline after */ }
-
 #about-container #about-text h2:after { background: none repeat scroll 0 0 black; bottom: -6px; content: ""; display: block; height: 3px; position: relative; width: 100px; }
 
-#about-container #about-text p { font-family: 'RobotoCondensed', sans-serif; font-weight: 400; padding: 0px 20px; }
+#about-container #about-text p { padding: 0px 20px; }
 
 @media screen and (max-width: 700px) { #about-container #about-text { flex: 1 0 90%; max-width: 90%; padding: 10%; background: white; }
   #about-container #about-text P { font-size: 2vh; } }
 
-#skills-container { display: flex; flex-flow: row wrap; justify-content: flex-end; align-items: center; background-color: #111; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url("/assets/images/turbocharger-inside.jpg"); /* About actual content */ }
+#skills-container { display: flex; flex-flow: row wrap; justify-content: flex-end; align-items: center; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url("/assets/images/turbocharger-inside.jpg"); background-color: #111; /* About actual content */ }
 
-#skills-container #skills-text { flex: 1 0 50vw; max-width: 50vw; padding: 6vw 8vw; /* Title */ /* Paragraph */ }
+#skills-container #skills-text { flex: 1 0 auto; max-width: 50vw; padding: 6vw 8vw; /* Underline after Title */ /* Paragraph */ }
 
-#skills-container #skills-text h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; padding: 20px 0px; margin: auto 0; color: white; height: 15vmin; }
+#skills-container #skills-text h1, #skills-container #skills-text h2, #skills-container #skills-text p { padding: 20px; margin: 0; color: white; }
+
+#skills-container #skills-text h1 { height: 15vmin; }
 
 @media screen and (max-width: 900px) { #skills-container #skills-text h1 { height: 20vmin; } }
 
 @media screen and (max-width: 700px) { #skills-container #skills-text h1 { height: 11.5vh; font-size: 3.75vh; } }
 
-#skills-container #skills-text h2 { margin: auto; padding: 20px 0px; color: white; /* Underline after */ }
-
 #skills-container #skills-text h2:after { background: none repeat scroll 0 0 white; bottom: -6px; content: ""; display: block; height: 3px; position: relative; width: 100px; }
 
-#skills-container #skills-text p { font-family: 'RobotoCondensed', sans-serif; font-weight: 400; margin: auto; color: white; }
+#skills-container #skills-text p { font-family: 'RobotoCondensed', sans-serif; font-weight: 400; padding-top: 0; padding-bottom: 0; margin: 0 0 10px 0; }
+
+#skills-container #skills-text p last-child { margin-bottom: 0px; }
 
 @media screen and (max-width: 700px) { #skills-container #skills-text { flex: 1 0 90%; max-width: 90%; padding: 10%; background: #111; }
-  #skills-container #skills-text P { font-size: 2vh; } }
+  #skills-container #skills-text p { font-size: 2vh; } }
 
 #education-container { background-color: white; height: 80vh !important; }
 
 @media screen and (max-width: 700px), (max-height: 900px) { #education-container { height: 100vh !important; } }
 
-#education-container h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; padding: 40px 6vw 10px; margin: auto 0; }
+#education-container h1 { padding: 30px 6vw 10px; margin: 0; font-size: calc(32px + calc(2/480) * (100vw - 960px)); }
 
-@media screen and (max-width: 900px) { #education-container h1 { height: 10vmin; } }
+@media screen and (min-width: 960px) { #education-container h1 { font-size: 32px; } }
 
-@media screen and (max-width: 700px) { #education-container h1 { height: 11.5vh; font-size: 3.75vh; } }
-
-#education-container #education-card-row { display: grid; grid-gap: 40px; grid-template-columns: 10px repeat(2, calc(70% - 10px)) 10px; grid-template-rows: minmax(150px, 1fr); grid-auto-flow: column; overflow-x: scroll; height: 65vh; padding: 20px 0; /* width */ /* Track */ /* Handle */ /* Handle on hover */ }
+#education-container #education-card-row { display: grid; grid-gap: 40px; grid-template-columns: 10px repeat(2, calc(70% - 10px)) 10px; grid-template-rows: minmax(150px, 1fr); grid-auto-flow: column; overflow-x: scroll; height: 65vh; padding: 20px 0; /* change height of section */ /* scrollbar */ }
 
 @media screen and (max-width: 700px), (max-height: 900px) { #education-container #education-card-row { height: 80vh; } }
 
@@ -244,19 +248,23 @@ html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll
 
 #education-container #education-card-row::-webkit-scrollbar-thumb:hover { background: #555; }
 
-#education-container #education-text-card { width: 100%; background-color: white; text-align: left; box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.2); display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: center; /* Title */ }
+#education-container #education-text-card { display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: center; box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.2); /* Title */ }
 
 #education-container #education-text-card #side-img { width: 50%; background-repeat: no-repeat; background-size: cover; background-position: center; }
 
-#education-container #education-text-card h2 { width: 50%; margin: auto; font-family: 'NotoSans', sans-serif; font-size: calc(24px + 3 * ((100vw - 960px) / 480)); text-align: center; align-self: center; }
+#education-container #education-text-card h2 { width: 50%; margin: auto; font-family: 'NotoSans', sans-serif; font-size: calc(24px + calc(2/480) * (100vw - 960px)); text-align: center; align-self: center; }
 
-#education-container #education-text-card h3, #education-container #education-text-card h4, #education-container #education-text-card dl, #education-container #education-text-card ul { padding: 0px 20px; font-family: 'NotoSans', sans-serif; font-size: calc(12px + 3 * ((100vw - 960px) / 480)); color: #fff; }
+@media screen and (min-width: 960px) { #education-container #education-text-card h2 { font-size: 24px; } }
 
-@media screen and (min-width: 1200px) { #education-container #education-text-card h3, #education-container #education-text-card h4, #education-container #education-text-card dl, #education-container #education-text-card ul { font-size: 12px; } }
+#education-container #education-text-card h3, #education-container #education-text-card h4, #education-container #education-text-card dl, #education-container #education-text-card ul { padding: 0px 20px; font-family: 'NotoSans', sans-serif; font-size: calc(12px + calc(2/480) * (100vw - 960px)); color: #fff; }
+
+@media screen and (min-width: 960px) { #education-container #education-text-card h3, #education-container #education-text-card h4, #education-container #education-text-card dl, #education-container #education-text-card ul { font-size: 12px; } }
 
 #education-container #education-text-card h3, #education-container #education-text-card h4 { margin: 15px 0px 0px 0px; }
 
-#education-container #education-text-card h3 { font-size: calc(16px + 3 * ((100vw - 960px) / 480)); }
+#education-container #education-text-card h3 { font-size: calc(16px + calc(2/480) * (100vw - 960px)); }
+
+@media screen and (min-width: 960px) { #education-container #education-text-card h3 { font-size: 16px; } }
 
 #education-container #education-text-card dd { margin: 0px 0px 0px 20px; }
 
@@ -264,15 +272,19 @@ html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll
 
 #experience-container { height: fit-content !important; }
 
-#experience-container h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-size: 4.5vmin; padding: 40px 6vw 10px; margin: auto 0; }
+#experience-container h1 { padding: 40px 6vw 10px; margin: 0; }
 
 @media screen and (max-width: 900px) { #experience-container h1 { height: 10vmin; } }
 
 @media screen and (max-width: 700px) { #experience-container h1 { height: 11.5vh; font-size: 3.75vh; } }
 
-#experience-card-container { display: flex; flex-flow: row wrap; justify-content: center; align-items: center; padding: 15px; }
+#experience-container #experience-card-container { display: flex; flex-flow: row wrap; justify-content: center; align-items: center; padding: 15px; }
+
+@media screen and (max-width: 700px) { #experience-container { flex-direction: column; } }
 
 .experience-card { height: 450px; width: 45%; margin: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
+
+@media screen and (max-width: 700px) { .experience-card { width: 95%; } }
 
 @media screen and (min-width: 1200px) { .experience-card { width: 500px; } }
 
@@ -282,22 +294,19 @@ html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll
 
 .experience-card .experience-description-container h2, .experience-card .experience-description-container h3, .experience-card .experience-description-container li { font-family: 'NotoSans', sans-serif; }
 
-.experience-card .experience-description-container h2 { font-size: calc(18px + 3 * ((100vw - 960px) / 480)); margin: 5px; }
+.experience-card .experience-description-container h2 { font-size: calc(18px + calc(2/480) * (100vw - 960px)); }
 
-@media screen and (min-width: 1200px) { .experience-card .experience-description-container h2 { font-size: 18px; } }
+@media screen and (min-width: 960px) { .experience-card .experience-description-container h2 { font-size: 18px; } }
 
-.experience-card .experience-description-container h3 { font-size: calc(16px + 3 * ((100vw - 960px) / 480)); margin: 5px; }
+.experience-card .experience-description-container h3 { font-size: calc(16px + calc(2/480) * (100vw - 960px)); }
 
-@media screen and (min-width: 1200px) { .experience-card .experience-description-container h3 { font-size: 16px; } }
+@media screen and (min-width: 960px) { .experience-card .experience-description-container h3 { font-size: 16px; } }
 
 .experience-card .experience-description-container ul { padding-left: 30px; }
 
-.experience-card .experience-description-container li { font-size: calc(12px + 3 * ((100vw - 960px) / 480)); }
+.experience-card .experience-description-container li { font-size: calc(12px + calc(2/480) * (100vw - 960px)); }
 
-@media screen and (min-width: 1200px) { .experience-card .experience-description-container li { font-size: 12px; } }
-
-@media screen and (max-width: 700px) { .experience-container { flex-direction: column; }
-  .experience-card { width: 95%; } }
+@media screen and (min-width: 960px) { .experience-card .experience-description-container li { font-size: 12px; } }
 
 .reveal-text, .reveal-text:after { animation-delay: 2s; animation-iteration-count: 1; animation-duration: 800ms; animation-fill-mode: both; animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
 
@@ -314,13 +323,14 @@ html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll
   60% { transform: scaleX(1); }
   100% { transform: scaleX(0); } }
 
-/* Education timeline */
 /* Colour Scheme */
 /* Dimensions */
 /* Responsiveness transitions */
 /* Center and scale the image nicely */
 /* flexbox container */
 /* for multiple columns with optional content*/
+/* Scale text according to formula */
+/* underline under headrings at home */
 /* heading bar for calculators */
 .row-calculators { display: flex; flex-flow: row wrap; justify-content: center; align-items: center; }
 
@@ -499,6 +509,8 @@ html#landing-page section { height: 100vh; width: 100%; overflow: hidden; scroll
 /* Center and scale the image nicely */
 /* flexbox container */
 /* for multiple columns with optional content*/
+/* Scale text according to formula */
+/* underline under headrings at home */
 /* heading bar for calculators */
 /* beginning of document */
 .centerMargins { width: 80%; margin: auto; margin-top: 50px; padding: 1px 16px; }

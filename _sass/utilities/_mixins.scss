@@ -31,6 +31,35 @@
     }
 }
 
+/* Scale text according to formula */
+@mixin adaptive-text ($size: 12px){
+    $slope: calc(2/480);    //slope about center
+    $center: 960px;         //center
+
+    font-size: calc(#{$size} + #{$slope} * (100vw - #{$center}));
+
+    @media screen and (min-width: $center) { font-size: $size; } 
+}
+ 
+/* underline under headrings at home */
+@mixin underline-heading-ornament ($color: black, $align: left) {
+    &:after {
+        background: none repeat scroll 0 0 $color;
+        bottom: -6px;
+        content: "";
+        display: block; 
+        height: 3px;
+        position: relative;  
+        width: 100px;
+
+        @if $align == center {
+            margin: auto;
+        } @else if $align == right {
+            margin-right: 0;
+        }
+    }
+}
+
 /* heading bar for calculators */
 @mixin calculator-header-bar($image, $inset-color, $left-text-color, $right-text-color: $left-text-color) {
     .calculator-header-container {
