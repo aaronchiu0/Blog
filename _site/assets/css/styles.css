@@ -234,7 +234,7 @@ html#landing-page h1 { font-family: 'Dax', sans-serif; font-weight: 400; font-si
 
 #education-container #education-card-row { display: grid; grid-gap: 40px; grid-template-columns: 10px repeat(2, calc(70% - 10px)) 10px; grid-template-rows: minmax(150px, 1fr); grid-auto-flow: column; overflow-x: scroll; height: 65vh; padding: 20px 0; /* change height of section */ /* scrollbar */ }
 
-@media screen and (max-width: 700px), (max-height: 900px) { #education-container #education-card-row { height: 80vh; } }
+@media screen and (max-width: 700px), (max-height: 900px) { #education-container #education-card-row { height: 85vh; } }
 
 @media screen and (min-width: 1200px) { #education-container #education-card-row { grid-template-columns: 10px repeat(2, calc(50% - 30px - 40px)) 10px; } }
 
