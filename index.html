@@ -155,7 +155,7 @@ title: Home
 
         <!-- Experience -->
 
-        {% for item in site.data.information.experience %}
+        <!-- {% for item in site.data.information.experience %}
         <section class="experience-container">
             <h1>Experience</h1>
             {% assign i = forloop.index | modulo:2 %}
@@ -190,10 +190,34 @@ title: Home
             </div>
             {% endcase %}
         </section>
-        {% endfor %}
+        {% endfor %} -->
+
+        <section id="experience-container">
+            <h1>Experience</h1>
+            <div id="experience-card-container">
+                {% for item in site.data.information.experience %}
+                <div class="experience-card">
+                    <img class="experience-image" src="{{item.image}}" alt="{{item.title}} image" style="width:100%">
+                    <div class="experience-description-container">
+                        <h2>{{item.title}}</h2>
+                        <h2>{{item.company}}</h2>
+                        <h3>{{item.date}}</h3>
+                        <ul>
+                            {% for point in item.description %}
+                            <li>{{point}}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %} 
+            </div>
+        </section>
 
     <!-- End of body -->
     </div> 
+
+    <!-- Include Footer -->
+    {% include footer.html %}
 
     <!-- Animation on Scroll -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

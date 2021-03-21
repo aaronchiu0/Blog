@@ -41,17 +41,26 @@ education:
       - Received honours in grades 10, 11, and 12
       
 experience:
-  - date: Jul. 2020 -- Aug. 2020
+  - date: January 2021 - Present
+    title: CAE Engineering Student
+    company: Vitseco Technologies
+    image: /assets/images/vitesco-technologies.jpg 
+    description: 
+      - Extensive use of ANSYS Mechanical, CFX, Spaceclaim, and CATIA Software
+      - Analysis of various automotive components in structural and fluid studies
+      - Manage and schedule 3D print jobs in a prototyping environment
+
+  - date: July 2020 - August 2020
     title: Student Production Associate
-    subtitle: Honda of Canada Manufacturing
+    company: Honda of Canada Manufacturing
     image: /assets/images/honda-mfg.jpg 
     description: 
       - Examined components and compared to documentation for quality, accuracy, and watched for imperfections
       - Ensured quality work and resolved assembly problems through teamwork and communication
       - Used pneumatic, DC, and hand tools to fasten parts and sub-assemblies
-  - date: October 2018 - Aprril 2020
+  - date: October 2018 - April 2020
     title: Mechanical Team Associate
-    subtitle: Solar Car Project - McMaster University
+    company: Solar Car Project - McMaster University
     image: /assets/images/solar-car.png
     description: 
       - Extensively used CAD software (SolidWorks) to design the associated parts, specifically suspension
@@ -59,7 +68,7 @@ experience:
       - Gained experiences into the specific problems a suspension faces in a compact, lightweight vehicle
   - date: January 2019 - Decmeber 2019
     title: Vice President – Finance
-    subtitle: Bachelor of Technology Association – McMaster University
+    company: Bachelor of Technology Association – McMaster University
     image: /assets/images/btech-assoc.jpg
     description: 
       - Reported on the conditions and the financial position of the association
@@ -67,7 +76,7 @@ experience:
       - Advised other members of alternate paths that are more cost-efficient and resulted in ~200% our opening balance at our year-end
   - date: September 2017 - June 2018
     title: Director of Finance
-    subtitle: The Music Council – Turner Fenton Secondary School
+    company: The Music Council – Turner Fenton Secondary School
     image: /assets/images/music-council-group.jpg
     description: 
       - Gained a greater understanding into the applications of accounting and bookkeeping
